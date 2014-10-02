@@ -7,10 +7,13 @@
 //
 
 #import <MapKit/MapKit.h>
+#import <Mapbox-iOS-SDK/RMMapView.h>
 #import "PSViewController.h"
 //#import "Ono.h"
 #import "XMLDictionary.h"
-
+#import "Mapbox-iOS-SDK/Mapbox.h"
+#import "Mapbox.h"
+#import "RMConfiguration.h"
 
 @interface PSViewController ()
 
@@ -19,6 +22,7 @@
 @property(nonatomic, strong) UILabel *locationLabel;
 @property(nonatomic, strong) UILabel *speedLabel;
 @property(nonatomic, strong) UILabel *altLabel;
+@property(nonatomic, strong) RMMapView *mapBoxView;
 @end
 
 @implementation PSViewController
@@ -36,6 +40,13 @@
         self.mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
         [self.view addSubview:self.mapView];
 
+////        [[RMConfiguration configuration] setAccessToken:@"sk.eyJ1IjoicGhzY2huZWlkZXIiLCJhIjoiUXlhODk5SSJ9.IqKJIWbBDyKk95GCetG15g"];
+//        RMMapboxSource *tileSource = [[RMMapboxSource alloc] initWithMapID:@"phschneider.jlhn5d27"];
+//        self.mapBoxView  = [[RMMapView alloc] initWithFrame:self.view.bounds andTilesource:tileSource];
+//        self.mapBoxView.userTrackingMode = RMUserTrackingModeFollowWithHeading;
+//        self.mapBoxView.autoresizingMask =  self.view.autoresizingMask;
+
+        [self.view addSubview:self.mapBoxView];
 
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
@@ -88,12 +99,50 @@
 
 -  (void) addMapOverlay
 {
+    // Compare Maps
+    // http://wiki.openstreetmap.org/wiki/Tileserver
+    
+    // Hike & Bike
+//    NSString *template = @"http://toolserver.org/tiles/hikebike/${z}/${x}/${y}.png";
+    // NSString *template = @" http://{a,b,c}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png
+    NSString *template = @"http://a.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png";
+    
+    // Fahrradrouten
+//    NSString *template = @"http://tile.lonvia.de/cycling/{z}/{x}/{y}.png";
+    
+    // Wanderruten
+//    NSString *template = @"http://tile.lonvia.de/hiking/{z}/{x}/{y}.png";
+    
+    
+    // Hillshading
+//    NSString *template = @"http://toolserver.org/~cmarqu/hill/{z}/{x}/{y}.png";
+    
+    // Landshading ...
+//    NSString *template = @"http://tiles.openpistemap.org/landshaded/{z}/{x}/{y}.png";
+    
+//     NSString *template = @"http://www.wanderreitkarte.de/topo/{z}/{x}/{y}.png";
+    //OpenCycleMap:
+//    NSString *template = @"http://b.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png";
+    //MapQuest:
+    
+//    NSString *template = @"http://otile3.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.jpg";
+
+    // OpenStreetMap
+//    NSString *template = @"http://tile.openstreetmap.org/{z}/{x}/{y}.png";
+    
+    MKTileOverlay *overlay = [[MKTileOverlay alloc] initWithURLTemplate:template];
+    overlay.canReplaceMapContent = YES;
+    [self.mapView addOverlay:overlay level:MKOverlayLevelAboveLabels];
+
+    
     
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"N´rideHom-3" ofType:@"gpx"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     if (data)
     {
         NSDictionary *routingDict = [NSDictionary dictionaryWithXMLData:data];
+//         NSLog(@"routingDict  %@", routingDict);
+        
         
         NSArray *trek = [[[routingDict objectForKey:@"trk"] objectForKey:@"trkseg"] objectForKey:@"trkpt"];
         
@@ -101,6 +150,9 @@
         
         MKMapPoint *pointArr = malloc(sizeof(CLLocationCoordinate2D)
                                       * pointCount);
+        CLLocation* Location1;
+        CLLocation *tmpLocation;
+        CLLocationDistance distance = 0.0;
         
         int pointArrIndex = 0;  //it's simpler to keep a separate index for pointArr
         for (NSDictionary * pointDict in trek)
@@ -109,10 +161,20 @@
             workingCoordinate.latitude=[[pointDict objectForKey:@"_lat"] doubleValue];
             workingCoordinate.longitude=[[pointDict objectForKey:@"_lon"] doubleValue];
             
-//            NSLog(@"Coordinate = %f %f", workingCoordinate.latitude, workingCoordinate.longitude);
+//            NSLog(@"Coordinate = %f %f  ELEVATION %f TIME %@", workingCoordinate.latitude, workingCoordinate.longitude,[[pointDict objectForKey:@"ele"] doubleValue], [pointDict objectForKey:@"time"]);
+            
+            // Distance
+            tmpLocation = [[CLLocation alloc] initWithLatitude:[[pointDict objectForKey:@"_lat"] doubleValue] longitude:[[pointDict objectForKey:@"_long"] doubleValue]];
+            if (pointArrIndex > 0)
+            {
+                distance += [Location1 distanceFromLocation:tmpLocation];
+//                NSLog(@"Distance = %f", distance);
+            }
+            Location1 = tmpLocation;
+            
             MKMapPoint point = MKMapPointForCoordinate(workingCoordinate);
             pointArr[pointArrIndex] = point;
-            pointArrIndex++;
+            pointArrIndex++;         
         }
         
         // create the polyline based on the array of points.
@@ -125,7 +187,8 @@
         NSLog(@"No Data for %@", filePath);
     }
 
-}
+    
+  }
 
 
 - (void)didReceiveMemoryWarning
@@ -501,7 +564,11 @@
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id <MKOverlay>)overlay
 {
     DLogFuncName();
-    if (![overlay isKindOfClass:[MKPolyline class]]) {
+    if ([overlay isKindOfClass:[MKTileOverlay class]]) {
+        return [[MKTileOverlayRenderer alloc] initWithTileOverlay:overlay];
+    }
+    
+    else if (![overlay isKindOfClass:[MKPolyline class]]) {
         NSLog(@"ERROR ERROR ERROR");
         
         return nil;

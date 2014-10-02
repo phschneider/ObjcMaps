@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObjcBikeGps/PSViewController.m"
-            timestampString = "433954662.644406"
+            timestampString = "433964064.260307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "540"
-            endingLineNumber = "540"
-            landmarkName = "-mapView:viewForOverlay:"
+            startingLineNumber = "554"
+            endingLineNumber = "554"
+            landmarkName = "-mapView:annotationView:didChangeDragState:fromOldState:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,29 +26,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ObjcBikeGps/PSViewController.m"
-            timestampString = "433954662.644406"
+            timestampString = "433964064.260307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "506"
-            endingLineNumber = "506"
-            landmarkName = "-mapView:rendererForOverlay:"
+            startingLineNumber = "558"
+            endingLineNumber = "558"
+            landmarkName = "-mapView:didChangeUserTrackingMode:animated:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ObjcBikeGps/PSViewController.m"
-            timestampString = "433954662.644406"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "510"
-            endingLineNumber = "510"
-            landmarkName = "-mapView:rendererForOverlay:"
-            landmarkType = "5">
+            symbolName = "malloc_error_break"
+            moduleName = "">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -10,6 +10,7 @@
 
 
 @class MKMapView;
+@class RMMapView;
 
 
 @interface PSViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
