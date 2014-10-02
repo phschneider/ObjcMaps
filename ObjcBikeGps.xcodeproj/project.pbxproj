@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22F934D219DD5E5B00996122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D119DD5E5B00996122 /* Foundation.framework */; };
+		22F934D419DD5E5B00996122 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D319DD5E5B00996122 /* CoreGraphics.framework */; };
+		22F934D619DD5E5B00996122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D519DD5E5B00996122 /* UIKit.framework */; };
+		22F934DC19DD5E5B00996122 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22F934DA19DD5E5B00996122 /* InfoPlist.strings */; };
+		22F934DE19DD5E5B00996122 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F934DD19DD5E5B00996122 /* main.m */; };
+		22F934E219DD5E5B00996122 /* PSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F934E119DD5E5B00996122 /* PSAppDelegate.m */; };
+		22F934E819DD5E5B00996122 /* PSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F934E719DD5E5B00996122 /* PSViewController.m */; };
+		22F934EA19DD5E5B00996122 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22F934E919DD5E5B00996122 /* Images.xcassets */; };
+		22F934F119DD5E5B00996122 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934F019DD5E5B00996122 /* XCTest.framework */; };
+		22F934F219DD5E5B00996122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D119DD5E5B00996122 /* Foundation.framework */; };
+		22F934F319DD5E5B00996122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D519DD5E5B00996122 /* UIKit.framework */; };
+		22F934FB19DD5E5B00996122 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22F934F919DD5E5B00996122 /* InfoPlist.strings */; };
+		22F934FD19DD5E5B00996122 /* ObjcBikeGpsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F934FC19DD5E5B00996122 /* ObjcBikeGpsTests.m */; };
+		22F9350719DD5FFB00996122 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350619DD5FFB00996122 /* MapKit.framework */; };
+		22F9350919DD624800996122 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350819DD624800996122 /* CoreLocation.framework */; };
+		22F9350E19DD732B00996122 /* N´rideHom-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22F9350B19DD732A00996122 /* N´rideHom-3.gpx */; };
+		22F9350F19DD732B00996122 /* N´rideHom-2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22F9350C19DD732A00996122 /* N´rideHom-2.gpx */; };
+		22F9351019DD732B00996122 /* N´rideHom.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22F9350D19DD732B00996122 /* N´rideHom.gpx */; };
+		7E00DAE2DCD044FA91CCAE5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF6413E1014CC8A7CDA52D /* libPods.a */; };
+		E5F163365A77926C4AF5CA54 /* PSGpxParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16DC8E762580B653758D0 /* PSGpxParser.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22F934F419DD5E5B00996122 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22F934C619DD5E5B00996122 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22F934CD19DD5E5B00996122;
+			remoteInfo = ObjcBikeGps;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		18CF6413E1014CC8A7CDA52D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		22F934CE19DD5E5B00996122 /* ObjcBikeGps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjcBikeGps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		22F934D119DD5E5B00996122 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		22F934D319DD5E5B00996122 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		22F934D519DD5E5B00996122 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		22F934D919DD5E5B00996122 /* ObjcBikeGps-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ObjcBikeGps-Info.plist"; sourceTree = "<group>"; };
+		22F934DB19DD5E5B00996122 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		22F934DD19DD5E5B00996122 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		22F934DF19DD5E5B00996122 /* ObjcBikeGps-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjcBikeGps-Prefix.pch"; sourceTree = "<group>"; };
+		22F934E019DD5E5B00996122 /* PSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSAppDelegate.h; sourceTree = "<group>"; };
+		22F934E119DD5E5B00996122 /* PSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSAppDelegate.m; sourceTree = "<group>"; };
+		22F934E619DD5E5B00996122 /* PSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSViewController.h; sourceTree = "<group>"; };
+		22F934E719DD5E5B00996122 /* PSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSViewController.m; sourceTree = "<group>"; };
+		22F934E919DD5E5B00996122 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		22F934EF19DD5E5B00996122 /* ObjcBikeGpsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjcBikeGpsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		22F934F019DD5E5B00996122 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		22F934F819DD5E5B00996122 /* ObjcBikeGpsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ObjcBikeGpsTests-Info.plist"; sourceTree = "<group>"; };
+		22F934FA19DD5E5B00996122 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		22F934FC19DD5E5B00996122 /* ObjcBikeGpsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjcBikeGpsTests.m; sourceTree = "<group>"; };
+		22F9350619DD5FFB00996122 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		22F9350819DD624800996122 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		22F9350B19DD732A00996122 /* N´rideHom-3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "N´rideHom-3.gpx"; sourceTree = "<group>"; };
+		22F9350C19DD732A00996122 /* N´rideHom-2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "N´rideHom-2.gpx"; sourceTree = "<group>"; };
+		22F9350D19DD732B00996122 /* N´rideHom.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "N´rideHom.gpx"; sourceTree = "<group>"; };
+		5E583B3B03D649A69419F33C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		E5F166DAA770CC1BC8C2CFCD /* PSGpxParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGpxParser.h; sourceTree = "<group>"; };
+		E5F16DC8E762580B653758D0 /* PSGpxParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGpxParser.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22F934CB19DD5E5B00996122 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F9350919DD624800996122 /* CoreLocation.framework in Frameworks */,
+				22F9350719DD5FFB00996122 /* MapKit.framework in Frameworks */,
+				22F934D419DD5E5B00996122 /* CoreGraphics.framework in Frameworks */,
+				22F934D619DD5E5B00996122 /* UIKit.framework in Frameworks */,
+				22F934D219DD5E5B00996122 /* Foundation.framework in Frameworks */,
+				7E00DAE2DCD044FA91CCAE5F /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22F934EC19DD5E5B00996122 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F934F119DD5E5B00996122 /* XCTest.framework in Frameworks */,
+				22F934F319DD5E5B00996122 /* UIKit.framework in Frameworks */,
+				22F934F219DD5E5B00996122 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22F934C519DD5E5B00996122 = {
+			isa = PBXGroup;
+			children = (
+				22F934D719DD5E5B00996122 /* ObjcBikeGps */,
+				22F934F619DD5E5B00996122 /* ObjcBikeGpsTests */,
+				22F934D019DD5E5B00996122 /* Frameworks */,
+				22F934CF19DD5E5B00996122 /* Products */,
+				5E583B3B03D649A69419F33C /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		22F934CF19DD5E5B00996122 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22F934CE19DD5E5B00996122 /* ObjcBikeGps.app */,
+				22F934EF19DD5E5B00996122 /* ObjcBikeGpsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22F934D019DD5E5B00996122 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22F9350819DD624800996122 /* CoreLocation.framework */,
+				22F9350619DD5FFB00996122 /* MapKit.framework */,
+				22F934D119DD5E5B00996122 /* Foundation.framework */,
+				22F934D319DD5E5B00996122 /* CoreGraphics.framework */,
+				22F934D519DD5E5B00996122 /* UIKit.framework */,
+				22F934F019DD5E5B00996122 /* XCTest.framework */,
+				18CF6413E1014CC8A7CDA52D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		22F934D719DD5E5B00996122 /* ObjcBikeGps */ = {
+			isa = PBXGroup;
+			children = (
+				22F9350A19DD732100996122 /* SampleFiles */,
+				22F934E019DD5E5B00996122 /* PSAppDelegate.h */,
+				22F934E119DD5E5B00996122 /* PSAppDelegate.m */,
+				22F934E619DD5E5B00996122 /* PSViewController.h */,
+				22F934E719DD5E5B00996122 /* PSViewController.m */,
+				22F934E919DD5E5B00996122 /* Images.xcassets */,
+				22F934D819DD5E5B00996122 /* Supporting Files */,
+				E5F16DC8E762580B653758D0 /* PSGpxParser.m */,
+				E5F166DAA770CC1BC8C2CFCD /* PSGpxParser.h */,
+			);
+			path = ObjcBikeGps;
+			sourceTree = "<group>";
+		};
+		22F934D819DD5E5B00996122 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				22F934D919DD5E5B00996122 /* ObjcBikeGps-Info.plist */,
+				22F934DA19DD5E5B00996122 /* InfoPlist.strings */,
+				22F934DD19DD5E5B00996122 /* main.m */,
+				22F934DF19DD5E5B00996122 /* ObjcBikeGps-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		22F934F619DD5E5B00996122 /* ObjcBikeGpsTests */ = {
+			isa = PBXGroup;
+			children = (
+				22F934FC19DD5E5B00996122 /* ObjcBikeGpsTests.m */,
+				22F934F719DD5E5B00996122 /* Supporting Files */,
+			);
+			path = ObjcBikeGpsTests;
+			sourceTree = "<group>";
+		};
+		22F934F719DD5E5B00996122 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				22F934F819DD5E5B00996122 /* ObjcBikeGpsTests-Info.plist */,
+				22F934F919DD5E5B00996122 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		22F9350A19DD732100996122 /* SampleFiles */ = {
+			isa = PBXGroup;
+			children = (
+				22F9350B19DD732A00996122 /* N´rideHom-3.gpx */,
+				22F9350C19DD732A00996122 /* N´rideHom-2.gpx */,
+				22F9350D19DD732B00996122 /* N´rideHom.gpx */,
+			);
+			name = SampleFiles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22F934CD19DD5E5B00996122 /* ObjcBikeGps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22F9350019DD5E5B00996122 /* Build configuration list for PBXNativeTarget "ObjcBikeGps" */;
+			buildPhases = (
+				363CD54E3045416CBBC6B968 /* Check Pods Manifest.lock */,
+				22F934CA19DD5E5B00996122 /* Sources */,
+				22F934CB19DD5E5B00996122 /* Frameworks */,
+				22F934CC19DD5E5B00996122 /* Resources */,
+				330C507679574CBD9AA83423 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjcBikeGps;
+			productName = ObjcBikeGps;
+			productReference = 22F934CE19DD5E5B00996122 /* ObjcBikeGps.app */;
+			productType = "com.apple.product-type.application";
+		};
+		22F934EE19DD5E5B00996122 /* ObjcBikeGpsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22F9350319DD5E5B00996122 /* Build configuration list for PBXNativeTarget "ObjcBikeGpsTests" */;
+			buildPhases = (
+				22F934EB19DD5E5B00996122 /* Sources */,
+				22F934EC19DD5E5B00996122 /* Frameworks */,
+				22F934ED19DD5E5B00996122 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22F934F519DD5E5B00996122 /* PBXTargetDependency */,
+			);
+			name = ObjcBikeGpsTests;
+			productName = ObjcBikeGpsTests;
+			productReference = 22F934EF19DD5E5B00996122 /* ObjcBikeGpsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22F934C619DD5E5B00996122 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PS;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = phschneider.net;
+				TargetAttributes = {
+					22F934EE19DD5E5B00996122 = {
+						TestTargetID = 22F934CD19DD5E5B00996122;
+					};
+				};
+			};
+			buildConfigurationList = 22F934C919DD5E5B00996122 /* Build configuration list for PBXProject "ObjcBikeGps" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 22F934C519DD5E5B00996122;
+			productRefGroup = 22F934CF19DD5E5B00996122 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22F934CD19DD5E5B00996122 /* ObjcBikeGps */,
+				22F934EE19DD5E5B00996122 /* ObjcBikeGpsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22F934CC19DD5E5B00996122 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F9350E19DD732B00996122 /* N´rideHom-3.gpx in Resources */,
+				22F9350F19DD732B00996122 /* N´rideHom-2.gpx in Resources */,
+				22F934EA19DD5E5B00996122 /* Images.xcassets in Resources */,
+				22F9351019DD732B00996122 /* N´rideHom.gpx in Resources */,
+				22F934DC19DD5E5B00996122 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22F934ED19DD5E5B00996122 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F934FB19DD5E5B00996122 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		330C507679574CBD9AA83423 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		363CD54E3045416CBBC6B968 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22F934CA19DD5E5B00996122 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F934DE19DD5E5B00996122 /* main.m in Sources */,
+				22F934E819DD5E5B00996122 /* PSViewController.m in Sources */,
+				22F934E219DD5E5B00996122 /* PSAppDelegate.m in Sources */,
+				E5F163365A77926C4AF5CA54 /* PSGpxParser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22F934EB19DD5E5B00996122 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22F934FD19DD5E5B00996122 /* ObjcBikeGpsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		22F934F519DD5E5B00996122 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22F934CD19DD5E5B00996122 /* ObjcBikeGps */;
+			targetProxy = 22F934F419DD5E5B00996122 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		22F934DA19DD5E5B00996122 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22F934DB19DD5E5B00996122 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		22F934F919DD5E5B00996122 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22F934FA19DD5E5B00996122 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		22F934FE19DD5E5B00996122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		22F934FF19DD5E5B00996122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		22F9350119DD5E5B00996122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E583B3B03D649A69419F33C /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
+				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		22F9350219DD5E5B00996122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E583B3B03D649A69419F33C /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
+				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		22F9350419DD5E5B00996122 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ObjcBikeGps.app/ObjcBikeGps";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ObjcBikeGpsTests/ObjcBikeGpsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		22F9350519DD5E5B00996122 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ObjcBikeGps.app/ObjcBikeGps";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
+				INFOPLIST_FILE = "ObjcBikeGpsTests/ObjcBikeGpsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22F934C919DD5E5B00996122 /* Build configuration list for PBXProject "ObjcBikeGps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22F934FE19DD5E5B00996122 /* Debug */,
+				22F934FF19DD5E5B00996122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22F9350019DD5E5B00996122 /* Build configuration list for PBXNativeTarget "ObjcBikeGps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22F9350119DD5E5B00996122 /* Debug */,
+				22F9350219DD5E5B00996122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22F9350319DD5E5B00996122 /* Build configuration list for PBXNativeTarget "ObjcBikeGpsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22F9350419DD5E5B00996122 /* Debug */,
+				22F9350519DD5E5B00996122 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22F934C619DD5E5B00996122 /* Project object */;
+}
