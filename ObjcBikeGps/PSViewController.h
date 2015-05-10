@@ -11,6 +11,7 @@
 
 @class MKMapView;
 @class RMMapView;
+@class PSGraphViewController;
 
 
 @interface PSViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>

@@ -7,13 +7,12 @@
 //
 
 #import <MapKit/MapKit.h>
-#import <Mapbox-iOS-SDK/RMMapView.h>
 #import "PSViewController.h"
 //#import "Ono.h"
 #import "XMLDictionary.h"
-#import "Mapbox-iOS-SDK/Mapbox.h"
-#import "Mapbox.h"
-#import "RMConfiguration.h"
+#import "PSGraphViewController.h"
+#import "PSGraphViewController.h"
+#import "PSDistanceAnnotation.h"
 
 @interface PSViewController ()
 
@@ -22,7 +21,11 @@
 @property(nonatomic, strong) UILabel *locationLabel;
 @property(nonatomic, strong) UILabel *speedLabel;
 @property(nonatomic, strong) UILabel *altLabel;
-@property(nonatomic, strong) RMMapView *mapBoxView;
+@property(nonatomic, strong) UILabel *distanceLabel;
+
+@property(nonatomic, strong) MKPolyline *routeLine;
+@property(nonatomic, strong) MKPolylineView *routeLineView;
+@property(nonatomic, strong) PSGraphViewController *graphViewController;
 @end
 
 @implementation PSViewController
@@ -33,6 +36,9 @@
     self = [super init];
     if (self)
     {
+
+        self.graphViewController = [[PSGraphViewController alloc] init];
+
         self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
         self.mapView.autoresizingMask =  self.view.autoresizingMask;
         self.mapView.showsUserLocation = YES;
@@ -40,45 +46,103 @@
         self.mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
         [self.view addSubview:self.mapView];
 
-////        [[RMConfiguration configuration] setAccessToken:@"sk.eyJ1IjoicGhzY2huZWlkZXIiLCJhIjoiUXlhODk5SSJ9.IqKJIWbBDyKk95GCetG15g"];
-//        RMMapboxSource *tileSource = [[RMMapboxSource alloc] initWithMapID:@"phschneider.jlhn5d27"];
-//        self.mapBoxView  = [[RMMapView alloc] initWithFrame:self.view.bounds andTilesource:tileSource];
-//        self.mapBoxView.userTrackingMode = RMUserTrackingModeFollowWithHeading;
-//        self.mapBoxView.autoresizingMask =  self.view.autoresizingMask;
-
-        [self.view addSubview:self.mapBoxView];
-
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
         [self.locationManager startUpdatingLocation];
         [self.locationManager startUpdatingHeading];
 
-        self.locationLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.locationLabel.adjustsFontSizeToFitWidth = YES;
-        self.locationLabel.backgroundColor = [UIColor blackColor];
-        self.locationLabel.textColor = [UIColor whiteColor];
-        self.locationLabel.shadowColor = [UIColor blackColor];
-        self.locationLabel.shadowOffset = CGSizeMake(2, 2);
+
+        
+        self.locationLabel = [self createAndReturnDefaultLabel];
         [self.view addSubview:self.locationLabel];
 
-        self.speedLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.speedLabel.adjustsFontSizeToFitWidth = YES;
-        self.speedLabel.backgroundColor = [UIColor blackColor];
-        self.speedLabel.textColor = [UIColor whiteColor];
-        self.speedLabel.shadowColor = [UIColor blackColor];
-        self.speedLabel.shadowOffset = CGSizeMake(2, 2);
+        self.speedLabel = [self createAndReturnDefaultLabel];
         [self.view addSubview:self.speedLabel];
 
-
-        self.altLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        self.altLabel.adjustsFontSizeToFitWidth = YES;
-        self.altLabel.backgroundColor = [UIColor blackColor];
-        self.altLabel.textColor = [UIColor whiteColor];
-        self.altLabel.shadowColor = [UIColor blackColor];
-        self.altLabel.shadowOffset = CGSizeMake(2, 2);
+        self.altLabel = [self createAndReturnDefaultLabel];
         [self.view addSubview:self.altLabel];
+            
+        self.distanceLabel = [self createAndReturnDefaultLabel];
+        [self.view addSubview:self.distanceLabel];
+
+
     }
     return self;
+}
+
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
+{
+    static NSString *annotaionIdentifier=@"annotationIdentifier";
+//    MKPinAnnotationView *annotationView=(MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:annotaionIdentifier ];
+//    if (annotationView==nil) {
+//        
+        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@""];
+        annotationView.canShowCallout = YES;
+        
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:annotationView.frame];
+        
+        CGRect frame = CGRectZero;
+//        BOOL adjustFrameFromImage = ([settings changeBackgroundSizeAutomatically] && [settings showsCustomImage]);
+//        if (adjustFrameFromImage)
+//        {
+//            frame.size = CGSizeMake(annotationImage.size.width/2,annotationImage.size.width/2);
+//            frame.origin.y = ceil(annotationImage.size.width/10);
+//        }
+//        else
+//        {
+            frame.size = CGSizeMake(12.0,12.0);
+            //                else
+            //                {
+            //                    frame.origin.y = ceil([settings.backgroundSize floatValue]/0.5);
+            //                }
+//        }
+    
+        label.frame = frame;
+        label.textAlignment = NSTextAlignmentCenter;
+//        if ([annotation isKindOfClass:[PSMapAtmoPublicDeviceDict class] ])
+//        {
+//            label.text = [(PSMapAtmoPublicDeviceDict *) annotation displayTitle];
+//        }
+//        else
+//        {
+            label.text = annotation.title;
+//        }
+        label.backgroundColor = [UIColor blackColor];
+        label.adjustsFontSizeToFitWidth = YES;
+        label.font = [UIFont systemFontOfSize:10.0];
+        label.clipsToBounds = YES;
+        label.textColor = [UIColor whiteColor];
+        label.layer.cornerRadius = frame.size.width/2;
+        
+            // Centriere das Label in der Annotation
+            label.center = annotationView.center;
+            label.center = CGPointMake(label.center.x, label.center.y + 5);
+        
+        [annotationView addSubview:label];
+//        aView=[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:annotaionIdentifier];
+//        aView.pinColor = MKPinAnnotationColorRed;
+//        aView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+//        //        aView.image=[UIImage imageNamed:@"arrow"];
+//        aView.animatesDrop=TRUE;
+//        aView.canShowCallout = YES;
+//        aView.calloutOffset = CGPointMake(-5, 5);
+//    }
+    
+    return annotationView;
+}
+
+
+- (UILabel *)createAndReturnDefaultLabel
+{
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.adjustsFontSizeToFitWidth = YES;
+    label.backgroundColor = [UIColor blackColor];
+    label.textColor = [UIColor whiteColor];
+    label.shadowColor = [UIColor blackColor];
+    label.shadowOffset = CGSizeMake(2, 2);
+    return label;
 }
 
 
@@ -92,20 +156,217 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    DLogFuncName();
     [super viewDidAppear:animated];
     
-    [self addMapOverlay];
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self addMapOverlay];
+    });
+//    return;
+    
+   
+    [self.graphViewController willMoveToParentViewController:self];
+    CGRect frame = self.view.bounds;
+    frame.origin.y = frame.size.height - 100;
+    frame.size.height = 100;
+    self.graphViewController.view.frame = frame;
+    [self.view addSubview:self.graphViewController.view];
+    [self.graphViewController didMoveToParentViewController:self];
+    
+    [self parseElevationData];
 }
+
+
+- (NSString*) filepath
+{
+    return [[NSBundle mainBundle] pathForResource:@"N´rideHom-3" ofType:@"gpx"];
+}
+
+- (void) parseElevationData
+{
+    DLogFuncName();
+    
+
+    NSData *data = [NSData dataWithContentsOfFile:[self filepath]];
+    if (data)
+    {
+        NSDictionary *routingDict = [NSDictionary dictionaryWithXMLData:data];
+        NSLog(@"routingDict  %@", routingDict);
+        NSArray *trek = [[[routingDict objectForKey:@"trk"] objectForKey:@"trkseg"] objectForKey:@"trkpt"];
+        
+        NSMutableArray *elevatioNData = [[NSMutableArray alloc] initWithCapacity:[trek count]];
+        NSMutableDictionary *annotations = [[NSMutableDictionary alloc] initWithCapacity:[trek count]];
+        
+        CLLocationCoordinate2D *pointsCoordinate = (CLLocationCoordinate2D *)malloc(sizeof(CLLocationCoordinate2D) * [trek count]);
+        
+        
+//        [self.mapView addOverlay:polyline];
+        CLLocation* Location1;
+        CLLocation *tmpLocation;
+        CLLocationDistance distance = 0.0;
+        
+        int pointArrIndex = 0;  //it's simpler to keep a separate index for pointArr
+        CGFloat minHeight = 0.0;
+        CGFloat maxHeight = 0.0;
+        
+        CGFloat totalUp = 0.0;
+        CGFloat totalDown = 0.0;
+        
+        CGFloat tmpElevation = 0.0;
+        
+        for (NSDictionary * pointDict in trek)
+        {
+
+            CGFloat lat = [[pointDict objectForKey:@"_lat"] doubleValue];
+            CGFloat lon = [[pointDict objectForKey:@"_lon"] doubleValue];
+
+            CLLocationCoordinate2D workingCoordinate = CLLocationCoordinate2DMake(lat, lon);
+            pointsCoordinate[pointArrIndex] = workingCoordinate;
+            
+            CGFloat elevation = [[pointDict objectForKey:@"ele"] doubleValue];
+            if (pointArrIndex > 0)
+            {
+                if (elevation < minHeight)
+                {
+                    minHeight = elevation;
+                }
+                if (elevation > maxHeight)
+                {
+                    maxHeight = elevation;
+                }
+                
+                // Die StartHöhe darf nicht berücksichtigt werden ...
+                // Hier sind 234m zuviel berechnet ...
+                if (elevation > tmpElevation)
+                {
+                    totalUp += (elevation-tmpElevation);
+                }
+                else if (elevation < tmpElevation)
+                {
+                    totalDown += (tmpElevation-elevation);
+                }
+            }
+            else
+            {
+                // Passt!!!
+                minHeight = elevation;
+                maxHeight = elevation;
+            }
+            
+            
+            
+            tmpElevation = elevation;
+            //            NSLog(@"Coordinate = %f %f  ELEVATION %f TIME %@", workingCoordinate.latitude, workingCoordinate.longitude,[[pointDict objectForKey:@"ele"] doubleValue], [pointDict objectForKey:@"time"]);
+            
+            // Distance
+            tmpLocation = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
+            //            if (pointArrIndex > 0)
+            //            {
+            
+            // Passt nicht ...
+            distance += [tmpLocation distanceFromLocation:Location1];
+            NSLog(@"Distance = %f", distance);
+            int dist = (distance / 1000);
+            if (dist %1 == 0)
+            {
+                NSString *key = [NSString stringWithFormat:@"%d", dist];
+                if (![[annotations allKeys] containsObject:key])
+                {
+                    NSLog(@"ADDED %d", dist);
+                    PSDistanceAnnotation *annotation = [[PSDistanceAnnotation alloc] initWithCoordinate:[tmpLocation coordinate] title:key];
+                
+                    [annotations setObject:annotation forKey:key];
+                }
+            }
+
+            //            }
+            Location1 = tmpLocation;
+            [elevatioNData addObject:[NSNumber numberWithFloat:tmpElevation]];
+        }
+ 
+//        [self.graphViewController setData:elevatioNData];
+        
+        self.routeLine = [MKPolyline polylineWithCoordinates:pointsCoordinate count:pointArrIndex];
+        free(pointsCoordinate);
+        
+        [self.mapView addOverlay:self.routeLine];
+        [self.mapView setVisibleMapRect:[self.routeLine boundingMapRect]]; //If you want the route to be visible
+        
+        [self.mapView addAnnotations:[[annotations allValues] copy]];
+        
+        CLLocationCoordinate2D ground = CLLocationCoordinate2DMake(tmpLocation.coordinate.latitude, tmpLocation.coordinate.longitude);
+        CLLocationCoordinate2D eye = CLLocationCoordinate2DMake(tmpLocation.coordinate.latitude, tmpLocation.coordinate.longitude+.020);
+        MKMapCamera *mapCamera = [MKMapCamera cameraLookingAtCenterCoordinate:ground
+                                                            fromEyeCoordinate:eye
+                                                                  eyeAltitude:700];
+        
+        [UIView animateWithDuration:25.0 animations:^{
+            
+            
+            
+            self.mapView.camera = mapCamera;
+            
+        }];
+        
+        NSLog(@"MinHeight = %f", minHeight);
+        NSLog(@"MaxHeight = %f", maxHeight);
+        
+        NSLog(@"TotalUp = %f", totalUp);
+        NSLog(@"TotalDown = %f", totalDown);
+    }
+    else
+    {
+        NSLog(@"No Data for %@", [self filepath]);
+    }
+    
+   
+}
+
+
+-(MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
+{
+    if(overlay == self.routeLine)
+    {
+        if(nil == self.routeLineView)
+        {
+            self.routeLineView = [[MKPolylineView alloc] initWithPolyline:self.routeLine];
+            self.routeLineView.fillColor = [UIColor redColor];
+            self.routeLineView.strokeColor = [UIColor redColor];
+            self.routeLineView.lineWidth = 5;
+            
+        }
+        
+        return self.routeLineView;
+    }
+    
+    return nil;
+}
+
 
 -  (void) addMapOverlay
 {
+    DLogFuncName();
+    
+    // Statusabfrage:
+    // http://wiki.openstreetmap.org/wiki/Slippy_Map
+    // http://tile.openstreetmap.org/7/63/42.png/status
+    // Tile is clean. Last rendered at Sun Nov 09 16:07:18 2014. Last accessed at Sun Nov 09 16:07:19 2014. Stored in file:///srv/tile.openstreetmap.org/tiles/default/7/0/0/0/50/136.meta
+    // (Dates might not be accurate. Rendering time might be reset to an old date for tile expiry. Access times might not be updated on all file systems)
+    
+    //http://lhb.baireuther.de/qlandkartegt/
+    
+//    http://wiki.openstreetmap.org/wiki/OpenLayers/FasterTiles
+//    Layer.TMS("Name", ['http://tile1.tile.openstreetmap.org/tiles/', 'http://tile2.tile.openstreetmap.org/tiles/'], {'layername':'mapnik'})
+    
     // Compare Maps
     // http://wiki.openstreetmap.org/wiki/Tileserver
     
     // Hike & Bike
 //    NSString *template = @"http://toolserver.org/tiles/hikebike/${z}/${x}/${y}.png";
     // NSString *template = @" http://{a,b,c}.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png
-    NSString *template = @"http://a.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png";
+//    NSString *template = @"http://a.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png";
     
     // Fahrradrouten
 //    NSString *template = @"http://tile.lonvia.de/cycling/{z}/{x}/{y}.png";
@@ -115,10 +376,10 @@
     
     
     // Hillshading
-//    NSString *template = @"http://toolserver.org/~cmarqu/hill/{z}/{x}/{y}.png";
+    NSString *hillShadingTemplate = @"http://toolserver.org/~cmarqu/hill/{z}/{x}/{y}.png";
     
     // Landshading ...
-//    NSString *template = @"http://tiles.openpistemap.org/landshaded/{z}/{x}/{y}.png";
+    NSString *landShadingTemplate = @"http://tiles.openpistemap.org/landshaded/{z}/{x}/{y}.png";
     
 //     NSString *template = @"http://www.wanderreitkarte.de/topo/{z}/{x}/{y}.png";
     //OpenCycleMap:
@@ -130,14 +391,51 @@
     // OpenStreetMap
 //    NSString *template = @"http://tile.openstreetmap.org/{z}/{x}/{y}.png";
     
-    MKTileOverlay *overlay = [[MKTileOverlay alloc] initWithURLTemplate:template];
-    overlay.canReplaceMapContent = YES;
-    [self.mapView addOverlay:overlay level:MKOverlayLevelAboveLabels];
+    MKTileOverlay *hillShadingOverlay = [[MKTileOverlay alloc] initWithURLTemplate:hillShadingTemplate];
+    hillShadingOverlay.canReplaceMapContent = NO;
+    [self.mapView addOverlay:hillShadingOverlay level:MKOverlayLevelAboveLabels];
+
+    MKTileOverlay *landShadingOverlay = [[MKTileOverlay alloc] initWithURLTemplate:landShadingTemplate];
+    landShadingOverlay.canReplaceMapContent = NO;
+    [self.mapView addOverlay:landShadingOverlay level:MKOverlayLevelAboveLabels];
+
+    //OpenPisteMap
+//    NSString *template = @"http://tiles.openpistemap.org/nocontours/{z}/{x}/{y}.png";
+    
+    // OpenPTMap - Public Transport Map
+    // http://wiki.openstreetmap.org/wiki/Openptmap
+//    NSString *template = @"http://openptmap.org/tiles/{z}/{x}/{y}.png";
+//    MKTileOverlay *overlay = [[MKTileOverlay alloc] initWithURLTemplate:template];
+//    overlay.canReplaceMapContent = NO;
+//    [self.mapView addOverlay:overlay level:MKOverlayLevelAboveLabels];
 
     
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"N´rideHom-3" ofType:@"gpx"];
-    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    
+//    NSString *template = @"http://tile.öpnvkarte.de/{z}/{x}/{y}.png";
+//    NSString *template = @"http://www.openstreetmap.org/#map=10/{z}/{x}/{y}";
+//    MKTileOverlay *overlay = [[MKTileOverlay alloc] initWithURLTemplate:template];
+//    overlay.canReplaceMapContent = YES;
+//    [self.mapView addOverlay:overlay level:MKOverlayLevelAboveLabels];
+    
+
+    // MemoMap
+//    NSString *template = @"http://tile.memomaps.de/tilegen/{z}/{x}/{y}.png";
+//    MKTileOverlay *overlay = [[MKTileOverlay alloc] initWithURLTemplate:template];
+//    overlay.canReplaceMapContent = YES;
+//    [self.mapView addOverlay:overlay level:MKOverlayLevelAboveLabels];
+
+    // OpenTopoMap
+//    // http://wiki.openstreetmap.org/wiki/OpenTopoMap
+//    NSString *template = @"http://a.tile.opentopomap.org/{z}/{x}/{y}.png";
+//    MKTileOverlay *overlay = [[MKTileOverlay alloc] initWithURLTemplate:template];
+//    overlay.canReplaceMapContent = YES;
+//    [self.mapView addOverlay:overlay level:MKOverlayLevelAboveLabels];
+
+    
+//    return;
+    
+    NSData *data = [NSData dataWithContentsOfFile:[self filepath]];
     if (data)
     {
         NSDictionary *routingDict = [NSDictionary dictionaryWithXMLData:data];
@@ -146,7 +444,7 @@
         
         NSArray *trek = [[[routingDict objectForKey:@"trk"] objectForKey:@"trkseg"] objectForKey:@"trkpt"];
         
-        int pointCount = [trek count] / 2;
+        int pointCount = [trek count] ;
         
         MKMapPoint *pointArr = malloc(sizeof(CLLocationCoordinate2D)
                                       * pointCount);
@@ -155,21 +453,67 @@
         CLLocationDistance distance = 0.0;
         
         int pointArrIndex = 0;  //it's simpler to keep a separate index for pointArr
+        CGFloat minHeight = 0.0;
+        CGFloat maxHeight = 0.0;
+
+        CGFloat totalUp = 0.0;
+        CGFloat totalDown = 0.0;
+        
+        CGFloat tmpElevation = 0.0;
+        
         for (NSDictionary * pointDict in trek)
         {
             CLLocationCoordinate2D workingCoordinate;
-            workingCoordinate.latitude=[[pointDict objectForKey:@"_lat"] doubleValue];
-            workingCoordinate.longitude=[[pointDict objectForKey:@"_lon"] doubleValue];
+            CGFloat lat = [[pointDict objectForKey:@"_lat"] doubleValue];
+            CGFloat lon = [[pointDict objectForKey:@"_lon"] doubleValue];
             
+            workingCoordinate.latitude=lat;
+            workingCoordinate.longitude=lon;
+            
+            CGFloat elevation = [[pointDict objectForKey:@"ele"] doubleValue];
+            if (pointArrIndex > 0)
+            {
+                if (elevation < minHeight)
+                {
+                    minHeight = elevation;
+                }
+                if (elevation > maxHeight)
+                {
+                    maxHeight = elevation;
+                }
+                
+                // Die StartHöhe darf nicht berücksichtigt werden ...
+                // Hier sind 234m zuviel berechnet ...
+                if (elevation > tmpElevation)
+                {
+                    totalUp += (elevation-tmpElevation);
+                }
+                else if (elevation < tmpElevation)
+                {
+                    totalDown += (tmpElevation-elevation);
+                }
+            }
+            else
+            {
+                // Passt!!!
+                minHeight = elevation;
+                maxHeight = elevation;
+            }
+            
+            
+            
+            tmpElevation = elevation;
 //            NSLog(@"Coordinate = %f %f  ELEVATION %f TIME %@", workingCoordinate.latitude, workingCoordinate.longitude,[[pointDict objectForKey:@"ele"] doubleValue], [pointDict objectForKey:@"time"]);
             
             // Distance
-            tmpLocation = [[CLLocation alloc] initWithLatitude:[[pointDict objectForKey:@"_lat"] doubleValue] longitude:[[pointDict objectForKey:@"_long"] doubleValue]];
-            if (pointArrIndex > 0)
-            {
-                distance += [Location1 distanceFromLocation:tmpLocation];
+            tmpLocation = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
+//            if (pointArrIndex > 0)
+//            {
+            
+                // Passt nicht ...
+                distance += [tmpLocation distanceFromLocation:Location1];
 //                NSLog(@"Distance = %f", distance);
-            }
+//            }
             Location1 = tmpLocation;
             
             MKMapPoint point = MKMapPointForCoordinate(workingCoordinate);
@@ -177,14 +521,22 @@
             pointArrIndex++;         
         }
         
+        
         // create the polyline based on the array of points.
         MKPolyline *routeLine = [MKPolyline polylineWithPoints:pointArr count:pointArrIndex];
         [self.mapView addOverlay:routeLine];
         free(pointArr);
+
+        [self setDistance:distance];
+        NSLog(@"MinHeight = %f", minHeight);
+        NSLog(@"MaxHeight = %f", maxHeight);
+        
+        NSLog(@"TotalUp = %f", totalUp);
+        NSLog(@"TotalDown = %f", totalDown);
     }
     else
     {
-        NSLog(@"No Data for %@", filePath);
+        NSLog(@"No Data for %@", [self filepath]);
     }
 
     
@@ -320,7 +672,7 @@
 
 
     frame = self.view.bounds;
-    frame.origin.y = frame.size.height - 20;
+    frame.origin.y =+ 20;
     frame.size.height = 20;
     frame.size.width = ceil (frame.size.width / 2);
     self.speedLabel.frame = frame;
@@ -337,6 +689,23 @@
     
     [self.mapView setRegion:region animated:YES];
 
+}
+
+
+- (void) setDistance:(CLLocationDistance)distance
+{
+    DLogFuncName();
+    
+    NSLog(@"Distance = %f",distance);
+    
+    CGRect frame = self.view.bounds;
+    frame.origin.y += 40;
+    frame.size.height = 20;
+    frame.size.width = ceil (frame.size.width / 2);
+    frame.origin.y += 20;
+
+    self.distanceLabel.frame = frame;
+    self.distanceLabel.text = [NSString stringWithFormat:@"%.2fkm", (distance/1000)];
 }
 
 
@@ -604,18 +973,18 @@
 //}
 
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
-{
-    DLogFuncName();
-    
-    MKPolylineView *routeLineView = [[MKPolylineView alloc] initWithPolyline:overlay] ;
-    routeLineView.fillColor = [UIColor redColor];
-    routeLineView.strokeColor = [UIColor redColor];
-    routeLineView.lineWidth = 3;
-    return routeLineView;
-    
-    return nil;
-}
+//- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+//{
+//    DLogFuncName();
+//    
+//    MKPolylineView *routeLineView = [[MKPolylineView alloc] initWithPolyline:overlay] ;
+//    routeLineView.fillColor = [UIColor redColor];
+//    routeLineView.strokeColor = [UIColor redColor];
+//    routeLineView.lineWidth = 3;
+//    return routeLineView;
+//    
+//    return nil;
+//}
 
 
 - (void)mapView:(MKMapView *)mapView didAddOverlayViews:(NSArray *)overlayViews
@@ -636,5 +1005,19 @@
 }
 
 
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+
+    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation))
+    {
+        [self.view addSubview:self.graphViewController.view];
+        [self presentViewController:self.graphViewController animated:YES completion:nil];
+    }
+    else
+    {
+//        [self.graphViewController.view removeFromSuperview];
+    }
+}
 
 @end
