@@ -8,6 +8,9 @@
 
 #import "PSAppDelegate.h"
 #import "PSViewController.h"
+#import "PSMapViewController.h"
+#import "PSTrackList.h"
+#import "PSTrackStore.h"
 
 
 @implementation PSAppDelegate
@@ -18,10 +21,15 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
+    // Points of interest ...
+    // 49,1509838, 7,0485482
+    
+    [PSTrackStore sharedInstance];
 
-    PSViewController *viewController = [[PSViewController alloc] init];
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[PSMapViewController alloc] init]];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[PSTrackList alloc] init]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = viewController;
+    self.window.rootViewController = navigationController;
 
     [self.window makeKeyAndVisible];
 

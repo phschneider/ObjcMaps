@@ -8,6 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		22AAD3E31AF6CEA900C9492D /* PSDistanceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AAD3E21AF6CEA900C9492D /* PSDistanceAnnotation.m */; };
+		22B1255B1B00028E0027DD9A /* PSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B1255A1B00028E0027DD9A /* PSLocationManager.m */; };
+		22B1255E1B00054D0027DD9A /* Schwarzenberg5.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B1255C1B00054D0027DD9A /* Schwarzenberg5.gpx */; };
+		22B1255F1B00054D0027DD9A /* Schwarzenberg6.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B1255D1B00054D0027DD9A /* Schwarzenberg6.gpx */; };
+		22B125611B0005570027DD9A /* Schwarzenberg4.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B125601B0005570027DD9A /* Schwarzenberg4.gpx */; };
+		22B125631B0006D00027DD9A /* Schwarzenberg7.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B125621B0006D00027DD9A /* Schwarzenberg7.gpx */; };
+		22B125661B0007470027DD9A /* Schwarzenberg8.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B125641B0007460027DD9A /* Schwarzenberg8.gpx */; };
+		22B125671B0007470027DD9A /* Schwarzenberg9.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B125651B0007460027DD9A /* Schwarzenberg9.gpx */; };
+		22B125691B0007D30027DD9A /* Schwarzenberg10.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B125681B0007D30027DD9A /* Schwarzenberg10.gpx */; };
+		22B1256C1B00113F0027DD9A /* Schwarzenberg11.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B1256A1B00113F0027DD9A /* Schwarzenberg11.gpx */; };
+		22B1256D1B00113F0027DD9A /* Schwarzenberg12.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B1256B1B00113F0027DD9A /* Schwarzenberg12.gpx */; };
+		22D231761AFFF28B0019EF15 /* NrideHom-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D231701AFFF28B0019EF15 /* NrideHom-3.gpx */; };
+		22D231771AFFF28B0019EF15 /* pur-blau-gpx.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D231711AFFF28B0019EF15 /* pur-blau-gpx.gpx */; };
+		22D231781AFFF28B0019EF15 /* pur-gruen-gpx.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D231721AFFF28B0019EF15 /* pur-gruen-gpx.gpx */; };
+		22D2317A1AFFF5880019EF15 /* KlbTrail.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D231791AFFF5880019EF15 /* KlbTrail.gpx */; };
+		22D2317C1AFFF69A0019EF15 /* Schwarzenberg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D2317B1AFFF69A0019EF15 /* Schwarzenberg1.gpx */; };
+		22D2317E1AFFF73A0019EF15 /* Schwarzenberg2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D2317D1AFFF73A0019EF15 /* Schwarzenberg2.gpx */; };
+		22D231801AFFFD840019EF15 /* AmHomburg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D2317F1AFFFD840019EF15 /* AmHomburg1.gpx */; };
+		22D231821AFFFD8B0019EF15 /* Schwarzenberg3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D231811AFFFD8B0019EF15 /* Schwarzenberg3.gpx */; };
+		22D231841AFFFE690019EF15 /* Dudweiler1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D231831AFFFE690019EF15 /* Dudweiler1.gpx */; };
 		22F934D219DD5E5B00996122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D119DD5E5B00996122 /* Foundation.framework */; };
 		22F934D419DD5E5B00996122 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D319DD5E5B00996122 /* CoreGraphics.framework */; };
 		22F934D619DD5E5B00996122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D519DD5E5B00996122 /* UIKit.framework */; };
@@ -23,12 +42,13 @@
 		22F934FD19DD5E5B00996122 /* ObjcBikeGpsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F934FC19DD5E5B00996122 /* ObjcBikeGpsTests.m */; };
 		22F9350719DD5FFB00996122 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350619DD5FFB00996122 /* MapKit.framework */; };
 		22F9350919DD624800996122 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350819DD624800996122 /* CoreLocation.framework */; };
-		22F9350E19DD732B00996122 /* N´rideHom-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22F9350B19DD732A00996122 /* N´rideHom-3.gpx */; };
-		22F9350F19DD732B00996122 /* N´rideHom-2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22F9350C19DD732A00996122 /* N´rideHom-2.gpx */; };
-		22F9351019DD732B00996122 /* N´rideHom.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22F9350D19DD732B00996122 /* N´rideHom.gpx */; };
 		7E00DAE2DCD044FA91CCAE5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF6413E1014CC8A7CDA52D /* libPods.a */; };
+		E5F1601EFD6DF91305B89379 /* PSTrackStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16D91F6134101B4D5B0C9 /* PSTrackStore.m */; };
 		E5F163365A77926C4AF5CA54 /* PSGpxParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16DC8E762580B653758D0 /* PSGpxParser.m */; };
 		E5F1645416730CCBD86C0E31 /* PSGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16F94BA02FB00F322D9FD /* PSGraphViewController.m */; };
+		E5F166051E8262FB29BB9D8C /* PSTrackList.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16C8FC429FFB94D53B8B3 /* PSTrackList.m */; };
+		E5F16B120607C41DEB8D16B4 /* PSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16894BC25953F932B2F87 /* PSMapViewController.m */; };
+		E5F16E7AB10EB123356C1B2A /* PSTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F164D40F9565AD55DD90C5 /* PSTrack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +65,27 @@
 		18CF6413E1014CC8A7CDA52D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AAD3E11AF6CEA900C9492D /* PSDistanceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDistanceAnnotation.h; sourceTree = "<group>"; };
 		22AAD3E21AF6CEA900C9492D /* PSDistanceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDistanceAnnotation.m; sourceTree = "<group>"; };
+		22B125591B00028E0027DD9A /* PSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSLocationManager.h; sourceTree = "<group>"; };
+		22B1255A1B00028E0027DD9A /* PSLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSLocationManager.m; sourceTree = "<group>"; };
+		22B1255C1B00054D0027DD9A /* Schwarzenberg5.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Schwarzenberg5.gpx; path = SampleData/Schwarzenberg5.gpx; sourceTree = SOURCE_ROOT; };
+		22B1255D1B00054D0027DD9A /* Schwarzenberg6.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Schwarzenberg6.gpx; path = SampleData/Schwarzenberg6.gpx; sourceTree = SOURCE_ROOT; };
+		22B125601B0005570027DD9A /* Schwarzenberg4.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Schwarzenberg4.gpx; path = SampleData/Schwarzenberg4.gpx; sourceTree = SOURCE_ROOT; };
+		22B125621B0006D00027DD9A /* Schwarzenberg7.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Schwarzenberg7.gpx; path = SampleData/Schwarzenberg7.gpx; sourceTree = SOURCE_ROOT; };
+		22B125641B0007460027DD9A /* Schwarzenberg8.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Schwarzenberg8.gpx; path = SampleData/Schwarzenberg8.gpx; sourceTree = SOURCE_ROOT; };
+		22B125651B0007460027DD9A /* Schwarzenberg9.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Schwarzenberg9.gpx; path = SampleData/Schwarzenberg9.gpx; sourceTree = SOURCE_ROOT; };
+		22B125681B0007D30027DD9A /* Schwarzenberg10.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Schwarzenberg10.gpx; path = SampleData/Schwarzenberg10.gpx; sourceTree = SOURCE_ROOT; };
+		22B1256A1B00113F0027DD9A /* Schwarzenberg11.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Schwarzenberg11.gpx; path = SampleData/Schwarzenberg11.gpx; sourceTree = SOURCE_ROOT; };
+		22B1256B1B00113F0027DD9A /* Schwarzenberg12.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Schwarzenberg12.gpx; path = SampleData/Schwarzenberg12.gpx; sourceTree = SOURCE_ROOT; };
+		22D2316D1AFFF28B0019EF15 /* Felsenpfad.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Felsenpfad.gpx; path = SampleData/Felsenpfad.gpx; sourceTree = SOURCE_ROOT; };
+		22D231701AFFF28B0019EF15 /* NrideHom-3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "NrideHom-3.gpx"; path = "SampleData/NrideHom-3.gpx"; sourceTree = SOURCE_ROOT; };
+		22D231711AFFF28B0019EF15 /* pur-blau-gpx.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "pur-blau-gpx.gpx"; path = "SampleData/pur-blau-gpx.gpx"; sourceTree = SOURCE_ROOT; };
+		22D231721AFFF28B0019EF15 /* pur-gruen-gpx.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "pur-gruen-gpx.gpx"; path = "SampleData/pur-gruen-gpx.gpx"; sourceTree = SOURCE_ROOT; };
+		22D231791AFFF5880019EF15 /* KlbTrail.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = KlbTrail.gpx; path = SampleData/KlbTrail.gpx; sourceTree = SOURCE_ROOT; };
+		22D2317B1AFFF69A0019EF15 /* Schwarzenberg1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Schwarzenberg1.gpx; path = SampleData/Schwarzenberg1.gpx; sourceTree = SOURCE_ROOT; };
+		22D2317D1AFFF73A0019EF15 /* Schwarzenberg2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Schwarzenberg2.gpx; path = SampleData/Schwarzenberg2.gpx; sourceTree = SOURCE_ROOT; };
+		22D2317F1AFFFD840019EF15 /* AmHomburg1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AmHomburg1.gpx; path = SampleData/AmHomburg1.gpx; sourceTree = SOURCE_ROOT; };
+		22D231811AFFFD8B0019EF15 /* Schwarzenberg3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Schwarzenberg3.gpx; path = SampleData/Schwarzenberg3.gpx; sourceTree = SOURCE_ROOT; };
+		22D231831AFFFE690019EF15 /* Dudweiler1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = Dudweiler1.gpx; path = SampleData/Dudweiler1.gpx; sourceTree = SOURCE_ROOT; };
 		22F934CE19DD5E5B00996122 /* ObjcBikeGps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjcBikeGps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F934D119DD5E5B00996122 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22F934D319DD5E5B00996122 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -65,12 +106,17 @@
 		22F934FC19DD5E5B00996122 /* ObjcBikeGpsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjcBikeGpsTests.m; sourceTree = "<group>"; };
 		22F9350619DD5FFB00996122 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		22F9350819DD624800996122 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		22F9350B19DD732A00996122 /* N´rideHom-3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "N´rideHom-3.gpx"; sourceTree = "<group>"; };
-		22F9350C19DD732A00996122 /* N´rideHom-2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "N´rideHom-2.gpx"; sourceTree = "<group>"; };
-		22F9350D19DD732B00996122 /* N´rideHom.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "N´rideHom.gpx"; sourceTree = "<group>"; };
 		5E583B3B03D649A69419F33C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		E5F16458DDF465B9982ED7C4 /* PSTrackStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackStore.h; sourceTree = "<group>"; };
+		E5F164D40F9565AD55DD90C5 /* PSTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrack.m; sourceTree = "<group>"; };
 		E5F166C06B79B63DCB75653D /* PSGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGraphViewController.h; sourceTree = "<group>"; };
 		E5F166DAA770CC1BC8C2CFCD /* PSGpxParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGpxParser.h; sourceTree = "<group>"; };
+		E5F16894BC25953F932B2F87 /* PSMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapViewController.m; sourceTree = "<group>"; };
+		E5F16B5892063D6867557AFF /* PSTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrack.h; sourceTree = "<group>"; };
+		E5F16BC618CDE2FDB64A040D /* PSMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapViewController.h; sourceTree = "<group>"; };
+		E5F16C8FC429FFB94D53B8B3 /* PSTrackList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackList.m; sourceTree = "<group>"; };
+		E5F16D5BDFA28CCC660617AD /* PSTrackList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackList.h; sourceTree = "<group>"; };
+		E5F16D91F6134101B4D5B0C9 /* PSTrackStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackStore.m; sourceTree = "<group>"; };
 		E5F16DC8E762580B653758D0 /* PSGpxParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGpxParser.m; sourceTree = "<group>"; };
 		E5F16F94BA02FB00F322D9FD /* PSGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGraphViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +148,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22D2316C1AFFF2770019EF15 /* SampleFiles */ = {
+			isa = PBXGroup;
+			children = (
+				22D2317F1AFFFD840019EF15 /* AmHomburg1.gpx */,
+				22D231831AFFFE690019EF15 /* Dudweiler1.gpx */,
+				22D2317B1AFFF69A0019EF15 /* Schwarzenberg1.gpx */,
+				22D2317D1AFFF73A0019EF15 /* Schwarzenberg2.gpx */,
+				22D231811AFFFD8B0019EF15 /* Schwarzenberg3.gpx */,
+				22B125601B0005570027DD9A /* Schwarzenberg4.gpx */,
+				22B1255C1B00054D0027DD9A /* Schwarzenberg5.gpx */,
+				22B1255D1B00054D0027DD9A /* Schwarzenberg6.gpx */,
+				22B125621B0006D00027DD9A /* Schwarzenberg7.gpx */,
+				22B125641B0007460027DD9A /* Schwarzenberg8.gpx */,
+				22B125651B0007460027DD9A /* Schwarzenberg9.gpx */,
+				22B125681B0007D30027DD9A /* Schwarzenberg10.gpx */,
+				22B1256A1B00113F0027DD9A /* Schwarzenberg11.gpx */,
+				22B1256B1B00113F0027DD9A /* Schwarzenberg12.gpx */,
+				22D231791AFFF5880019EF15 /* KlbTrail.gpx */,
+				22D2316D1AFFF28B0019EF15 /* Felsenpfad.gpx */,
+				22D231701AFFF28B0019EF15 /* NrideHom-3.gpx */,
+				22D231711AFFF28B0019EF15 /* pur-blau-gpx.gpx */,
+				22D231721AFFF28B0019EF15 /* pur-gruen-gpx.gpx */,
+			);
+			name = SampleFiles;
+			sourceTree = "<group>";
+		};
 		22F934C519DD5E5B00996122 = {
 			isa = PBXGroup;
 			children = (
@@ -139,7 +211,7 @@
 		22F934D719DD5E5B00996122 /* ObjcBikeGps */ = {
 			isa = PBXGroup;
 			children = (
-				22F9350A19DD732100996122 /* SampleFiles */,
+				22D2316C1AFFF2770019EF15 /* SampleFiles */,
 				22F934E019DD5E5B00996122 /* PSAppDelegate.h */,
 				22F934E119DD5E5B00996122 /* PSAppDelegate.m */,
 				22F934E619DD5E5B00996122 /* PSViewController.h */,
@@ -152,6 +224,16 @@
 				E5F166C06B79B63DCB75653D /* PSGraphViewController.h */,
 				22AAD3E11AF6CEA900C9492D /* PSDistanceAnnotation.h */,
 				22AAD3E21AF6CEA900C9492D /* PSDistanceAnnotation.m */,
+				E5F16894BC25953F932B2F87 /* PSMapViewController.m */,
+				E5F16BC618CDE2FDB64A040D /* PSMapViewController.h */,
+				22B125591B00028E0027DD9A /* PSLocationManager.h */,
+				22B1255A1B00028E0027DD9A /* PSLocationManager.m */,
+				E5F164D40F9565AD55DD90C5 /* PSTrack.m */,
+				E5F16B5892063D6867557AFF /* PSTrack.h */,
+				E5F16C8FC429FFB94D53B8B3 /* PSTrackList.m */,
+				E5F16D5BDFA28CCC660617AD /* PSTrackList.h */,
+				E5F16D91F6134101B4D5B0C9 /* PSTrackStore.m */,
+				E5F16458DDF465B9982ED7C4 /* PSTrackStore.h */,
 			);
 			path = ObjcBikeGps;
 			sourceTree = "<group>";
@@ -183,16 +265,6 @@
 				22F934F919DD5E5B00996122 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		22F9350A19DD732100996122 /* SampleFiles */ = {
-			isa = PBXGroup;
-			children = (
-				22F9350B19DD732A00996122 /* N´rideHom-3.gpx */,
-				22F9350C19DD732A00996122 /* N´rideHom-2.gpx */,
-				22F9350D19DD732B00996122 /* N´rideHom.gpx */,
-			);
-			name = SampleFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,11 +346,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22F9350E19DD732B00996122 /* N´rideHom-3.gpx in Resources */,
-				22F9350F19DD732B00996122 /* N´rideHom-2.gpx in Resources */,
+				22B125611B0005570027DD9A /* Schwarzenberg4.gpx in Resources */,
+				22D231761AFFF28B0019EF15 /* NrideHom-3.gpx in Resources */,
+				22D231771AFFF28B0019EF15 /* pur-blau-gpx.gpx in Resources */,
+				22D231841AFFFE690019EF15 /* Dudweiler1.gpx in Resources */,
+				22B1256D1B00113F0027DD9A /* Schwarzenberg12.gpx in Resources */,
+				22D231801AFFFD840019EF15 /* AmHomburg1.gpx in Resources */,
+				22D2317C1AFFF69A0019EF15 /* Schwarzenberg1.gpx in Resources */,
+				22B125691B0007D30027DD9A /* Schwarzenberg10.gpx in Resources */,
+				22B1256C1B00113F0027DD9A /* Schwarzenberg11.gpx in Resources */,
+				22B1255F1B00054D0027DD9A /* Schwarzenberg6.gpx in Resources */,
+				22B125631B0006D00027DD9A /* Schwarzenberg7.gpx in Resources */,
+				22D2317A1AFFF5880019EF15 /* KlbTrail.gpx in Resources */,
 				22F934EA19DD5E5B00996122 /* Images.xcassets in Resources */,
-				22F9351019DD732B00996122 /* N´rideHom.gpx in Resources */,
 				22F934DC19DD5E5B00996122 /* InfoPlist.strings in Resources */,
+				22B125671B0007470027DD9A /* Schwarzenberg9.gpx in Resources */,
+				22D231821AFFFD8B0019EF15 /* Schwarzenberg3.gpx in Resources */,
+				22B125661B0007470027DD9A /* Schwarzenberg8.gpx in Resources */,
+				22B1255E1B00054D0027DD9A /* Schwarzenberg5.gpx in Resources */,
+				22D2317E1AFFF73A0019EF15 /* Schwarzenberg2.gpx in Resources */,
+				22D231781AFFF28B0019EF15 /* pur-gruen-gpx.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,11 +418,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				22AAD3E31AF6CEA900C9492D /* PSDistanceAnnotation.m in Sources */,
+				22B1255B1B00028E0027DD9A /* PSLocationManager.m in Sources */,
 				22F934DE19DD5E5B00996122 /* main.m in Sources */,
 				22F934E819DD5E5B00996122 /* PSViewController.m in Sources */,
 				22F934E219DD5E5B00996122 /* PSAppDelegate.m in Sources */,
 				E5F163365A77926C4AF5CA54 /* PSGpxParser.m in Sources */,
 				E5F1645416730CCBD86C0E31 /* PSGraphViewController.m in Sources */,
+				E5F16B120607C41DEB8D16B4 /* PSMapViewController.m in Sources */,
+				E5F16E7AB10EB123356C1B2A /* PSTrack.m in Sources */,
+				E5F166051E8262FB29BB9D8C /* PSTrackList.m in Sources */,
+				E5F1601EFD6DF91305B89379 /* PSTrackStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

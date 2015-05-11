@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpsies="http://www.gpsies.com/GPX/1/0" creator="GPSies http://www.gpsies.com - Schwarzenberg 11" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.gpsies.com/GPX/1/0 http://www.gpsies.com/gpsies.xsd">
+  <metadata>
+    <name>Schwarzenberg 11</name>
+    <author>
+      <name>phschneider</name>
+      <link href="http://www.gpsies.com/mapUser.do?username=phschneider">
+        <text>phschneider on GPSies.com</text>
+        <type>GPSiesUserOnWeb</type>
+      </link>
+    </author>
+    <link href="http://www.gpsies.com/map.do?fileId=eplplfhjfghrgcca">
+      <text>Schwarzenberg 11 on GPSies.com</text>
+      <type>trackOnWeb</type>
+    </link>
+    <time>2015-05-10T23:41:50Z</time>
+    <extensions>
+      <gpsies:property>one-way trip</gpsies:property>
+      <gpsies:trackLengthMeter>456.9762900329593</gpsies:trackLengthMeter>
+      <gpsies:totalAscentMeter>11.0</gpsies:totalAscentMeter>
+      <gpsies:totalDescentMeter>8.0</gpsies:totalDescentMeter>
+      <gpsies:minHeightMeter>350.0</gpsies:minHeightMeter>
+      <gpsies:maxHeightMeter>360.0</gpsies:maxHeightMeter>
+    </extensions>
+  </metadata>
+  <trk>
+    <name>Schwarzenberg 11 on GPSies.com</name>
+    <link href="http://www.gpsies.com/map.do?fileId=eplplfhjfghrgcca">
+      <type>trackOnWeb</type>
+    </link>
+    <link href="http://www.gpsies.com/charts/ep/map/eplplfhjfghrgcca_map.png">
+      <type>elevationChartUrlMap</type>
+    </link>
+    <link href="http://www.gpsies.com/charts/ep/mapThumb/eplplfhjfghrgcca_mapThumb.png">
+      <type>elevationChartUrlMapThumb</type>
+    </link>
+    <link href="http://www.gpsies.com/charts/ep/tab/eplplfhjfghrgcca_tab.png">
+      <type>elevationChartUrlTab</type>
+    </link>
+    <trkseg>
+      <trkpt lat="49.23835020" lon="7.044532290">
+        <ele>350.00000</ele>
+        <time>2010-01-01T00:00:00Z</time>
+      </trkpt>
+      <trkpt lat="49.23835000" lon="7.044530000">
+        <ele>350.00000</ele>
+        <time>2010-01-01T00:00:00Z</time>
+      </trkpt>
+      <trkpt lat="49.23857000" lon="7.045190000">
+        <ele>355.00000</ele>
+        <time>2010-01-01T00:00:19Z</time>
+      </trkpt>
+      <trkpt lat="49.23875000" lon="7.045510000">
+        <ele>356.00000</ele>
+        <time>2010-01-01T00:00:30Z</time>
+      </trkpt>
+      <trkpt lat="49.23892000" lon="7.046020000">
+        <ele>358.00000</ele>
+        <time>2010-01-01T00:00:45Z</time>
+      </trkpt>
+      <trkpt lat="49.23901000" lon="7.046700000">
+        <ele>358.00000</ele>
+        <time>2010-01-01T00:01:03Z</time>
+      </trkpt>
+      <trkpt lat="49.23962000" lon="7.047330000">
+        <ele>360.00000</ele>
+        <time>2010-01-01T00:01:33Z</time>
+      </trkpt>
+      <trkpt lat="49.24010000" lon="7.047950000">
+        <ele>360.00000</ele>
+        <time>2010-01-01T00:01:58Z</time>
+      </trkpt>
+      <trkpt lat="49.24057000" lon="7.048770000">
+        <ele>355.00000</ele>
+        <time>2010-01-01T00:02:26Z</time>
+      </trkpt>
+      <trkpt lat="49.24088000" lon="7.049260000">
+        <ele>353.00000</ele>
+        <time>2010-01-01T00:02:44Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
+

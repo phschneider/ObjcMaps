@@ -1,0 +1,321 @@
+//
+// Created by Philip Schneider on 10.05.15.
+// Copyright (c) 2015 phschneider.net. All rights reserved.
+//
+
+#import <XMLDictionary/XMLDictionary.h>
+#import <MapKit/MapKit.h>
+#import "PSTrack.h"
+#import "PSDistanceAnnotation.h"
+
+
+@interface PSTrack()
+@property (nonatomic) NSString *filename;
+@property (nonatomic) MKMapPoint *pointArr;
+@property (nonatomic) CLLocationCoordinate2D *pointsCoordinate;
+@property (nonatomic) int pointArrCount;
+@property (nonatomic) NSMutableDictionary *distanceAnnotationsDict;
+@end
+
+
+@implementation PSTrack
+
+- (instancetype)initWithFilename:(NSString*)filename
+{
+    self = [super init];
+    if (self)
+    {
+        self.filename = filename;
+        [self parseElevationFile];
+    }
+    return self;
+}
+
+
+- (NSString*)filepath
+{
+    return [[NSBundle mainBundle] pathForResource:self.filename ofType:@"gpx"];
+}
+
+
+- (void) parseElevationFile
+{
+    NSData *data = [NSData dataWithContentsOfFile:[self filepath]];
+    if (data)
+    {
+        NSDictionary *routingDict = [NSDictionary dictionaryWithXMLData:data];
+//        NSLog(@"routingDict  %@", routingDict);
+        NSArray *trek = [[[routingDict objectForKey:@"trk"] objectForKey:@"trkseg"] objectForKey:@"trkpt"];
+
+        NSMutableArray *elevatioNData = [[NSMutableArray alloc] initWithCapacity:[trek count]];
+        self.distanceAnnotationsDict = [[NSMutableDictionary alloc] initWithCapacity:[trek count]];
+
+        self.pointsCoordinate = (CLLocationCoordinate2D *)malloc(sizeof(CLLocationCoordinate2D) * [trek count]);
+
+        CLLocation* Location1;
+        CLLocation *tmpLocation;
+        CLLocationDistance distance = 0.0;
+
+        int pointArrCount = 0;  //it's simpler to keep a separate index for pointArr
+        CGFloat minHeight = 0.0;
+        CGFloat maxHeight = 0.0;
+
+        self.totalDown = 0.0;
+        self.totalUp = 0.0;
+
+        CGFloat tmpElevation = 0.0;
+
+        for (NSDictionary * pointDict in trek)
+        {
+
+            CGFloat lat = [[pointDict objectForKey:@"_lat"] doubleValue];
+            CGFloat lon = [[pointDict objectForKey:@"_lon"] doubleValue];
+
+            CLLocationCoordinate2D workingCoordinate = CLLocationCoordinate2DMake(lat, lon);
+            self.pointsCoordinate[pointArrCount] = workingCoordinate;
+
+            CGFloat elevation = [[pointDict objectForKey:@"ele"] doubleValue];
+            if (pointArrCount > 0)
+            {
+                if (elevation < minHeight)
+                {
+                    minHeight = elevation;
+                }
+                if (elevation > maxHeight)
+                {
+                    maxHeight = elevation;
+                }
+
+                // Die StartHöhe darf nicht berücksichtigt werden ...
+                // Hier sind 234m zuviel berechnet ...
+                if (elevation > tmpElevation)
+                {
+                    self.totalUp += (elevation-tmpElevation);
+                }
+                else if (elevation < tmpElevation)
+                {
+                    self.totalDown += (tmpElevation-elevation);
+                }
+            }
+            else
+            {
+                // Passt!!!
+                minHeight = elevation;
+                maxHeight = elevation;
+            }
+
+
+
+            tmpElevation = elevation;
+            //            NSLog(@"Coordinate = %f %f  ELEVATION %f TIME %@", workingCoordinate.latitude, workingCoordinate.longitude,[[pointDict objectForKey:@"ele"] doubleValue], [pointDict objectForKey:@"time"]);
+
+            // Distance
+            tmpLocation = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
+            //            if (pointArrIndex > 0)
+            //            {
+
+            // Passt nicht ...
+            distance += [tmpLocation distanceFromLocation:Location1];
+//            NSLog(@"Distance = %f", distance);
+            int dist = (distance / 1000);
+            if (dist %1 == 0)
+            {
+                NSString *key = [NSString stringWithFormat:@"%d", dist];
+                if (![[self.distanceAnnotationsDict allKeys] containsObject:key])
+                {
+//                    NSLog(@"ADDED %d", dist);
+                    PSDistanceAnnotation *annotation = [[PSDistanceAnnotation alloc] initWithCoordinate:[tmpLocation coordinate] title:key];
+
+                    [self.distanceAnnotationsDict setObject:annotation forKey:key];
+                }
+            }
+
+            //            }
+            Location1 = tmpLocation;
+            [elevatioNData addObject:[NSNumber numberWithFloat:tmpElevation]];
+            pointArrCount++;
+        }
+
+        self.distance = (float) distance;
+        self.pointArrCount = pointArrCount;
+//        [self.graphViewController setData:elevatioNData];
+        NSLog(@"MinHeight = %f", minHeight);
+        NSLog(@"MaxHeight = %f", maxHeight);
+
+        NSLog(@"TotalUp = %f", self.totalUp);
+        NSLog(@"TotalDown = %f", self.totalDown);
+        NSLog(@"Distance = %f", self.distance);
+    }
+    else
+    {
+        NSLog(@"No Data for %@", [self filepath]);
+    }
+}
+
+
+- (void) parseFile
+{
+    NSData *data = [NSData dataWithContentsOfFile:[self filepath]];
+    if (data)
+    {
+        NSDictionary *routingDict = [NSDictionary dictionaryWithXMLData:data];
+        NSArray *trek = [[[routingDict objectForKey:@"trk"] objectForKey:@"trkseg"] objectForKey:@"trkpt"];
+
+        int pointCount = [trek count];
+
+        self.pointArr = malloc(sizeof(CLLocationCoordinate2D) * pointCount);
+        CLLocation *Location1;
+        CLLocation *tmpLocation;
+        CLLocationDistance distance = 0.0;
+
+        int pointArrIndex = 0;  //it's simpler to keep a separate index for pointArr
+        CGFloat minHeight = 0.0;
+        CGFloat maxHeight = 0.0;
+
+        CGFloat totalUp = 0.0;
+        CGFloat totalDown = 0.0;
+
+        CGFloat tmpElevation = 0.0;
+
+        for (NSDictionary *pointDict in trek)
+        {
+            CLLocationCoordinate2D workingCoordinate;
+            CGFloat lat = [[pointDict objectForKey:@"_lat"] doubleValue];
+            CGFloat lon = [[pointDict objectForKey:@"_lon"] doubleValue];
+
+            workingCoordinate.latitude = lat;
+            workingCoordinate.longitude = lon;
+
+            CGFloat elevation = [[pointDict objectForKey:@"ele"] doubleValue];
+            if (pointArrIndex > 0)
+            {
+                if (elevation < minHeight)
+                {
+                    minHeight = elevation;
+                }
+                if (elevation > maxHeight)
+                {
+                    maxHeight = elevation;
+                }
+
+                // Die StartHöhe darf nicht berücksichtigt werden ...
+                // Hier sind 234m zuviel berechnet ...
+                if (elevation > tmpElevation)
+                {
+                    totalUp += (elevation - tmpElevation);
+                }
+                else if (elevation < tmpElevation)
+                {
+                    totalDown += (tmpElevation - elevation);
+                }
+            }
+            else
+            {
+                // Passt!!!
+                minHeight = elevation;
+                maxHeight = elevation;
+            }
+
+
+            tmpElevation = elevation;
+            NSLog(@"Coordinate = %f %f  ELEVATION %f TIME %@", workingCoordinate.latitude, workingCoordinate.longitude,[[pointDict objectForKey:@"ele"] doubleValue], [pointDict objectForKey:@"time"]);
+
+            // Distance
+            tmpLocation = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
+//            if (pointArrIndex > 0)
+//            {
+
+            // Passt nicht ...
+            distance += [tmpLocation distanceFromLocation:Location1];
+//                NSLog(@"Distance = %f", distance);
+//            }
+            Location1 = tmpLocation;
+
+            MKMapPoint point = MKMapPointForCoordinate(workingCoordinate);
+            self.pointArr[pointArrIndex] = point;
+            pointArrIndex++;
+        }
+        self.pointArrCount = pointCount;
+    }
+}
+
+
+- (int) numberOfCoordinates
+{
+    return self.pointArrCount;
+}
+
+
+- (CLLocationCoordinate2D*)coordinates
+{
+    return self.pointsCoordinate;
+}
+
+
+- (NSString*)distanceInKm
+{
+    return [NSString stringWithFormat:@"%0.2fkm",(self.distance / 1000.00)];
+}
+
+
+- (MKPolyline *)route
+{
+//    return [MKPolyline polylineWithPoints:self.pointArr count:self.pointArrCount];
+
+    return  [MKPolyline polylineWithCoordinates:self.pointsCoordinate count:self.pointArrCount];
+}
+
+
+- (CGFloat)distanceFromLocation:(CLLocation *)location
+{
+    CLLocationCoordinate2D annocoord =  MKCoordinateForMapPoint([self start]);
+    CLLocationCoordinate2D usercoord = location.coordinate;
+
+    NSLog(@"ANNO  = %f, %f", annocoord.latitude, annocoord.longitude);
+    NSLog(@"USER = %f, %f", usercoord.latitude, usercoord.longitude);
+
+    CLLocation *loc = [[CLLocation alloc] initWithLatitude:annocoord.latitude longitude:annocoord.longitude];
+    CLLocation *loc2 = [[CLLocation alloc] initWithLatitude:usercoord.latitude longitude:usercoord.longitude];
+
+    NSLog(@"LOC  = %f, %f", loc.coordinate.latitude,  loc.coordinate.longitude);
+    NSLog(@"LOC2 = %f, %f", loc2.coordinate.latitude, loc2.coordinate.longitude);
+
+    CLLocationDistance dist = [loc distanceFromLocation:loc2];
+
+    NSLog(@"DIST: %f", dist); // Wrong formatting may show wrong value!
+    return dist;
+}
+
+
+- (MKMapPoint)start
+{
+    return MKMapPointForCoordinate(self.pointsCoordinate[0]);
+
+//    MKMapPoint point = MKMapPointForCoordinate(workingCoordinate);
+//
+//    return point;
+}
+
+
+- (MKMapPoint)finish
+{
+    return MKMapPointForCoordinate(self.pointsCoordinate[self.pointArrCount-1]);
+}
+
+
+- (MKPolylineView *) overlayView
+{
+    MKPolylineView  *routeLineView = [[MKPolylineView alloc] initWithPolyline:[self route]];
+    routeLineView.fillColor = [UIColor redColor];
+    routeLineView.strokeColor = [UIColor redColor];
+    routeLineView.lineWidth = 5;
+    return routeLineView;
+}
+
+
+- (NSArray *)distanceAnnotations
+{
+    return [[self.distanceAnnotationsDict allValues] copy];
+}
+
+@end

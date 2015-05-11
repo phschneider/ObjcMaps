@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpsies="http://www.gpsies.com/GPX/1/0" creator="GPSies http://www.gpsies.com - Schwarzenberg 2" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.gpsies.com/GPX/1/0 http://www.gpsies.com/gpsies.xsd">
+  <metadata>
+    <name>Schwarzenberg 2</name>
+    <author>
+      <name>phschneider</name>
+      <link href="http://www.gpsies.com/mapUser.do?username=phschneider">
+        <text>phschneider on GPSies.com</text>
+        <type>GPSiesUserOnWeb</type>
+      </link>
+    </author>
+    <link href="http://www.gpsies.com/map.do?fileId=zmhbnpgfpjsigaeb">
+      <text>Schwarzenberg 2 on GPSies.com</text>
+      <type>trackOnWeb</type>
+    </link>
+    <time>2015-05-10T22:29:34Z</time>
+    <extensions>
+      <gpsies:property>one-way trip</gpsies:property>
+      <gpsies:trackLengthMeter>824.6361754858275</gpsies:trackLengthMeter>
+      <gpsies:totalAscentMeter>0.0</gpsies:totalAscentMeter>
+      <gpsies:totalDescentMeter>67.0</gpsies:totalDescentMeter>
+      <gpsies:minHeightMeter>275.0</gpsies:minHeightMeter>
+      <gpsies:maxHeightMeter>342.0</gpsies:maxHeightMeter>
+    </extensions>
+  </metadata>
+  <trk>
+    <name>Schwarzenberg 2 on GPSies.com</name>
+    <link href="http://www.gpsies.com/map.do?fileId=zmhbnpgfpjsigaeb">
+      <type>trackOnWeb</type>
+    </link>
+    <link href="http://www.gpsies.com/charts/zm/map/zmhbnpgfpjsigaeb_map.png">
+      <type>elevationChartUrlMap</type>
+    </link>
+    <link href="http://www.gpsies.com/charts/zm/mapThumb/zmhbnpgfpjsigaeb_mapThumb.png">
+      <type>elevationChartUrlMapThumb</type>
+    </link>
+    <link href="http://www.gpsies.com/charts/zm/tab/zmhbnpgfpjsigaeb_tab.png">
+      <type>elevationChartUrlTab</type>
+    </link>
+    <trkseg>
+      <trkpt lat="49.24269310" lon="7.036700240">
+        <ele>342.00000</ele>
+        <time>2010-01-01T00:00:00Z</time>
+      </trkpt>
+      <trkpt lat="49.24270000" lon="7.036700000">
+        <ele>342.00000</ele>
+        <time>2010-01-01T00:00:00Z</time>
+      </trkpt>
+      <trkpt lat="49.24270000" lon="7.036640000">
+        <ele>342.00000</ele>
+        <time>2010-01-01T00:00:01Z</time>
+      </trkpt>
+      <trkpt lat="49.24176000" lon="7.035610000">
+        <ele>329.00000</ele>
+        <time>2010-01-01T00:00:48Z</time>
+      </trkpt>
+      <trkpt lat="49.24059000" lon="7.033880000">
+        <ele>315.00000</ele>
+        <time>2010-01-01T00:01:53Z</time>
+      </trkpt>
+      <trkpt lat="49.24060000" lon="7.033870000">
+        <ele>315.00000</ele>
+        <time>2010-01-01T00:01:53Z</time>
+      </trkpt>
+      <trkpt lat="49.23977000" lon="7.033340000">
+        <ele>305.00000</ele>
+        <time>2010-01-01T00:02:29Z</time>
+      </trkpt>
+      <trkpt lat="49.23931000" lon="7.033170000">
+        <ele>297.00000</ele>
+        <time>2010-01-01T00:02:48Z</time>
+      </trkpt>
+      <trkpt lat="49.23814000" lon="7.032150000">
+        <ele>285.00000</ele>
+        <time>2010-01-01T00:03:42Z</time>
+      </trkpt>
+      <trkpt lat="49.23753000" lon="7.031480000">
+        <ele>282.00000</ele>
+        <time>2010-01-01T00:04:12Z</time>
+      </trkpt>
+      <trkpt lat="49.23715000" lon="7.030900000">
+        <ele>277.00000</ele>
+        <time>2010-01-01T00:04:34Z</time>
+      </trkpt>
+      <trkpt lat="49.23712000" lon="7.030740000">
+        <ele>276.00000</ele>
+        <time>2010-01-01T00:04:38Z</time>
+      </trkpt>
+      <trkpt lat="49.23711000" lon="7.030580000">
+        <ele>275.00000</ele>
+        <time>2010-01-01T00:04:42Z</time>
+      </trkpt>
+      <trkpt lat="49.23716000" lon="7.030300000">
+        <ele>275.00000</ele>
+        <time>2010-01-01T00:04:50Z</time>
+      </trkpt>
+      <trkpt lat="49.23721000" lon="7.030210000">
+        <ele>275.00000</ele>
+        <time>2010-01-01T00:04:53Z</time>
+      </trkpt>
+      <trkpt lat="49.23724000" lon="7.030080000">
+        <ele>275.00000</ele>
+        <time>2010-01-01T00:04:56Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
+

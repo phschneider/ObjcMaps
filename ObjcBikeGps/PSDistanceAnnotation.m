@@ -10,4 +10,16 @@
 
 @implementation PSDistanceAnnotation
 
+- (id) initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString*)title
+{
+    self = [super init];
+    if (self)
+    {
+        _title = title;
+        _coordinate = coordinate;
+    }
+    return self;
+}
+
+
 @end
