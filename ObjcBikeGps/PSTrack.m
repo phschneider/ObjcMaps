@@ -10,6 +10,8 @@
 
 
 @interface PSTrack()
+@property (nonatomic) CGFloat totalDown;
+@property (nonatomic) CGFloat totalUp;
 @property (nonatomic) NSString *filename;
 @property (nonatomic) MKMapPoint *pointArr;
 @property (nonatomic) CLLocationCoordinate2D *pointsCoordinate;
@@ -25,8 +27,20 @@
     self = [super init];
     if (self)
     {
+        self.trackType = PSTrackTypeUnknown;
         self.filename = filename;
         [self parseElevationFile];
+    }
+    return self;
+}
+
+
+- (instancetype)initWithFilename:(NSString *)filename trackType:(PSTrackType)trackType
+{
+    self = [self initWithFilename:filename];
+    if (self)
+    {
+        self.trackType = trackType;
     }
     return self;
 }
@@ -243,8 +257,8 @@
 - (int) numberOfCoordinates
 {
     return self.pointArrCount;
-}
 
+}
 
 - (CLLocationCoordinate2D*)coordinates
 {
@@ -316,6 +330,19 @@
 - (NSArray *)distanceAnnotations
 {
     return [[self.distanceAnnotationsDict allValues] copy];
+}
+
+
+- (NSString*)roundedUp
+{
+    DLogFuncName();
+    return [NSString stringWithFormat:@"%0.0fm",self.totalUp];
+}
+
+- (NSString*)roundedDown
+{
+    DLogFuncName();
+    return [NSString stringWithFormat:@"%0.0fm",self.totalDown];
 }
 
 @end

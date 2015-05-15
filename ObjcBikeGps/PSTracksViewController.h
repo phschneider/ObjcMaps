@@ -6,5 +6,5 @@
 #import <Foundation/Foundation.h>
 
 
-@interface PSTrackList : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface PSTracksViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @end

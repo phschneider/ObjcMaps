@@ -50,7 +50,17 @@
     NSMutableArray *tracks = [[NSMutableArray alloc] init];
     for (NSURL *url in [dirContents filteredArrayUsingPredicate:fltr])
     {
-        PSTrack *track = [[PSTrack alloc] initWithFilename:[[[url absoluteString] lastPathComponent] stringByReplacingOccurrencesOfString:@".gpx" withString:@""]];
+        PSTrack *track = nil;
+        NSString *filename = [[[url absoluteString] lastPathComponent] stringByReplacingOccurrencesOfString:@".gpx" withString:@""];
+        if ([[filename lowercaseString] rangeOfString:@"trail"].location != NSNotFound)
+        {
+            track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeTrail];
+        }
+        else
+        {
+            track = [[PSTrack alloc] initWithFilename:filename];
+        }
+
         [self willChangeValueForKey:@"tracks"];
         [self.tracks insertObject:track atIndex:[_tracks count]];
         [self didChangeValueForKey:@"tracks"];

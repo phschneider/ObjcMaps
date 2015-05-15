@@ -9,7 +9,7 @@
 #import "PSAppDelegate.h"
 #import "PSViewController.h"
 #import "PSMapViewController.h"
-#import "PSTrackList.h"
+#import "PSTracksViewController.h"
 #import "PSTrackStore.h"
 
 
@@ -27,7 +27,7 @@
     [PSTrackStore sharedInstance];
 
 //    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[PSMapViewController alloc] init]];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[PSTrackList alloc] init]];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[PSTracksViewController alloc] init]];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = navigationController;
 

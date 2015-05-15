@@ -3,19 +3,21 @@
 // Copyright (c) 2015 phschneider.net. All rights reserved.
 //
 
-#import "PSTrackList.h"
+#import "PSTracksViewController.h"
 #import "PSTrack.h"
 #import "PSTrackStore.h"
 #import "PSMapViewController.h"
 
 
-@interface PSTrackList ()
+@interface PSTracksViewController ()
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) NSMutableArray *tracks;
+@property (nonatomic) MKMapView *mapView;
+@property (nonatomic) PSMapViewController *mapViewController;
 @end
 
 
-@implementation PSTrackList
+@implementation PSTracksViewController
 
 - (instancetype)init
 {
@@ -31,9 +33,42 @@
 
         [self.view addSubview:self.tableView];
 
+
         [[PSTrackStore sharedInstance] addObserver:self forKeyPath:@"tracks" options:NSKeyValueObservingOptionNew context:nil];
+
+
+        UISegmentedControl *viewSwitcher = [[UISegmentedControl alloc] initWithItems: @[ [UIImage imageNamed:@"854-list-toolbar-selected"],[UIImage imageNamed:@"852-map-toolbar"]]];
+        [viewSwitcher setSelectedSegmentIndex:0];
+        [viewSwitcher addTarget:self action:@selector(viewSwitched:) forControlEvents:UIControlEventValueChanged];
+        viewSwitcher.segmentedControlStyle = UISegmentedControlStyleBordered;
+        self.navigationItem.titleView = viewSwitcher;
     }
     return self;
+}
+
+
+- (void)viewSwitched:(UISegmentedControl*)segmentedControl
+{
+    if (segmentedControl.selectedSegmentIndex == 0)
+    {
+        self.tableView.hidden = NO;
+
+        self.mapView.hidden = YES;
+        if (self.mapView)
+        {
+            [self.mapView removeFromSuperview];
+            self.mapViewController = nil;
+        }
+    }
+    else
+    {
+        self.tableView.hidden = YES;
+
+        self.mapViewController = [[PSMapViewController alloc] initWithTracks:self.tracks];
+        self.mapView = self.mapViewController.mapView;
+        self.mapView.hidden = NO;
+        [self.view addSubview:self.mapView];
+    }
 }
 
 
@@ -72,7 +107,7 @@
     UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     PSTrack *track = [self.tracks objectAtIndex:indexPath.row];
     cell.textLabel.text = [track filename];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"distace: %@ up: %0.2fm down: %.2fm", [track distanceInKm], [track totalUp], [track totalDown]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"distace: %@  %@ down: %@", [track distanceInKm], [track roundedUp], [track roundedDown]];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     return cell;
@@ -83,8 +118,7 @@
 {
     PSTrack *track = [self.tracks objectAtIndex:indexPath.row];
 
-//    PSMapViewController *mapViewController = [[PSMapViewController alloc] initWithTrack:track];
-    PSMapViewController *mapViewController = [[PSMapViewController alloc] initWithTracks:self.tracks];
+    PSMapViewController *mapViewController = [[PSMapViewController alloc] initWithTrack:track];
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
