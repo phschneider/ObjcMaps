@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-DZNSegmentedControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-XMLDictionary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>09D1335D75C24A17AB768890</key>
+		<key>2D694DD818384E84BECAC15D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>60C877B3085D4FB398C6C596</key>
+		<key>7C901522B1A84EBBA9679DC6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>92922DCEB89F4348956B1E18</key>
+		<key>89F017CBC3C0420CB4252E58</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FBDC977CC8854B1485DFFA9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

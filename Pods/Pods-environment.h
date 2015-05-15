@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_BEMSimpleLineGraph 1
 #define COCOAPODS_VERSION_PATCH_BEMSimpleLineGraph 0
 
+// DZNSegmentedControl
+#define COCOAPODS_POD_AVAILABLE_DZNSegmentedControl
+#define COCOAPODS_VERSION_MAJOR_DZNSegmentedControl 1
+#define COCOAPODS_VERSION_MINOR_DZNSegmentedControl 2
+#define COCOAPODS_VERSION_PATCH_DZNSegmentedControl 2
+
 // XMLDictionary
 #define COCOAPODS_POD_AVAILABLE_XMLDictionary
 #define COCOAPODS_VERSION_MAJOR_XMLDictionary 1

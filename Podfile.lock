@@ -1,13 +1,16 @@
 PODS:
   - BEMSimpleLineGraph (3.1)
+  - DZNSegmentedControl (1.2.2)
   - XMLDictionary (1.4)
 
 DEPENDENCIES:
   - BEMSimpleLineGraph
+  - DZNSegmentedControl (= 1.2.2)
   - XMLDictionary (= 1.4)
 
 SPEC CHECKSUMS:
   BEMSimpleLineGraph: 54e5f9fbcad282b464b9425abf215f95fa43c9f2
+  DZNSegmentedControl: 8a7fdd743672742c692106f4456aaede10d43131
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
 COCOAPODS: 0.33.1

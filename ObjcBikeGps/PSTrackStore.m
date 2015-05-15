@@ -56,6 +56,10 @@
         {
             track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeTrail];
         }
+        else if ([[filename lowercaseString] rangeOfString:@"route"].location != NSNotFound)
+        {
+            track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeRoundTrip];
+        }
         else
         {
             track = [[PSTrack alloc] initWithFilename:filename];

@@ -5,6 +5,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class DZNSegmentedControl;
+
 
 @interface PSTracksViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @end
