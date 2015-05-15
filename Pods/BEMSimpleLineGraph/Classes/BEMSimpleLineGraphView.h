@@ -65,8 +65,8 @@
 - (void)reloadGraph;
 
 
-/** Calculates the distance between the touch input and the closest point on the graph.
- @return The distance between the touch input and the closest point on the graph. */
+/** Calculates the trackLength between the touch input and the closest point on the graph.
+ @return The trackLength between the touch input and the closest point on the graph. */
 - (CGFloat)distanceToClosestPoint;
 
 

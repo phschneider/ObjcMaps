@@ -16,6 +16,9 @@
 		226337A81B065A4B00CEBD55 /* 854-list-toolbar-selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337A51B065A4B00CEBD55 /* 854-list-toolbar-selected@2x.png */; };
 		226337A91B065A4B00CEBD55 /* 854-list-toolbar-selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337A61B065A4B00CEBD55 /* 854-list-toolbar-selected@3x.png */; };
 		226337AB1B065A5F00CEBD55 /* 852-map-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337AA1B065A5F00CEBD55 /* 852-map-toolbar@3x.png */; };
+		226337AF1B06B58F00CEBD55 /* 798-filter-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337AC1B06B58F00CEBD55 /* 798-filter-toolbar.png */; };
+		226337B01B06B58F00CEBD55 /* 798-filter-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337AD1B06B58F00CEBD55 /* 798-filter-toolbar@2x.png */; };
+		226337B11B06B58F00CEBD55 /* 798-filter-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337AE1B06B58F00CEBD55 /* 798-filter-toolbar@3x.png */; };
 		22AAD3E31AF6CEA900C9492D /* PSDistanceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AAD3E21AF6CEA900C9492D /* PSDistanceAnnotation.m */; };
 		22B1255B1B00028E0027DD9A /* PSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B1255A1B00028E0027DD9A /* PSLocationManager.m */; };
 		22B1255E1B00054D0027DD9A /* Trail-Schwarzenberg5.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B1255C1B00054D0027DD9A /* Trail-Schwarzenberg5.gpx */; };
@@ -81,6 +84,9 @@
 		226337A51B065A4B00CEBD55 /* 854-list-toolbar-selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "854-list-toolbar-selected@2x.png"; sourceTree = "<group>"; };
 		226337A61B065A4B00CEBD55 /* 854-list-toolbar-selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "854-list-toolbar-selected@3x.png"; sourceTree = "<group>"; };
 		226337AA1B065A5F00CEBD55 /* 852-map-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "852-map-toolbar@3x.png"; sourceTree = "<group>"; };
+		226337AC1B06B58F00CEBD55 /* 798-filter-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "798-filter-toolbar.png"; sourceTree = "<group>"; };
+		226337AD1B06B58F00CEBD55 /* 798-filter-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "798-filter-toolbar@2x.png"; sourceTree = "<group>"; };
+		226337AE1B06B58F00CEBD55 /* 798-filter-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "798-filter-toolbar@3x.png"; sourceTree = "<group>"; };
 		22AAD3E11AF6CEA900C9492D /* PSDistanceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDistanceAnnotation.h; sourceTree = "<group>"; };
 		22AAD3E21AF6CEA900C9492D /* PSDistanceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDistanceAnnotation.m; sourceTree = "<group>"; };
 		22B125591B00028E0027DD9A /* PSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSLocationManager.h; sourceTree = "<group>"; };
@@ -169,6 +175,9 @@
 		226337991B06587100CEBD55 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				226337AC1B06B58F00CEBD55 /* 798-filter-toolbar.png */,
+				226337AD1B06B58F00CEBD55 /* 798-filter-toolbar@2x.png */,
+				226337AE1B06B58F00CEBD55 /* 798-filter-toolbar@3x.png */,
 				2263379A1B06587A00CEBD55 /* 852-map-toolbar.png */,
 				2263379B1B06587A00CEBD55 /* 852-map-toolbar@2x.png */,
 				226337AA1B065A5F00CEBD55 /* 852-map-toolbar@3x.png */,
@@ -397,12 +406,15 @@
 				2263379C1B06587A00CEBD55 /* 852-map-toolbar.png in Resources */,
 				22B1255F1B00054D0027DD9A /* Trail-Schwarzenberg6.gpx in Resources */,
 				22B125631B0006D00027DD9A /* Trail-Schwarzenberg7.gpx in Resources */,
+				226337B01B06B58F00CEBD55 /* 798-filter-toolbar@2x.png in Resources */,
 				22D2317A1AFFF5880019EF15 /* Trail-KlbTrail.gpx in Resources */,
+				226337B11B06B58F00CEBD55 /* 798-filter-toolbar@3x.png in Resources */,
 				226337A91B065A4B00CEBD55 /* 854-list-toolbar-selected@3x.png in Resources */,
 				22F934EA19DD5E5B00996122 /* Images.xcassets in Resources */,
 				22F934DC19DD5E5B00996122 /* InfoPlist.strings in Resources */,
 				22B125671B0007470027DD9A /* Trail-Schwarzenberg9.gpx in Resources */,
 				226337A21B065A3700CEBD55 /* 1100-list-2-toolbar@2x.png in Resources */,
+				226337AF1B06B58F00CEBD55 /* 798-filter-toolbar.png in Resources */,
 				22D231821AFFFD8B0019EF15 /* Trail-Schwarzenberg3.gpx in Resources */,
 				22B125661B0007470027DD9A /* Trail-Schwarzenberg8.gpx in Resources */,
 				226337A31B065A3700CEBD55 /* 1100-list-2-toolbar@3x.png in Resources */,

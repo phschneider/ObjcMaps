@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_BEMSimpleLineGraph 1
 #define COCOAPODS_VERSION_PATCH_BEMSimpleLineGraph 0
 
+// BFNavigationBarDrawer
+#define COCOAPODS_POD_AVAILABLE_BFNavigationBarDrawer
+#define COCOAPODS_VERSION_MAJOR_BFNavigationBarDrawer 1
+#define COCOAPODS_VERSION_MINOR_BFNavigationBarDrawer 0
+#define COCOAPODS_VERSION_PATCH_BFNavigationBarDrawer 2
+
 // DZNSegmentedControl
 #define COCOAPODS_POD_AVAILABLE_DZNSegmentedControl
 #define COCOAPODS_VERSION_MAJOR_DZNSegmentedControl 1

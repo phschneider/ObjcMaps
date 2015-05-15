@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-BFNavigationBarDrawer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-DZNSegmentedControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2D694DD818384E84BECAC15D</key>
+		<key>0706B3B539C84A16A8B490B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7C901522B1A84EBBA9679DC6</key>
+		<key>79589A2FF2AD4C6ABC7C490B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>89F017CBC3C0420CB4252E58</key>
+		<key>C9724C8729CE47468F206AA9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FBDC977CC8854B1485DFFA9A</key>
+		<key>D3AC54E332C6418388BC40C2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7639AA741744C919510CC47</key>
 		<dict>
 			<key>primary</key>
 			<true/>

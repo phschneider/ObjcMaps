@@ -11,7 +11,10 @@
 @interface PSMapViewController : UIViewController  <MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic) MKMapView *mapView;
+@property (nonatomic) NSArray *tracks;
 
 - (instancetype)initWithTrack:(PSTrack *)track;
 - (instancetype)initWithTracks:(NSArray *)tracks;
+
+- (void)clearMap;
 @end

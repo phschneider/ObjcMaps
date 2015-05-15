@@ -1,15 +1,18 @@
 PODS:
   - BEMSimpleLineGraph (3.1)
+  - BFNavigationBarDrawer (1.0.2)
   - DZNSegmentedControl (1.2.2)
   - XMLDictionary (1.4)
 
 DEPENDENCIES:
   - BEMSimpleLineGraph
+  - BFNavigationBarDrawer
   - DZNSegmentedControl (= 1.2.2)
   - XMLDictionary (= 1.4)
 
 SPEC CHECKSUMS:
   BEMSimpleLineGraph: 54e5f9fbcad282b464b9425abf215f95fa43c9f2
+  BFNavigationBarDrawer: 7114305b2eb64f796aeee63029a037e30bf37a93
   DZNSegmentedControl: 8a7fdd743672742c692106f4456aaede10d43131
   XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0706B3B539C84A16A8B490B3"
-               BuildableName = "libPods-XMLDictionary.a"
-               BlueprintName = "Pods-XMLDictionary"
+               BlueprintIdentifier = "79589A2FF2AD4C6ABC7C490B"
+               BuildableName = "libPods-BFNavigationBarDrawer.a"
+               BlueprintName = "Pods-BFNavigationBarDrawer"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

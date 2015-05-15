@@ -55,99 +55,7 @@
     self = [self init];
     if (self)
     {
-        for (PSTrack *track in tracks)
-        {
-            [self addTrack:track];
-//            [self.mapView addAnnotations:[track distanceAnnotations]];
-        }
-
-
-        MKMapRect zoomRect = MKMapRectNull;
-        for (id <MKAnnotation> annotation in self.mapView.annotations)
-        {
-            MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
-            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 1000);
-            if (MKMapRectIsNull(zoomRect)) {
-                zoomRect = pointRect;
-            } else {
-                zoomRect = MKMapRectUnion(zoomRect, pointRect);
-            }
-
-            double minMapHeight = 10; //choose some value that fit your needs
-            double minMapWidth = 10;  //the same as above
-            BOOL needChange = NO;
-
-            double x = MKMapRectGetMinX(zoomRect);
-            double y = MKMapRectGetMinY(zoomRect);
-            double w = MKMapRectGetWidth(zoomRect);
-            double h = MKMapRectGetHeight(zoomRect);  //here was an error!!
-
-            if(MKMapRectGetHeight(zoomRect) < minMapHeight){
-                x -= minMapWidth/2;
-                w += minMapWidth/2;
-                needChange = YES;
-            }
-            if(MKMapRectGetWidth(zoomRect) < minMapWidth){
-                y -= minMapHeight/2;
-                h += minMapHeight/2;
-                needChange = YES;
-            }
-            if(needChange){
-                zoomRect = MKMapRectMake(x, y, w, h);
-            }
-
-            MKCoordinateRegion mkcr = MKCoordinateRegionForMapRect(zoomRect);
-            CGRect cgr = [self.mapView convertRegion:mkcr toRectToView:self.view];
-            NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
-            [self.mapView setVisibleMapRect:zoomRect animated:YES];
-        }
-       
-        
-        
-        
-        zoomRect = MKMapRectNull;
-        for (id <MKOverlay> overlay in self.mapView.overlays)
-        {
-                        MKMapPoint annotationPoint = MKMapPointForCoordinate(overlay.coordinate);
-                        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 1000);
-                        if (MKMapRectIsNull(zoomRect)) {
-                            zoomRect = pointRect;
-                        } else {
-                            zoomRect = MKMapRectUnion(zoomRect, pointRect);
-                        }
-            
-            double minMapHeight = 10; //choose some value that fit your needs
-            double minMapWidth = 10;  //the same as above
-            BOOL needChange = NO;
-            
-            double x = MKMapRectGetMinX(zoomRect);
-            double y = MKMapRectGetMinY(zoomRect);
-            double w = MKMapRectGetWidth(zoomRect);
-            double h = MKMapRectGetHeight(zoomRect);  //here was an error!!
-            
-            if(MKMapRectGetHeight(zoomRect) < minMapHeight){
-                x -= minMapWidth/2;
-                w += minMapWidth/2;
-                needChange = YES;
-            }
-            if(MKMapRectGetWidth(zoomRect) < minMapWidth){
-                y -= minMapHeight/2;
-                h += minMapHeight/2;
-                needChange = YES;
-            }
-            if(needChange){
-                zoomRect = MKMapRectMake(x, y, w, h);
-            }
-            
-            MKCoordinateRegion mkcr = MKCoordinateRegionForMapRect(zoomRect);
-            CGRect cgr = [self.mapView convertRegion:mkcr toRectToView:self.view];
-            NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
-            [self.mapView setVisibleMapRect:zoomRect animated:YES];
-        }
-        
-
-        
-//        [self.mapView setVisibleMapRect:zoomRect animated:YES];
+        self.tracks = tracks;
     }
     return self;
 }
@@ -175,6 +83,103 @@
 //
 //
 
+
+- (void)setTracks:(NSArray *)tracks
+{
+    _tracks = tracks;
+
+    for (PSTrack *track in tracks)
+    {
+        [self addTrack:track];
+//            [self.mapView addAnnotations:[track distanceAnnotations]];
+    }
+
+
+    MKMapRect zoomRect = MKMapRectNull;
+    for (id <MKAnnotation> annotation in self.mapView.annotations)
+    {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 1000);
+        if (MKMapRectIsNull(zoomRect)) {
+            zoomRect = pointRect;
+        } else {
+            zoomRect = MKMapRectUnion(zoomRect, pointRect);
+        }
+
+        double minMapHeight = 10; //choose some value that fit your needs
+        double minMapWidth = 10;  //the same as above
+        BOOL needChange = NO;
+
+        double x = MKMapRectGetMinX(zoomRect);
+        double y = MKMapRectGetMinY(zoomRect);
+        double w = MKMapRectGetWidth(zoomRect);
+        double h = MKMapRectGetHeight(zoomRect);  //here was an error!!
+
+        if(MKMapRectGetHeight(zoomRect) < minMapHeight){
+            x -= minMapWidth/2;
+            w += minMapWidth/2;
+            needChange = YES;
+        }
+        if(MKMapRectGetWidth(zoomRect) < minMapWidth){
+            y -= minMapHeight/2;
+            h += minMapHeight/2;
+            needChange = YES;
+        }
+        if(needChange){
+            zoomRect = MKMapRectMake(x, y, w, h);
+        }
+
+        MKCoordinateRegion mkcr = MKCoordinateRegionForMapRect(zoomRect);
+        CGRect cgr = [self.mapView convertRegion:mkcr toRectToView:self.view];
+        NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
+        [self.mapView setVisibleMapRect:zoomRect animated:YES];
+    }
+
+
+
+
+    zoomRect = MKMapRectNull;
+    for (id <MKOverlay> overlay in self.mapView.overlays)
+    {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(overlay.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 1000);
+        if (MKMapRectIsNull(zoomRect)) {
+            zoomRect = pointRect;
+        } else {
+            zoomRect = MKMapRectUnion(zoomRect, pointRect);
+        }
+
+        double minMapHeight = 10; //choose some value that fit your needs
+        double minMapWidth = 10;  //the same as above
+        BOOL needChange = NO;
+
+        double x = MKMapRectGetMinX(zoomRect);
+        double y = MKMapRectGetMinY(zoomRect);
+        double w = MKMapRectGetWidth(zoomRect);
+        double h = MKMapRectGetHeight(zoomRect);  //here was an error!!
+
+        if(MKMapRectGetHeight(zoomRect) < minMapHeight){
+            x -= minMapWidth/2;
+            w += minMapWidth/2;
+            needChange = YES;
+        }
+        if(MKMapRectGetWidth(zoomRect) < minMapWidth){
+            y -= minMapHeight/2;
+            h += minMapHeight/2;
+            needChange = YES;
+        }
+        if(needChange){
+            zoomRect = MKMapRectMake(x, y, w, h);
+        }
+
+        MKCoordinateRegion mkcr = MKCoordinateRegionForMapRect(zoomRect);
+        CGRect cgr = [self.mapView convertRegion:mkcr toRectToView:self.view];
+        NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
+        [self.mapView setVisibleMapRect:zoomRect animated:YES];
+    }
+
+//        [self.mapView setVisibleMapRect:zoomRect animated:YES];
+}
 
 #pragma mark - Custom
 - (void)setTrack:(PSTrack *)track
@@ -208,6 +213,8 @@
 //    NSString *strData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
 //    NSLog(@"%@",data);
 //    NSLog(@"%@",strData);
+
+    self.mapView.frame = self.view.bounds;
 }
 
 - (void) addTrack:(PSTrack*) track
@@ -241,6 +248,23 @@
 //                     }];
 
 
+}
+
+
+- (void) clearMap
+{
+    DLogFuncName();
+//    if (self.track)
+//    {
+//        [self.mapView removeOverlay:self.track];
+//    }
+//
+//    if (self.tracks)
+//    {
+//        [self.mapView removeOverlays:self.tracks];
+//    }
+
+    [self.mapView removeOverlay:self.mapView.overlays];
 }
 
 
@@ -345,6 +369,7 @@
     }
        
     
+
 
     MKPolyline *polyLine = (MKPolyline*)overlay;
     NSLog(@"Overlay = %@",polyLine);

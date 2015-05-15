@@ -15,8 +15,9 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 @interface PSTrack : NSObject
 @property (nonatomic, readonly) NSString *filename;
 
-@property (nonatomic) CGFloat distance;
+@property (nonatomic) CGFloat trackLength;
 @property (nonatomic) PSTrackType trackType;
+@property (nonatomic) CGFloat totalUp;
 
 - (instancetype)initWithFilename:(NSString *)filename;
 - (instancetype)initWithFilename:(NSString *)filename trackType:(PSTrackType)trackType;

@@ -504,7 +504,7 @@
             
                 // Passt nicht ...
                 distance += [tmpLocation distanceFromLocation:Location1];
-//                NSLog(@"Distance = %f", distance);
+//                NSLog(@"Distance = %f", trackLength);
 //            }
             Location1 = tmpLocation;
             

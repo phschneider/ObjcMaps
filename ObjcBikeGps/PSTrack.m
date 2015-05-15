@@ -11,7 +11,6 @@
 
 @interface PSTrack()
 @property (nonatomic) CGFloat totalDown;
-@property (nonatomic) CGFloat totalUp;
 @property (nonatomic) NSString *filename;
 @property (nonatomic) MKMapPoint *pointArr;
 @property (nonatomic) CLLocationCoordinate2D *pointsCoordinate;
@@ -130,7 +129,7 @@
 
             // Passt nicht ...
             distance += [tmpLocation distanceFromLocation:Location1];
-//            NSLog(@"Distance = %f", distance);
+//            NSLog(@"Distance = %f", trackLength);
             int dist = (distance / 1000);
             if (dist %1 == 0)
             {
@@ -150,7 +149,7 @@
             pointArrCount++;
         }
 
-        self.distance = (float) distance;
+        self.trackLength = (float) distance;
         self.pointArrCount = pointArrCount;
 //        [self.graphViewController setData:elevatioNData];
         NSLog(@"MinHeight = %f", minHeight);
@@ -158,7 +157,7 @@
 
         NSLog(@"TotalUp = %f", self.totalUp);
         NSLog(@"TotalDown = %f", self.totalDown);
-        NSLog(@"Distance = %f", self.distance);
+        NSLog(@"Distance = %f", self.trackLength);
     }
     else
     {
@@ -241,7 +240,7 @@
 
             // Passt nicht ...
             distance += [tmpLocation distanceFromLocation:Location1];
-//                NSLog(@"Distance = %f", distance);
+//                NSLog(@"Distance = %f", trackLength);
 //            }
             Location1 = tmpLocation;
 
@@ -268,7 +267,7 @@
 
 - (NSString*)distanceInKm
 {
-    return [NSString stringWithFormat:@"%0.2fkm",(self.distance / 1000.00)];
+    return [NSString stringWithFormat:@"%0.2fkm",(self.trackLength / 1000.00)];
 }
 
 

@@ -664,7 +664,7 @@
         }
     }
     
-    // Calculate Y-label offset distance
+    // Calculate Y-label offset trackLength
     labelYaxisOffset = 0;
     [yAxisLabels enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         UILabel *label = (UILabel *)obj;

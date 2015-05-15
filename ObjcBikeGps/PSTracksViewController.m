@@ -3,20 +3,23 @@
 // Copyright (c) 2015 phschneider.net. All rights reserved.
 //
 
+#import <BFNavigationBarDrawer/BFNavigationBarDrawer.h>
 #import "PSTracksViewController.h"
 #import "PSTrack.h"
 #import "PSTrackStore.h"
 #import "PSMapViewController.h"
 #import "DZNSegmentedControl.h"
+#import "BFNavigationBarDrawer.h"
 
 
 @interface PSTracksViewController ()
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) NSArray *tracks;
 @property (nonatomic) NSArray *visibleTracks;
-@property (nonatomic) MKMapView *mapView;
 @property (nonatomic) PSMapViewController *mapViewController;
 @property (nonatomic) DZNSegmentedControl *control;
+@property (nonatomic, strong) BFNavigationBarDrawer *filterDrawer;
+@property (nonatomic, strong) BFNavigationBarDrawer *sortingDrawer;
 @end
 
 
@@ -37,6 +40,7 @@
 
         [self.view addSubview:self.tableView];
 
+        self.mapViewController = [[PSMapViewController alloc] initWithTracks:self.visibleTracks];
 
         [[PSTrackStore sharedInstance] addObserver:self forKeyPath:@"tracks" options:NSKeyValueObservingOptionNew context:nil];
 
@@ -59,9 +63,134 @@
         [self.control setCount:@([[self.tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeUnknown]] count]) forSegmentAtIndex:3];
 
         [self.control addTarget:self action:@selector(selectedSegment:) forControlEvents:UIControlEventValueChanged];
-        self.tableView.tableHeaderView = self.control;
+//        self.tableView.tableHeaderView = self.control;
+
+        UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showSortingOptions)];
+        self.navigationItem.rightBarButtonItem = sortButton;
+
+
+        UIBarButtonItem *filterButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"798-filter-toolbar"] style:UIBarButtonItemStylePlain target:self action:@selector(showFilterOptions)];
+        self.navigationItem.leftBarButtonItem = filterButton;
+
+
+        // Init a drawer with default size
+        self.filterDrawer = [[BFNavigationBarDrawer alloc] init];
+
+        // Assign the table view as the affected scroll view of the drawer.
+        // This will make sure the scroll view is properly scrolled and updated
+        // when the drawer is shown.
+        self.filterDrawer.scrollView = self.tableView;
+
+        // Add some buttons to the drawer.
+//        UIBarButtonItem *button1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(action:)];
+//        UIBarButtonItem *button2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:0];
+//        UIBarButtonItem *button3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(action:)];
+//        UIBarButtonItem *button4 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:0];
+//        UIBarButtonItem *button5 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(action:)];
+//        self.drawer.items = @[button1, button2, button3, button4, button5];
+
+        [self.filterDrawer addSubview:self.control];
+
+
+        self.sortingDrawer = [[BFNavigationBarDrawer alloc] init];
+
+        // Assign the table view as the affected scroll view of the drawer.
+        // This will make sure the scroll view is properly scrolled and updated
+        // when the drawer is shown.
+        self.sortingDrawer.scrollView = self.tableView;
+
+        // Add some buttons to the drawer.
+        UIBarButtonItem *button1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(sortByName)];
+        UIBarButtonItem *button2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:0];
+        UIBarButtonItem *button3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(sortByDistance)];
+        UIBarButtonItem *button4 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:0];
+        UIBarButtonItem *button5 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(sortByLength)];
+        UIBarButtonItem *button6 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:0];
+        UIBarButtonItem *button7 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(sortByUp)];
+        UIBarButtonItem *button8 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:0];
+        UIBarButtonItem *button9 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(sortByDown)];
+        self.sortingDrawer.items = @[button1, button2, button3, button4, button5, button6, button7, button8, button9];
+
+//        [self.sortingDrawer addSubview:self.control];
     }
     return self;
+}
+
+
+- (void)sortByName
+{
+    NSArray *tmpArray = [self.visibleTracks copy];
+    self.visibleTracks = [tmpArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"filename" ascending:YES]]];
+    [self.tableView reloadData];
+}
+
+
+- (void)sortByLength
+{
+    NSArray *tmpArray = [self.visibleTracks copy];
+    self.visibleTracks = [tmpArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"trackLength" ascending:YES]]];
+    [self.tableView reloadData];
+}
+
+
+- (void)sortByDistance
+{
+    NSArray *tmpArray = [self.visibleTracks copy];
+    self.visibleTracks = [tmpArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"trackLength" ascending:YES]]];
+    [self.tableView reloadData];
+}
+
+
+- (void)sortByUp
+{
+    NSArray *tmpArray = [self.visibleTracks copy];
+    self.visibleTracks = [tmpArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"totalUp" ascending:YES]]];
+    [self.tableView reloadData];
+}
+
+
+- (void)sortByDown
+{
+    NSArray *tmpArray = [self.visibleTracks copy];
+    self.visibleTracks = [tmpArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"totalDown" ascending:YES]]];
+    [self.tableView reloadData];
+}
+
+
+- (void)showSortingOptions
+{
+    if ([self.filterDrawer isVisible])
+    {
+        [self showFilterOptions];
+    }
+
+    if (![self.sortingDrawer isVisible])
+    {
+        [self.sortingDrawer showFromNavigationBar:self.navigationController.navigationBar animated:YES];
+    }
+    else
+    {
+        [self.sortingDrawer hideAnimated:YES];
+    }
+}
+
+
+- (void)showFilterOptions
+{
+    if ([self.sortingDrawer isVisible])
+    {
+        [self showSortingOptions];
+    }
+
+    if (![self.filterDrawer isVisible])
+    {
+        [self.filterDrawer showFromNavigationBar:self.navigationController.navigationBar animated:YES];
+        [self.control layoutSubviews];
+    }
+    else
+    {
+        [self.filterDrawer hideAnimated:YES];
+    }
 }
 
 
@@ -84,6 +213,10 @@
              break;
      };
 
+    [self.mapViewController clearMap];
+    [self.mapViewController.mapView removeOverlays:self.mapViewController.mapView.overlays];
+    [self.mapViewController setTracks:self.visibleTracks];
+
     [self.tableView reloadData];
 }
 
@@ -97,23 +230,23 @@
 {
     if (segmentedControl.selectedSegmentIndex == 0)
     {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
         self.tableView.hidden = NO;
-
-        self.mapView.hidden = YES;
-        if (self.mapView)
-        {
-            [self.mapView removeFromSuperview];
-            self.mapViewController = nil;
-        }
+        self.mapViewController.view.hidden = YES;
     }
     else
     {
+        self.navigationItem.rightBarButtonItem.enabled = NO;
         self.tableView.hidden = YES;
+        self.mapViewController.view.hidden = NO;
 
-        self.mapViewController = [[PSMapViewController alloc] initWithTracks:self.visibleTracks];
-        self.mapView = self.mapViewController.mapView;
-        self.mapView.hidden = NO;
-        [self.view addSubview:self.mapView];
+        [self.mapViewController clearMap];
+        [self.mapViewController setTracks:self.visibleTracks];
+        [self.mapViewController.mapView layoutSubviews];
+        if (self.mapViewController.view.superview == nil)
+        {
+            [self.view addSubview:self.mapViewController.view];
+        }
     }
 }
 
@@ -169,6 +302,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ([self.sortingDrawer isVisible])
+    {
+        [self.filterDrawer hideAnimated:YES];
+    }
+
+    if ([self.filterDrawer isVisible])
+    {
+        [self.filterDrawer hideAnimated:YES];
+    }
+
     PSTrack *track = [self.visibleTracks objectAtIndex:indexPath.row];
 
     PSMapViewController *mapViewController = [[PSMapViewController alloc] initWithTrack:track];
