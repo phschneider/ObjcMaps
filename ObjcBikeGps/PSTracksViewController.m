@@ -230,12 +230,28 @@
 {
     if (segmentedControl.selectedSegmentIndex == 0)
     {
+//        // Assign the table view as the affected scroll view of the drawer.
+//        // This will make sure the scroll view is properly scrolled and updated
+//        // when the drawer is shown.
+//        self.filterDrawer.scrollView = self.tableView;
+
         self.navigationItem.rightBarButtonItem.enabled = YES;
         self.tableView.hidden = NO;
         self.mapViewController.view.hidden = YES;
     }
     else
     {
+
+//        // Assign the table view as the affected scroll view of the drawer.
+//        // This will make sure the scroll view is properly scrolled and updated
+//        // when the drawer is shown.
+//        self.filterDrawer.scrollView = self.mapViewController.mapView;
+
+        if ([self.sortingDrawer isVisible])
+        {
+            [self showSortingOptions];
+        }
+
         self.navigationItem.rightBarButtonItem.enabled = NO;
         self.tableView.hidden = YES;
         self.mapViewController.view.hidden = NO;
@@ -293,7 +309,7 @@
     UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     PSTrack *track = [self.visibleTracks objectAtIndex:indexPath.row];
     cell.textLabel.text = [track filename];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"distace: %@  %@ down: %@", [track distanceInKm], [track roundedUp], [track roundedDown]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ \t\t\tup: %@\tdown: %@", [track distanceInKm], [track roundedUp], [track roundedDown]];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     return cell;

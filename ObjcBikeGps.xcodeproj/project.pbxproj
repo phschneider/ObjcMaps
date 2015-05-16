@@ -7,6 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		223832AB1B074A9C0039142B /* Route-NrideHom-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832931B074A9C0039142B /* Route-NrideHom-3.gpx */; };
+		223832AC1B074A9C0039142B /* Route-pur-blau-gpx.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832941B074A9C0039142B /* Route-pur-blau-gpx.gpx */; };
+		223832AD1B074A9C0039142B /* Route-pur-gruen-gpx.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832951B074A9C0039142B /* Route-pur-gruen-gpx.gpx */; };
+		223832AE1B074A9C0039142B /* Trail-AmHomburg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832961B074A9C0039142B /* Trail-AmHomburg1.gpx */; };
+		223832AF1B074A9C0039142B /* Trail-Dudweiler1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832971B074A9C0039142B /* Trail-Dudweiler1.gpx */; };
+		223832B01B074A9C0039142B /* Trail-KlbTrail.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832981B074A9C0039142B /* Trail-KlbTrail.gpx */; };
+		223832B11B074A9C0039142B /* Trail-Schwarzenberg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832991B074A9C0039142B /* Trail-Schwarzenberg1.gpx */; };
+		223832B21B074A9C0039142B /* Trail-Schwarzenberg2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2238329A1B074A9C0039142B /* Trail-Schwarzenberg2.gpx */; };
+		223832B31B074A9C0039142B /* Trail-Schwarzenberg3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2238329B1B074A9C0039142B /* Trail-Schwarzenberg3.gpx */; };
+		223832B41B074A9C0039142B /* Trail-Schwarzenberg4.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2238329C1B074A9C0039142B /* Trail-Schwarzenberg4.gpx */; };
+		223832B51B074A9C0039142B /* Trail-Schwarzenberg5.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2238329D1B074A9C0039142B /* Trail-Schwarzenberg5.gpx */; };
+		223832B61B074A9C0039142B /* Trail-Schwarzenberg6.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2238329E1B074A9C0039142B /* Trail-Schwarzenberg6.gpx */; };
+		223832B71B074A9C0039142B /* Trail-Schwarzenberg7.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2238329F1B074A9C0039142B /* Trail-Schwarzenberg7.gpx */; };
+		223832B81B074A9C0039142B /* Trail-Schwarzenberg8.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832A01B074A9C0039142B /* Trail-Schwarzenberg8.gpx */; };
+		223832B91B074A9C0039142B /* Trail-Schwarzenberg9.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832A11B074A9C0039142B /* Trail-Schwarzenberg9.gpx */; };
+		223832BA1B074A9C0039142B /* Trail-Schwarzenberg10.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832A21B074A9C0039142B /* Trail-Schwarzenberg10.gpx */; };
+		223832BB1B074A9C0039142B /* Trail-Schwarzenberg11.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832A31B074A9C0039142B /* Trail-Schwarzenberg11.gpx */; };
+		223832BC1B074A9C0039142B /* Trail-Schwarzenberg12.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832A41B074A9C0039142B /* Trail-Schwarzenberg12.gpx */; };
+		223832BD1B074A9C0039142B /* Trail-Schwarzenberg13.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832A51B074A9C0039142B /* Trail-Schwarzenberg13.gpx */; };
+		223832BE1B074A9C0039142B /* Trail-Schwarzenberg14.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832A61B074A9C0039142B /* Trail-Schwarzenberg14.gpx */; };
+		223832BF1B074A9C0039142B /* Trail-Schwarzenberg15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832A71B074A9C0039142B /* Trail-Schwarzenberg15.gpx */; };
+		223832C01B074A9C0039142B /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832A81B074A9C0039142B /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx */; };
+		223832C11B074A9C0039142B /* Trail-Winterberg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832A91B074A9C0039142B /* Trail-Winterberg1.gpx */; };
 		2263379C1B06587A00CEBD55 /* 852-map-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2263379A1B06587A00CEBD55 /* 852-map-toolbar.png */; };
 		2263379D1B06587A00CEBD55 /* 852-map-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2263379B1B06587A00CEBD55 /* 852-map-toolbar@2x.png */; };
 		226337A11B065A3700CEBD55 /* 1100-list-2-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2263379E1B065A3700CEBD55 /* 1100-list-2-toolbar.png */; };
@@ -21,24 +44,6 @@
 		226337B11B06B58F00CEBD55 /* 798-filter-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337AE1B06B58F00CEBD55 /* 798-filter-toolbar@3x.png */; };
 		22AAD3E31AF6CEA900C9492D /* PSDistanceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AAD3E21AF6CEA900C9492D /* PSDistanceAnnotation.m */; };
 		22B1255B1B00028E0027DD9A /* PSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B1255A1B00028E0027DD9A /* PSLocationManager.m */; };
-		22B1255E1B00054D0027DD9A /* Trail-Schwarzenberg5.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B1255C1B00054D0027DD9A /* Trail-Schwarzenberg5.gpx */; };
-		22B1255F1B00054D0027DD9A /* Trail-Schwarzenberg6.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B1255D1B00054D0027DD9A /* Trail-Schwarzenberg6.gpx */; };
-		22B125611B0005570027DD9A /* Trail-Schwarzenberg4.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B125601B0005570027DD9A /* Trail-Schwarzenberg4.gpx */; };
-		22B125631B0006D00027DD9A /* Trail-Schwarzenberg7.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B125621B0006D00027DD9A /* Trail-Schwarzenberg7.gpx */; };
-		22B125661B0007470027DD9A /* Trail-Schwarzenberg8.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B125641B0007460027DD9A /* Trail-Schwarzenberg8.gpx */; };
-		22B125671B0007470027DD9A /* Trail-Schwarzenberg9.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B125651B0007460027DD9A /* Trail-Schwarzenberg9.gpx */; };
-		22B125691B0007D30027DD9A /* Trail-Schwarzenberg10.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B125681B0007D30027DD9A /* Trail-Schwarzenberg10.gpx */; };
-		22B1256C1B00113F0027DD9A /* Trail-Schwarzenberg11.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B1256A1B00113F0027DD9A /* Trail-Schwarzenberg11.gpx */; };
-		22B1256D1B00113F0027DD9A /* Trail-Schwarzenberg12.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22B1256B1B00113F0027DD9A /* Trail-Schwarzenberg12.gpx */; };
-		22D231761AFFF28B0019EF15 /* Route-NrideHom-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D231701AFFF28B0019EF15 /* Route-NrideHom-3.gpx */; };
-		22D231771AFFF28B0019EF15 /* Route-pur-blau-gpx.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D231711AFFF28B0019EF15 /* Route-pur-blau-gpx.gpx */; };
-		22D231781AFFF28B0019EF15 /* Route-pur-gruen-gpx.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D231721AFFF28B0019EF15 /* Route-pur-gruen-gpx.gpx */; };
-		22D2317A1AFFF5880019EF15 /* Trail-KlbTrail.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D231791AFFF5880019EF15 /* Trail-KlbTrail.gpx */; };
-		22D2317C1AFFF69A0019EF15 /* Trail-Schwarzenberg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D2317B1AFFF69A0019EF15 /* Trail-Schwarzenberg1.gpx */; };
-		22D2317E1AFFF73A0019EF15 /* Trail-Schwarzenberg2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D2317D1AFFF73A0019EF15 /* Trail-Schwarzenberg2.gpx */; };
-		22D231801AFFFD840019EF15 /* Trail-AmHomburg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D2317F1AFFFD840019EF15 /* Trail-AmHomburg1.gpx */; };
-		22D231821AFFFD8B0019EF15 /* Trail-Schwarzenberg3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D231811AFFFD8B0019EF15 /* Trail-Schwarzenberg3.gpx */; };
-		22D231841AFFFE690019EF15 /* Trail-Dudweiler1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22D231831AFFFE690019EF15 /* Trail-Dudweiler1.gpx */; };
 		22F934D219DD5E5B00996122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D119DD5E5B00996122 /* Foundation.framework */; };
 		22F934D419DD5E5B00996122 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D319DD5E5B00996122 /* CoreGraphics.framework */; };
 		22F934D619DD5E5B00996122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D519DD5E5B00996122 /* UIKit.framework */; };
@@ -75,6 +80,29 @@
 
 /* Begin PBXFileReference section */
 		18CF6413E1014CC8A7CDA52D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		223832931B074A9C0039142B /* Route-NrideHom-3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-NrideHom-3.gpx"; path = "SampleData/Route-NrideHom-3.gpx"; sourceTree = SOURCE_ROOT; };
+		223832941B074A9C0039142B /* Route-pur-blau-gpx.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-pur-blau-gpx.gpx"; path = "SampleData/Route-pur-blau-gpx.gpx"; sourceTree = SOURCE_ROOT; };
+		223832951B074A9C0039142B /* Route-pur-gruen-gpx.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-pur-gruen-gpx.gpx"; path = "SampleData/Route-pur-gruen-gpx.gpx"; sourceTree = SOURCE_ROOT; };
+		223832961B074A9C0039142B /* Trail-AmHomburg1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-AmHomburg1.gpx"; path = "SampleData/Trail-AmHomburg1.gpx"; sourceTree = SOURCE_ROOT; };
+		223832971B074A9C0039142B /* Trail-Dudweiler1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Dudweiler1.gpx"; path = "SampleData/Trail-Dudweiler1.gpx"; sourceTree = SOURCE_ROOT; };
+		223832981B074A9C0039142B /* Trail-KlbTrail.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-KlbTrail.gpx"; path = "SampleData/Trail-KlbTrail.gpx"; sourceTree = SOURCE_ROOT; };
+		223832991B074A9C0039142B /* Trail-Schwarzenberg1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg1.gpx"; path = "SampleData/Trail-Schwarzenberg1.gpx"; sourceTree = SOURCE_ROOT; };
+		2238329A1B074A9C0039142B /* Trail-Schwarzenberg2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg2.gpx"; path = "SampleData/Trail-Schwarzenberg2.gpx"; sourceTree = SOURCE_ROOT; };
+		2238329B1B074A9C0039142B /* Trail-Schwarzenberg3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg3.gpx"; path = "SampleData/Trail-Schwarzenberg3.gpx"; sourceTree = SOURCE_ROOT; };
+		2238329C1B074A9C0039142B /* Trail-Schwarzenberg4.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg4.gpx"; path = "SampleData/Trail-Schwarzenberg4.gpx"; sourceTree = SOURCE_ROOT; };
+		2238329D1B074A9C0039142B /* Trail-Schwarzenberg5.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg5.gpx"; path = "SampleData/Trail-Schwarzenberg5.gpx"; sourceTree = SOURCE_ROOT; };
+		2238329E1B074A9C0039142B /* Trail-Schwarzenberg6.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg6.gpx"; path = "SampleData/Trail-Schwarzenberg6.gpx"; sourceTree = SOURCE_ROOT; };
+		2238329F1B074A9C0039142B /* Trail-Schwarzenberg7.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg7.gpx"; path = "SampleData/Trail-Schwarzenberg7.gpx"; sourceTree = SOURCE_ROOT; };
+		223832A01B074A9C0039142B /* Trail-Schwarzenberg8.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg8.gpx"; path = "SampleData/Trail-Schwarzenberg8.gpx"; sourceTree = SOURCE_ROOT; };
+		223832A11B074A9C0039142B /* Trail-Schwarzenberg9.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg9.gpx"; path = "SampleData/Trail-Schwarzenberg9.gpx"; sourceTree = SOURCE_ROOT; };
+		223832A21B074A9C0039142B /* Trail-Schwarzenberg10.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg10.gpx"; path = "SampleData/Trail-Schwarzenberg10.gpx"; sourceTree = SOURCE_ROOT; };
+		223832A31B074A9C0039142B /* Trail-Schwarzenberg11.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg11.gpx"; path = "SampleData/Trail-Schwarzenberg11.gpx"; sourceTree = SOURCE_ROOT; };
+		223832A41B074A9C0039142B /* Trail-Schwarzenberg12.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg12.gpx"; path = "SampleData/Trail-Schwarzenberg12.gpx"; sourceTree = SOURCE_ROOT; };
+		223832A51B074A9C0039142B /* Trail-Schwarzenberg13.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg13.gpx"; path = "SampleData/Trail-Schwarzenberg13.gpx"; sourceTree = SOURCE_ROOT; };
+		223832A61B074A9C0039142B /* Trail-Schwarzenberg14.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg14.gpx"; path = "SampleData/Trail-Schwarzenberg14.gpx"; sourceTree = SOURCE_ROOT; };
+		223832A71B074A9C0039142B /* Trail-Schwarzenberg15.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg15.gpx"; path = "SampleData/Trail-Schwarzenberg15.gpx"; sourceTree = SOURCE_ROOT; };
+		223832A81B074A9C0039142B /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Sonnenberg-1-mittlerer-felsenweg.gpx"; path = "SampleData/Trail-Sonnenberg-1-mittlerer-felsenweg.gpx"; sourceTree = SOURCE_ROOT; };
+		223832A91B074A9C0039142B /* Trail-Winterberg1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Winterberg1.gpx"; path = "SampleData/Trail-Winterberg1.gpx"; sourceTree = SOURCE_ROOT; };
 		2263379A1B06587A00CEBD55 /* 852-map-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "852-map-toolbar.png"; sourceTree = "<group>"; };
 		2263379B1B06587A00CEBD55 /* 852-map-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "852-map-toolbar@2x.png"; sourceTree = "<group>"; };
 		2263379E1B065A3700CEBD55 /* 1100-list-2-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1100-list-2-toolbar.png"; sourceTree = "<group>"; };
@@ -91,25 +119,6 @@
 		22AAD3E21AF6CEA900C9492D /* PSDistanceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDistanceAnnotation.m; sourceTree = "<group>"; };
 		22B125591B00028E0027DD9A /* PSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSLocationManager.h; sourceTree = "<group>"; };
 		22B1255A1B00028E0027DD9A /* PSLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSLocationManager.m; sourceTree = "<group>"; };
-		22B1255C1B00054D0027DD9A /* Trail-Schwarzenberg5.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg5.gpx"; path = "SampleData/Trail-Schwarzenberg5.gpx"; sourceTree = SOURCE_ROOT; };
-		22B1255D1B00054D0027DD9A /* Trail-Schwarzenberg6.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg6.gpx"; path = "SampleData/Trail-Schwarzenberg6.gpx"; sourceTree = SOURCE_ROOT; };
-		22B125601B0005570027DD9A /* Trail-Schwarzenberg4.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg4.gpx"; path = "SampleData/Trail-Schwarzenberg4.gpx"; sourceTree = SOURCE_ROOT; };
-		22B125621B0006D00027DD9A /* Trail-Schwarzenberg7.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg7.gpx"; path = "SampleData/Trail-Schwarzenberg7.gpx"; sourceTree = SOURCE_ROOT; };
-		22B125641B0007460027DD9A /* Trail-Schwarzenberg8.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg8.gpx"; path = "SampleData/Trail-Schwarzenberg8.gpx"; sourceTree = SOURCE_ROOT; };
-		22B125651B0007460027DD9A /* Trail-Schwarzenberg9.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg9.gpx"; path = "SampleData/Trail-Schwarzenberg9.gpx"; sourceTree = SOURCE_ROOT; };
-		22B125681B0007D30027DD9A /* Trail-Schwarzenberg10.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg10.gpx"; path = "SampleData/Trail-Schwarzenberg10.gpx"; sourceTree = SOURCE_ROOT; };
-		22B1256A1B00113F0027DD9A /* Trail-Schwarzenberg11.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg11.gpx"; path = "SampleData/Trail-Schwarzenberg11.gpx"; sourceTree = SOURCE_ROOT; };
-		22B1256B1B00113F0027DD9A /* Trail-Schwarzenberg12.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg12.gpx"; path = "SampleData/Trail-Schwarzenberg12.gpx"; sourceTree = SOURCE_ROOT; };
-		22D2316D1AFFF28B0019EF15 /* Route-Felsenpfad.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-Felsenpfad.gpx"; path = "SampleData/Route-Felsenpfad.gpx"; sourceTree = SOURCE_ROOT; };
-		22D231701AFFF28B0019EF15 /* Route-NrideHom-3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-NrideHom-3.gpx"; path = "SampleData/Route-NrideHom-3.gpx"; sourceTree = SOURCE_ROOT; };
-		22D231711AFFF28B0019EF15 /* Route-pur-blau-gpx.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-pur-blau-gpx.gpx"; path = "SampleData/Route-pur-blau-gpx.gpx"; sourceTree = SOURCE_ROOT; };
-		22D231721AFFF28B0019EF15 /* Route-pur-gruen-gpx.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-pur-gruen-gpx.gpx"; path = "SampleData/Route-pur-gruen-gpx.gpx"; sourceTree = SOURCE_ROOT; };
-		22D231791AFFF5880019EF15 /* Trail-KlbTrail.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-KlbTrail.gpx"; path = "SampleData/Trail-KlbTrail.gpx"; sourceTree = SOURCE_ROOT; };
-		22D2317B1AFFF69A0019EF15 /* Trail-Schwarzenberg1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg1.gpx"; path = "SampleData/Trail-Schwarzenberg1.gpx"; sourceTree = SOURCE_ROOT; };
-		22D2317D1AFFF73A0019EF15 /* Trail-Schwarzenberg2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg2.gpx"; path = "SampleData/Trail-Schwarzenberg2.gpx"; sourceTree = SOURCE_ROOT; };
-		22D2317F1AFFFD840019EF15 /* Trail-AmHomburg1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-AmHomburg1.gpx"; path = "SampleData/Trail-AmHomburg1.gpx"; sourceTree = SOURCE_ROOT; };
-		22D231811AFFFD8B0019EF15 /* Trail-Schwarzenberg3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg3.gpx"; path = "SampleData/Trail-Schwarzenberg3.gpx"; sourceTree = SOURCE_ROOT; };
-		22D231831AFFFE690019EF15 /* Trail-Dudweiler1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Dudweiler1.gpx"; path = "SampleData/Trail-Dudweiler1.gpx"; sourceTree = SOURCE_ROOT; };
 		22F934CE19DD5E5B00996122 /* ObjcBikeGps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjcBikeGps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F934D119DD5E5B00996122 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22F934D319DD5E5B00996122 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -194,25 +203,29 @@
 		22D2316C1AFFF2770019EF15 /* SampleFiles */ = {
 			isa = PBXGroup;
 			children = (
-				22D2317F1AFFFD840019EF15 /* Trail-AmHomburg1.gpx */,
-				22D231831AFFFE690019EF15 /* Trail-Dudweiler1.gpx */,
-				22D2317B1AFFF69A0019EF15 /* Trail-Schwarzenberg1.gpx */,
-				22D2317D1AFFF73A0019EF15 /* Trail-Schwarzenberg2.gpx */,
-				22D231811AFFFD8B0019EF15 /* Trail-Schwarzenberg3.gpx */,
-				22B125601B0005570027DD9A /* Trail-Schwarzenberg4.gpx */,
-				22B1255C1B00054D0027DD9A /* Trail-Schwarzenberg5.gpx */,
-				22B1255D1B00054D0027DD9A /* Trail-Schwarzenberg6.gpx */,
-				22B125621B0006D00027DD9A /* Trail-Schwarzenberg7.gpx */,
-				22B125641B0007460027DD9A /* Trail-Schwarzenberg8.gpx */,
-				22B125651B0007460027DD9A /* Trail-Schwarzenberg9.gpx */,
-				22B125681B0007D30027DD9A /* Trail-Schwarzenberg10.gpx */,
-				22B1256A1B00113F0027DD9A /* Trail-Schwarzenberg11.gpx */,
-				22B1256B1B00113F0027DD9A /* Trail-Schwarzenberg12.gpx */,
-				22D231791AFFF5880019EF15 /* Trail-KlbTrail.gpx */,
-				22D2316D1AFFF28B0019EF15 /* Route-Felsenpfad.gpx */,
-				22D231701AFFF28B0019EF15 /* Route-NrideHom-3.gpx */,
-				22D231711AFFF28B0019EF15 /* Route-pur-blau-gpx.gpx */,
-				22D231721AFFF28B0019EF15 /* Route-pur-gruen-gpx.gpx */,
+				223832931B074A9C0039142B /* Route-NrideHom-3.gpx */,
+				223832941B074A9C0039142B /* Route-pur-blau-gpx.gpx */,
+				223832951B074A9C0039142B /* Route-pur-gruen-gpx.gpx */,
+				223832961B074A9C0039142B /* Trail-AmHomburg1.gpx */,
+				223832971B074A9C0039142B /* Trail-Dudweiler1.gpx */,
+				223832981B074A9C0039142B /* Trail-KlbTrail.gpx */,
+				223832991B074A9C0039142B /* Trail-Schwarzenberg1.gpx */,
+				2238329A1B074A9C0039142B /* Trail-Schwarzenberg2.gpx */,
+				2238329B1B074A9C0039142B /* Trail-Schwarzenberg3.gpx */,
+				2238329C1B074A9C0039142B /* Trail-Schwarzenberg4.gpx */,
+				2238329D1B074A9C0039142B /* Trail-Schwarzenberg5.gpx */,
+				2238329E1B074A9C0039142B /* Trail-Schwarzenberg6.gpx */,
+				2238329F1B074A9C0039142B /* Trail-Schwarzenberg7.gpx */,
+				223832A01B074A9C0039142B /* Trail-Schwarzenberg8.gpx */,
+				223832A11B074A9C0039142B /* Trail-Schwarzenberg9.gpx */,
+				223832A21B074A9C0039142B /* Trail-Schwarzenberg10.gpx */,
+				223832A31B074A9C0039142B /* Trail-Schwarzenberg11.gpx */,
+				223832A41B074A9C0039142B /* Trail-Schwarzenberg12.gpx */,
+				223832A51B074A9C0039142B /* Trail-Schwarzenberg13.gpx */,
+				223832A61B074A9C0039142B /* Trail-Schwarzenberg14.gpx */,
+				223832A71B074A9C0039142B /* Trail-Schwarzenberg15.gpx */,
+				223832A81B074A9C0039142B /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx */,
+				223832A91B074A9C0039142B /* Trail-Winterberg1.gpx */,
 			);
 			name = SampleFiles;
 			sourceTree = "<group>";
@@ -391,36 +404,41 @@
 			buildActionMask = 2147483647;
 			files = (
 				226337A81B065A4B00CEBD55 /* 854-list-toolbar-selected@2x.png in Resources */,
+				223832B21B074A9C0039142B /* Trail-Schwarzenberg2.gpx in Resources */,
 				226337A71B065A4B00CEBD55 /* 854-list-toolbar-selected.png in Resources */,
-				22B125611B0005570027DD9A /* Trail-Schwarzenberg4.gpx in Resources */,
 				226337AB1B065A5F00CEBD55 /* 852-map-toolbar@3x.png in Resources */,
-				22D231761AFFF28B0019EF15 /* Route-NrideHom-3.gpx in Resources */,
-				22D231771AFFF28B0019EF15 /* Route-pur-blau-gpx.gpx in Resources */,
-				22D231841AFFFE690019EF15 /* Trail-Dudweiler1.gpx in Resources */,
-				22B1256D1B00113F0027DD9A /* Trail-Schwarzenberg12.gpx in Resources */,
-				22D231801AFFFD840019EF15 /* Trail-AmHomburg1.gpx in Resources */,
-				22D2317C1AFFF69A0019EF15 /* Trail-Schwarzenberg1.gpx in Resources */,
-				22B125691B0007D30027DD9A /* Trail-Schwarzenberg10.gpx in Resources */,
-				22B1256C1B00113F0027DD9A /* Trail-Schwarzenberg11.gpx in Resources */,
+				223832B51B074A9C0039142B /* Trail-Schwarzenberg5.gpx in Resources */,
+				223832AD1B074A9C0039142B /* Route-pur-gruen-gpx.gpx in Resources */,
+				223832B01B074A9C0039142B /* Trail-KlbTrail.gpx in Resources */,
+				223832B31B074A9C0039142B /* Trail-Schwarzenberg3.gpx in Resources */,
+				223832AB1B074A9C0039142B /* Route-NrideHom-3.gpx in Resources */,
 				226337A11B065A3700CEBD55 /* 1100-list-2-toolbar.png in Resources */,
 				2263379C1B06587A00CEBD55 /* 852-map-toolbar.png in Resources */,
-				22B1255F1B00054D0027DD9A /* Trail-Schwarzenberg6.gpx in Resources */,
-				22B125631B0006D00027DD9A /* Trail-Schwarzenberg7.gpx in Resources */,
+				223832B81B074A9C0039142B /* Trail-Schwarzenberg8.gpx in Resources */,
+				223832BC1B074A9C0039142B /* Trail-Schwarzenberg12.gpx in Resources */,
+				223832AC1B074A9C0039142B /* Route-pur-blau-gpx.gpx in Resources */,
+				223832AF1B074A9C0039142B /* Trail-Dudweiler1.gpx in Resources */,
 				226337B01B06B58F00CEBD55 /* 798-filter-toolbar@2x.png in Resources */,
-				22D2317A1AFFF5880019EF15 /* Trail-KlbTrail.gpx in Resources */,
+				223832C01B074A9C0039142B /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */,
+				223832BD1B074A9C0039142B /* Trail-Schwarzenberg13.gpx in Resources */,
+				223832B41B074A9C0039142B /* Trail-Schwarzenberg4.gpx in Resources */,
 				226337B11B06B58F00CEBD55 /* 798-filter-toolbar@3x.png in Resources */,
+				223832B11B074A9C0039142B /* Trail-Schwarzenberg1.gpx in Resources */,
+				223832B91B074A9C0039142B /* Trail-Schwarzenberg9.gpx in Resources */,
 				226337A91B065A4B00CEBD55 /* 854-list-toolbar-selected@3x.png in Resources */,
 				22F934EA19DD5E5B00996122 /* Images.xcassets in Resources */,
+				223832BB1B074A9C0039142B /* Trail-Schwarzenberg11.gpx in Resources */,
+				223832BA1B074A9C0039142B /* Trail-Schwarzenberg10.gpx in Resources */,
+				223832C11B074A9C0039142B /* Trail-Winterberg1.gpx in Resources */,
 				22F934DC19DD5E5B00996122 /* InfoPlist.strings in Resources */,
-				22B125671B0007470027DD9A /* Trail-Schwarzenberg9.gpx in Resources */,
+				223832B61B074A9C0039142B /* Trail-Schwarzenberg6.gpx in Resources */,
+				223832B71B074A9C0039142B /* Trail-Schwarzenberg7.gpx in Resources */,
 				226337A21B065A3700CEBD55 /* 1100-list-2-toolbar@2x.png in Resources */,
+				223832BF1B074A9C0039142B /* Trail-Schwarzenberg15.gpx in Resources */,
 				226337AF1B06B58F00CEBD55 /* 798-filter-toolbar.png in Resources */,
-				22D231821AFFFD8B0019EF15 /* Trail-Schwarzenberg3.gpx in Resources */,
-				22B125661B0007470027DD9A /* Trail-Schwarzenberg8.gpx in Resources */,
+				223832BE1B074A9C0039142B /* Trail-Schwarzenberg14.gpx in Resources */,
+				223832AE1B074A9C0039142B /* Trail-AmHomburg1.gpx in Resources */,
 				226337A31B065A3700CEBD55 /* 1100-list-2-toolbar@3x.png in Resources */,
-				22B1255E1B00054D0027DD9A /* Trail-Schwarzenberg5.gpx in Resources */,
-				22D2317E1AFFF73A0019EF15 /* Trail-Schwarzenberg2.gpx in Resources */,
-				22D231781AFFF28B0019EF15 /* Route-pur-gruen-gpx.gpx in Resources */,
 				2263379D1B06587A00CEBD55 /* 852-map-toolbar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

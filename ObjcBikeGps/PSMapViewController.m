@@ -22,7 +22,11 @@
     self = [super init];
     if (self)
     {
-        self.mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
+        CGRect frame = self.view.bounds;
+        frame.origin.y = 44 + 20;
+        frame.size.height -= frame.origin.y ;
+
+        self.mapView = [[MKMapView alloc] initWithFrame:frame];
         self.mapView.autoresizingMask =  self.view.autoresizingMask;
 //        self.mapView.showsUserLocation = YES;
         self.mapView.delegate = self;
@@ -214,7 +218,7 @@
 //    NSLog(@"%@",data);
 //    NSLog(@"%@",strData);
 
-    self.mapView.frame = self.view.bounds;
+//    self.mapView.frame = self.view.bounds;
 }
 
 - (void) addTrack:(PSTrack*) track
