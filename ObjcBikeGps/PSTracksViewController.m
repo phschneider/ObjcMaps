@@ -35,6 +35,7 @@
 
         self.title = @"Strecken";
         self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+        self.tableView.autoresizingMask = self.view.autoresizingMask;
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
 
@@ -226,6 +227,7 @@
     return UIBarPositionAny;
 }
 
+
 - (void)viewSwitched:(UISegmentedControl*)segmentedControl
 {
     if (segmentedControl.selectedSegmentIndex == 0)
@@ -261,8 +263,13 @@
         [self.mapViewController.mapView layoutSubviews];
         if (self.mapViewController.view.superview == nil)
         {
+//            [self.mapViewController willMoveToParentViewController:self];
+            [self addChildViewController:self.mapViewController];
+            // Ruft ein viewWillAppear auf ...
             [self.view addSubview:self.mapViewController.view];
+
         }
+        [self.mapViewController didMoveToParentViewController:self];
     }
 }
 
@@ -334,5 +341,17 @@
     [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
+}
+//
+//
+//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+//{
+//    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+//}
+//
 
 @end

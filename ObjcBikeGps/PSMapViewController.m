@@ -65,26 +65,45 @@
 }
 
 
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    //    // http://wiki.openstreetmap.org/wiki/OpenTopoMap
-//    
-//    NSString *landShadingTemplate = @"http://tiles.openpistemap.org/landshaded/{z}/{x}/{y}.png";
-//
-//    
-//    NSString *template = @"http://tile.openstreetmap.org/{z}/{x}/{y}.png";
-//    MKTileOverlay *overlay = [[MKTileOverlay alloc] initWithURLTemplate:template];
-//    overlay.canReplaceMapContent = YES;
-//    
-//    [self.mapView addOverlay:overlay level:MKOverlayLevelAboveRoads];
-//    
-//
-//    MKTileOverlay *landShadingOverlay = [[MKTileOverlay alloc] initWithURLTemplate:landShadingTemplate];
-//    landShadingOverlay.canReplaceMapContent = NO;
-//    [self.mapView addOverlay:landShadingOverlay level:MKOverlayLevelAboveRoads];
-//}
-//
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //    // http://wiki.openstreetmap.org/wiki/OpenTopoMap
+
+    if (!self.parentViewController)
+    {
+        CGRect frame = self.view.bounds;
+        if (frame.size.height > frame.size.width)
+        {
+            NSLog(@"viewWillAppear  Height > width");
+            frame.origin.y = 44 + 20;
+            frame.size.height -= frame.origin.y;
+        }
+        else
+        {
+            NSLog(@"viewWillAppear width > height");
+            frame.origin.y = 44 + 20;
+            frame.size.height -= frame.origin.y;
+        }
+
+        self.mapView.frame = frame;
+    }
+    return;
+    NSString *landShadingTemplate = @"http://tiles.openpistemap.org/landshaded/{z}/{x}/{y}.png";
+
+
+    NSString *template = @"http://tile.openstreetmap.org/{z}/{x}/{y}.png";
+    MKTileOverlay *overlay = [[MKTileOverlay alloc] initWithURLTemplate:template];
+    overlay.canReplaceMapContent = YES;
+
+    [self.mapView addOverlay:overlay level:MKOverlayLevelAboveRoads];
+
+
+    MKTileOverlay *landShadingOverlay = [[MKTileOverlay alloc] initWithURLTemplate:landShadingTemplate];
+    landShadingOverlay.canReplaceMapContent = NO;
+    [self.mapView addOverlay:landShadingOverlay level:MKOverlayLevelAboveRoads];
+}
+
 //
 
 
@@ -435,6 +454,12 @@
     [annotationView addSubview:label];
 
     return annotationView;
+}
+
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
 }
 
 @end
