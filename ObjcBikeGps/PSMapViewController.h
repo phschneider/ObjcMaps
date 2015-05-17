@@ -4,13 +4,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WYPopoverController.h"
 
 @class PSTrack;
 
 
-@interface PSMapViewController : UIViewController  <MKMapViewDelegate, CLLocationManagerDelegate>
+@interface PSMapViewController : UIViewController  <MKMapViewDelegate, CLLocationManagerDelegate, WYPopoverControllerDelegate>
 
-@property (nonatomic) MKMapView *mapView;
 @property (nonatomic) NSArray *tracks;
 
 - (instancetype)initWithTrack:(PSTrack *)track;

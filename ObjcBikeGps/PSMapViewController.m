@@ -4,13 +4,22 @@
 //
 
 #import <CoreLocation/CoreLocation.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <MapKit/MapKit.h>
 #import "PSMapViewController.h"
 #import "PSTrack.h"
+#import "WYPopoverController.h"
+#import "PSSettingsViewController.h"
+#import "PSTileOverlay.h"
 
 
 @interface PSMapViewController ()
+@property (nonatomic) MKMapView *mapView;
 @property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) PSTrack *track;
+@property (nonatomic) WYPopoverController *settingsPopoverController;
+@property (nonatomic) UILabel *debugLabel;
+@property (nonatomic) UILabel *boundingLabel;
 @end
 
 
@@ -33,10 +42,91 @@
 //        self.mapView.userTrackingMode = MKUserTrackingModeFollowWithHeading;
         [self.view addSubview:self.mapView];
 
+        self.boundingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-20-20, frame.size.width, 20)];
+        self.boundingLabel.textAlignment = NSTextAlignmentCenter;
+        self.boundingLabel.backgroundColor = [UIColor clearColor];
+        [self.mapView addSubview:self.boundingLabel];
+
+        self.debugLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-20, frame.size.width, 20)];
+        self.debugLabel.textAlignment = NSTextAlignmentCenter;
+        self.debugLabel.backgroundColor = [UIColor clearColor];
+        [self.mapView addSubview:self.debugLabel];
+
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self;
+
+        UIImage *buttonImage = [UIImage imageNamed:@"1064-layers-4"];
+        UIButton *customButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        frame.origin.y = self.mapView.frame.size.height - buttonImage.size.height - 15;
+        frame.origin.x = self.mapView.frame.size.width - buttonImage.size.width - 15;
+        frame.size.width = buttonImage.size.width;
+        frame.size.height =  buttonImage.size.height;
+
+        customButton.frame = frame;
+        [customButton setBackgroundColor:[UIColor whiteColor]];
+        [customButton setImage:buttonImage forState:UIControlStateNormal];
+        [customButton addTarget:self action:@selector(showMapSwitcher:) forControlEvents:UIControlEventTouchUpInside];
+        [self.mapView addSubview:customButton];
     }
     return self;
+}
+
+
+- (void)showMapSwitcher:(id)sender
+{
+    DLogFuncName();
+    if (self.settingsPopoverController == nil)
+    {
+        UIView *btn = (UIView *) sender;
+        PSSettingsViewController *settingsViewController = [[PSSettingsViewController alloc] init];
+        UINavigationController *contentViewController = [[UINavigationController alloc] initWithRootViewController:settingsViewController];
+
+
+        self.settingsPopoverController = [[WYPopoverController alloc] initWithContentViewController:contentViewController];
+        self.settingsPopoverController.delegate = self;
+//    settingsPopoverController.passthroughViews = @[btn];
+        self.settingsPopoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
+        self.settingsPopoverController.wantsDefaultContentAppearance = NO;
+
+        [self.settingsPopoverController presentPopoverAsDialogAnimated:YES];
+
+//        [self.settingsPopoverController presentPopoverFromRect:[btn convertRect:btn.frame toView:self.mapView]
+//                                                        inView:self.view
+//                                      permittedArrowDirections:WYPopoverArrowDirectionAny
+//                                                      animated:YES
+//                                                       options:WYPopoverAnimationOptionFadeWithScale];
+    }
+    else
+    {
+        [self done:nil];
+    }
+}
+
+- (void)done:(id)sender
+{
+    DLogFuncName();
+    [self.settingsPopoverController dismissPopoverAnimated:YES];
+    self.settingsPopoverController.delegate = nil;
+    self.settingsPopoverController = nil;
+}
+
+
+#pragma mark - WYPopoverControllerDelegate
+
+- (BOOL)popoverControllerShouldDismissPopover:(WYPopoverController *)controller
+{
+    DLogFuncName();
+    return YES;
+}
+
+- (void)popoverControllerDidDismissPopover:(WYPopoverController *)controller
+{
+    DLogFuncName();
+    if (controller == self.settingsPopoverController)
+    {
+        self.settingsPopoverController.delegate = nil;
+        self.settingsPopoverController = nil;
+    }
 }
 
 
@@ -67,6 +157,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    DLogFuncName();
     [super viewWillAppear:animated];
     //    // http://wiki.openstreetmap.org/wiki/OpenTopoMap
 
@@ -88,27 +179,90 @@
 
         self.mapView.frame = frame;
     }
-    return;
-    NSString *landShadingTemplate = @"http://tiles.openpistemap.org/landshaded/{z}/{x}/{y}.png";
 
 
-    NSString *template = @"http://tile.openstreetmap.org/{z}/{x}/{y}.png";
-    MKTileOverlay *overlay = [[MKTileOverlay alloc] initWithURLTemplate:template];
-    overlay.canReplaceMapContent = YES;
+//    NSString *template = @"http://tile.openstreetmap.org/${z}/${x}/${y}.png";
+//    MKTileOverlay *overlay = [[MKTileOverlay alloc] initWithURLTemplate:template];
+//    overlay.canReplaceMapContent = NO;
+//    [self.mapView addOverlay:overlay level:MKOverlayLevelAboveRoads];
 
+    // Hike And Bike Map
+    //    NSString *template = @"http://toolserver.org/tiles/hikebike/${z}/${x}/${y}.png";
+//    NSString *template = @"http://a.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png";
+    NSString *template = @"http://b.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png";
+    PSTileOverlay *overlay = [[PSTileOverlay alloc] initWithURLTemplate:template];
+    overlay.canReplaceMapContent = NO;
     [self.mapView addOverlay:overlay level:MKOverlayLevelAboveRoads];
 
+//    // OpenTopoMap
+//    // http://wiki.openstreetmap.org/wiki/OpenTopoMap
+//    NSString *template = @"http://a.tile.opentopomap.org/{z}/{x}/{y}.png";
+//    MKTileOverlay *overlay = [[MKTileOverlay alloc] initWithURLTemplate:template];
+//    overlay.canReplaceMapContent = NO;
+//    [self.mapView addOverlay:overlay level:MKOverlayLevelAboveRoads];
 
-    MKTileOverlay *landShadingOverlay = [[MKTileOverlay alloc] initWithURLTemplate:landShadingTemplate];
-    landShadingOverlay.canReplaceMapContent = NO;
-    [self.mapView addOverlay:landShadingOverlay level:MKOverlayLevelAboveRoads];
+    return;
+//    NSString *landShadingTemplate = @"http://tiles.openpistemap.org/landshaded/{z}/{x}/{y}.png";
+//
+//
+//    NSString *template = @"http://tile.openstreetmap.org/{z}/{x}/{y}.png";
+//    MKTileOverlay *overlay = [[MKTileOverlay alloc] initWithURLTemplate:template];
+//    overlay.canReplaceMapContent = YES;
+//
+//    [self.mapView addOverlay:overlay level:MKOverlayLevelAboveRoads];
+//
+//
+//    MKTileOverlay *landShadingOverlay = [[MKTileOverlay alloc] initWithURLTemplate:landShadingTemplate];
+//    landShadingOverlay.canReplaceMapContent = NO;
+//    [self.mapView addOverlay:landShadingOverlay level:MKOverlayLevelAboveRoads];
+}
+
+#define MERCATOR_RADIUS 85445659.44705395
+#define MAX_GOOGLE_LEVELS 20
+
+- (double)getZoomLevel
+{
+    CLLocationDegrees longitudeDelta = self.mapView.region.span.longitudeDelta;
+    CGFloat mapWidthInPixels = self.mapView.bounds.size.width;
+    double zoomScale = longitudeDelta * MERCATOR_RADIUS * M_PI / (180.0 * mapWidthInPixels);
+    double zoomer = MAX_GOOGLE_LEVELS - log2( zoomScale );
+    if ( zoomer < 0 ) zoomer = 0;
+//  zoomer = round(zoomer);
+    return zoomer;
 }
 
 //
+- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
+{
+    DLogFuncName();
+    NSArray * boundingBox = [self getBoundingBox:self.mapView.visibleMapRect];
+    NSString *boundingBoxString = [NSString stringWithFormat:@"%.3f,%.3f,%.3f,%.3f", [[boundingBox objectAtIndex:1] floatValue], [[boundingBox objectAtIndex:0] floatValue], [[boundingBox objectAtIndex:3] floatValue], [[boundingBox objectAtIndex:2] floatValue]];
+    NSLog(@"BoudningBox = %@", boundingBoxString);
+    self.debugLabel.text = [NSString stringWithFormat:@"lat: %f long: %f z: %f", self.mapView.region.span.latitudeDelta, self.mapView.region.span.longitudeDelta, [self getZoomLevel]];
+    NSLog(@"http://api.openstreetmap.org/api/0.6/map?bbox=%@",boundingBoxString);
+    NSLog(@"http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=%@]",boundingBoxString);
+}
+
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    DLogFuncName();
+    NSArray * boundingBox = [self getBoundingBox:self.mapView.visibleMapRect];
+    NSString *boundingBoxString = [NSString stringWithFormat:@"%.3f,%.3f,%.3f,%.3f", [[boundingBox objectAtIndex:1] floatValue], [[boundingBox objectAtIndex:0] floatValue], [[boundingBox objectAtIndex:3] floatValue], [[boundingBox objectAtIndex:2] floatValue]];
+    self.boundingLabel.text = boundingBoxString;
+    NSLog(@"BoudningBox = %@", boundingBoxString);
+    self.debugLabel.text = [NSString stringWithFormat:@"lat: %f long: %f z: %f", self.mapView.region.span.latitudeDelta, self.mapView.region.span.longitudeDelta, [self getZoomLevel]];
+
+    NSLog(@"http://api.openstreetmap.org/api/0.6/map?bbox=%@",boundingBoxString);
+    NSLog(@"http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=%@]",boundingBoxString);
+//    overpass-api.de/api/map?bbox=6.8508,49.1958,7.2302,49.2976
+
+}
 
 
 - (void)setTracks:(NSArray *)tracks
 {
+    DLogFuncName();
     _tracks = tracks;
 
     for (PSTrack *track in tracks)
@@ -118,101 +272,114 @@
     }
 
 
+//    MKMapRect zoomRect = MKMapRectNull;
+//    for (id <MKAnnotation> annotation in self.mapView.annotations)
+//    {
+//        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+//        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 1000);
+//        if (MKMapRectIsNull(zoomRect)) {
+//            zoomRect = pointRect;
+//        } else {
+//            zoomRect = MKMapRectUnion(zoomRect, pointRect);
+//        }
+//
+//        double minMapHeight = 10; //choose some value that fit your needs
+//        double minMapWidth = 10;  //the same as above
+//        BOOL needChange = NO;
+//
+//        double x = MKMapRectGetMinX(zoomRect);
+//        double y = MKMapRectGetMinY(zoomRect);
+//        double w = MKMapRectGetWidth(zoomRect);
+//        double h = MKMapRectGetHeight(zoomRect);  //here was an error!!
+//
+//        if(MKMapRectGetHeight(zoomRect) < minMapHeight){
+//            x -= minMapWidth/2;
+//            w += minMapWidth/2;
+//            needChange = YES;
+//        }
+//        if(MKMapRectGetWidth(zoomRect) < minMapWidth){
+//            y -= minMapHeight/2;
+//            h += minMapHeight/2;
+//            needChange = YES;
+//        }
+//        if(needChange){
+//            zoomRect = MKMapRectMake(x, y, w, h);
+//        }
+//
+//        MKCoordinateRegion mkcr = MKCoordinateRegionForMapRect(zoomRect);
+//        CGRect cgr = [self.mapView convertRegion:mkcr toRectToView:self.view];
+//        NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
+//        [self.mapView setVisibleMapRect:zoomRect animated:YES];
+//    }
+//
+
+    [self zoomToOverlays];
+}
+
+
+- (void)zoomToOverlays
+{
     MKMapRect zoomRect = MKMapRectNull;
-    for (id <MKAnnotation> annotation in self.mapView.annotations)
-    {
-        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
-        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 1000);
-        if (MKMapRectIsNull(zoomRect)) {
-            zoomRect = pointRect;
-        } else {
-            zoomRect = MKMapRectUnion(zoomRect, pointRect);
-        }
-
-        double minMapHeight = 10; //choose some value that fit your needs
-        double minMapWidth = 10;  //the same as above
-        BOOL needChange = NO;
-
-        double x = MKMapRectGetMinX(zoomRect);
-        double y = MKMapRectGetMinY(zoomRect);
-        double w = MKMapRectGetWidth(zoomRect);
-        double h = MKMapRectGetHeight(zoomRect);  //here was an error!!
-
-        if(MKMapRectGetHeight(zoomRect) < minMapHeight){
-            x -= minMapWidth/2;
-            w += minMapWidth/2;
-            needChange = YES;
-        }
-        if(MKMapRectGetWidth(zoomRect) < minMapWidth){
-            y -= minMapHeight/2;
-            h += minMapHeight/2;
-            needChange = YES;
-        }
-        if(needChange){
-            zoomRect = MKMapRectMake(x, y, w, h);
-        }
-
-        MKCoordinateRegion mkcr = MKCoordinateRegionForMapRect(zoomRect);
-        CGRect cgr = [self.mapView convertRegion:mkcr toRectToView:self.view];
-        NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
-        [self.mapView setVisibleMapRect:zoomRect animated:YES];
-    }
-
-
-
-
-    zoomRect = MKMapRectNull;
     for (id <MKOverlay> overlay in self.mapView.overlays)
     {
-        MKMapPoint annotationPoint = MKMapPointForCoordinate(overlay.coordinate);
-        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 1000);
-        if (MKMapRectIsNull(zoomRect)) {
-            zoomRect = pointRect;
-        } else {
-            zoomRect = MKMapRectUnion(zoomRect, pointRect);
-        }
+        if ([overlay isKindOfClass:[MKPolyline class]])
+        {
+            MKMapPoint annotationPoint = MKMapPointForCoordinate(overlay.coordinate);
+            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 1000);
+            if (MKMapRectIsNull(zoomRect))
+            {
+                zoomRect = pointRect;
+            } else
+            {
+                zoomRect = MKMapRectUnion(zoomRect, pointRect);
+            }
 
-        double minMapHeight = 10; //choose some value that fit your needs
-        double minMapWidth = 10;  //the same as above
-        BOOL needChange = NO;
+            double minMapHeight = 10; //choose some value that fit your needs
+            double minMapWidth = 10;  //the same as above
+            BOOL needChange = NO;
 
-        double x = MKMapRectGetMinX(zoomRect);
-        double y = MKMapRectGetMinY(zoomRect);
-        double w = MKMapRectGetWidth(zoomRect);
-        double h = MKMapRectGetHeight(zoomRect);  //here was an error!!
+            double x = MKMapRectGetMinX(zoomRect);
+            double y = MKMapRectGetMinY(zoomRect);
+            double w = MKMapRectGetWidth(zoomRect);
+            double h = MKMapRectGetHeight(zoomRect);  //here was an error!!
 
-        if(MKMapRectGetHeight(zoomRect) < minMapHeight){
-            x -= minMapWidth/2;
-            w += minMapWidth/2;
-            needChange = YES;
-        }
-        if(MKMapRectGetWidth(zoomRect) < minMapWidth){
-            y -= minMapHeight/2;
-            h += minMapHeight/2;
-            needChange = YES;
-        }
-        if(needChange){
-            zoomRect = MKMapRectMake(x, y, w, h);
-        }
+            if (MKMapRectGetHeight(zoomRect) < minMapHeight)
+            {
+                x -= minMapWidth / 2;
+                w += minMapWidth / 2;
+                needChange = YES;
+            }
+            if (MKMapRectGetWidth(zoomRect) < minMapWidth)
+            {
+                y -= minMapHeight / 2;
+                h += minMapHeight / 2;
+                needChange = YES;
+            }
+            if (needChange)
+            {
+                zoomRect = MKMapRectMake(x, y, w, h);
+            }
 
-        MKCoordinateRegion mkcr = MKCoordinateRegionForMapRect(zoomRect);
-        CGRect cgr = [self.mapView convertRegion:mkcr toRectToView:self.view];
-        NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
-        [self.mapView setVisibleMapRect:zoomRect animated:YES];
+            MKCoordinateRegion mkcr = MKCoordinateRegionForMapRect(zoomRect);
+            CGRect cgr = [self.mapView convertRegion:mkcr toRectToView:self.view];
+            NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
+            [self.mapView setVisibleMapRect:zoomRect animated:YES];
+        }
     }
-
-//        [self.mapView setVisibleMapRect:zoomRect animated:YES];
+    [self.mapView setVisibleMapRect:zoomRect animated:YES];
 }
+
 
 #pragma mark - Custom
 - (void)setTrack:(PSTrack *)track
 {
+    DLogFuncName();
     _track = track;
 
     self.title = [track filename];
 
     [self addTrack:self.track];
-    [self.mapView addAnnotations:[self.track distanceAnnotations]];
+//    [self.mapView addAnnotations:[self.track distanceAnnotations]];
 
 //    [self.locationManager requestWhenInUseAuthorization];
 //
@@ -223,7 +390,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    
+    DLogFuncName();
 //    NSString *overpassAPIString = [NSString stringWithFormat:@"%.2f,%.2f,%.2f,%.2f",self.mapView.visibleMapRect.origin.x,self.mapView.visibleMapRect.origin.y,self.mapView.visibleMapRect.size.width,self.mapView.visibleMapRect.size.height];
 //    @"http://www.overpass.de/api/xapi?node[bbox=8.23,48.59,8.3,49.0][railway=tram_stop]";
 //    NSURL *overpassAPIUrl = [NSURL URLWithString:overpassAPIString];
@@ -242,6 +409,7 @@
 
 - (void) addTrack:(PSTrack*) track
 {
+    DLogFuncName();
     MKPolyline *route = [track route];
     [self.mapView addOverlay:route];
 
@@ -277,23 +445,21 @@
 - (void) clearMap
 {
     DLogFuncName();
-//    if (self.track)
-//    {
-//        [self.mapView removeOverlay:self.track];
-//    }
-//
-//    if (self.tracks)
-//    {
-//        [self.mapView removeOverlays:self.tracks];
-//    }
 
-    [self.mapView removeOverlay:self.mapView.overlays];
+    if ([self.mapView.overlays count])
+    {
+        NSArray *overlays = [[self.mapView overlays] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [MKPolyline class]]];
+        if ([overlays count])
+        {
+            [self.mapView removeOverlays:overlays];
+        }
+    }
 }
 
 
 - (void) flyover:(int)index
 {
-
+    DLogFuncName();
     PSTrack *track = self.track;
     __block int i = index;
 
@@ -342,16 +508,59 @@
                      }];
 }
 
+
+#pragma mark - Bounding box
+-(CLLocationCoordinate2D)getNECoordinate:(MKMapRect)mRect{
+    return [self getCoordinateFromMapRectanglePoint:MKMapRectGetMaxX(mRect) y:mRect.origin.y];
+}
+-(CLLocationCoordinate2D)getNWCoordinate:(MKMapRect)mRect{
+    return [self getCoordinateFromMapRectanglePoint:MKMapRectGetMinX(mRect) y:mRect.origin.y];
+}
+-(CLLocationCoordinate2D)getSECoordinate:(MKMapRect)mRect{
+    return [self getCoordinateFromMapRectanglePoint:MKMapRectGetMaxX(mRect) y:MKMapRectGetMaxY(mRect)];
+}
+-(CLLocationCoordinate2D)getSWCoordinate:(MKMapRect)mRect{
+    return [self getCoordinateFromMapRectanglePoint:mRect.origin.x y:MKMapRectGetMaxY(mRect)];
+}
+
+// http://www.softwarepassion.com/how-to-get-geographic-coordinates-of-the-visible-mkmapview-area-in-ios/
+-(CLLocationCoordinate2D)getCoordinateFromMapRectanglePoint:(double)x y:(double)y{
+    MKMapPoint swMapPoint = MKMapPointMake(x, y);
+    return MKCoordinateForMapPoint(swMapPoint);
+}
+
+-(NSArray *)getBoundingBox:(MKMapRect)mRect{
+    CLLocationCoordinate2D bottomLeft = [self getSWCoordinate:mRect];
+    CLLocationCoordinate2D topRight = [self getNECoordinate:mRect];
+    return @[[NSNumber numberWithDouble:bottomLeft.latitude ],
+            [NSNumber numberWithDouble:bottomLeft.longitude],
+            [NSNumber numberWithDouble:topRight.latitude],
+            [NSNumber numberWithDouble:topRight.longitude]];
+}
+
+
+//- (NSArray*)getBoundingBox:(MKCoordinateRegion *)mapRegion;
+//{
+//    MKCoordinateRegion *mapRegion = myMap.region;
+//
+//    CGFloat maxLatitude = mapRegion.center.latitude + mapRegion.span.latitudeDelta/2;
+//    CGFloat minLatitude = mapRegion.center.latitude - mapRegion.span.latitudeDelta/2;
+//
+//    CGFloat maxLongitude = mapRegion.center.longitude+ mapRegion.span.longitudeDelta/2;
+//    CGFloat minLongitude = mapRegion.center.longitude- mapRegion.span.longitudeDelta/2;
+//
+//}
+
 #pragma mark - Location
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-
+    DLogFuncName();
 }
 
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading
 {
-
+    DLogFuncName();
 }
 
 
@@ -384,14 +593,19 @@
     if ([overlay isKindOfClass:[MKTileOverlay class]]) {
         return [[MKTileOverlayRenderer alloc] initWithTileOverlay:overlay];
     }
+//
+//    else if (![overlay isKindOfClass:[MKPolyline class]]) {
+//        NSLog(@"ERROR ERROR ERROR");
+//
+//        return nil;
+//    }
+//
 
-    else if (![overlay isKindOfClass:[MKPolyline class]]) {
+    if (![overlay isKindOfClass:[MKPolyline class]]) {
         NSLog(@"ERROR ERROR ERROR");
 
         return nil;
     }
-       
-    
 
 
     MKPolyline *polyLine = (MKPolyline*)overlay;
@@ -426,6 +640,7 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
+    DLogFuncName();
     static NSString *annotaionIdentifier=@"annotationIdentifier";
 //    MKPinAnnotationView *annotationView=(MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:annotaionIdentifier ];
 //    if (annotationView==nil) {
@@ -459,6 +674,7 @@
 
 - (NSUInteger)supportedInterfaceOrientations
 {
+    DLogFuncName();
     return UIInterfaceOrientationMaskAll;
 }
 

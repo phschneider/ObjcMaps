@@ -215,9 +215,11 @@
      };
 
     [self.mapViewController clearMap];
-    [self.mapViewController.mapView removeOverlays:self.mapViewController.mapView.overlays];
-    [self.mapViewController setTracks:self.visibleTracks];
 
+    //    NSArray *clearableAnnotations = [self.mapView overlaysInLevel:MKOverlayLevelAboveRoads];
+
+//    [self.mapViewController.mapView removeOverlays:self.mapViewController.mapView.overlays];
+    [self.mapViewController setTracks:self.visibleTracks];
     [self.tableView reloadData];
 }
 
@@ -260,7 +262,7 @@
 
         [self.mapViewController clearMap];
         [self.mapViewController setTracks:self.visibleTracks];
-        [self.mapViewController.mapView layoutSubviews];
+//        [self.mapViewController.mapView layoutSubviews];
         if (self.mapViewController.view.superview == nil)
         {
 //            [self.mapViewController willMoveToParentViewController:self];
