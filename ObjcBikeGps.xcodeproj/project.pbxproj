@@ -30,6 +30,9 @@
 		223832BF1B074A9C0039142B /* Trail-Schwarzenberg15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832A71B074A9C0039142B /* Trail-Schwarzenberg15.gpx */; };
 		223832C01B074A9C0039142B /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832A81B074A9C0039142B /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx */; };
 		223832C11B074A9C0039142B /* Trail-Winterberg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 223832A91B074A9C0039142B /* Trail-Winterberg1.gpx */; };
+		223832C51B075BF80039142B /* 1064-layers-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 223832C21B075BF80039142B /* 1064-layers-4.png */; };
+		223832C61B075BF80039142B /* 1064-layers-4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 223832C31B075BF80039142B /* 1064-layers-4@2x.png */; };
+		223832C71B075BF80039142B /* 1064-layers-4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 223832C41B075BF80039142B /* 1064-layers-4@3x.png */; };
 		2263379C1B06587A00CEBD55 /* 852-map-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2263379A1B06587A00CEBD55 /* 852-map-toolbar.png */; };
 		2263379D1B06587A00CEBD55 /* 852-map-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2263379B1B06587A00CEBD55 /* 852-map-toolbar@2x.png */; };
 		226337A11B065A3700CEBD55 /* 1100-list-2-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2263379E1B065A3700CEBD55 /* 1100-list-2-toolbar.png */; };
@@ -42,6 +45,9 @@
 		226337AF1B06B58F00CEBD55 /* 798-filter-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337AC1B06B58F00CEBD55 /* 798-filter-toolbar.png */; };
 		226337B01B06B58F00CEBD55 /* 798-filter-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337AD1B06B58F00CEBD55 /* 798-filter-toolbar@2x.png */; };
 		226337B11B06B58F00CEBD55 /* 798-filter-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337AE1B06B58F00CEBD55 /* 798-filter-toolbar@3x.png */; };
+		227B45721B0A8B470037DA19 /* 810-document-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 227B456F1B0A8B470037DA19 /* 810-document-2.png */; };
+		227B45731B0A8B470037DA19 /* 810-document-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 227B45701B0A8B470037DA19 /* 810-document-2@2x.png */; };
+		227B45741B0A8B470037DA19 /* 810-document-2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 227B45711B0A8B470037DA19 /* 810-document-2@3x.png */; };
 		22AAD3E31AF6CEA900C9492D /* PSDistanceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AAD3E21AF6CEA900C9492D /* PSDistanceAnnotation.m */; };
 		22B1255B1B00028E0027DD9A /* PSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B1255A1B00028E0027DD9A /* PSLocationManager.m */; };
 		22F934D219DD5E5B00996122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D119DD5E5B00996122 /* Foundation.framework */; };
@@ -64,8 +70,10 @@
 		E5F163365A77926C4AF5CA54 /* PSGpxParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16DC8E762580B653758D0 /* PSGpxParser.m */; };
 		E5F1645416730CCBD86C0E31 /* PSGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16F94BA02FB00F322D9FD /* PSGraphViewController.m */; };
 		E5F166051E8262FB29BB9D8C /* PSTracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16C8FC429FFB94D53B8B3 /* PSTracksViewController.m */; };
+		E5F168204F628428EB6E0859 /* PSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F166917FA4CC93DA83352D /* PSSettingsViewController.m */; };
 		E5F16B120607C41DEB8D16B4 /* PSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16894BC25953F932B2F87 /* PSMapViewController.m */; };
 		E5F16E7AB10EB123356C1B2A /* PSTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F164D40F9565AD55DD90C5 /* PSTrack.m */; };
+		E5F16FC1D020C453E682EDE8 /* PSTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1659F7546E00D5149439D /* PSTileOverlay.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +111,9 @@
 		223832A71B074A9C0039142B /* Trail-Schwarzenberg15.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Schwarzenberg15.gpx"; path = "SampleData/Trail-Schwarzenberg15.gpx"; sourceTree = SOURCE_ROOT; };
 		223832A81B074A9C0039142B /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Sonnenberg-1-mittlerer-felsenweg.gpx"; path = "SampleData/Trail-Sonnenberg-1-mittlerer-felsenweg.gpx"; sourceTree = SOURCE_ROOT; };
 		223832A91B074A9C0039142B /* Trail-Winterberg1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Winterberg1.gpx"; path = "SampleData/Trail-Winterberg1.gpx"; sourceTree = SOURCE_ROOT; };
+		223832C21B075BF80039142B /* 1064-layers-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1064-layers-4.png"; sourceTree = "<group>"; };
+		223832C31B075BF80039142B /* 1064-layers-4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1064-layers-4@2x.png"; sourceTree = "<group>"; };
+		223832C41B075BF80039142B /* 1064-layers-4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1064-layers-4@3x.png"; sourceTree = "<group>"; };
 		2263379A1B06587A00CEBD55 /* 852-map-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "852-map-toolbar.png"; sourceTree = "<group>"; };
 		2263379B1B06587A00CEBD55 /* 852-map-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "852-map-toolbar@2x.png"; sourceTree = "<group>"; };
 		2263379E1B065A3700CEBD55 /* 1100-list-2-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1100-list-2-toolbar.png"; sourceTree = "<group>"; };
@@ -115,6 +126,9 @@
 		226337AC1B06B58F00CEBD55 /* 798-filter-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "798-filter-toolbar.png"; sourceTree = "<group>"; };
 		226337AD1B06B58F00CEBD55 /* 798-filter-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "798-filter-toolbar@2x.png"; sourceTree = "<group>"; };
 		226337AE1B06B58F00CEBD55 /* 798-filter-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "798-filter-toolbar@3x.png"; sourceTree = "<group>"; };
+		227B456F1B0A8B470037DA19 /* 810-document-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "810-document-2.png"; path = "../../../../../../Downloads/Glyphish Complete/Glyphish 6/Glyphish 6 Icons (PNG)/Large (tab bar)/Normal/810-document-2.png"; sourceTree = "<group>"; };
+		227B45701B0A8B470037DA19 /* 810-document-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "810-document-2@2x.png"; path = "../../../../../../Downloads/Glyphish Complete/Glyphish 6/Glyphish 6 Icons (PNG)/Large (tab bar)/Normal/810-document-2@2x.png"; sourceTree = "<group>"; };
+		227B45711B0A8B470037DA19 /* 810-document-2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "810-document-2@3x.png"; path = "../../../../../../Downloads/Glyphish Complete/Glyphish 6/Glyphish 6 Icons (PNG)/Large (tab bar)/Normal/810-document-2@3x.png"; sourceTree = "<group>"; };
 		22AAD3E11AF6CEA900C9492D /* PSDistanceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDistanceAnnotation.h; sourceTree = "<group>"; };
 		22AAD3E21AF6CEA900C9492D /* PSDistanceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDistanceAnnotation.m; sourceTree = "<group>"; };
 		22B125591B00028E0027DD9A /* PSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSLocationManager.h; sourceTree = "<group>"; };
@@ -140,8 +154,12 @@
 		22F9350619DD5FFB00996122 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		22F9350819DD624800996122 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5E583B3B03D649A69419F33C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		E5F1633C3642BF1AED930BC1 /* PSTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTileOverlay.h; sourceTree = "<group>"; };
 		E5F16458DDF465B9982ED7C4 /* PSTrackStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackStore.h; sourceTree = "<group>"; };
 		E5F164D40F9565AD55DD90C5 /* PSTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrack.m; sourceTree = "<group>"; };
+		E5F1659F7546E00D5149439D /* PSTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTileOverlay.m; sourceTree = "<group>"; };
+		E5F165F78EBAC31EA55A913A /* PSSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSettingsViewController.h; sourceTree = "<group>"; };
+		E5F166917FA4CC93DA83352D /* PSSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSettingsViewController.m; sourceTree = "<group>"; };
 		E5F166C06B79B63DCB75653D /* PSGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGraphViewController.h; sourceTree = "<group>"; };
 		E5F166DAA770CC1BC8C2CFCD /* PSGpxParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGpxParser.h; sourceTree = "<group>"; };
 		E5F16894BC25953F932B2F87 /* PSMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapViewController.m; sourceTree = "<group>"; };
@@ -196,6 +214,12 @@
 				226337A41B065A4B00CEBD55 /* 854-list-toolbar-selected.png */,
 				226337A51B065A4B00CEBD55 /* 854-list-toolbar-selected@2x.png */,
 				226337A61B065A4B00CEBD55 /* 854-list-toolbar-selected@3x.png */,
+				223832C21B075BF80039142B /* 1064-layers-4.png */,
+				223832C31B075BF80039142B /* 1064-layers-4@2x.png */,
+				223832C41B075BF80039142B /* 1064-layers-4@3x.png */,
+				227B456F1B0A8B470037DA19 /* 810-document-2.png */,
+				227B45701B0A8B470037DA19 /* 810-document-2@2x.png */,
+				227B45711B0A8B470037DA19 /* 810-document-2@3x.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -291,6 +315,10 @@
 				E5F16D5BDFA28CCC660617AD /* PSTracksViewController.h */,
 				E5F16D91F6134101B4D5B0C9 /* PSTrackStore.m */,
 				E5F16458DDF465B9982ED7C4 /* PSTrackStore.h */,
+				E5F166917FA4CC93DA83352D /* PSSettingsViewController.m */,
+				E5F165F78EBAC31EA55A913A /* PSSettingsViewController.h */,
+				E5F1659F7546E00D5149439D /* PSTileOverlay.m */,
+				E5F1633C3642BF1AED930BC1 /* PSTileOverlay.h */,
 			);
 			path = ObjcBikeGps;
 			sourceTree = "<group>";
@@ -403,6 +431,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				227B45731B0A8B470037DA19 /* 810-document-2@2x.png in Resources */,
+				227B45741B0A8B470037DA19 /* 810-document-2@3x.png in Resources */,
 				226337A81B065A4B00CEBD55 /* 854-list-toolbar-selected@2x.png in Resources */,
 				223832B21B074A9C0039142B /* Trail-Schwarzenberg2.gpx in Resources */,
 				226337A71B065A4B00CEBD55 /* 854-list-toolbar-selected.png in Resources */,
@@ -416,13 +446,16 @@
 				2263379C1B06587A00CEBD55 /* 852-map-toolbar.png in Resources */,
 				223832B81B074A9C0039142B /* Trail-Schwarzenberg8.gpx in Resources */,
 				223832BC1B074A9C0039142B /* Trail-Schwarzenberg12.gpx in Resources */,
+				223832C51B075BF80039142B /* 1064-layers-4.png in Resources */,
 				223832AC1B074A9C0039142B /* Route-pur-blau-gpx.gpx in Resources */,
 				223832AF1B074A9C0039142B /* Trail-Dudweiler1.gpx in Resources */,
 				226337B01B06B58F00CEBD55 /* 798-filter-toolbar@2x.png in Resources */,
 				223832C01B074A9C0039142B /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */,
 				223832BD1B074A9C0039142B /* Trail-Schwarzenberg13.gpx in Resources */,
+				227B45721B0A8B470037DA19 /* 810-document-2.png in Resources */,
 				223832B41B074A9C0039142B /* Trail-Schwarzenberg4.gpx in Resources */,
 				226337B11B06B58F00CEBD55 /* 798-filter-toolbar@3x.png in Resources */,
+				223832C61B075BF80039142B /* 1064-layers-4@2x.png in Resources */,
 				223832B11B074A9C0039142B /* Trail-Schwarzenberg1.gpx in Resources */,
 				223832B91B074A9C0039142B /* Trail-Schwarzenberg9.gpx in Resources */,
 				226337A91B065A4B00CEBD55 /* 854-list-toolbar-selected@3x.png in Resources */,
@@ -436,6 +469,7 @@
 				226337A21B065A3700CEBD55 /* 1100-list-2-toolbar@2x.png in Resources */,
 				223832BF1B074A9C0039142B /* Trail-Schwarzenberg15.gpx in Resources */,
 				226337AF1B06B58F00CEBD55 /* 798-filter-toolbar.png in Resources */,
+				223832C71B075BF80039142B /* 1064-layers-4@3x.png in Resources */,
 				223832BE1B074A9C0039142B /* Trail-Schwarzenberg14.gpx in Resources */,
 				223832AE1B074A9C0039142B /* Trail-AmHomburg1.gpx in Resources */,
 				226337A31B065A3700CEBD55 /* 1100-list-2-toolbar@3x.png in Resources */,
@@ -502,6 +536,8 @@
 				E5F16E7AB10EB123356C1B2A /* PSTrack.m in Sources */,
 				E5F166051E8262FB29BB9D8C /* PSTracksViewController.m in Sources */,
 				E5F1601EFD6DF91305B89379 /* PSTrackStore.m in Sources */,
+				E5F168204F628428EB6E0859 /* PSSettingsViewController.m in Sources */,
+				E5F16FC1D020C453E682EDE8 /* PSTileOverlay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

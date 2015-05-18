@@ -5,6 +5,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class ONOXMLElement;
+@class ONOXMLDocument;
+
 typedef NS_ENUM(NSInteger, PSTrackType) {
     PSTrackTypeUnknown,
     PSTrackTypeTrail,
@@ -21,6 +24,8 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 
 - (instancetype)initWithFilename:(NSString *)filename;
 - (instancetype)initWithFilename:(NSString *)filename trackType:(PSTrackType)trackType;
+
+- (instancetype)initWithXmlData:(ONOXMLElement *)onoxmlElement document:(ONOXMLDocument *)document;
 
 - (int)numberOfCoordinates;
 - (CLLocationCoordinate2D*)coordinates;

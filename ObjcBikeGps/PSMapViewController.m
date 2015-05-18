@@ -11,6 +11,8 @@
 #import "WYPopoverController.h"
 #import "PSSettingsViewController.h"
 #import "PSTileOverlay.h"
+#import "AFHTTPRequestOperation.h"
+#import "Ono.h"
 
 
 @interface PSMapViewController ()
@@ -189,6 +191,10 @@
     // Hike And Bike Map
     //    NSString *template = @"http://toolserver.org/tiles/hikebike/${z}/${x}/${y}.png";
 //    NSString *template = @"http://a.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png";
+
+    return;
+
+
     NSString *template = @"http://b.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png";
     PSTileOverlay *overlay = [[PSTileOverlay alloc] initWithURLTemplate:template];
     overlay.canReplaceMapContent = NO;
@@ -257,6 +263,66 @@
     NSLog(@"http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=%@]",boundingBoxString);
 //    overpass-api.de/api/map?bbox=6.8508,49.1958,7.2302,49.2976
 
+
+    // 1
+
+    NSString *string = [NSString stringWithFormat:@"http://overpass.osm.rambler.ru/cgi/xapi_meta?way[highway=path][bbox=%@]", boundingBoxString];
+    NSURL *url = [NSURL URLWithString:string];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+
+    // 2
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    // Make sure to set the responseSerializer correctly
+//    operation.responseSerializer = [AFXMLParserResponseSerializer serializer];
+
+
+    // TODO
+    // https://github.com/AFNetworking/AFOnoResponseSerializer
+
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        // 3
+
+        NSData *data = responseObject;
+        NSError *error;
+
+        ONOXMLDocument *document = [ONOXMLDocument XMLDocumentWithData:data error:&error];
+//        for (ONOXMLElement *element in document.rootElement.children) {
+//            NSLog(@"%@: %@", element.tag, element.attributes);
+//        }
+
+        NSString *xPathString = @"//way";
+        [document enumerateElementsWithXPath:xPathString usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
+            NSLog(@"%@", element);
+            __block PSTrack *track = [[PSTrack alloc] initWithXmlData:element document:document];
+            dispatch_async(dispatch_get_main_queue(),^{
+                [self setTracks: @[ track ]];
+            });
+        }];
+
+
+
+//        [self clearMap];
+
+
+//        [document enumerateElementsWithXPath:@"//Content" usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
+//            NSLog(@"%@", element);
+//        }];
+
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        // 4
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
+
+    // 5
+    [operation start];
 }
 
 
@@ -313,8 +379,9 @@
 //    }
 //
 
-    [self zoomToOverlays];
 }
+
+
 
 
 - (void)zoomToOverlays
@@ -405,6 +472,9 @@
 //    NSLog(@"%@",strData);
 
 //    self.mapView.frame = self.view.bounds;
+
+    [self zoomToOverlays];
+
 }
 
 - (void) addTrack:(PSTrack*) track
@@ -413,18 +483,18 @@
     MKPolyline *route = [track route];
     [self.mapView addOverlay:route];
 
-    int padding = 30;
-    [self.mapView setVisibleMapRect:[route boundingMapRect] edgePadding:UIEdgeInsetsMake(padding, padding, padding, padding) animated:YES];
-
-
-    // Dieser Teil nur wenn Route zur Navigation geladen wird
-    CLLocationCoordinate2D tmpLocation = MKCoordinateForMapPoint([track start]);
-
-    CLLocationCoordinate2D ground = CLLocationCoordinate2DMake(tmpLocation.latitude, tmpLocation.longitude);
-    CLLocationCoordinate2D eye = CLLocationCoordinate2DMake(tmpLocation.latitude, tmpLocation.longitude+.020);
-    MKMapCamera *mapCamera = [MKMapCamera cameraLookingAtCenterCoordinate:ground
-                                                        fromEyeCoordinate:eye
-                                                              eyeAltitude:700];
+//    int padding = 30;
+//    [self.mapView setVisibleMapRect:[route boundingMapRect] edgePadding:UIEdgeInsetsMake(padding, padding, padding, padding) animated:YES];
+//
+//
+//    // Dieser Teil nur wenn Route zur Navigation geladen wird
+//    CLLocationCoordinate2D tmpLocation = MKCoordinateForMapPoint([track start]);
+//
+//    CLLocationCoordinate2D ground = CLLocationCoordinate2DMake(tmpLocation.latitude, tmpLocation.longitude);
+//    CLLocationCoordinate2D eye = CLLocationCoordinate2DMake(tmpLocation.latitude, tmpLocation.longitude+.020);
+//    MKMapCamera *mapCamera = [MKMapCamera cameraLookingAtCenterCoordinate:ground
+//                                                        fromEyeCoordinate:eye
+//                                                              eyeAltitude:700];
 
 //    [UIView animateWithDuration:0.5
 //                          delay:1.1

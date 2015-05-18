@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BEMSimpleLineGraph.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -15,6 +20,11 @@
 			<false/>
 		</dict>
 		<key>Pods-DZNSegmentedControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Ono.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -37,32 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0AEEC842D180485899AD94A8</key>
+		<key>251710956EC249DCA83DA72E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0D422FA95A0C476A8442AADA</key>
+		<key>3646F2C0DC44416B9742F5D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5647B1B0C2304290955AA42C</key>
+		<key>43A7DF40AF0A48258B5A7F63</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5CE67082204544F2BCEE4985</key>
+		<key>43FBF2E13507498A85F73884</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6199DD1E3C6342618AAF6643</key>
+		<key>4BB84A73752D41BD953CC3A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E9D8DA40D6634245BB9F2E32</key>
+		<key>9F10442ADAC248EF80409066</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1996EA8E6B742108C8B9C9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F02D0F4C2BB54DAC98BC0B9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

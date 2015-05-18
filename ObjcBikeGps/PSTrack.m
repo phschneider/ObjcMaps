@@ -5,6 +5,7 @@
 
 #import <XMLDictionary/XMLDictionary.h>
 #import <MapKit/MapKit.h>
+#import <Ono/ONOXMLDocument.h>
 #import "PSTrack.h"
 #import "PSDistanceAnnotation.h"
 
@@ -45,6 +46,37 @@
 }
 
 
+- (instancetype)initWithXmlData:(ONOXMLElement*)onoxmlElement document:(ONOXMLDocument*)document
+{
+    DLogFuncName();
+    self = [super init];
+    if (self)
+    {
+        __block NSMutableArray *points = [[NSMutableArray alloc] init];
+
+        for (ONOXMLElement *child in [onoxmlElement childrenWithTag:@"nd"])
+        {
+            NSString *nodeId = [child valueForAttribute:@"ref"];
+            NSString *xPathString = [NSString stringWithFormat:@"//node[@id=%@]",nodeId];
+            [document enumerateElementsWithXPath:xPathString usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
+                NSLog(@"%@", element);
+                NSNumber *lat = [element valueForAttribute:@"lat"];
+                NSNumber *lon = [element valueForAttribute:@"lon"];
+                NSMutableDictionary *pointDict = [[NSMutableDictionary alloc] init];
+                [pointDict setObject:lat forKey:@"_lat"];
+                [pointDict setObject:lon forKey:@"_lon"];
+                [points addObject:pointDict];
+            }];
+        }
+
+
+        NSDictionary *dictionary = @{ @"trk" :  @{ @"trkseg" : @{ @"trkpt" : points} } };
+        [self parseDictionary:dictionary];
+    }
+    return self;
+}
+
+
 - (NSString*)filepath
 {
     return [[NSBundle mainBundle] pathForResource:self.filename ofType:@"gpx"];
@@ -58,27 +90,38 @@
     {
         NSDictionary *routingDict = [NSDictionary dictionaryWithXMLData:data];
 //        NSLog(@"routingDict  %@", routingDict);
-        NSArray *trek = [[[routingDict objectForKey:@"trk"] objectForKey:@"trkseg"] objectForKey:@"trkpt"];
+        [self parseDictionary:routingDict];
+    }
+    else
+    {
+        NSLog(@"No Data for %@", [self filepath]);
+    }
+}
 
-        NSMutableArray *elevatioNData = [[NSMutableArray alloc] initWithCapacity:[trek count]];
-        self.distanceAnnotationsDict = [[NSMutableDictionary alloc] initWithCapacity:[trek count]];
 
-        self.pointsCoordinate = (CLLocationCoordinate2D *)malloc(sizeof(CLLocationCoordinate2D) * [trek count]);
+- (void)parseDictionary:(NSDictionary *)routingDict
+{
+    NSArray *trek = [[[routingDict objectForKey:@"trk"] objectForKey:@"trkseg"] objectForKey:@"trkpt"];
 
-        CLLocation* Location1;
-        CLLocation *tmpLocation;
-        CLLocationDistance distance = 0.0;
+    NSMutableArray *elevatioNData = [[NSMutableArray alloc] initWithCapacity:[trek count]];
+    self.distanceAnnotationsDict = [[NSMutableDictionary alloc] initWithCapacity:[trek count]];
 
-        int pointArrCount = 0;  //it's simpler to keep a separate index for pointArr
-        CGFloat minHeight = 0.0;
-        CGFloat maxHeight = 0.0;
+    self.pointsCoordinate = (CLLocationCoordinate2D *)malloc(sizeof(CLLocationCoordinate2D) * [trek count]);
 
-        self.totalDown = 0.0;
-        self.totalUp = 0.0;
+    CLLocation* Location1;
+    CLLocation *tmpLocation;
+    CLLocationDistance distance = 0.0;
 
-        CGFloat tmpElevation = 0.0;
+    int pointArrCount = 0;  //it's simpler to keep a separate index for pointArr
+    CGFloat minHeight = 0.0;
+    CGFloat maxHeight = 0.0;
 
-        for (NSDictionary * pointDict in trek)
+    self.totalDown = 0.0;
+    self.totalUp = 0.0;
+
+    CGFloat tmpElevation = 0.0;
+
+    for (NSDictionary * pointDict in trek)
         {
 
             CGFloat lat = [[pointDict objectForKey:@"_lat"] doubleValue];
@@ -149,20 +192,15 @@
             pointArrCount++;
         }
 
-        self.trackLength = (float) distance;
-        self.pointArrCount = pointArrCount;
+    self.trackLength = (float) distance;
+    self.pointArrCount = pointArrCount;
 //        [self.graphViewController setData:elevatioNData];
-        NSLog(@"MinHeight = %f", minHeight);
-        NSLog(@"MaxHeight = %f", maxHeight);
+    NSLog(@"MinHeight = %f", minHeight);
+    NSLog(@"MaxHeight = %f", maxHeight);
 
-        NSLog(@"TotalUp = %f", self.totalUp);
-        NSLog(@"TotalDown = %f", self.totalDown);
-        NSLog(@"Distance = %f", self.trackLength);
-    }
-    else
-    {
-        NSLog(@"No Data for %@", [self filepath]);
-    }
+    NSLog(@"TotalUp = %f", self.totalUp);
+    NSLog(@"TotalDown = %f", self.totalDown);
+    NSLog(@"Distance = %f", self.trackLength);
 }
 
 

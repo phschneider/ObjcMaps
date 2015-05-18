@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2015-04-19T13:13:02Z"/>
+
+  <node id="1589030253" lat="49.2468328" lon="7.0404069" version="2" timestamp="2012-04-24T16:59:17Z" changeset="11407316" uid="117878" user="catweazle69514">
+    <tag k="name" v="Schwarzenbergturm"/>
+    <tag k="tourism" v="viewpoint"/>
+  </node>
+
+</osm>
