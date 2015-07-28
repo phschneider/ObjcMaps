@@ -283,18 +283,19 @@
 {
     if ([keyPath isEqualToString:@"tracks"])
     {
+        dispatch_async(dispatch_get_main_queue(),^{
+            self.tracks = [NSArray arrayWithArray:[change objectForKey:@"new"]];
+            self.visibleTracks = [NSArray arrayWithArray:[change objectForKey:@"new"]];
 
-        self.tracks = [NSArray arrayWithArray:[change objectForKey:@"new"]];
-        self.visibleTracks = [NSArray arrayWithArray:[change objectForKey:@"new"]];
+    //        NSLog(@"Add Entries = %d",[[change objectForKey:@"new"] count]);
+    //        [self.tracks addObjectsFromArray:[change objectForKey:@"new"]];
+            [self.tableView reloadData];
 
-        NSLog(@"Add Entries = %d",[[change objectForKey:@"new"] count]);
-//        [self.tracks addObjectsFromArray:[change objectForKey:@"new"]];
-        [self.tableView reloadData];
-
-        [self.control setCount:@([self.tracks count]) forSegmentAtIndex:0];
-        [self.control setCount:@([[self.tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeTrail]] count]) forSegmentAtIndex:1];
-        [self.control setCount:@([[self.tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeRoundTrip]] count]) forSegmentAtIndex:2];
-        [self.control setCount:@([[self.tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeUnknown]] count]) forSegmentAtIndex:3];
+            [self.control setCount:@([self.tracks count]) forSegmentAtIndex:0];
+            [self.control setCount:@([[self.tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeTrail]] count]) forSegmentAtIndex:1];
+            [self.control setCount:@([[self.tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeRoundTrip]] count]) forSegmentAtIndex:2];
+            [self.control setCount:@([[self.tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeUnknown]] count]) forSegmentAtIndex:3];
+        });
     }
 }
 

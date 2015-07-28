@@ -26,7 +26,7 @@
 
 
 - (NSURL *)URLForTilePath:(MKTileOverlayPath)path {
-    return [NSURL URLWithString:[NSString stringWithFormat:@"http://b.tiles.wmflabs.org/hikebike/%d/%d/%d.png", path.z, path.x, path.y]];
+    return [NSURL URLWithString:[NSString stringWithFormat:@"http://b.tiles.wmflabs.org/hikebike/%ld/%ld/%ld.png", path.z, path.x, path.y]];
 }
 
 
@@ -34,20 +34,27 @@
                 result:(void (^)(NSData *data, NSError *error))result
 {
     if (!result) {
-        NSLog(@"No result");
+//        NSLog(@"No result");
         return;
     }
 
     NSData *cachedData = [self.cache objectForKey:[self URLForTilePath:path]];
     if (cachedData) {
-        NSLog(@"cached data");
+//        NSLog(@"cached data");
         result(cachedData, nil);
     } else {
-        NSLog(@"Request Data for path");
+    
+//        NSLog(@"Request Data for path");
         NSURLRequest *request = [NSURLRequest requestWithURL:[self URLForTilePath:path]];
         [NSURLConnection sendAsynchronousRequest:request queue:self.operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-            NSLog(@"Set data for path");
-            [self.cache setObject:data forKey:[self URLForTilePath:path]];
+//            NSLog(@"Set data for path");
+
+//            NSLog(@"Data = %@", data);
+            
+            if (data)
+            {
+                [self.cache setObject:data forKey:[self URLForTilePath:path]];
+            }
             result(data, connectionError);
         }];
     }

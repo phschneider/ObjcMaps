@@ -185,7 +185,7 @@
     if (data)
     {
         NSDictionary *routingDict = [NSDictionary dictionaryWithXMLData:data];
-        NSLog(@"routingDict  %@", routingDict);
+//        NSLog(@"routingDict  %@", routingDict);
         NSArray *trek = [[[routingDict objectForKey:@"trk"] objectForKey:@"trkseg"] objectForKey:@"trkpt"];
         
         NSMutableArray *elevatioNData = [[NSMutableArray alloc] initWithCapacity:[trek count]];
@@ -259,14 +259,14 @@
             
             // Passt nicht ...
             distance += [tmpLocation distanceFromLocation:Location1];
-            NSLog(@"Distance = %f", distance);
+//            NSLog(@"Distance = %f", distance);
             int dist = (distance / 1000);
             if (dist %1 == 0)
             {
                 NSString *key = [NSString stringWithFormat:@"%d", dist];
                 if (![[annotations allKeys] containsObject:key])
                 {
-                    NSLog(@"ADDED %d", dist);
+//                    NSLog(@"ADDED %d", dist);
                     PSDistanceAnnotation *annotation = [[PSDistanceAnnotation alloc] initWithCoordinate:[tmpLocation coordinate] title:key];
                 
                     [annotations setObject:annotation forKey:key];
@@ -302,15 +302,15 @@
             
         }];
         
-        NSLog(@"MinHeight = %f", minHeight);
-        NSLog(@"MaxHeight = %f", maxHeight);
-        
-        NSLog(@"TotalUp = %f", totalUp);
-        NSLog(@"TotalDown = %f", totalDown);
+//        NSLog(@"MinHeight = %f", minHeight);
+//        NSLog(@"MaxHeight = %f", maxHeight);
+//        
+//        NSLog(@"TotalUp = %f", totalUp);
+//        NSLog(@"TotalDown = %f", totalDown);
     }
     else
     {
-        NSLog(@"No Data for %@", [self filepath]);
+//        NSLog(@"No Data for %@", [self filepath]);
     }
     
    
@@ -340,6 +340,8 @@
 -  (void) addMapOverlay
 {
     DLogFuncName();
+    
+    return;
     
     // Statusabfrage:
     // http://wiki.openstreetmap.org/wiki/Slippy_Map
@@ -520,15 +522,15 @@
         free(pointArr);
 
         [self setDistance:distance];
-        NSLog(@"MinHeight = %f", minHeight);
-        NSLog(@"MaxHeight = %f", maxHeight);
-        
-        NSLog(@"TotalUp = %f", totalUp);
-        NSLog(@"TotalDown = %f", totalDown);
+//        NSLog(@"MinHeight = %f", minHeight);
+//        NSLog(@"MaxHeight = %f", maxHeight);
+//        
+//        NSLog(@"TotalUp = %f", totalUp);
+//        NSLog(@"TotalDown = %f", totalDown);
     }
     else
     {
-        NSLog(@"No Data for %@", [self filepath]);
+//        NSLog(@"No Data for %@", [self filepath]);
     }
 
     
@@ -642,7 +644,7 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     DLogFuncName();
-    NSLog(@"Locations = %@",locations);
+//    NSLog(@"Locations = %@",locations);
     
     CLLocation *location = [locations firstObject];
     
@@ -654,7 +656,7 @@
     span.longitudeDelta = location.horizontalAccuracy/10000000;
     region.span = span;
     
-    NSLog(@"RegionSpane = %f %f", span.latitudeDelta, span.longitudeDelta);
+//    NSLog(@"RegionSpane = %f %f", span.latitudeDelta, span.longitudeDelta);
     
     CGRect frame = self.view.bounds;
     frame.origin.y = 20;
@@ -688,7 +690,7 @@
 {
     DLogFuncName();
     
-    NSLog(@"Distance = %f",distance);
+//    NSLog(@"Distance = %f",distance);
     
     CGRect frame = self.view.bounds;
     frame.origin.y += 40;
