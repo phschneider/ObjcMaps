@@ -332,7 +332,7 @@
     //    NSURLResponse *response;
     //    NSError *error;
     //    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    //  
+    //
     //    NSString *strData = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     //    NSLog(@"%@",data);
     //    NSLog(@"%@",strData);
@@ -651,7 +651,7 @@
 //        [self.mapView setVisibleMapRect:zoomRect animated:YES];
 //    }
 //
-
+    [self zoomToOverlays];
 }
 
 
@@ -664,6 +664,7 @@
 
     [self addTrack:self.track];
     [self.mapView addAnnotations:[self.track distanceAnnotations]];
+    [self zoomToPolyLine:self.mapView polyline:[track route] animated:YES];
 }
 
 
@@ -976,8 +977,11 @@
 }
 
 
+// Um um alle Overlays zu zentrieren
 - (void)zoomToOverlays
 {
+    DLogFuncName();
+    
     MKMapRect zoomRect = MKMapRectNull;
     for (id <MKOverlay> overlay in self.mapView.overlays)
     {
@@ -993,8 +997,8 @@
                 zoomRect = MKMapRectUnion(zoomRect, pointRect);
             }
 
-            double minMapHeight = 10; //choose some value that fit your needs
-            double minMapWidth = 10;  //the same as above
+            double minMapHeight = 480; //choose some value that fit your needs
+            double minMapWidth = 320;  //the same as above
             BOOL needChange = NO;
 
             double x = MKMapRectGetMinX(zoomRect);
@@ -1021,16 +1025,24 @@
 
             MKCoordinateRegion mkcr = MKCoordinateRegionForMapRect(zoomRect);
             CGRect cgr = [self.mapView convertRegion:mkcr toRectToView:self.view];
-//            NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
-            [self.mapView setVisibleMapRect:zoomRect animated:YES];
+            NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
+//            [self.mapView setVisibleMapRect:zoomRect animated:YES];
         }
     }
-    [self.mapView setVisibleMapRect:zoomRect animated:YES];
+
+//    NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
+    [self.mapView setVisibleMapRect:zoomRect edgePadding:UIEdgeInsetsMake(20.0, 20.0, 20.0, 20.0) animated:YES];
+}
+
+
+// Um um einen Track zu zentrieren...
+-(void)zoomToPolyLine: (MKMapView*)map polyline: (MKPolyline*)polyline animated: (BOOL)animated
+{
+    [map setVisibleMapRect:[polyline boundingMapRect] edgePadding:UIEdgeInsetsMake(50.0, 50.0, 50.0, 50.0) animated:animated];
 }
 
 
 #pragma mark - Custom
-
 - (void) clearMap
 {
     DLogFuncName();
@@ -1310,7 +1322,7 @@
         annotationView.canShowCallout = NO;
         
         CGRect frame = CGRectZero;
-        frame.size = CGSizeMake(20.0,20.0);
+        frame.size = CGSizeMake(labelSize,labelSize);
         
         UILabel *label = [[UILabel alloc] initWithFrame:annotationView.frame];
         label.frame = frame;
@@ -1322,7 +1334,8 @@
         label.clipsToBounds = YES;
         label.textColor = [UIColor blackColor];
         label.layer.cornerRadius = frame.size.width/2;
-        
+        label.layer.borderColor = [[UIColor blackColor] CGColor];
+        label.layer.borderWidth = 1.0;
 //        label.center = CGPointMake(label.center.x, label.center.y + 5);
         [annotationView addSubview:label];
         return annotationView;
