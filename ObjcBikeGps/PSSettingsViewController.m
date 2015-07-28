@@ -42,7 +42,7 @@
 //        height += [self.tableView tableHeaderView].frame.size.height;
         height += 100;
     }
-    NSLog(@"Height = %f", height);
+//    NSLog(@"Height = %f", height);
     return height;
 }
 

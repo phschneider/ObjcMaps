@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>60C9C6D9-37C4-4B55-83E7-426035F694EA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ObjcBikeGps</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AD2CCE2370D2785B378CBFB20A458B05A842AD1D</key>
+		<string>bitbucket.org:phschneider/objcbikegps.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ObjcBikeGps.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AD2CCE2370D2785B378CBFB20A458B05A842AD1D</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>bitbucket.org:phschneider/objcbikegps.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AD2CCE2370D2785B378CBFB20A458B05A842AD1D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AD2CCE2370D2785B378CBFB20A458B05A842AD1D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ObjcBikeGps</string>
+		</dict>
+	</array>
+</dict>
+</plist>

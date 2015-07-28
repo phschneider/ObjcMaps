@@ -8,6 +8,7 @@
 #import <Ono/ONOXMLDocument.h>
 #import "PSTrack.h"
 #import "PSDistanceAnnotation.h"
+#import "PSTrackOverlay.h"
 
 
 @interface PSTrack()
@@ -17,6 +18,7 @@
 @property (nonatomic) CLLocationCoordinate2D *pointsCoordinate;
 @property (nonatomic) int pointArrCount;
 @property (nonatomic) NSMutableDictionary *distanceAnnotationsDict;
+@property (nonatomic) NSMutableDictionary *tags;
 @end
 
 
@@ -29,6 +31,11 @@
     {
         self.trackType = PSTrackTypeUnknown;
         self.filename = filename;
+        self.color = [UIColor blueColor];
+        self.alpha = 1.0;
+        self.lineWidth = 2.5;
+        self.lineDashPattern = @[@2, @5];
+
         [self parseElevationFile];
     }
     return self;
@@ -53,13 +60,20 @@
     if (self)
     {
         __block NSMutableArray *points = [[NSMutableArray alloc] init];
-
+        __block NSMutableDictionary*wayTags = [[NSMutableDictionary alloc] init];
+        
+        for (ONOXMLElement *child in [onoxmlElement childrenWithTag:@"tag"])
+        {
+            [wayTags setObject:[child valueForAttribute:@"v"] forKey:[child valueForAttribute:@"k"]];
+        }
+        
+        
         for (ONOXMLElement *child in [onoxmlElement childrenWithTag:@"nd"])
         {
             NSString *nodeId = [child valueForAttribute:@"ref"];
             NSString *xPathString = [NSString stringWithFormat:@"//node[@id=%@]",nodeId];
             [document enumerateElementsWithXPath:xPathString usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
-                NSLog(@"%@", element);
+//                NSLog(@"%@", element);
                 NSNumber *lat = [element valueForAttribute:@"lat"];
                 NSNumber *lon = [element valueForAttribute:@"lon"];
                 NSMutableDictionary *pointDict = [[NSMutableDictionary alloc] init];
@@ -72,8 +86,39 @@
 
         NSDictionary *dictionary = @{ @"trk" :  @{ @"trkseg" : @{ @"trkpt" : points} } };
         [self parseDictionary:dictionary];
+        self.color = [UIColor redColor];
+        self.alpha = 0.5;
+        self.lineWidth = 2.5;
+        self.lineDashPattern = @[@5, @5];
+        self.tags = [wayTags copy];
     }
+    
     return self;
+}
+
+
+#pragma mark - Informations
+- (NSString*)title
+{
+    NSMutableString *titleString = [[NSMutableString alloc] init];
+    for (NSString *key in [self.tags allKeys])
+    {
+        [titleString appendFormat:@"%@ = %@",key, [self.tags objectForKey:key]];
+    }
+    return titleString;
+}
+
+
+- (NSString*)roundedUp
+{
+    DLogFuncName();
+    return [NSString stringWithFormat:@"%0.0fm",self.totalUp];
+}
+
+- (NSString*)roundedDown
+{
+    DLogFuncName();
+    return [NSString stringWithFormat:@"%0.0fm",self.totalDown];
 }
 
 
@@ -83,6 +128,7 @@
 }
 
 
+#pragma mark - Parsing
 - (void) parseElevationFile
 {
     NSData *data = [NSData dataWithContentsOfFile:[self filepath]];
@@ -94,7 +140,7 @@
     }
     else
     {
-        NSLog(@"No Data for %@", [self filepath]);
+//        NSLog(@"No Data for %@", [self filepath]);
     }
 }
 
@@ -195,12 +241,12 @@
     self.trackLength = (float) distance;
     self.pointArrCount = pointArrCount;
 //        [self.graphViewController setData:elevatioNData];
-    NSLog(@"MinHeight = %f", minHeight);
-    NSLog(@"MaxHeight = %f", maxHeight);
-
-    NSLog(@"TotalUp = %f", self.totalUp);
-    NSLog(@"TotalDown = %f", self.totalDown);
-    NSLog(@"Distance = %f", self.trackLength);
+//    NSLog(@"MinHeight = %f", minHeight);
+//    NSLog(@"MaxHeight = %f", maxHeight);
+//
+//    NSLog(@"TotalUp = %f", self.totalUp);
+//    NSLog(@"TotalDown = %f", self.totalDown);
+//    NSLog(@"Distance = %f", self.trackLength);
 }
 
 
@@ -269,7 +315,7 @@
 
 
             tmpElevation = elevation;
-            NSLog(@"Coordinate = %f %f  ELEVATION %f TIME %@", workingCoordinate.latitude, workingCoordinate.longitude,[[pointDict objectForKey:@"ele"] doubleValue], [pointDict objectForKey:@"time"]);
+//            NSLog(@"Coordinate = %f %f  ELEVATION %f TIME %@", workingCoordinate.latitude, workingCoordinate.longitude,[[pointDict objectForKey:@"ele"] doubleValue], [pointDict objectForKey:@"time"]);
 
             // Distance
             tmpLocation = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
@@ -291,6 +337,7 @@
 }
 
 
+#pragma mark - Coordinates
 - (int) numberOfCoordinates
 {
     return self.pointArrCount;
@@ -313,7 +360,9 @@
 {
 //    return [MKPolyline polylineWithPoints:self.pointArr count:self.pointArrCount];
 
-    return  [MKPolyline polylineWithCoordinates:self.pointsCoordinate count:self.pointArrCount];
+    PSTrackOverlay *trackOverlay =  [PSTrackOverlay polylineWithCoordinates:self.pointsCoordinate count:self.pointArrCount];
+    trackOverlay.track = self;
+    return trackOverlay;
 }
 
 
@@ -322,18 +371,18 @@
     CLLocationCoordinate2D annocoord =  MKCoordinateForMapPoint([self start]);
     CLLocationCoordinate2D usercoord = location.coordinate;
 
-    NSLog(@"ANNO  = %f, %f", annocoord.latitude, annocoord.longitude);
-    NSLog(@"USER = %f, %f", usercoord.latitude, usercoord.longitude);
+//    NSLog(@"ANNO  = %f, %f", annocoord.latitude, annocoord.longitude);
+//    NSLog(@"USER = %f, %f", usercoord.latitude, usercoord.longitude);
 
     CLLocation *loc = [[CLLocation alloc] initWithLatitude:annocoord.latitude longitude:annocoord.longitude];
     CLLocation *loc2 = [[CLLocation alloc] initWithLatitude:usercoord.latitude longitude:usercoord.longitude];
 
-    NSLog(@"LOC  = %f, %f", loc.coordinate.latitude,  loc.coordinate.longitude);
-    NSLog(@"LOC2 = %f, %f", loc2.coordinate.latitude, loc2.coordinate.longitude);
+//    NSLog(@"LOC  = %f, %f", loc.coordinate.latitude,  loc.coordinate.longitude);
+//    NSLog(@"LOC2 = %f, %f", loc2.coordinate.latitude, loc2.coordinate.longitude);
 
     CLLocationDistance dist = [loc distanceFromLocation:loc2];
 
-    NSLog(@"DIST: %f", dist); // Wrong formatting may show wrong value!
+//    NSLog(@"DIST: %f", dist); // Wrong formatting may show wrong value!
     return dist;
 }
 
@@ -364,22 +413,11 @@
 }
 
 
+#pragma mark - Annotations
 - (NSArray *)distanceAnnotations
 {
     return [[self.distanceAnnotationsDict allValues] copy];
 }
 
-
-- (NSString*)roundedUp
-{
-    DLogFuncName();
-    return [NSString stringWithFormat:@"%0.0fm",self.totalUp];
-}
-
-- (NSString*)roundedDown
-{
-    DLogFuncName();
-    return [NSString stringWithFormat:@"%0.0fm",self.totalDown];
-}
 
 @end

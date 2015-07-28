@@ -8,6 +8,7 @@
 @class ONOXMLElement;
 @class ONOXMLDocument;
 
+
 typedef NS_ENUM(NSInteger, PSTrackType) {
     PSTrackTypeUnknown,
     PSTrackTypeTrail,
@@ -21,6 +22,11 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 @property (nonatomic) CGFloat trackLength;
 @property (nonatomic) PSTrackType trackType;
 @property (nonatomic) CGFloat totalUp;
+
+@property (nonatomic) UIColor *color;
+@property (nonatomic) CGFloat alpha;
+@property (nonatomic) CGFloat lineWidth;
+@property (nonatomic) NSArray *lineDashPattern;
 
 - (instancetype)initWithFilename:(NSString *)filename;
 - (instancetype)initWithFilename:(NSString *)filename trackType:(PSTrackType)trackType;
@@ -39,4 +45,6 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 
 - (NSString*)roundedUp;
 - (NSString *)roundedDown;
+- (NSString *)title;
+
 @end
