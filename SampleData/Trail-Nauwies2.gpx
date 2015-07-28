@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpsies="http://www.gpsies.com/GPX/1/0" creator="GPSies http://www.gpsies.com - Nauwies Trail" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.gpsies.com/GPX/1/0 http://www.gpsies.com/gpsies.xsd">
+  <metadata>
+    <name>Nauwies Trail</name>
+    <author>
+      <name>phschneider</name>
+      <link href="http://www.gpsies.com/mapUser.do?username=phschneider">
+        <text>phschneider on GPSies.com</text>
+        <type>GPSiesUserOnWeb</type>
+      </link>
+    </author>
+    <link href="http://www.gpsies.com/map.do?fileId=hyxnafvmavcniequ">
+      <text>Nauwies Trail on GPSies.com</text>
+      <type>trackOnWeb</type>
+    </link>
+    <time>2015-07-21T10:16:46Z</time>
+    <extensions>
+      <gpsies:property>one-way trip</gpsies:property>
+      <gpsies:trackLengthMeter>254.13404337870105</gpsies:trackLengthMeter>
+      <gpsies:totalAscentMeter>0.0</gpsies:totalAscentMeter>
+      <gpsies:totalDescentMeter>15.0</gpsies:totalDescentMeter>
+      <gpsies:minHeightMeter>224.0</gpsies:minHeightMeter>
+      <gpsies:maxHeightMeter>239.0</gpsies:maxHeightMeter>
+    </extensions>
+  </metadata>
+  <trk>
+    <name>Nauwies Trail on GPSies.com</name>
+    <link href="http://www.gpsies.com/map.do?fileId=hyxnafvmavcniequ">
+      <type>trackOnWeb</type>
+    </link>
+    <link href="http://www.gpsies.com/charts/hy/map/hyxnafvmavcniequ_map.png">
+      <type>elevationChartUrlMap</type>
+    </link>
+    <link href="http://www.gpsies.com/charts/hy/mapThumb/hyxnafvmavcniequ_mapThumb.png">
+      <type>elevationChartUrlMapThumb</type>
+    </link>
+    <link href="http://www.gpsies.com/charts/hy/tab/hyxnafvmavcniequ_tab.png">
+      <type>elevationChartUrlTab</type>
+    </link>
+    <trkseg>
+      <trkpt lat="49.26854660" lon="6.974859230">
+        <ele>239.00000</ele>
+        <time>2010-01-01T00:00:00Z</time>
+      </trkpt>
+      <trkpt lat="49.26854000" lon="6.974860000">
+        <ele>239.00000</ele>
+        <time>2010-01-01T00:00:00Z</time>
+      </trkpt>
+      <trkpt lat="49.26879000" lon="6.975330000">
+        <ele>237.00000</ele>
+        <time>2010-01-01T00:00:16Z</time>
+      </trkpt>
+      <trkpt lat="49.26899000" lon="6.975880000">
+        <ele>235.00000</ele>
+        <time>2010-01-01T00:00:32Z</time>
+      </trkpt>
+      <trkpt lat="49.26905000" lon="6.976280000">
+        <ele>234.00000</ele>
+        <time>2010-01-01T00:00:43Z</time>
+      </trkpt>
+      <trkpt lat="49.26919000" lon="6.976970000">
+        <ele>231.00000</ele>
+        <time>2010-01-01T00:01:02Z</time>
+      </trkpt>
+      <trkpt lat="49.26932000" lon="6.977470000">
+        <ele>228.00000</ele>
+        <time>2010-01-01T00:01:16Z</time>
+      </trkpt>
+      <trkpt lat="49.26937000" lon="6.978050000">
+        <ele>224.00000</ele>
+        <time>2010-01-01T00:01:31Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
+

@@ -237,8 +237,28 @@
     return zoomer;
 }
 
-//
-- (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    // Enable iOS 7 back gesture
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
+}
+
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return YES;
+    return NO;
+}
+
+
+#pragma mark - Buttons
+- (void)locationButtonTapped
 {
     DLogFuncName();
     NSArray * boundingBox = [self getBoundingBox:self.mapView.visibleMapRect];

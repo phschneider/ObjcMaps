@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpsies="http://www.gpsies.com/GPX/1/0" creator="GPSies http://www.gpsies.com - Trail" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.gpsies.com/GPX/1/0 http://www.gpsies.com/gpsies.xsd">
+  <metadata>
+    <name>Trail</name>
+    <author>
+      <name>phschneider</name>
+      <link href="http://www.gpsies.com/mapUser.do?username=phschneider">
+        <text>phschneider on GPSies.com</text>
+        <type>GPSiesUserOnWeb</type>
+      </link>
+    </author>
+    <link href="http://www.gpsies.com/map.do?fileId=hlcxzqzhtaduzgwn">
+      <text>Trail on GPSies.com</text>
+      <type>trackOnWeb</type>
+    </link>
+    <time>2015-07-21T10:53:42Z</time>
+    <extensions>
+      <gpsies:property>one-way trip</gpsies:property>
+      <gpsies:trackLengthMeter>237.63374032844828</gpsies:trackLengthMeter>
+      <gpsies:totalAscentMeter>0.0</gpsies:totalAscentMeter>
+      <gpsies:totalDescentMeter>20.0</gpsies:totalDescentMeter>
+      <gpsies:minHeightMeter>290.0</gpsies:minHeightMeter>
+      <gpsies:maxHeightMeter>310.0</gpsies:maxHeightMeter>
+    </extensions>
+  </metadata>
+  <trk>
+    <name>Trail on GPSies.com</name>
+    <link href="http://www.gpsies.com/map.do?fileId=hlcxzqzhtaduzgwn">
+      <type>trackOnWeb</type>
+    </link>
+    <link href="http://www.gpsies.com/charts/hl/map/hlcxzqzhtaduzgwn_map.png">
+      <type>elevationChartUrlMap</type>
+    </link>
+    <link href="http://www.gpsies.com/charts/hl/mapThumb/hlcxzqzhtaduzgwn_mapThumb.png">
+      <type>elevationChartUrlMapThumb</type>
+    </link>
+    <link href="http://www.gpsies.com/charts/hl/tab/hlcxzqzhtaduzgwn_tab.png">
+      <type>elevationChartUrlTab</type>
+    </link>
+    <trkseg>
+      <trkpt lat="49.26433200" lon="6.963765620">
+        <ele>310.00000</ele>
+        <time>2010-01-01T00:00:00Z</time>
+      </trkpt>
+      <trkpt lat="49.26432000" lon="6.963770000">
+        <ele>310.00000</ele>
+        <time>2010-01-01T00:00:00Z</time>
+      </trkpt>
+      <trkpt lat="49.26431000" lon="6.963750000">
+        <ele>310.00000</ele>
+        <time>2010-01-01T00:00:01Z</time>
+      </trkpt>
+      <trkpt lat="49.26424000" lon="6.963930000">
+        <ele>310.00000</ele>
+        <time>2010-01-01T00:00:06Z</time>
+      </trkpt>
+      <trkpt lat="49.26369000" lon="6.964750000">
+        <ele>303.00000</ele>
+        <time>2010-01-01T00:00:37Z</time>
+      </trkpt>
+      <trkpt lat="49.26337000" lon="6.965080000">
+        <ele>298.00000</ele>
+        <time>2010-01-01T00:00:52Z</time>
+      </trkpt>
+      <trkpt lat="49.26321000" lon="6.965210000">
+        <ele>295.00000</ele>
+        <time>2010-01-01T00:01:00Z</time>
+      </trkpt>
+      <trkpt lat="49.26309000" lon="6.965740000">
+        <ele>293.00000</ele>
+        <time>2010-01-01T00:01:14Z</time>
+      </trkpt>
+      <trkpt lat="49.26298000" lon="6.966120000">
+        <ele>290.00000</ele>
+        <time>2010-01-01T00:01:25Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
+
