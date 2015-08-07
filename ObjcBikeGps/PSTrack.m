@@ -223,7 +223,8 @@
             if (dist %1 == 0)
             {
                 NSString *key = [NSString stringWithFormat:@"%d", dist];
-                if (![[self.distanceAnnotationsDict allKeys] containsObject:key])
+                // Der 0.km wird ignoriert ...
+                if (![[self.distanceAnnotationsDict allKeys] containsObject:key] && dist != 0)
                 {
 //                    NSLog(@"ADDED %d", dist);
                     PSDistanceAnnotation *annotation = [[PSDistanceAnnotation alloc] initWithCoordinate:[tmpLocation coordinate] title:key];
