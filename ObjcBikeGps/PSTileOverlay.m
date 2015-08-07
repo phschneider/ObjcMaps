@@ -26,7 +26,9 @@
 
 
 - (NSURL *)URLForTilePath:(MKTileOverlayPath)path {
-    return [NSURL URLWithString:[NSString stringWithFormat:@"http://b.tiles.wmflabs.org/hikebike/%ld/%ld/%ld.png", path.z, path.x, path.y]];
+    NSString *urlString = [NSString stringWithFormat:@"http://b.tiles.wmflabs.org/hikebike/%ld/%ld/%ld.png", path.z, path.x, path.y];
+//    NSLog(@"URL = %@",urlString);
+    return [NSURL URLWithString:urlString];
 }
 
 
@@ -38,25 +40,54 @@
         return;
     }
 
-    NSData *cachedData = [self.cache objectForKey:[self URLForTilePath:path]];
-    if (cachedData) {
-//        NSLog(@"cached data");
-        result(cachedData, nil);
-    } else {
-    
-//        NSLog(@"Request Data for path");
-        NSURLRequest *request = [NSURLRequest requestWithURL:[self URLForTilePath:path]];
-        [NSURLConnection sendAsynchronousRequest:request queue:self.operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-//            NSLog(@"Set data for path");
+    //    // Tile Overlays
+//    CGSize sz = self.tileSize;
+//    CGRect rect = CGRectMake(0, 0, sz.width, sz.height);
+//    UIGraphicsBeginImageContext(sz);
+//    CGContextRef ctx = UIGraphicsGetCurrentContext();
+//    [[UIColor blackColor] setStroke];
+//    CGContextSetLineWidth(ctx, 1.0);
+//    CGContextStrokeRect(ctx, CGRectMake(0, 0, sz.width, sz.height));
+//    NSString *text = [NSString stringWithFormat:@"X=%d\nY=%d\nZ=%d",path.x,path.y,path.z];
+//    [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20.0],
+//            NSForegroundColorAttributeName:[UIColor blackColor]}];
+//    UIImage *tileImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    NSData *tileData = UIImagePNGRepresentation(tileImage);
+//    result(tileData,nil);
+//    return
 
-//            NSLog(@"Data = %@", data);
-            
-            if (data)
-            {
-                [self.cache setObject:data forKey:[self URLForTilePath:path]];
-            }
-            result(data, connectionError);
-        }];
+    NSData *cachedData = [self.cache objectForKey:[self URLForTilePath:path]];
+    if (cachedData)
+    {
+        result(cachedData, nil);
+    }
+    else
+    {
+        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *docsDir = [dirPaths objectAtIndex:0];
+        NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/tiles/hikebike/%ld/%ld/%ld.png", path.z, path.x, path.y]]];
+        NSData *storedData = [NSData dataWithContentsOfFile:databasePath];
+        if (storedData)
+        {
+            // Cache für die Laufzeit der App
+            [self.cache setObject:storedData forKey:[self URLForTilePath:path]];
+            result(storedData, nil);
+        }
+        else
+        {
+            NSURL *url = [super URLForTilePath:path];
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            [NSURLConnection sendAsynchronousRequest:request queue:self.operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                if (data)
+                {
+                    [self.cache setObject:data forKey:[self URLForTilePath:path]];
+                    [[NSFileManager defaultManager] createDirectoryAtPath:[databasePath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+                    [data writeToFile:databasePath atomically:YES];
+                }
+                result(data, connectionError);
+            }];
+        }
     }
 }
 
