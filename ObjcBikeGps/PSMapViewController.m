@@ -22,6 +22,7 @@
 #import "MKMapView+PSZoomLevel.h"
 #import "MKMapView+PSTilesInMapRect.h"
 #import "PSTileOverlayRender.h"
+#import "PSWayPointAnnotation.h"
 
 
 @interface PSMapViewController ()
@@ -681,6 +682,7 @@
 
     [self addTrack:self.track];
     [self.mapView addAnnotations:[self.track distanceAnnotations]];
+    [self.mapView addAnnotations:[self.track wayPoints]];
     [self zoomToPolyLine:self.mapView polyline:[track route] animated:YES];
 }
 
@@ -1406,6 +1408,30 @@
         label.layer.cornerRadius = frame.size.width/2;
         label.layer.borderColor = [[UIColor blackColor] CGColor];
         label.layer.borderWidth = 1.0;
+        label.center = annotationView.center;
+        [annotationView addSubview:label];
+        return annotationView;
+    }
+
+
+    if ([annotation isKindOfClass:[PSWayPointAnnotation class]])
+    {
+        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@""];
+        annotationView.canShowCallout = NO;
+
+        CGRect frame = CGRectZero;
+        frame.size = CGSizeMake(10,10);
+
+        UILabel *label = [[UILabel alloc] initWithFrame:annotationView.frame];
+        label.frame = frame;
+        label.textAlignment = NSTextAlignmentCenter;
+        label.text = annotation.title;
+        label.backgroundColor = [UIColor whiteColor];
+        label.adjustsFontSizeToFitWidth = YES;
+        label.font = [UIFont systemFontOfSize:5.0];
+        label.clipsToBounds = YES;
+        label.textColor = [UIColor blackColor];
+        label.layer.cornerRadius = frame.size.width/2;
         label.center = annotationView.center;
         [annotationView addSubview:label];
         return annotationView;

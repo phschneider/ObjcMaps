@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 @property (nonatomic) BEMSimpleLineGraphView *graphView;
 @property (nonatomic) CGFloat maxElevationData;
 @property (nonatomic) CGFloat minElevationData;
+@property (nonatomic) NSArray *wayPoints;
 
 @property (nonatomic) UIImage *lineGraphSnapShotImage;
 - (instancetype)initWithFilename:(NSString *)filename;

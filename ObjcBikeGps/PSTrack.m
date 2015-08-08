@@ -10,6 +10,7 @@
 #import "PSDistanceAnnotation.h"
 #import "PSTrackOverlay.h"
 #import "BEMSimpleLineGraphView.h"
+#import "PSWayPointAnnotation.h"
 
 
 @interface PSTrack() <BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
@@ -179,6 +180,7 @@
 
     NSMutableArray *elevatioNData = [[NSMutableArray alloc] initWithCapacity:[trek count]];
     NSMutableArray *smoothedElevatioNData = [[NSMutableArray alloc] initWithCapacity:[trek count]];
+    NSMutableArray *wayPoints = [[NSMutableArray alloc] initWithCapacity:[trek count]];
     self.distanceAnnotationsDict = [[NSMutableDictionary alloc] initWithCapacity:[trek count]];
 
     self.pointsCoordinate = (CLLocationCoordinate2D *)malloc(sizeof(CLLocationCoordinate2D) * [trek count]);
@@ -266,6 +268,7 @@
             //            }
             Location1 = tmpLocation;
             [elevatioNData addObject:[NSNumber numberWithFloat:tmpElevation]];
+            [wayPoints addObject:[[PSWayPointAnnotation alloc] initWithCoordinate:[tmpLocation coordinate] title:[NSString stringWithFormat:@"%d",pointArrCount]]];
             pointArrCount++;
         }
 
@@ -274,6 +277,7 @@
     
     self.elevationData = elevatioNData;
     self.smoothedElevationData = smoothedElevatioNData;
+    self.wayPoints = wayPoints;
     NSLog(@"elevationData = %d", [self.elevationData count]);
     NSLog(@"smoothedElevationData = %d", [self.smoothedElevationData count]);
     self.maxElevationData = [[self.elevationData valueForKeyPath:@"@max.intValue"] floatValue];

@@ -90,6 +90,7 @@
 		7E00DAE2DCD044FA91CCAE5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF6413E1014CC8A7CDA52D /* libPods.a */; };
 		E5F1604BE45C5CE367EC6BFC /* PSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16CB73DB1DCAFA0C881B7 /* PSSettingsViewController.m */; };
 		E5F161CA1D7F283F98B2BDA3 /* PSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16DD8436255C132C9F80A /* PSViewController.m */; };
+		E5F1622D239E5F9DFB95336E /* PSWayPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1603AD61C55A434A21E15 /* PSWayPointAnnotation.m */; };
 		E5F1624D1324D29A29A565C6 /* PSTrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16D4AC1785A59522E963F /* PSTrackViewController.m */; };
 		E5F16313CFF86B8B1D5C38F7 /* PSTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F168FB8070EB4890F8CD58 /* PSTrack.m */; };
 		E5F163365A77926C4AF5CA54 /* PSGpxParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16DC8E762580B653758D0 /* PSGpxParser.m */; };
@@ -207,12 +208,14 @@
 		22F9350819DD624800996122 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5E583B3B03D649A69419F33C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E5F16014D6AD1CF535C10BFC /* PSTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrack.h; sourceTree = "<group>"; };
+		E5F1603AD61C55A434A21E15 /* PSWayPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWayPointAnnotation.m; sourceTree = "<group>"; };
 		E5F1610D7F20638D9792FC80 /* MKMapView+PSTilesInMapRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+PSTilesInMapRect.m"; sourceTree = "<group>"; };
 		E5F16201171F1AB27BB554CE /* PSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSViewController.h; sourceTree = "<group>"; };
 		E5F16218C30DFB97749F17A0 /* PSPoiStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPoiStore.m; sourceTree = "<group>"; };
 		E5F1624DEDD2116473F93EC7 /* PSPoi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPoi.m; sourceTree = "<group>"; };
 		E5F1633C3642BF1AED930BC1 /* PSTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTileOverlay.h; sourceTree = "<group>"; };
 		E5F1659F7546E00D5149439D /* PSTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTileOverlay.m; sourceTree = "<group>"; };
+		E5F166140591E564FAB51BB4 /* PSWayPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWayPointAnnotation.h; sourceTree = "<group>"; };
 		E5F1661AE1A1F91FE38E9414 /* PSTrackRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackRenderer.m; sourceTree = "<group>"; };
 		E5F1663E77C19B30A2E46683 /* PSTrackOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackOverlay.m; sourceTree = "<group>"; };
 		E5F166C06B79B63DCB75653D /* PSGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGraphViewController.h; sourceTree = "<group>"; };
@@ -485,6 +488,8 @@
 			children = (
 				E5F16819058F2251C760B40C /* PSDistanceAnnotation.h */,
 				E5F16A474E04F9B9B89A1ED5 /* PSDistanceAnnotation.m */,
+				E5F1603AD61C55A434A21E15 /* PSWayPointAnnotation.m */,
+				E5F166140591E564FAB51BB4 /* PSWayPointAnnotation.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -734,6 +739,7 @@
 				E5F163FB2E365B399585C067 /* MKMapView+PSTilesInMapRect.m in Sources */,
 				E5F163569E08314CAB90F17D /* PSTileOverlayRender.m in Sources */,
 				E5F1624D1324D29A29A565C6 /* PSTrackViewController.m in Sources */,
+				E5F1622D239E5F9DFB95336E /* PSWayPointAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
