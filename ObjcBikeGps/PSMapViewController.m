@@ -343,8 +343,10 @@
     //    NSLog(@"%@",strData);
     
     //    self.mapView.frame = self.view.bounds;
-    
-    [self zoomToOverlays];
+
+    // Darf nicht ausgeführt werden da die Karte ansonsten wieder umpositioniert wird :(
+//    [self zoomToOverlays];
+
     // Disable iOS 7 back gesture
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
@@ -355,6 +357,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    DLogFuncName();
     [super viewWillDisappear:animated];
     
     // Enable iOS 7 back gesture
@@ -367,6 +370,7 @@
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
+    DLogFuncName();
     return YES;
     return NO;
 }
@@ -758,16 +762,30 @@
 //    }
 //}
 
-- (NSString *)deviceLocation {
+- (NSString *)deviceLocation
+{
+    DLogFuncName();
     return [NSString stringWithFormat:@"latitude: %f longitude: %f", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude];
 }
-- (NSString *)deviceLat {
+
+
+- (NSString *)deviceLat
+{
+    DLogFuncName();
     return [NSString stringWithFormat:@"%f", self.locationManager.location.coordinate.latitude];
 }
-- (NSString *)deviceLon {
+
+
+- (NSString *)deviceLon
+{
+    DLogFuncName();
     return [NSString stringWithFormat:@"%f", self.locationManager.location.coordinate.longitude];
 }
-- (NSString *)deviceAlt {
+
+
+- (NSString *)deviceAlt
+{
+    DLogFuncName();
     return [NSString stringWithFormat:@"%f", self.locationManager.location.altitude];
 }
 
@@ -834,6 +852,7 @@
 
 - (void) poisUpdated
 {
+    DLogFuncName();
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.mapView removeAnnotations:self.mapView.annotations];
         [self.mapView addAnnotations:[[PSPoiStore sharedInstance] poiList]];
@@ -847,6 +866,7 @@
                          change:(NSDictionary *)change
                         context:(void *)context
 {
+    DLogFuncName();
     if ([keyPath isEqualToString:@"pois"])
     {
 //        NSLog(@"Add Entries = %d",[[change objectForKey:@"new"] count]);
@@ -903,6 +923,7 @@
 #define MAX_GOOGLE_LEVELS 20
 - (void) calculateMapArea
 {
+    DLogFuncName();
     CLLocationCoordinate2D bottomLeftCoord =
             [self.mapView convertPoint:CGPointMake(0, self.mapView.frame.size.height)
                   toCoordinateFromView:self.mapView];
@@ -951,6 +972,7 @@
 
 - (double)getZoomLevel
 {
+    DLogFuncName();
     CLLocationDegrees longitudeDelta = self.mapView.region.span.longitudeDelta;
     CGFloat mapWidthInPixels = self.mapView.bounds.size.width;
     double zoomScale = longitudeDelta * MERCATOR_RADIUS * M_PI / (180.0 * mapWidthInPixels);
@@ -1054,6 +1076,7 @@
 // Um um einen Track zu zentrieren...
 -(void)zoomToPolyLine: (MKMapView*)map polyline: (MKPolyline*)polyline animated: (BOOL)animated
 {
+    DLogFuncName();
     [map setVisibleMapRect:[polyline boundingMapRect] edgePadding:UIEdgeInsetsMake(50.0, 50.0, 50.0, 50.0) animated:animated];
 }
 
@@ -1136,26 +1159,46 @@
 
 
 #pragma mark - Bounding box
--(CLLocationCoordinate2D)getNECoordinate:(MKMapRect)mRect{
+-(CLLocationCoordinate2D)getNECoordinate:(MKMapRect)mRect
+{
+    DLogFuncName();
     return [self getCoordinateFromMapRectanglePoint:MKMapRectGetMaxX(mRect) y:mRect.origin.y];
 }
--(CLLocationCoordinate2D)getNWCoordinate:(MKMapRect)mRect{
+
+
+-(CLLocationCoordinate2D)getNWCoordinate:(MKMapRect)mRect
+{
+    DLogFuncName();
     return [self getCoordinateFromMapRectanglePoint:MKMapRectGetMinX(mRect) y:mRect.origin.y];
 }
--(CLLocationCoordinate2D)getSECoordinate:(MKMapRect)mRect{
+
+
+-(CLLocationCoordinate2D)getSECoordinate:(MKMapRect)mRect
+{
+    DLogFuncName();
     return [self getCoordinateFromMapRectanglePoint:MKMapRectGetMaxX(mRect) y:MKMapRectGetMaxY(mRect)];
 }
--(CLLocationCoordinate2D)getSWCoordinate:(MKMapRect)mRect{
+
+
+-(CLLocationCoordinate2D)getSWCoordinate:(MKMapRect)mRect
+{
+    DLogFuncName();
     return [self getCoordinateFromMapRectanglePoint:mRect.origin.x y:MKMapRectGetMaxY(mRect)];
 }
 
+
 // http://www.softwarepassion.com/how-to-get-geographic-coordinates-of-the-visible-mkmapview-area-in-ios/
--(CLLocationCoordinate2D)getCoordinateFromMapRectanglePoint:(double)x y:(double)y{
+-(CLLocationCoordinate2D)getCoordinateFromMapRectanglePoint:(double)x y:(double)y
+{
+    DLogFuncName();
     MKMapPoint swMapPoint = MKMapPointMake(x, y);
     return MKCoordinateForMapPoint(swMapPoint);
 }
 
--(NSArray *)getBoundingBox:(MKMapRect)mRect{
+
+-(NSArray *)getBoundingBox:(MKMapRect)mRect
+{
+    DLogFuncName();
     CLLocationCoordinate2D bottomLeft = [self getSWCoordinate:mRect];
     CLLocationCoordinate2D topRight = [self getNECoordinate:mRect];
     return @[[NSNumber numberWithDouble:bottomLeft.latitude ],
@@ -1312,6 +1355,7 @@
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
 {
+    DLogFuncName();
     if ([overlay isKindOfClass:[MKCircle class]]) {
         MKCircleView *circleView = [[MKCircleView alloc] initWithCircle:(MKCircle*)overlay];
         circleView.fillColor = [[UIColor greenColor] colorWithAlphaComponent:0.2];
@@ -1486,6 +1530,7 @@
 #pragma mark - Location Manager Delegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
+    DLogFuncName();
     NSLog(@"didUpdateLocations: %@", [locations lastObject]);
     
 }
@@ -1510,6 +1555,7 @@
 
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    DLogFuncName();
     NSLog(@"Location manager error: %@", error.localizedDescription);
 
     dispatch_async(dispatch_get_main_queue(),^{
@@ -1521,6 +1567,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
+    DLogFuncName();
     if (status == kCLAuthorizationStatusAuthorizedAlways)
     {
         [self switchUserTracking];

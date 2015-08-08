@@ -6,6 +6,7 @@
 #import "PSTrackViewController.h"
 #import "PSTrack.h"
 #import "BEMSimpleLineGraphView.h"
+#import "PSMapViewController.h"
 
 
 @interface PSTrackViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -19,6 +20,7 @@
 
 - (instancetype)init
 {
+    DLogFuncName();
     self = [super init];
     if (self)
     {
@@ -34,6 +36,7 @@
 
 - (instancetype)initWithTrack:(PSTrack*)track
 {
+    DLogFuncName();
     self = [self init];
     if (self)
     {
@@ -49,12 +52,27 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return [[UIImageView alloc] initWithImage:[self.track snapShot]];
+    DLogFuncName();
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setImage:[self.track snapShot] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(headerButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+
+    return button;
+
+}
+
+
+- (void)headerButtonTapped:(id)headerButtonTapped
+{
+    DLogFuncName();
+    PSMapViewController *mapViewController = [[PSMapViewController alloc] initWithTrack:self.track];
+    [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
+    DLogFuncName();
     [self.track lineGraphSnapShotImage];
     return self.track.graphView;
 }
@@ -62,30 +80,35 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
+    DLogFuncName();
     return 250.0;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
+    DLogFuncName();
     return 200.0;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    DLogFuncName();
     return 5;
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    DLogFuncName();
     return 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DLogFuncName();
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier" forIndexPath:indexPath];
 //    cell.textLabel.text = @"Test";
 

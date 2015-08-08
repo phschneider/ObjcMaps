@@ -319,8 +319,6 @@
     }
 
     PSTrack *track = [self.visibleTracks objectAtIndex:indexPath.row];
-
-//    PSMapViewController *mapViewController = [[PSMapViewController alloc] initWithTrack:track];
     PSTrackViewController *trackViewController = [[PSTrackViewController alloc] initWithTrack:track];
     [self.navigationController pushViewController:trackViewController animated:YES];
 }
