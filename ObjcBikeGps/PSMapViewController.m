@@ -1406,7 +1406,7 @@
         label.layer.cornerRadius = frame.size.width/2;
         label.layer.borderColor = [[UIColor blackColor] CGColor];
         label.layer.borderWidth = 1.0;
-//        label.center = CGPointMake(label.center.x, label.center.y + 5);
+        label.center = annotationView.center;
         [annotationView addSubview:label];
         return annotationView;
     }
@@ -1479,6 +1479,7 @@
             label.alpha = 0.8;
             label.layer.borderColor = [[UIColor blackColor] CGColor];
             label.layer.borderWidth = 1.0;
+            label.center = annotationView.center;
             [annotationView addSubview:label];
             return annotationView;
         }
@@ -1505,6 +1506,7 @@
             label.center = annotationView.center;
             label.layer.borderColor = [[UIColor whiteColor] CGColor];
             label.layer.borderWidth = 1.0;
+            label.center = annotationView.center;
             [annotationView addSubview:label];
             return annotationView;
         }
