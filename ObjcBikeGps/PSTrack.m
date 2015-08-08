@@ -32,12 +32,13 @@
     {
         self.trackType = PSTrackTypeUnknown;
         self.filename = filename;
-        self.color = [UIColor blueColor];
+        self.color = [UIColor blackColor];
         self.alpha = 1.0;
         self.lineWidth = 2.5;
         self.lineDashPattern = @[@2, @5];
 
         [self parseElevationFile];
+        [self generateSnapShotImage];
     }
     return self;
 }
@@ -51,18 +52,29 @@
         self.trackType = trackType;
         if (trackType == PSTrackTypeTrail)
         {
-            self.color = [UIColor greenColor];
+            self.color = [UIColor magentaColor];
             self.lineDashPattern = nil;
+            self.alpha = .5;
         }
         else if (trackType == PSTrackTypeUnknown)
         {
             self.color = [UIColor blueColor];
+            self.lineDashPattern = nil;
+            self.alpha = .5;
         }
         else if (trackType == PSTrackTypeRoundTrip)
         {
-            self.color = [UIColor brownColor];
+            self.color = [UIColor yellowColor];
+            self.lineDashPattern = nil;
+            self.alpha = .75;
         }
-        self.alpha = .5;
+        else
+        {
+            self.color = [UIColor blackColor];
+            self.lineDashPattern = nil;
+            self.alpha = 0.5;
+        }
+
 
     }
     return self;
@@ -488,85 +500,32 @@
 
     if (!image)
     {
-        MKMapSnapshotOptions *options = [[MKMapSnapshotOptions alloc] init];
-        options.region = self.region;
-        options.scale = [UIScreen mainScreen].scale;
-        options.size = CGSizeMake([[UIScreen mainScreen] bounds].size.width, 250);
+        [self generateSnapShotImage];
 
-        MKMapSnapshotter *snapshotter = [[MKMapSnapshotter alloc] initWithOptions:options];
-
-        [snapshotter startWithCompletionHandler:^(MKMapSnapshot *snapshot, NSError *error) {
-
-            UIImage *image = [self drawRoute:[self route]  andAnnotations:self.distanceAnnotations onSnapshot:snapshot withColor:[UIColor redColor]];
+    }
+    return nil;
+}
 
 
+- (void)generateSnapShotImage
+{
+    DLogFuncName();
 
-//            UIImage *image = snapshot.image;
+    MKMapSnapshotOptions *options = [[MKMapSnapshotOptions alloc] init];
+    options.region = self.region;
+    options.scale = [UIScreen mainScreen].scale;
+    options.size = CGSizeMake([[UIScreen mainScreen] bounds].size.width, 250);
+
+    MKMapSnapshotter *snapshotter = [[MKMapSnapshotter alloc] initWithOptions:options];
+
+    [snapshotter startWithCompletionHandler:^(MKMapSnapshot *snapshot, NSError *error) {
+
+            UIImage *image = [self drawRoute:[self route] andAnnotations:self.distanceAnnotations onSnapshot:snapshot withColor:[UIColor redColor]];
             NSData *data = UIImagePNGRepresentation(image);
 
             [[NSFileManager defaultManager] createDirectoryAtPath:[[self snapShotFilename] stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
             [data writeToFile:[self snapShotFilename] atomically:YES];
         }];
-
-
-//        MKMapSnapshotOptions *options = [[MKMapSnapshotOptions alloc] init];
-//        options.region = [self region];
-//        options.scale = [UIScreen mainScreen].scale;
-//        options.size = CGSizeMake([[UIScreen mainScreen] bounds].size.width, 250);
-//
-//        MKMapSnapshotter *snapshotter = [[MKMapSnapshotter alloc] initWithOptions:options];
-//        [snapshotter startWithQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) completionHandler:^(MKMapSnapshot *snapshot, NSError *error) {
-//
-//            // get the image associated with the snapshot
-//
-//            UIImage *image = snapshot.image;
-//
-//            // Get the size of the final image
-//
-//            CGRect finalImageRect = CGRectMake(0, 0, image.size.width, image.size.height);
-//
-//            // Get a standard annotation view pin. Clearly, Apple assumes that we'll only want to draw standard annotation pins!
-//
-//            MKAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:nil reuseIdentifier:@""];
-//            UIImage *pinImage = pin.image;
-//
-//            // ok, let's start to create our final image
-//
-//            UIGraphicsBeginImageContextWithOptions(image.size, YES, image.scale);
-//
-//            // first, draw the image from the snapshotter
-//
-//            [image drawAtPoint:CGPointMake(0, 0)];
-//
-//            // now, let's iterate through the annotations and draw them, too
-//
-//            for (id<MKAnnotation>annotation in self.distanceAnnotations)
-//            {
-//                CGPoint point = [snapshot pointForCoordinate:annotation.coordinate];
-//                if (CGRectContainsPoint(finalImageRect, point)) // this is too conservative, but you get the idea
-//                {
-//                    CGPoint pinCenterOffset = pin.centerOffset;
-//                    point.x -= pin.bounds.size.width / 2.0;
-//                    point.y -= pin.bounds.size.height / 2.0;
-//                    point.x += pinCenterOffset.x;
-//                    point.y += pinCenterOffset.y;
-//
-//                    [pinImage drawAtPoint:point];
-//                }
-//            }
-//
-//            // grab the final image
-//
-//            UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
-//            UIGraphicsEndImageContext();
-//
-//            // and save it
-//
-//            NSData *data = UIImagePNGRepresentation(finalImage);
-//            [data writeToFile:[self snapShotFilename] atomically:YES];
-//        }];
-    }
-    return nil;
 }
 
 

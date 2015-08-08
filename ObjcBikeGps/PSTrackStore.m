@@ -62,7 +62,7 @@
         }
         else
         {
-            track = [[PSTrack alloc] initWithFilename:filename];
+            track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeUnknown];
         }
 
         [self willChangeValueForKey:@"tracks"];

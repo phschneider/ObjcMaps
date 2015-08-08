@@ -298,7 +298,6 @@
 
     UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     PSTrack *track = [self.visibleTracks objectAtIndex:indexPath.row];
-    [track snapShot];
     cell.textLabel.text = [track filename];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ \t\t\tup: %@\tdown: %@ (%d)", [track distanceInKm], [track roundedUp], [track roundedDown], [[track elevationData] count] ];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

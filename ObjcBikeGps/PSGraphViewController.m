@@ -31,7 +31,6 @@
         self.graphView.enablePopUpReport = YES;
         self.graphView.enableTouchReport = YES;
 //        self.graphView.alwaysDisplayPopUpLabels = YES;
-        self.view.backgroundColor = [UIColor blueColor];
         [self.view addSubview:self.graphView ];
         
 //        self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
