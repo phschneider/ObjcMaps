@@ -687,8 +687,8 @@
     MKPolyline *route = [track route];
     [self.mapView addOverlay:route];
 
-    if (track.color == [UIColor blueColor])
-    {
+//    if (track.trackType != PSTrackTypeUnknown)
+//    {
         CLLocationCoordinate2D annocoord = MKCoordinateForMapPoint([track start]);
 //    MKAnnotationView *startAnnotation = [[MKAnnotationView alloc]init];
 //    startAnnotation.coordinate = annocoord;
@@ -707,7 +707,7 @@
         finishAnnotation.coordinate = finishAnnocoord;
         finishAnnotation.title = @"Finish";
         [self.mapView addAnnotation:finishAnnotation];
-    }
+//    }
 
     // MKCircle Skaliert mit :(
 //    MKCircle *finishOverlay = [MKCircle circleWithCenterCoordinate:finishAnnocoord radius:150];
@@ -1069,6 +1069,15 @@
         if ([overlays count])
         {
             [self.mapView removeOverlays:overlays];
+        }
+    }
+
+    if ([self.mapView.annotations count])
+    {
+        NSArray *annotations = [[self.mapView annotations] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [MKPointAnnotation class]]];
+        if ([annotations count])
+        {
+            [self.mapView removeAnnotations:annotations];
         }
     }
 }
