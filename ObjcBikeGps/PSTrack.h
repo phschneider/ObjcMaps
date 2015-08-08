@@ -7,7 +7,7 @@
 
 @class ONOXMLElement;
 @class ONOXMLDocument;
-
+@class BEMSimpleLineGraphView;
 
 typedef NS_ENUM(NSInteger, PSTrackType) {
     PSTrackTypeUnknown,
@@ -22,12 +22,18 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 @property (nonatomic) CGFloat trackLength;
 @property (nonatomic) PSTrackType trackType;
 @property (nonatomic) CGFloat totalUp;
+@property (nonatomic) NSArray *elevationData;
+@property (nonatomic) NSArray *smoothedElevationData;
 
 @property (nonatomic) UIColor *color;
 @property (nonatomic) CGFloat alpha;
 @property (nonatomic) CGFloat lineWidth;
 @property (nonatomic) NSArray *lineDashPattern;
+@property (nonatomic) BEMSimpleLineGraphView *graphView;
+@property (nonatomic) CGFloat maxElevationData;
+@property (nonatomic) CGFloat minElevationData;
 
+@property (nonatomic) UIImage *lineGraphSnapShotImage;
 - (instancetype)initWithFilename:(NSString *)filename;
 - (instancetype)initWithFilename:(NSString *)filename trackType:(PSTrackType)trackType;
 
@@ -43,6 +49,8 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 - (MKPolylineView *)overlayView;
 - (NSArray *)distanceAnnotations;
 
+- (UIImage *)snapShot;
+- (UIImage *)drawRoute:(MKPolyline *)polyline onSnapshot:(MKMapSnapshot *)snapShot withColor:(UIColor *)lineColor;
 - (NSString*)roundedUp;
 - (NSString *)roundedDown;
 - (NSString *)title;

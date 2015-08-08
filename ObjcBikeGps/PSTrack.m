@@ -9,9 +9,10 @@
 #import "PSTrack.h"
 #import "PSDistanceAnnotation.h"
 #import "PSTrackOverlay.h"
+#import "BEMSimpleLineGraphView.h"
 
 
-@interface PSTrack()
+@interface PSTrack() <BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 @property (nonatomic) CGFloat totalDown;
 @property (nonatomic) NSString *filename;
 @property (nonatomic) MKMapPoint *pointArr;
@@ -48,6 +49,21 @@
     if (self)
     {
         self.trackType = trackType;
+        if (trackType == PSTrackTypeTrail)
+        {
+            self.color = [UIColor greenColor];
+            self.lineDashPattern = nil;
+        }
+        else if (trackType == PSTrackTypeUnknown)
+        {
+            self.color = [UIColor blueColor];
+        }
+        else if (trackType == PSTrackTypeRoundTrip)
+        {
+            self.color = [UIColor brownColor];
+        }
+        self.alpha = .5;
+
     }
     return self;
 }
@@ -150,6 +166,7 @@
     NSArray *trek = [[[routingDict objectForKey:@"trk"] objectForKey:@"trkseg"] objectForKey:@"trkpt"];
 
     NSMutableArray *elevatioNData = [[NSMutableArray alloc] initWithCapacity:[trek count]];
+    NSMutableArray *smoothedElevatioNData = [[NSMutableArray alloc] initWithCapacity:[trek count]];
     self.distanceAnnotationsDict = [[NSMutableDictionary alloc] initWithCapacity:[trek count]];
 
     self.pointsCoordinate = (CLLocationCoordinate2D *)malloc(sizeof(CLLocationCoordinate2D) * [trek count]);
@@ -230,6 +247,7 @@
                     PSDistanceAnnotation *annotation = [[PSDistanceAnnotation alloc] initWithCoordinate:[tmpLocation coordinate] title:key];
 
                     [self.distanceAnnotationsDict setObject:annotation forKey:key];
+                    [smoothedElevatioNData addObject:[NSNumber numberWithFloat:tmpElevation]];
                 }
             }
 
@@ -241,6 +259,13 @@
 
     self.trackLength = (float) distance;
     self.pointArrCount = pointArrCount;
+    
+    self.elevationData = elevatioNData;
+    self.smoothedElevationData = smoothedElevatioNData;
+    NSLog(@"elevationData = %d", [self.elevationData count]);
+    NSLog(@"smoothedElevationData = %d", [self.smoothedElevationData count]);
+    self.maxElevationData = [[self.elevationData valueForKeyPath:@"@max.intValue"] floatValue];
+    self.minElevationData = [[self.elevationData valueForKeyPath:@"@min.intValue"] floatValue];
 //        [self.graphViewController setData:elevatioNData];
 //    NSLog(@"MinHeight = %f", minHeight);
 //    NSLog(@"MaxHeight = %f", maxHeight);
@@ -357,6 +382,37 @@
 }
 
 
+- (MKCoordinateRegion) region
+{
+    CLLocationCoordinate2D topLeftCoord;
+    topLeftCoord.latitude = -90;
+    topLeftCoord.longitude = 180;
+
+    CLLocationCoordinate2D bottomRightCoord;
+    bottomRightCoord.latitude = 90;
+    bottomRightCoord.longitude = -180;
+
+    for(int i=0; i < [self numberOfCoordinates]; i++)
+    {
+        CLLocationCoordinate2D coordinate = [self coordinates][i];
+
+        topLeftCoord.longitude = fmin(topLeftCoord.longitude, coordinate.longitude);
+        topLeftCoord.latitude = fmax(topLeftCoord.latitude, coordinate.latitude);
+
+        bottomRightCoord.longitude = fmax(bottomRightCoord.longitude,coordinate.longitude);
+        bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, coordinate.latitude);
+    }
+
+    MKCoordinateRegion region;
+    region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
+    region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
+    region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.1; // Add a little extra space on the sides
+    region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.1; // Add a little extra space on the sides
+
+    return region;
+}
+
+
 - (MKPolyline *)route
 {
 //    return [MKPolyline polylineWithPoints:self.pointArr count:self.pointArrCount];
@@ -420,5 +476,292 @@
     return [[self.distanceAnnotationsDict allValues] copy];
 }
 
+
+#pragma mark - Image
+- (UIImage *)snapShot
+{
+    UIImage *image = [UIImage imageWithContentsOfFile:[self snapShotFilename]];
+    if (image)
+    {
+        return image;
+    }
+
+    if (!image)
+    {
+        MKMapSnapshotOptions *options = [[MKMapSnapshotOptions alloc] init];
+        options.region = self.region;
+        options.scale = [UIScreen mainScreen].scale;
+        options.size = CGSizeMake([[UIScreen mainScreen] bounds].size.width, 250);
+
+        MKMapSnapshotter *snapshotter = [[MKMapSnapshotter alloc] initWithOptions:options];
+
+        [snapshotter startWithCompletionHandler:^(MKMapSnapshot *snapshot, NSError *error) {
+
+            UIImage *image = [self drawRoute:[self route] onSnapshot:snapshot withColor:[UIColor redColor]];
+
+
+//            UIImage *image = snapshot.image;
+            NSData *data = UIImagePNGRepresentation(image);
+
+            [[NSFileManager defaultManager] createDirectoryAtPath:[[self snapShotFilename] stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+            [data writeToFile:[self snapShotFilename] atomically:YES];
+        }];
+
+
+//        MKMapSnapshotOptions *options = [[MKMapSnapshotOptions alloc] init];
+//        options.region = [self region];
+//        options.scale = [UIScreen mainScreen].scale;
+//        options.size = CGSizeMake([[UIScreen mainScreen] bounds].size.width, 250);
+//
+//        MKMapSnapshotter *snapshotter = [[MKMapSnapshotter alloc] initWithOptions:options];
+//        [snapshotter startWithQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) completionHandler:^(MKMapSnapshot *snapshot, NSError *error) {
+//
+//            // get the image associated with the snapshot
+//
+//            UIImage *image = snapshot.image;
+//
+//            // Get the size of the final image
+//
+//            CGRect finalImageRect = CGRectMake(0, 0, image.size.width, image.size.height);
+//
+//            // Get a standard annotation view pin. Clearly, Apple assumes that we'll only want to draw standard annotation pins!
+//
+//            MKAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:nil reuseIdentifier:@""];
+//            UIImage *pinImage = pin.image;
+//
+//            // ok, let's start to create our final image
+//
+//            UIGraphicsBeginImageContextWithOptions(image.size, YES, image.scale);
+//
+//            // first, draw the image from the snapshotter
+//
+//            [image drawAtPoint:CGPointMake(0, 0)];
+//
+//            // now, let's iterate through the annotations and draw them, too
+//
+//            for (id<MKAnnotation>annotation in self.distanceAnnotations)
+//            {
+//                CGPoint point = [snapshot pointForCoordinate:annotation.coordinate];
+//                if (CGRectContainsPoint(finalImageRect, point)) // this is too conservative, but you get the idea
+//                {
+//                    CGPoint pinCenterOffset = pin.centerOffset;
+//                    point.x -= pin.bounds.size.width / 2.0;
+//                    point.y -= pin.bounds.size.height / 2.0;
+//                    point.x += pinCenterOffset.x;
+//                    point.y += pinCenterOffset.y;
+//
+//                    [pinImage drawAtPoint:point];
+//                }
+//            }
+//
+//            // grab the final image
+//
+//            UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
+//            UIGraphicsEndImageContext();
+//
+//            // and save it
+//
+//            NSData *data = UIImagePNGRepresentation(finalImage);
+//            [data writeToFile:[self snapShotFilename] atomically:YES];
+//        }];
+    }
+    return nil;
+}
+
+
+- (UIImage *)drawRoute:(MKPolyline *)polyline onSnapshot:(MKMapSnapshot *)snapShot withColor:(UIColor *)lineColor {
+
+    UIGraphicsBeginImageContext(snapShot.image.size);
+    CGRect rectForImage = CGRectMake(0, 0, snapShot.image.size.width, snapShot.image.size.height);
+
+// Draw map
+    [snapShot.image drawInRect:rectForImage];
+
+// Get points in the snapshot from the snapshot
+    int lastPointIndex;
+    int firstPointIndex = 0;
+    BOOL isfirstPoint = NO;
+    NSMutableArray *pointsToDraw = [NSMutableArray array];
+    for (int i = 0; i < polyline.pointCount; i++){
+        MKMapPoint point = polyline.points[i];
+        CLLocationCoordinate2D pointCoord = MKCoordinateForMapPoint(point);
+        CGPoint pointInSnapshot = [snapShot pointForCoordinate:pointCoord];
+        if (CGRectContainsPoint(rectForImage, pointInSnapshot)) {
+            [pointsToDraw addObject:[NSValue valueWithCGPoint:pointInSnapshot]];
+            lastPointIndex = i;
+            if (i == 0)
+                firstPointIndex = YES;
+            if (!isfirstPoint) {
+                isfirstPoint = YES;
+                firstPointIndex = i;
+            }
+        }
+    }
+
+// Adding the first point on the outside too so we have a nice path
+    if (lastPointIndex+1 <= polyline.pointCount)
+    {
+        MKMapPoint point = polyline.points[lastPointIndex+1];
+        CLLocationCoordinate2D pointCoord = MKCoordinateForMapPoint(point);
+        CGPoint pointInSnapshot = [snapShot pointForCoordinate:pointCoord];
+        [pointsToDraw addObject:[NSValue valueWithCGPoint:pointInSnapshot]];
+    }
+// Adding the point before the first point in the map as well (if needed) to have nice path
+
+    if (firstPointIndex != 0) {
+        MKMapPoint point = polyline.points[firstPointIndex-1];
+        CLLocationCoordinate2D pointCoord = MKCoordinateForMapPoint(point);
+        CGPoint pointInSnapshot = [snapShot pointForCoordinate:pointCoord];
+        [pointsToDraw insertObject:[NSValue valueWithCGPoint:pointInSnapshot] atIndex:0];
+    }
+
+// Draw that points
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetLineWidth(context, 3.0);
+
+    for (NSValue *point in pointsToDraw){
+        CGPoint pointToDraw = [point CGPointValue];
+        if (!isnan(pointToDraw.x) && !isnan(pointToDraw.y))
+        {
+            if ([pointsToDraw indexOfObject:point] == 0)
+            {
+                CGContextMoveToPoint(context, pointToDraw.x, pointToDraw.y);
+            }
+            else if ([pointsToDraw indexOfObject:point] == ([pointsToDraw count]-1))
+            {
+                NSLog(@"Do nothing");
+            }
+            else
+            {
+                CGContextAddLineToPoint(context, pointToDraw.x, pointToDraw.y);
+            }
+        }
+    }
+    CGContextSetStrokeColorWithColor(context, [lineColor CGColor]);
+    CGContextStrokePath(context);
+
+    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return resultingImage;
+}
+
+- (NSString*)snapShotFilename
+{
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [dirPaths objectAtIndex:0];
+    NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: [NSString stringWithFormat:@"tracks/%@-snapshot.png",self.filename]]];
+
+    return databasePath;
+}
+
+
+- (UIImage *)lineGraphSnapShotImage
+{
+    DLogFuncName();
+    if (!_lineGraphSnapShotImage)
+    {
+        [self createLineGraphSnapShotImage];
+    }
+
+    return _lineGraphSnapShotImage;
+}
+
+
+- (void) createLineGraphSnapShotImage
+{
+    DLogFuncName();
+        self.graphView = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0,0,320,200)];
+        self.graphView.dataSource = self;
+        self.graphView.delegate = self;
+        self.graphView.enableYAxisLabel = YES;
+        self.graphView.enablePopUpReport = NO;
+        self.graphView.enableTouchReport = NO;
+    self.graphView.animationGraphStyle = BEMLineAnimationNone;
+
+    self.graphView.enableReferenceAxisFrame = YES;
+                                self.graphView.enableReferenceAxisLines = YES;
+
+    self.graphView.backgroundColor = [UIColor clearColor];
+    self.graphView.tintColor = [UIColor clearColor];
+    self.graphView.colorTop = [UIColor whiteColor];
+    self.graphView.colorLine = [UIColor blackColor];
+//    self.graphView.colorBottom = [UIColor redColor];
+
+//    self.lineGraphSnapShotImage = [self.graphView graphSnapshotImage];
+
+}
+
+#pragma mark - BEMSSimpleLineGraphView DataSource
+- (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph
+{
+    DLogFuncName();
+    // Anzahl elemente im Array!?
+
+    return [[self elementsForElevationGraph] count];
+}
+
+
+- (void)lineGraphDidBeginLoading:(BEMSimpleLineGraphView *)graph
+{
+    DLogFuncName();
+}
+
+
+- (void)lineGraphDidFinishLoading:(BEMSimpleLineGraphView *)graph
+{
+    DLogFuncName();
+    self.lineGraphSnapShotImage = [self.graphView graphSnapshotImage];
+}
+
+
+- (CGFloat)lineGraph:(BEMSimpleLineGraphView *)graph valueForPointAtIndex:(NSInteger)index
+{
+    DLogFuncName();
+    CGFloat value = [[[self elementsForElevationGraph] objectAtIndex:index] floatValue];
+//    NSLog(@"Value at %d = %f",index, value);
+    return value;
+}
+
+
+- (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index
+{
+    DLogFuncName();
+    if (index == 0)
+    {
+        return @"";
+    }
+    if ( (index % 5) == 0 )
+    {
+        return [NSString stringWithFormat:@"%d", index];
+    }
+    return @"";
+}
+
+
+- (CGFloat)maxValueForLineGraph:(BEMSimpleLineGraphView *)graph
+{
+    DLogFuncName();
+    return self.maxElevationData;
+}
+
+
+- (CGFloat)minValueForLineGraph:(BEMSimpleLineGraphView *)graph
+{
+    DLogFuncName();
+    return self.minElevationData;
+}
+
+
+- (void)lineGraphDidFinishDrawing:(BEMSimpleLineGraphView *)graph {
+    DLogFuncName();
+    // Update any interface elements that rely on a full rendered graph
+    self.lineGraphSnapShotImage = [self.graphView graphSnapshotImage];
+}
+
+
+- (NSArray*)elementsForElevationGraph
+{
+    return self.smoothedElevationData;
+}
 
 @end

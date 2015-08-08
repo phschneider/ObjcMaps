@@ -19,6 +19,9 @@
 #import "PSPoiStore.h"
 #import "PSPoi.h"
 #import "PSDistanceAnnotation.h"
+#import "MKMapView+PSZoomLevel.h"
+#import "MKMapView+PSTilesInMapRect.h"
+#import "PSTileOverlayRender.h"
 
 
 @interface PSMapViewController ()
@@ -33,6 +36,8 @@
 @property (nonatomic) UILabel *distannceLabelHeight;
 @property (nonatomic) UIButton *locationButton;
 @property (nonatomic) UIView *debugView;
+@property (nonatomic) MKZoomScale psZoomScale;
+@property (nonatomic) CLLocationDegrees olddlat;
 @end
 
 
@@ -370,6 +375,14 @@
 #pragma mark - Buttons
 - (void)locationButtonTapped
 {
+//    double numTilesAt1_0 = MKMapSizeWorld.width / TILE_SIZE;
+//    MKZoomScale currentZoomScale = self.mapView.bounds.size.width / self.mapView.visibleMapRect.size.width;
+//
+
+//    NSLog(@"Map Titles: \n %@", [self.mapView tilesInMapRect:self.mapView.visibleMapRect zoomScale:self.psZoomScale]);
+//
+
+
     DLogFuncName();
     if (    [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined ||
             [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted ||
@@ -929,8 +942,9 @@
     CGFloat area = (verticalDistanceInKm*horizontalDistanceInKm);
     NSLog(@"Square in KMeters= %.2f", area);
 
-    self.distannceLabelWidth.text = [NSString stringWithFormat:@"%.2f km", horizontalDistanceInKm];
-    self.distannceLabelHeight.text = [NSString stringWithFormat:@"%.2f km", verticalDistanceInKm];
+    int size = 0;
+    self.distannceLabelWidth.text = [NSString stringWithFormat:@"%.2f km (Size: %f)", horizontalDistanceInKm, size];
+    self.distannceLabelHeight.text = [NSString stringWithFormat:@"%.2f km (Zoom: %f)", verticalDistanceInKm, [self.mapView zoomLevel]];
     self.areaLabel.text = [NSString stringWithFormat:@"%.2f QKM",area];
 }
 
@@ -964,6 +978,9 @@
     DLogFuncName();
     [self calculateMapArea];
 
+    MKZoomScale currentZoomScale = self.mapView.bounds.size.width / self.mapView.visibleMapRect.size.width;
+    NSLog(@"CurrentZoomScale = %f | PSZoomScale = %f", currentZoomScale, self.psZoomScale);
+
     NSArray * boundingBox = [self getBoundingBox:self.mapView.visibleMapRect];
     NSString *boundingBoxString = [NSString stringWithFormat:@"%.3f,%.3f,%.3f,%.3f", [[boundingBox objectAtIndex:1] floatValue], [[boundingBox objectAtIndex:0] floatValue], [[boundingBox objectAtIndex:3] floatValue], [[boundingBox objectAtIndex:2] floatValue]];
     self.boundingLabel.text = boundingBoxString;
@@ -973,7 +990,6 @@
 //    NSLog(@"http://api.openstreetmap.org/api/0.6/map?bbox=%@",boundingBoxString);
 //    NSLog(@"http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=%@]",boundingBoxString);
 //    overpass-api.de/api/map?bbox=6.8508,49.1958,7.2302,49.2976
-
 }
 
 
@@ -1221,7 +1237,8 @@
 
 
     if ([overlay isKindOfClass:[MKTileOverlay class]]) {
-        return [[MKTileOverlayRenderer alloc] initWithTileOverlay:overlay];
+        PSTileOverlayRender *render =  [[PSTileOverlayRender alloc] initWithTileOverlay:overlay];
+        return render;
     }
 
     if (![overlay isKindOfClass:[MKPolyline class]]) {

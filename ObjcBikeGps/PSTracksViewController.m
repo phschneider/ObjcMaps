@@ -10,6 +10,7 @@
 #import "PSMapViewController.h"
 #import "DZNSegmentedControl.h"
 #import "BFNavigationBarDrawer.h"
+#import "PSTrackViewController.h"
 
 
 @interface PSTracksViewController ()
@@ -64,7 +65,6 @@
         [self.control setCount:@([[self.tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeUnknown]] count]) forSegmentAtIndex:3];
 
         [self.control addTarget:self action:@selector(selectedSegment:) forControlEvents:UIControlEventValueChanged];
-//        self.tableView.tableHeaderView = self.control;
 
         UIBarButtonItem *sortButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showSortingOptions)];
         self.navigationItem.rightBarButtonItem = sortButton;
@@ -81,15 +81,6 @@
         // This will make sure the scroll view is properly scrolled and updated
         // when the drawer is shown.
         self.filterDrawer.scrollView = self.tableView;
-
-        // Add some buttons to the drawer.
-//        UIBarButtonItem *button1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(action:)];
-//        UIBarButtonItem *button2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:0];
-//        UIBarButtonItem *button3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemOrganize target:self action:@selector(action:)];
-//        UIBarButtonItem *button4 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:0];
-//        UIBarButtonItem *button5 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(action:)];
-//        self.drawer.items = @[button1, button2, button3, button4, button5];
-
         [self.filterDrawer addSubview:self.control];
 
 
@@ -111,8 +102,6 @@
         UIBarButtonItem *button8 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:0];
         UIBarButtonItem *button9 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(sortByDown)];
         self.sortingDrawer.items = @[button1, button2, button3, button4, button5, button6, button7, button8, button9];
-
-//        [self.sortingDrawer addSubview:self.control];
     }
     return self;
 }
@@ -245,12 +234,6 @@
     }
     else
     {
-
-//        // Assign the table view as the affected scroll view of the drawer.
-//        // This will make sure the scroll view is properly scrolled and updated
-//        // when the drawer is shown.
-//        self.filterDrawer.scrollView = self.mapViewController.mapView;
-
         if ([self.sortingDrawer isVisible])
         {
             [self showSortingOptions];
@@ -287,8 +270,6 @@
             self.tracks = [NSArray arrayWithArray:[change objectForKey:@"new"]];
             self.visibleTracks = [NSArray arrayWithArray:[change objectForKey:@"new"]];
 
-    //        NSLog(@"Add Entries = %d",[[change objectForKey:@"new"] count]);
-    //        [self.tracks addObjectsFromArray:[change objectForKey:@"new"]];
             [self.tableView reloadData];
 
             [self.control setCount:@([self.tracks count]) forSegmentAtIndex:0];
@@ -298,7 +279,6 @@
         });
     }
 }
-
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -318,8 +298,9 @@
 
     UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     PSTrack *track = [self.visibleTracks objectAtIndex:indexPath.row];
+    [track snapShot];
     cell.textLabel.text = [track filename];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ \t\t\tup: %@\tdown: %@", [track distanceInKm], [track roundedUp], [track roundedDown]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ \t\t\tup: %@\tdown: %@ (%d)", [track distanceInKm], [track roundedUp], [track roundedDown], [[track elevationData] count] ];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     return cell;
@@ -340,8 +321,9 @@
 
     PSTrack *track = [self.visibleTracks objectAtIndex:indexPath.row];
 
-    PSMapViewController *mapViewController = [[PSMapViewController alloc] initWithTrack:track];
-    [self.navigationController pushViewController:mapViewController animated:YES];
+//    PSMapViewController *mapViewController = [[PSMapViewController alloc] initWithTrack:track];
+    PSTrackViewController *trackViewController = [[PSTrackViewController alloc] initWithTrack:track];
+    [self.navigationController pushViewController:trackViewController animated:YES];
 }
 
 
@@ -349,12 +331,5 @@
 {
     return UIInterfaceOrientationMaskAll;
 }
-//
-//
-//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-//{
-//    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-//}
-//
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22146EB11B6A855800CE0360 /* Tour-KLB-SB.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */; };
 		222DF3221B659056003410E7 /* Route-NrideHom-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3061B659056003410E7 /* Route-NrideHom-3.gpx */; };
 		222DF3231B659056003410E7 /* Route-pur-blau-gpx.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3071B659056003410E7 /* Route-pur-blau-gpx.gpx */; };
 		222DF3241B659056003410E7 /* Route-pur-gruen-gpx.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3081B659056003410E7 /* Route-pur-gruen-gpx.gpx */; };
@@ -64,6 +65,7 @@
 		226337AF1B06B58F00CEBD55 /* 798-filter-toolbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337AC1B06B58F00CEBD55 /* 798-filter-toolbar.png */; };
 		226337B01B06B58F00CEBD55 /* 798-filter-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337AD1B06B58F00CEBD55 /* 798-filter-toolbar@2x.png */; };
 		226337B11B06B58F00CEBD55 /* 798-filter-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337AE1B06B58F00CEBD55 /* 798-filter-toolbar@3x.png */; };
+		2266226C1B7578FD0032F901 /* Tour-t1387067_Sieben-Weiher-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2266226B1B7578FD0032F901 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */; };
 		227B45721B0A8B470037DA19 /* 810-document-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 227B456F1B0A8B470037DA19 /* 810-document-2.png */; };
 		227B45731B0A8B470037DA19 /* 810-document-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 227B45701B0A8B470037DA19 /* 810-document-2@2x.png */; };
 		227B45741B0A8B470037DA19 /* 810-document-2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 227B45711B0A8B470037DA19 /* 810-document-2@3x.png */; };
@@ -88,8 +90,11 @@
 		7E00DAE2DCD044FA91CCAE5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF6413E1014CC8A7CDA52D /* libPods.a */; };
 		E5F1604BE45C5CE367EC6BFC /* PSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16CB73DB1DCAFA0C881B7 /* PSSettingsViewController.m */; };
 		E5F161CA1D7F283F98B2BDA3 /* PSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16DD8436255C132C9F80A /* PSViewController.m */; };
+		E5F1624D1324D29A29A565C6 /* PSTrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16D4AC1785A59522E963F /* PSTrackViewController.m */; };
 		E5F16313CFF86B8B1D5C38F7 /* PSTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F168FB8070EB4890F8CD58 /* PSTrack.m */; };
 		E5F163365A77926C4AF5CA54 /* PSGpxParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16DC8E762580B653758D0 /* PSGpxParser.m */; };
+		E5F163569E08314CAB90F17D /* PSTileOverlayRender.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16CF121AFB03203C226C5 /* PSTileOverlayRender.m */; };
+		E5F163FB2E365B399585C067 /* MKMapView+PSTilesInMapRect.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1610D7F20638D9792FC80 /* MKMapView+PSTilesInMapRect.m */; };
 		E5F1645416730CCBD86C0E31 /* PSGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16F94BA02FB00F322D9FD /* PSGraphViewController.m */; };
 		E5F164B0BC15555DA4AB5E74 /* PSTrackRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1661AE1A1F91FE38E9414 /* PSTrackRenderer.m */; };
 		E5F164BF4A230E9FB40BE694 /* PSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F168D18BAEFFB2B0598F52 /* PSLocationManager.m */; };
@@ -100,6 +105,7 @@
 		E5F16CCD34CBD8E48226654B /* PSTrackOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1663E77C19B30A2E46683 /* PSTrackOverlay.m */; };
 		E5F16CFBE9EEDB5CBE847CA2 /* PSTrackStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F169410F58F24ACF71F78C /* PSTrackStore.m */; };
 		E5F16D7065DC9CBC6BDCDBE3 /* PSPoi.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1624DEDD2116473F93EC7 /* PSPoi.m */; };
+		E5F16E878E2F28197226B48A /* MKMapView+PSZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F169D6A9E0A35F6962830F /* MKMapView+PSZoomLevel.m */; };
 		E5F16FC1D020C453E682EDE8 /* PSTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1659F7546E00D5149439D /* PSTileOverlay.m */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +121,7 @@
 
 /* Begin PBXFileReference section */
 		18CF6413E1014CC8A7CDA52D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Tour-KLB-SB.gpx"; path = "SampleData/Tour-KLB-SB.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF3061B659056003410E7 /* Route-NrideHom-3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-NrideHom-3.gpx"; path = "SampleData/Route-NrideHom-3.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF3071B659056003410E7 /* Route-pur-blau-gpx.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-pur-blau-gpx.gpx"; path = "SampleData/Route-pur-blau-gpx.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF3081B659056003410E7 /* Route-pur-gruen-gpx.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-pur-gruen-gpx.gpx"; path = "SampleData/Route-pur-gruen-gpx.gpx"; sourceTree = SOURCE_ROOT; };
@@ -172,6 +179,7 @@
 		226337AC1B06B58F00CEBD55 /* 798-filter-toolbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "798-filter-toolbar.png"; sourceTree = "<group>"; };
 		226337AD1B06B58F00CEBD55 /* 798-filter-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "798-filter-toolbar@2x.png"; sourceTree = "<group>"; };
 		226337AE1B06B58F00CEBD55 /* 798-filter-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "798-filter-toolbar@3x.png"; sourceTree = "<group>"; };
+		2266226B1B7578FD0032F901 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Tour-t1387067_Sieben-Weiher-Tour.gpx"; sourceTree = "<group>"; };
 		227B456F1B0A8B470037DA19 /* 810-document-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "810-document-2.png"; path = "../../../../../../Downloads/Glyphish Complete/Glyphish 6/Glyphish 6 Icons (PNG)/Large (tab bar)/Normal/810-document-2.png"; sourceTree = "<group>"; };
 		227B45701B0A8B470037DA19 /* 810-document-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "810-document-2@2x.png"; path = "../../../../../../Downloads/Glyphish Complete/Glyphish 6/Glyphish 6 Icons (PNG)/Large (tab bar)/Normal/810-document-2@2x.png"; sourceTree = "<group>"; };
 		227B45711B0A8B470037DA19 /* 810-document-2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "810-document-2@3x.png"; path = "../../../../../../Downloads/Glyphish Complete/Glyphish 6/Glyphish 6 Icons (PNG)/Large (tab bar)/Normal/810-document-2@3x.png"; sourceTree = "<group>"; };
@@ -199,6 +207,7 @@
 		22F9350819DD624800996122 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5E583B3B03D649A69419F33C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E5F16014D6AD1CF535C10BFC /* PSTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrack.h; sourceTree = "<group>"; };
+		E5F1610D7F20638D9792FC80 /* MKMapView+PSTilesInMapRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+PSTilesInMapRect.m"; sourceTree = "<group>"; };
 		E5F16201171F1AB27BB554CE /* PSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSViewController.h; sourceTree = "<group>"; };
 		E5F16218C30DFB97749F17A0 /* PSPoiStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPoiStore.m; sourceTree = "<group>"; };
 		E5F1624DEDD2116473F93EC7 /* PSPoi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPoi.m; sourceTree = "<group>"; };
@@ -212,18 +221,25 @@
 		E5F167343F7B165B81A90E76 /* PSPoi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPoi.h; sourceTree = "<group>"; };
 		E5F16819058F2251C760B40C /* PSDistanceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDistanceAnnotation.h; sourceTree = "<group>"; };
 		E5F1686B0BCB6D2ECE9F789A /* PSTrackStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackStore.h; sourceTree = "<group>"; };
+		E5F168863199ECA19573D556 /* PSTileOverlayRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTileOverlayRender.h; sourceTree = "<group>"; };
 		E5F16894BC25953F932B2F87 /* PSMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapViewController.m; sourceTree = "<group>"; };
 		E5F168D18BAEFFB2B0598F52 /* PSLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSLocationManager.m; sourceTree = "<group>"; };
 		E5F168FB8070EB4890F8CD58 /* PSTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrack.m; sourceTree = "<group>"; };
 		E5F16919DE0D4C9A942A3110 /* PSTrackOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackOverlay.h; sourceTree = "<group>"; };
 		E5F169410F58F24ACF71F78C /* PSTrackStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackStore.m; sourceTree = "<group>"; };
 		E5F169B2424E9A2355EF6ECE /* PSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSLocationManager.h; sourceTree = "<group>"; };
+		E5F169D6A9E0A35F6962830F /* MKMapView+PSZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+PSZoomLevel.m"; sourceTree = "<group>"; };
 		E5F16A474E04F9B9B89A1ED5 /* PSDistanceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDistanceAnnotation.m; sourceTree = "<group>"; };
 		E5F16B1F0824998F4131C7E6 /* PSPoiStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPoiStore.h; sourceTree = "<group>"; };
+		E5F16B385F6FABAE20128E54 /* MKMapView+PSTilesInMapRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+PSTilesInMapRect.h"; sourceTree = "<group>"; };
 		E5F16BC618CDE2FDB64A040D /* PSMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapViewController.h; sourceTree = "<group>"; };
 		E5F16C8FC429FFB94D53B8B3 /* PSTracksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTracksViewController.m; sourceTree = "<group>"; };
+		E5F16CA6DCEBB5E5B57C7845 /* MKMapView+PSZoomLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+PSZoomLevel.h"; sourceTree = "<group>"; };
 		E5F16CB73DB1DCAFA0C881B7 /* PSSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSSettingsViewController.m; sourceTree = "<group>"; };
+		E5F16CF121AFB03203C226C5 /* PSTileOverlayRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTileOverlayRender.m; sourceTree = "<group>"; };
+		E5F16D4AC1785A59522E963F /* PSTrackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackViewController.m; sourceTree = "<group>"; };
 		E5F16D5BDFA28CCC660617AD /* PSTracksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTracksViewController.h; sourceTree = "<group>"; };
+		E5F16D89907ECDAE6D7858D2 /* PSTrackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackViewController.h; sourceTree = "<group>"; };
 		E5F16DC8E762580B653758D0 /* PSGpxParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGpxParser.m; sourceTree = "<group>"; };
 		E5F16DD8436255C132C9F80A /* PSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSViewController.m; sourceTree = "<group>"; };
 		E5F16F94BA02FB00F322D9FD /* PSGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGraphViewController.m; sourceTree = "<group>"; };
@@ -300,6 +316,8 @@
 				E5F16C8FC429FFB94D53B8B3 /* PSTracksViewController.m */,
 				E5F16CB73DB1DCAFA0C881B7 /* PSSettingsViewController.m */,
 				E5F166C23306DEAB6F5B2D2A /* PSSettingsViewController.h */,
+				E5F16D4AC1785A59522E963F /* PSTrackViewController.m */,
+				E5F16D89907ECDAE6D7858D2 /* PSTrackViewController.h */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -307,6 +325,7 @@
 		22D2316C1AFFF2770019EF15 /* SampleFiles */ = {
 			isa = PBXGroup;
 			children = (
+				2266226B1B7578FD0032F901 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */,
 				22ED40991B68038800D3E297 /* Tour-Goettelborn.gpx */,
 				222DF3431B659B9E003410E7 /* TrailSpichern.gpx */,
 				222DF3441B659B9E003410E7 /* TrailSpichern2.gpx */,
@@ -320,6 +339,7 @@
 				222DF30B1B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx */,
 				222DF30C1B659056003410E7 /* Trail-KlbTrail.gpx */,
 				222DF30D1B659056003410E7 /* Trail-Nauwies.gpx */,
+				22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */,
 				222DF30E1B659056003410E7 /* Trail-Nauwies2.gpx */,
 				222DF30F1B659056003410E7 /* Trail-Schwarzenberg1.gpx */,
 				222DF3101B659056003410E7 /* Trail-Schwarzenberg2.gpx */,
@@ -401,6 +421,9 @@
 				E5F16C5E9FB31F9AAACD3844 /* Models */,
 				E5F16FCD55E32364F034D5C6 /* Unused */,
 				E5F1614A590956E553AB51B9 /* POIs */,
+				E5F167DB569A3DBAFC4ECDAC /* Categories */,
+				E5F16CF121AFB03203C226C5 /* PSTileOverlayRender.m */,
+				E5F168863199ECA19573D556 /* PSTileOverlayRender.h */,
 			);
 			path = ObjcBikeGps;
 			sourceTree = "<group>";
@@ -444,6 +467,17 @@
 				E5F16218C30DFB97749F17A0 /* PSPoiStore.m */,
 			);
 			path = POIs;
+			sourceTree = "<group>";
+		};
+		E5F167DB569A3DBAFC4ECDAC /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E5F169D6A9E0A35F6962830F /* MKMapView+PSZoomLevel.m */,
+				E5F16CA6DCEBB5E5B57C7845 /* MKMapView+PSZoomLevel.h */,
+				E5F1610D7F20638D9792FC80 /* MKMapView+PSTilesInMapRect.m */,
+				E5F16B385F6FABAE20128E54 /* MKMapView+PSTilesInMapRect.h */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		E5F16C5E9FB31F9AAACD3844 /* Models */ = {
@@ -601,6 +635,7 @@
 				222DF3241B659056003410E7 /* Route-pur-gruen-gpx.gpx in Resources */,
 				222DF3371B659056003410E7 /* Trail-Schwarzenberg13.gpx in Resources */,
 				2297B1751B12467900015366 /* 760-refresh-3@3x.png in Resources */,
+				22146EB11B6A855800CE0360 /* Tour-KLB-SB.gpx in Resources */,
 				226069BB1B40820900650D19 /* 1435537202_54.png in Resources */,
 				226337A91B065A4B00CEBD55 /* 854-list-toolbar-selected@3x.png in Resources */,
 				222DF32E1B659056003410E7 /* Trail-Schwarzenberg4.gpx in Resources */,
@@ -616,6 +651,7 @@
 				22397A1D1B5510A000AA2379 /* Default@2x~ipad.png in Resources */,
 				22F934DC19DD5E5B00996122 /* InfoPlist.strings in Resources */,
 				222DF32A1B659056003410E7 /* Trail-Nauwies2.gpx in Resources */,
+				2266226C1B7578FD0032F901 /* Tour-t1387067_Sieben-Weiher-Tour.gpx in Resources */,
 				222DF3361B659056003410E7 /* Trail-Schwarzenberg12.gpx in Resources */,
 				222DF3221B659056003410E7 /* Route-NrideHom-3.gpx in Resources */,
 				226337A21B065A3700CEBD55 /* 1100-list-2-toolbar@2x.png in Resources */,
@@ -694,6 +730,10 @@
 				E5F16CFBE9EEDB5CBE847CA2 /* PSTrackStore.m in Sources */,
 				E5F16CCD34CBD8E48226654B /* PSTrackOverlay.m in Sources */,
 				E5F164B0BC15555DA4AB5E74 /* PSTrackRenderer.m in Sources */,
+				E5F16E878E2F28197226B48A /* MKMapView+PSZoomLevel.m in Sources */,
+				E5F163FB2E365B399585C067 /* MKMapView+PSTilesInMapRect.m in Sources */,
+				E5F163569E08314CAB90F17D /* PSTileOverlayRender.m in Sources */,
+				E5F1624D1324D29A29A565C6 /* PSTrackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
