@@ -497,7 +497,8 @@
 
         [snapshotter startWithCompletionHandler:^(MKMapSnapshot *snapshot, NSError *error) {
 
-            UIImage *image = [self drawRoute:[self route] onSnapshot:snapshot withColor:[UIColor redColor]];
+            UIImage *image = [self drawRoute:[self route]  andAnnotations:self.distanceAnnotations onSnapshot:snapshot withColor:[UIColor redColor]];
+
 
 
 //            UIImage *image = snapshot.image;
@@ -644,6 +645,171 @@
     UIGraphicsEndImageContext();
     return resultingImage;
 }
+
+
+- (UIImage *)drawAnnotations:(NSArray*)annotations onSnapshot:(MKMapSnapshot *)snapShot withColor:(UIColor *)lineColor
+{
+
+
+    UIImage *image = snapShot.image;
+
+    CGRect finalImageRect = CGRectMake(0, 0, image.size.width, image.size.height);
+
+            // Get a standard annotation view pin. Clearly, Apple assumes that we'll only want to draw standard annotation pins!
+
+            MKAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:nil reuseIdentifier:@""];
+            UIImage *pinImage = pin.image;
+
+            // ok, let's start to create our final image
+
+            UIGraphicsBeginImageContextWithOptions(image.size, YES, image.scale);
+
+            // first, draw the image from the snapshotter
+
+            [image drawAtPoint:CGPointMake(0, 0)];
+
+            // now, let's iterate through the annotations and draw them, too
+
+            for (id<MKAnnotation>annotation in self.distanceAnnotations)
+            {
+                CGPoint point = [snapShot pointForCoordinate:annotation.coordinate];
+                if (CGRectContainsPoint(finalImageRect, point)) // this is too conservative, but you get the idea
+                {
+                    CGPoint pinCenterOffset = pin.centerOffset;
+                    point.x -= pin.bounds.size.width / 2.0;
+                    point.y -= pin.bounds.size.height / 2.0;
+                    point.x += pinCenterOffset.x;
+                    point.y += pinCenterOffset.y;
+
+                    [pinImage drawAtPoint:point];
+                }
+            }
+
+            // grab the final image
+
+            UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+
+    return finalImage;
+}
+
+
+- (UIImage *)drawRoute:(MKPolyline *)polyline andAnnotations:(NSArray*)annotations onSnapshot:(MKMapSnapshot *)snapShot withColor:(UIColor *)lineColor {
+
+    UIGraphicsBeginImageContext(snapShot.image.size);
+    CGRect rectForImage = CGRectMake(0, 0, snapShot.image.size.width, snapShot.image.size.height);
+
+// Draw map
+    [snapShot.image drawInRect:rectForImage];
+
+// Get points in the snapshot from the snapshot
+    int lastPointIndex;
+    int firstPointIndex = 0;
+    BOOL isfirstPoint = NO;
+    NSMutableArray *pointsToDraw = [NSMutableArray array];
+    for (int i = 0; i < polyline.pointCount; i++){
+        MKMapPoint point = polyline.points[i];
+        CLLocationCoordinate2D pointCoord = MKCoordinateForMapPoint(point);
+        CGPoint pointInSnapshot = [snapShot pointForCoordinate:pointCoord];
+        if (CGRectContainsPoint(rectForImage, pointInSnapshot)) {
+            [pointsToDraw addObject:[NSValue valueWithCGPoint:pointInSnapshot]];
+            lastPointIndex = i;
+            if (i == 0)
+                firstPointIndex = YES;
+            if (!isfirstPoint) {
+                isfirstPoint = YES;
+                firstPointIndex = i;
+            }
+        }
+    }
+
+// Adding the first point on the outside too so we have a nice path
+    if (lastPointIndex+1 <= polyline.pointCount)
+    {
+        MKMapPoint point = polyline.points[lastPointIndex+1];
+        CLLocationCoordinate2D pointCoord = MKCoordinateForMapPoint(point);
+        CGPoint pointInSnapshot = [snapShot pointForCoordinate:pointCoord];
+        [pointsToDraw addObject:[NSValue valueWithCGPoint:pointInSnapshot]];
+    }
+// Adding the point before the first point in the map as well (if needed) to have nice path
+
+    if (firstPointIndex != 0) {
+        MKMapPoint point = polyline.points[firstPointIndex-1];
+        CLLocationCoordinate2D pointCoord = MKCoordinateForMapPoint(point);
+        CGPoint pointInSnapshot = [snapShot pointForCoordinate:pointCoord];
+        [pointsToDraw insertObject:[NSValue valueWithCGPoint:pointInSnapshot] atIndex:0];
+    }
+
+// Draw that points
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetLineWidth(context, 3.0);
+
+    for (NSValue *point in pointsToDraw){
+        CGPoint pointToDraw = [point CGPointValue];
+        if (!isnan(pointToDraw.x) && !isnan(pointToDraw.y))
+        {
+            if ([pointsToDraw indexOfObject:point] == 0)
+            {
+                CGContextMoveToPoint(context, pointToDraw.x, pointToDraw.y);
+            }
+            else if ([pointsToDraw indexOfObject:point] == ([pointsToDraw count]-1))
+            {
+                NSLog(@"Do nothing");
+            }
+            else
+            {
+                CGContextAddLineToPoint(context, pointToDraw.x, pointToDraw.y);
+            }
+        }
+    }
+    CGContextSetStrokeColorWithColor(context, [lineColor CGColor]);
+    CGContextStrokePath(context);
+
+    UIImage *resultingImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    CGRect finalImageRect = CGRectMake(0, 0, resultingImage.size.width, resultingImage.size.height);
+
+    // Get a standard annotation view pin. Clearly, Apple assumes that we'll only want to draw standard annotation pins!
+
+    MKAnnotationView *pin = [[MKPinAnnotationView alloc] initWithAnnotation:nil reuseIdentifier:@""];
+    UIImage *pinImage = pin.image;
+
+    // ok, let's start to create our final image
+
+    UIGraphicsBeginImageContextWithOptions(resultingImage.size, YES, resultingImage.scale);
+
+    // first, draw the image from the snapshotter
+
+    [resultingImage drawAtPoint:CGPointMake(0, 0)];
+
+    // now, let's iterate through the annotations and draw them, too
+
+    for (id<MKAnnotation>annotation in self.distanceAnnotations)
+    {
+        CGPoint point = [snapShot pointForCoordinate:annotation.coordinate];
+        if (CGRectContainsPoint(finalImageRect, point)) // this is too conservative, but you get the idea
+        {
+            CGPoint pinCenterOffset = pin.centerOffset;
+            point.x -= pin.bounds.size.width / 2.0;
+            point.y -= pin.bounds.size.height / 2.0;
+            point.x += pinCenterOffset.x;
+            point.y += pinCenterOffset.y;
+
+            [pinImage drawAtPoint:point];
+        }
+    }
+
+    // grab the final image
+
+    UIImage *finalImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+
+    return finalImage;
+}
+
+
 
 - (NSString*)snapShotFilename
 {
