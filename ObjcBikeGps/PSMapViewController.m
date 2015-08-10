@@ -204,7 +204,7 @@
 
     UIImage *layersImage = [UIImage imageNamed:@"1064-layers-4"];
     UIButton *layersButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    frame.origin.y = self.mapView.frame.size.height - layersImage.size.height - 15;
+    frame.origin.y = 48;
     frame.origin.x = self.mapView.frame.size.width - layersImage.size.width - 15;
     frame.size.width = layersImage.size.width;
     frame.size.height =  layersImage.size.height;
@@ -218,7 +218,7 @@
     
     UIImage *syncImage = [UIImage imageNamed:@"760-refresh-3"];
     UIButton *syncButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    frame.origin.y = self.mapView.frame.size.height - syncImage.size.height - 15;
+    frame.origin.y = 48;
     frame.origin.x = 15;
     frame.size.width = syncImage.size.width;
     frame.size.height =  syncImage.size.height;
@@ -231,7 +231,7 @@
     
     UIImage *syncPoisImage = [UIImage imageNamed:@"Emergeny"];
     UIButton *syncPoisButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    frame.origin.y = self.mapView.frame.size.height - syncPoisImage.size.height - 15;
+    frame.origin.y = syncButton.frame.origin.y;
     frame.origin.x = 15 + syncImage.size.width  + 15;
     frame.size.width = syncImage.size.width;
     frame.size.height =  syncImage.size.height;
@@ -243,10 +243,11 @@
     [self.mapView addSubview:syncPoisButton];
     
     self.locationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    frame.origin.y = self.mapView.frame.size.height - syncImage.size.height - 15;
-    frame.origin.x = ceil((self.mapView.frame.size.width - 100)/2);
-    frame.size.width = 100;
-    frame.size.height =  syncImage.size.height;
+    self.locationButton.backgroundColor = [UIColor whiteColor];
+    frame.origin.y = self.mapView.frame.size.height - 50 - 15;
+    frame.size.width = self.mapView.frame.size.width - 100;
+    frame.origin.x = ceil((self.mapView.frame.size.width - frame.size.width)/2);
+    frame.size.height =  50;
     [self.locationButton setTitle:@"Track" forState:UIControlStateNormal];
     self.locationButton.frame = frame;
     
