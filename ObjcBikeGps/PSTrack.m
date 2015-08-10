@@ -120,6 +120,7 @@
         self.lineWidth = 2.5;
         self.lineDashPattern = @[@5, @5];
         self.tags = [wayTags copy];
+        self.trackType = PSTrackTypeOsm;
     }
     
     return self;

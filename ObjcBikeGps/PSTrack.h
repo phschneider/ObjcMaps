@@ -12,7 +12,8 @@
 typedef NS_ENUM(NSInteger, PSTrackType) {
     PSTrackTypeUnknown,
     PSTrackTypeTrail,
-    PSTrackTypeRoundTrip
+    PSTrackTypeRoundTrip,
+    PSTrackTypeOsm
 };
 
 

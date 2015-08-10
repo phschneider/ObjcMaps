@@ -694,8 +694,8 @@
     MKPolyline *route = [track route];
     [self.mapView addOverlay:route];
 
-//    if (track.trackType != PSTrackTypeUnknown)
-//    {
+    if (track.trackType != PSTrackTypeOsm)
+    {
         CLLocationCoordinate2D annocoord = MKCoordinateForMapPoint([track start]);
 //    MKAnnotationView *startAnnotation = [[MKAnnotationView alloc]init];
 //    startAnnotation.coordinate = annocoord;
@@ -714,7 +714,7 @@
         finishAnnotation.coordinate = finishAnnocoord;
         finishAnnotation.title = @"Finish";
         [self.mapView addAnnotation:finishAnnotation];
-//    }
+    }
 
     // MKCircle Skaliert mit :(
 //    MKCircle *finishOverlay = [MKCircle circleWithCenterCoordinate:finishAnnocoord radius:150];
