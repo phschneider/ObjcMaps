@@ -5,8 +5,12 @@
 
 #import "PSSettingsViewController.h"
 
+@interface PSSettingsViewController()
+@property (nonatomic) NSArray *maptypes;
+@end
 
 @implementation PSSettingsViewController
+
 
 -(instancetype)init
 {
@@ -14,12 +18,22 @@
     if (self)
     {
         self.title = @"Settings";
-        self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStyleGrouped];
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,220,300) style:UITableViewStyleGrouped];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         self.tableView.rowHeight = 40;
 
         [self.view addSubview:self.tableView];
+
+
+        self.maptypes = @[  @{ @"name" : @"Open Street Map", @"classString" : @"PSOpenStreetMapTileOverlay" },
+                            @{ @"name" : @"Open Cycle Map", @"classString" : @"PSOpenCycleMapTileOverlay" },
+                            @{ @"name" : @"Light (MapBox)", @"classString" : @"PSMapBoxLightTileOverlay" },
+                            @{ @"name" : @"Dark (MapBox)", @"classString" : @"PSMapBoxDarkTileOverlay" },
+                            @{ @"name" : @"Street (MapBox)", @"classString" : @"PSMapBoxTileOverlay" },
+                            @{ @"name" : @"Run/Bike/Hike (MapBox)", @"classString" : @"PSMapBoxRunBikeHikeTileOverlay" },
+                            @{ @"name" : @"Hight contrast (MapBox)", @"classString" : @"PSMapBoxHighContrastTileOverlay" }
+        ];
     }
 
     return self;
@@ -28,7 +42,7 @@
 
 - (CGSize)preferredContentSize
 {
-    return CGSizeMake(320, [self tableHeight]);
+    return CGSizeMake(220, [self tableHeight]);
 }
 
 
@@ -46,28 +60,29 @@
     return height;
 }
 
-- (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section {
-    NSString* sectionTitle = @"";
-
-    if (section == 0)
-    {
-        sectionTitle = @"Shading";
-    }
-    if (section == 1)
-    {
-        sectionTitle = @"MapTypes";
-    }
-
-    return sectionTitle;
-}
+//- (NSString *)tableView:(UITableView *)aTableView titleForHeaderInSection:(NSInteger)section {
+//    NSString* sectionTitle = @"";
+//
+//    if (section == 0)
+//    {
+//        sectionTitle = @"Shading";
+//    }
+//    if (section == 1)
+//    {
+//        sectionTitle = @"MapTypes";
+//    }
+//
+//    return sectionTitle;
+//}
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)aTableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)aTableView numberOfRowsInSection:(NSInteger)section
 {
+    return [self.maptypes count];
     NSInteger result = 7;
     if (section == 0)
     {
@@ -86,7 +101,21 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WYSettingsTableViewCell"];
     }
 
-    [self updateCell:cell atIndexPath:indexPath];
+    NSString* tileClassString = [[NSUserDefaults standardUserDefaults] stringForKey:@"TILE_CLASS"];
+
+    cell.textLabel.text = @"";
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    NSDictionary *model = [self.maptypes objectAtIndex:indexPath.row];
+    cell.textLabel.text = [model objectForKey:@"name"];
+
+    if ([tileClassString isEqualToString:[model objectForKey:@"classString"]])
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
 
     return cell;
 }
@@ -97,91 +126,12 @@
 {
     [aTableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    if (indexPath.section == 0)
-    {
-        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-        NSString* pdfPhotoSize = (indexPath.row == 0) ? @"large" : @"half";
-        [defaults setObject:pdfPhotoSize forKey:@"PDF_PHOTO_SIZE"];
-        [defaults synchronize];
+    NSDictionary *model = [self.maptypes objectAtIndex:indexPath.row];
+    [[NSUserDefaults standardUserDefaults] setObject:[model objectForKey:@"classString"] forKey:@"TILE_CLASS"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [aTableView reloadData];
 
-        UITableViewCell* cell;
-
-        indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        [self updateCell:cell atIndexPath:indexPath];
-
-        indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-        cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        [self updateCell:cell atIndexPath:indexPath];
-    }
-    else
-    {
-//        WYAnotherViewController *anotherViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"WYAnotherViewController"];
-//        anotherViewController.preferredContentSize = CGSizeMake(320, 420);
-//        [self.navigationController pushViewController:anotherViewController animated:YES];
-    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"USERDEFAULTS_SETTINGS_TILECLASS_CHANGED" object:nil];
 }
-
-#pragma mark - Private
-
-- (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
-{
-    NSString* pdfPhotoSize = [[NSUserDefaults standardUserDefaults] stringForKey:@"PDF_PHOTO_SIZE"];
-
-    cell.textLabel.text = @"";
-    cell.accessoryType = UITableViewCellAccessoryNone;
-
-    if (indexPath.section == 0)
-    {
-        if (indexPath.row % 2 == 0)
-        {
-            cell.textLabel.text = @"hillshading";
-            if ([pdfPhotoSize isEqualToString:@"large"])
-            {
-                cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            }
-        }
-        else if (indexPath.row % 2 == 1)
-        {
-            cell.textLabel.text = @"landshading";
-            if ([pdfPhotoSize isEqualToString:@"half"])
-            {
-                cell.accessoryType = UITableViewCellAccessoryCheckmark;
-            }
-        }
-    }
-    else
-    {
-        if (indexPath.row == 0)
-        {
-            cell.textLabel.text = @"Apple Satellite";
-        }
-        else if (indexPath.row == 1)
-        {
-            cell.textLabel.text = @"Apple Hybrid";
-        }
-        else if (indexPath.row == 2)
-        {
-            cell.textLabel.text = @"Hike & Bike";
-        }
-        else if (indexPath.row == 3)
-        {
-            cell.textLabel.text = @"Open Street Map";
-        }
-        else if (indexPath.row == 4)
-        {
-            cell.textLabel.text = @"Open Cycle Map";
-        }
-        else if (indexPath.row == 5)
-        {
-            cell.textLabel.text = @"OpenPTMap";
-        }
-        else if (indexPath.row == 6)
-        {
-            cell.textLabel.text = @"Open Topo Map";
-        }
-    }
-}
-
 
 @end

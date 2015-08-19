@@ -12,6 +12,24 @@
 
 @implementation PSTileOverlay
 
++ (NSString *)urlTemplate
+{
+    // http://wiki.openstreetmap.org/wiki/Tile_servers
+    // http://wiki.openstreetmap.org/wiki/Tileserver
+    NSString *urlString = [NSString stringWithFormat:@"http://b.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png"];
+    // http://b.tile.openstreetmap.org/${z}/${x}/${y}.png
+    // http://a.www.toolserver.org/tiles/osm
+    NSLog(@"urlTemplate = %@",urlString);
+    return urlString;
+}
+
+
+- (MKOverlayLevel) level
+{
+    return MKOverlayLevelAboveRoads;
+}
+
+
 - (instancetype)initWithURLTemplate:(NSString *)URLTemplate
 {
     self = [super initWithURLTemplate:URLTemplate];
@@ -25,10 +43,30 @@
 }
 
 
-- (NSURL *)URLForTilePath:(MKTileOverlayPath)path {
-    NSString *urlString = [NSString stringWithFormat:@"http://b.tiles.wmflabs.org/hikebike/%ld/%ld/%ld.png", path.z, path.x, path.y];
+//- (NSURL *)URLForTilePath:(MKTileOverlayPath)path {
+//
+//    NSString *template = [[self class] urlTemplate];
+//
+//    NSString *urlString = [template stringByReplacingOccurrencesOfString:<#(NSString *)target#> withString:<#(NSString *)replacement#>]
+//    self class[] t [NSString stringWithFormat:@"http://b.tiles.wmflabs.org/hikebike/%ld/%ld/%ld.png", path.z, path.x, path.y];
+//
 //    NSLog(@"URL = %@",urlString);
-    return [NSURL URLWithString:urlString];
+//    return [NSURL URLWithString:urlString];
+//}
+
+
+- (NSString*)name
+{
+    return @"default";
+}
+
+
+- (NSString*)storageForPath:(MKTileOverlayPath)path
+{
+    NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docsDir = [dirPaths objectAtIndex:0];
+    NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/tiles/%@/%ld/%ld/%ld.png", [self name], path.z, path.x, path.y]]];
+    return databasePath;
 }
 
 
@@ -57,17 +95,15 @@
 //    result(tileData,nil);
 //    return
 
-    NSData *cachedData = [self.cache objectForKey:[self URLForTilePath:path]];
+    NSData *cachedData = nil; // [self.cache objectForKey:[self URLForTilePath:path]];
     if (cachedData)
     {
         result(cachedData, nil);
     }
     else
     {
-        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *docsDir = [dirPaths objectAtIndex:0];
-        NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/tiles/hikebike/%ld/%ld/%ld.png", path.z, path.x, path.y]]];
-        NSData *storedData = [NSData dataWithContentsOfFile:databasePath];
+
+        NSData *storedData = nil; //[NSData dataWithContentsOfFile:databasePath];
         if (storedData)
         {
             // Cache für die Laufzeit der App
@@ -82,8 +118,8 @@
                 if (data)
                 {
                     [self.cache setObject:data forKey:[self URLForTilePath:path]];
-                    [[NSFileManager defaultManager] createDirectoryAtPath:[databasePath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
-                    [data writeToFile:databasePath atomically:YES];
+                    [[NSFileManager defaultManager] createDirectoryAtPath:[[self storageForPath:path] stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+                    [data writeToFile:[self storageForPath:path] atomically:YES];
                 }
                 result(data, connectionError);
             }];

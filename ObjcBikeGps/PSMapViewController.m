@@ -76,10 +76,42 @@
 
         UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognizerFired:)];
         [self.mapView addGestureRecognizer:longPressGestureRecognizer];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tileClassChanged) name:@"USERDEFAULTS_SETTINGS_TILECLASS_CHANGED" object:nil];
     }
     return self;
 }
 
+
+- (void) tileClassChanged
+{
+    [self removeAllOverlays];
+
+    NSString *tileClassString = [[NSUserDefaults standardUserDefaults] objectForKey:@"TILE_CLASS"];
+    NSLog(@"TileClass = %@", tileClassString);
+
+    if (!tileClassString)
+    {
+        tileClassString = @"PSTileOverlay";
+    }
+
+    Class tileClass = NSClassFromString(tileClassString);
+    id object = [[tileClass alloc] init];
+    if (object)
+    {
+
+        NSString *urlTemplate = [tileClass urlTemplate];
+        NSLog(@"URL Template = %@", urlTemplate);
+
+        PSTileOverlay *overlay = [(PSTileOverlay *) [tileClass alloc] initWithURLTemplate:urlTemplate];
+
+        [self.mapView addOverlay:overlay level:[overlay level]];
+    }
+    else
+    {
+        NSLog(@"No object");
+    }
+}
 
 - (void)longPressGestureRecognizerFired:(id)uilongPressGestureRecognizerFired
 {
@@ -297,10 +329,22 @@
 
 
 #ifdef USE_OSM
-    NSString *template = @"http://b.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png";
-    PSTileOverlay *overlay = [[PSTileOverlay alloc] initWithURLTemplate:template];
-    overlay.canReplaceMapContent = NO;
-    [self.mapView addOverlay:overlay level:MKOverlayLevelAboveRoads];
+    [self tileClassChanged];
+
+//    NSString *template = @"http://b.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png";
+//
+//    NSString *accessToken = @"pk.eyJ1IjoicGhzY2huZWlkZXIiLCJhIjoiajRrY3hyUSJ9.iUqFM9KNijSRZoI-cHkyLw";
+//    NSString *format = @".png";
+////    NSString *mapId = @"mapbox.high-contrast";
+////        NSString *mapId = @"mapbox.light";
+////        NSString *mapId = @"mapbox.pencil";
+//            NSString *mapId = @"mapbox.run-bike-hike";
+//    NSString *urlString = [NSString stringWithFormat:@"https://api.mapbox.com/v4/%@/{z}/{x}/{y}%@?access_token=%@",mapId,format, accessToken];
+//
+//
+//    PSTileOverlay *overlay = [[PSTileOverlay alloc] initWithURLTemplate:urlString];
+//    overlay.canReplaceMapContent = NO;
+//    [self.mapView addOverlay:overlay level:MKOverlayLevelAboveRoads];
 #endif
 
 //    // OpenTopoMap
@@ -1089,6 +1133,27 @@
 {
     DLogFuncName();
 
+    [self removeAllPolylines];
+
+    [self removeAllAnnotations];
+}
+
+
+- (void)removeAllAnnotations
+{
+    if ([self.mapView.annotations count])
+    {
+        NSArray *annotations = [[self.mapView annotations] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [MKPointAnnotation class]]];
+        if ([annotations count])
+        {
+            [self.mapView removeAnnotations:annotations];
+        }
+    }
+}
+
+
+- (void)removeAllPolylines
+{
     if ([self.mapView.overlays count])
     {
         NSArray *overlays = [[self.mapView overlays] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [MKPolyline class]]];
@@ -1097,13 +1162,17 @@
             [self.mapView removeOverlays:overlays];
         }
     }
+}
 
-    if ([self.mapView.annotations count])
+
+- (void)removeAllOverlays
+{
+    if ([self.mapView.overlays count])
     {
-        NSArray *annotations = [[self.mapView annotations] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [MKPointAnnotation class]]];
-        if ([annotations count])
+        NSArray *overlays = self.mapView.overlays;
+        if ([overlays count])
         {
-            [self.mapView removeAnnotations:annotations];
+            [self.mapView removeOverlays:overlays];
         }
     }
 }
