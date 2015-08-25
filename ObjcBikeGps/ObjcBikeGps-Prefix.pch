@@ -17,7 +17,13 @@
     #import <CoreLocation/CoreLocation.h>
 
     #define THREAD_LOG                      (([NSThread isMainThread]) ? @"" : @"[THREAD NOT MAINTHREAD]")
-    #define DLogFuncName()                  NSLog((@"[FUNCNAME] %@ %s [Line %d] "), THREAD_LOG, __PRETTY_FUNCTION__, __LINE__);
+
+    #ifdef DEBUG
+        #define DLogFuncName()                  NSLog((@"[FUNCNAME] %@ %s [Line %d] "), THREAD_LOG, __PRETTY_FUNCTION__, __LINE__);
+    #else
+        #define DLogFuncName()
+    #endif
+
     #define USE_OSM     1
 //    #define USE_FLYOVER 1
 #endif

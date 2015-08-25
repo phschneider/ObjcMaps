@@ -279,8 +279,8 @@
     self.elevationData = elevatioNData;
     self.smoothedElevationData = smoothedElevatioNData;
     self.wayPoints = wayPoints;
-    NSLog(@"elevationData = %d", [self.elevationData count]);
-    NSLog(@"smoothedElevationData = %d", [self.smoothedElevationData count]);
+//    NSLog(@"elevationData = %d", [self.elevationData count]);
+//    NSLog(@"smoothedElevationData = %d", [self.smoothedElevationData count]);
     self.maxElevationData = [[self.elevationData valueForKeyPath:@"@max.intValue"] floatValue];
     self.minElevationData = [[self.elevationData valueForKeyPath:@"@min.intValue"] floatValue];
 //        [self.graphViewController setData:elevatioNData];
@@ -594,7 +594,7 @@
             }
             else if ([pointsToDraw indexOfObject:point] == ([pointsToDraw count]-1))
             {
-                NSLog(@"Do nothing");
+//                NSLog(@"Do nothing");
             }
             else
             {
@@ -718,7 +718,7 @@
             }
             else if ([pointsToDraw indexOfObject:point] == ([pointsToDraw count]-1))
             {
-                NSLog(@"Do nothing");
+//                NSLog(@"Do nothing");
             }
             else
             {
