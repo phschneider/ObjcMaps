@@ -30,4 +30,10 @@
     return @"mapBoxDefault";
 }
 
+
+- (MKOverlayLevel)level
+{
+    return MKOverlayLevelAboveLabels;
+}
+
 @end
