@@ -116,6 +116,7 @@
 		E5F16E0A5F6C8F534BCBF0FD /* PSMapBoxDarkTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1632D101D4D0933B0DC27 /* PSMapBoxDarkTileOverlay.m */; };
 		E5F16E878E2F28197226B48A /* MKMapView+PSZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F169D6A9E0A35F6962830F /* MKMapView+PSZoomLevel.m */; };
 		E5F16F1A94E8F4633532BB23 /* PSOpenStreetMapTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16983E85E79D7F9EEDF0C /* PSOpenStreetMapTileOverlay.m */; };
+		E5F16F73FCBAA8668DAA43A6 /* PSMapBoxCustomTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F165AB5D99134DF7E0EA0C /* PSMapBoxCustomTileOverlay.m */; };
 		E5F16F988F8F3116A60FE44B /* PSHillShadingTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16F8FEA1FA1B5EF4692ED /* PSHillShadingTileOverlay.m */; };
 /* End PBXBuildFile section */
 
@@ -231,6 +232,7 @@
 		E5F16421E9C0906A48FF3B2F /* PSMapBoxHighContrastTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapBoxHighContrastTileOverlay.m; sourceTree = "<group>"; };
 		E5F1647F79F6289B49D51A9B /* PSMapBoxTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapBoxTileOverlay.h; sourceTree = "<group>"; };
 		E5F16562164A49A32D5DE446 /* PSTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTileOverlay.h; sourceTree = "<group>"; };
+		E5F165AB5D99134DF7E0EA0C /* PSMapBoxCustomTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapBoxCustomTileOverlay.m; sourceTree = "<group>"; };
 		E5F165DB082F4490B7172551 /* PSMapBoxRunBikeHikeTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapBoxRunBikeHikeTileOverlay.m; sourceTree = "<group>"; };
 		E5F166140591E564FAB51BB4 /* PSWayPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWayPointAnnotation.h; sourceTree = "<group>"; };
 		E5F1661AE1A1F91FE38E9414 /* PSTrackRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackRenderer.m; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 		E5F169D6A9E0A35F6962830F /* MKMapView+PSZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+PSZoomLevel.m"; sourceTree = "<group>"; };
 		E5F16A474E04F9B9B89A1ED5 /* PSDistanceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDistanceAnnotation.m; sourceTree = "<group>"; };
 		E5F16AB745696991ADE41D3A /* PSHillShadingTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSHillShadingTileOverlay.h; sourceTree = "<group>"; };
+		E5F16AFAAA79D593CBD3813C /* PSMapBoxCustomTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapBoxCustomTileOverlay.h; sourceTree = "<group>"; };
 		E5F16B1F0824998F4131C7E6 /* PSPoiStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPoiStore.h; sourceTree = "<group>"; };
 		E5F16B385F6FABAE20128E54 /* MKMapView+PSTilesInMapRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+PSTilesInMapRect.h"; sourceTree = "<group>"; };
 		E5F16B5BFA83DB7DEFEFA007 /* PSOpenCycleMapTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSOpenCycleMapTileOverlay.h; sourceTree = "<group>"; };
@@ -326,6 +329,8 @@
 				E5F1602E1C045FFFE12441F2 /* PSMapBoxRunBikeHikeTileOverlay.h */,
 				E5F16421E9C0906A48FF3B2F /* PSMapBoxHighContrastTileOverlay.m */,
 				E5F16DDDBF1F0B5FC296A32E /* PSMapBoxHighContrastTileOverlay.h */,
+				E5F165AB5D99134DF7E0EA0C /* PSMapBoxCustomTileOverlay.m */,
+				E5F16AFAAA79D593CBD3813C /* PSMapBoxCustomTileOverlay.h */,
 			);
 			name = Mapbox;
 			sourceTree = "<group>";
@@ -816,6 +821,7 @@
 				E5F16BF1544241FCC9E5D536 /* PSOpenCycleMapTileOverlay.m in Sources */,
 				E5F16CE353FA42E547F213AE /* PSMapBoxTileOverlay.m in Sources */,
 				E5F16E0A5F6C8F534BCBF0FD /* PSMapBoxDarkTileOverlay.m in Sources */,
+				E5F16F73FCBAA8668DAA43A6 /* PSMapBoxCustomTileOverlay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

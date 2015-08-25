@@ -32,6 +32,7 @@
                             @{ @"name" : @"Dark (MapBox)", @"classString" : @"PSMapBoxDarkTileOverlay" },
                             @{ @"name" : @"Street (MapBox)", @"classString" : @"PSMapBoxTileOverlay" },
                             @{ @"name" : @"Run/Bike/Hike (MapBox)", @"classString" : @"PSMapBoxRunBikeHikeTileOverlay" },
+                            @{ @"name" : @"PS Custom (MapBox)", @"classString" : @"PSMapBoxCustomTileOverlay" },
                             @{ @"name" : @"Hight contrast (MapBox)", @"classString" : @"PSMapBoxHighContrastTileOverlay" }
         ];
     }
