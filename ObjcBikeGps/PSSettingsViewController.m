@@ -4,6 +4,7 @@
 //
 
 #import "PSSettingsViewController.h"
+#import "PSTileOverlay.h"
 
 @interface PSSettingsViewController()
 @property (nonatomic) NSArray *maptypes;
@@ -18,7 +19,7 @@
     if (self)
     {
         self.title = @"Settings";
-        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,220,300) style:UITableViewStyleGrouped];
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,280,400) style:UITableViewStylePlain];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         self.tableView.rowHeight = 40;
@@ -43,7 +44,8 @@
 
 - (CGSize)preferredContentSize
 {
-    return CGSizeMake(220, [self tableHeight]);
+//    return CGSizeMake(220, [self tableHeight]);
+    return CGSizeMake(280,400);
 }
 
 
@@ -55,8 +57,10 @@
     {
         height += ([self.tableView numberOfRowsInSection:i] * self.tableView.rowHeight);;
 //        height += [self.tableView tableHeaderView].frame.size.height;
-        height += 100;
+//        height += 100;
     }
+
+    height += self.tableView.rowHeight;
 //    NSLog(@"Height = %f", height);
     return height;
 }
@@ -99,7 +103,7 @@
     UITableViewCell* cell = [aTableView dequeueReusableCellWithIdentifier:@"WYSettingsTableViewCell"];
 
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"WYSettingsTableViewCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"WYSettingsTableViewCell"];
     }
 
     NSString* tileClassString = [[NSUserDefaults standardUserDefaults] stringForKey:@"TILE_CLASS"];
@@ -108,6 +112,30 @@
     cell.accessoryType = UITableViewCellAccessoryNone;
     NSDictionary *model = [self.maptypes objectAtIndex:indexPath.row];
     cell.textLabel.text = [model objectForKey:@"name"];
+
+    Class tileClass = NSClassFromString([model objectForKey:@"classString"]);
+    id object = [[tileClass alloc] init];
+    if (object) {
+
+        NSString *urlTemplate = [tileClass urlTemplate];
+        NSLog(@"URL Template = %@", urlTemplate);
+
+        PSTileOverlay *overlay = [(PSTileOverlay *) [tileClass alloc] initWithURLTemplate:urlTemplate];
+
+
+        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *docsDir = [dirPaths objectAtIndex:0];
+        NSString *databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/tiles/%@", [overlay name]]]];
+
+
+        cell.detailTextLabel.text = [self sizeOfFolder:databasePath];
+    }
+    else
+    {
+        cell.detailTextLabel.text = @"test";
+    }
+
+
 
     if ([tileClassString isEqualToString:[model objectForKey:@"classString"]])
     {
@@ -133,6 +161,25 @@
     [aTableView reloadData];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"USERDEFAULTS_SETTINGS_TILECLASS_CHANGED" object:nil];
+}
+
+
+-(NSString *)sizeOfFolder:(NSString *)folderPath
+{
+    NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
+    NSEnumerator *contentsEnumurator = [contents objectEnumerator];
+
+    NSString *file;
+    unsigned long long int folderSize = 0;
+
+    while (file = [contentsEnumurator nextObject]) {
+        NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[folderPath stringByAppendingPathComponent:file] error:nil];
+        folderSize += [[fileAttributes objectForKey:NSFileSize] intValue];
+    }
+
+    //This line will give you formatted size from bytes ....
+    NSString *folderSizeStr = [NSByteCountFormatter stringFromByteCount:folderSize countStyle:NSByteCountFormatterCountStyleFile];
+    return folderSizeStr;
 }
 
 @end
