@@ -66,9 +66,6 @@
 		226337B01B06B58F00CEBD55 /* 798-filter-toolbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337AD1B06B58F00CEBD55 /* 798-filter-toolbar@2x.png */; };
 		226337B11B06B58F00CEBD55 /* 798-filter-toolbar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 226337AE1B06B58F00CEBD55 /* 798-filter-toolbar@3x.png */; };
 		2266226C1B7578FD0032F901 /* Tour-t1387067_Sieben-Weiher-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2266226B1B7578FD0032F901 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */; };
-		227B45721B0A8B470037DA19 /* 810-document-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 227B456F1B0A8B470037DA19 /* 810-document-2.png */; };
-		227B45731B0A8B470037DA19 /* 810-document-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 227B45701B0A8B470037DA19 /* 810-document-2@2x.png */; };
-		227B45741B0A8B470037DA19 /* 810-document-2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 227B45711B0A8B470037DA19 /* 810-document-2@3x.png */; };
 		2297B1731B12467900015366 /* 760-refresh-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2297B1701B12467900015366 /* 760-refresh-3.png */; };
 		2297B1741B12467900015366 /* 760-refresh-3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2297B1711B12467900015366 /* 760-refresh-3@2x.png */; };
 		2297B1751B12467900015366 /* 760-refresh-3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2297B1721B12467900015366 /* 760-refresh-3@3x.png */; };
@@ -87,13 +84,22 @@
 		22F934FD19DD5E5B00996122 /* ObjcBikeGpsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F934FC19DD5E5B00996122 /* ObjcBikeGpsTests.m */; };
 		22F9350719DD5FFB00996122 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350619DD5FFB00996122 /* MapKit.framework */; };
 		22F9350919DD624800996122 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350819DD624800996122 /* CoreLocation.framework */; };
+		4AC377761BB887150027DFC7 /* InselhuepfenTag1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776C1BB887150027DFC7 /* InselhuepfenTag1.gpx */; settings = {ASSET_TAGS = (); }; };
+		4AC377771BB887150027DFC7 /* InselhuepfenTag2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776D1BB887150027DFC7 /* InselhuepfenTag2.gpx */; settings = {ASSET_TAGS = (); }; };
+		4AC377781BB887150027DFC7 /* InselhuepfenTag4.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776E1BB887150027DFC7 /* InselhuepfenTag4.gpx */; settings = {ASSET_TAGS = (); }; };
+		4AC377791BB887150027DFC7 /* InselhuepfenTag5.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776F1BB887150027DFC7 /* InselhuepfenTag5.gpx */; settings = {ASSET_TAGS = (); }; };
+		4AC3777A1BB887150027DFC7 /* Milna-13.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377711BB887150027DFC7 /* Milna-13.9.15.gpx */; settings = {ASSET_TAGS = (); }; };
+		4AC3777B1BB887150027DFC7 /* Postira-17.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377721BB887150027DFC7 /* Postira-17.9.15.gpx */; settings = {ASSET_TAGS = (); }; };
+		4AC3777C1BB887150027DFC7 /* Stari-Grad-14.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377731BB887150027DFC7 /* Stari-Grad-14.9.15.gpx */; settings = {ASSET_TAGS = (); }; };
+		4AC3777D1BB887150027DFC7 /* Stari-Grad-15.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377741BB887150027DFC7 /* Stari-Grad-15.9.15.gpx */; settings = {ASSET_TAGS = (); }; };
+		4AC3777E1BB887150027DFC7 /* Vela-Luka-16.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377751BB887150027DFC7 /* Vela-Luka-16.9.15.gpx */; settings = {ASSET_TAGS = (); }; };
+		4AC377801BB88ABF0027DFC7 /* InselhuepfenTag3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3777F1BB88ABF0027DFC7 /* InselhuepfenTag3.gpx */; settings = {ASSET_TAGS = (); }; };
 		7E00DAE2DCD044FA91CCAE5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF6413E1014CC8A7CDA52D /* libPods.a */; };
 		E5F160409C4C7CD1A7D28947 /* PSMapBoxLightTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16D4E25AC86ABE31C30F2 /* PSMapBoxLightTileOverlay.m */; };
 		E5F1604BE45C5CE367EC6BFC /* PSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16CB73DB1DCAFA0C881B7 /* PSSettingsViewController.m */; };
 		E5F161CA1D7F283F98B2BDA3 /* PSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16DD8436255C132C9F80A /* PSViewController.m */; };
 		E5F1622D239E5F9DFB95336E /* PSWayPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1603AD61C55A434A21E15 /* PSWayPointAnnotation.m */; };
 		E5F1624D1324D29A29A565C6 /* PSTrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16D4AC1785A59522E963F /* PSTrackViewController.m */; };
-		E5F162BC853217FF9637E7BC /* Trail-Sonnenberg-2-oberere-felsenweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = E5F16397A9F897366E5F3EA1 /* Trail-Sonnenberg-2-oberere-felsenweg.gpx */; };
 		E5F16313CFF86B8B1D5C38F7 /* PSTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F168FB8070EB4890F8CD58 /* PSTrack.m */; };
 		E5F163365A77926C4AF5CA54 /* PSGpxParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16DC8E762580B653758D0 /* PSGpxParser.m */; };
 		E5F163569E08314CAB90F17D /* PSTileOverlayRender.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16CF121AFB03203C226C5 /* PSTileOverlayRender.m */; };
@@ -191,9 +197,6 @@
 		226337AD1B06B58F00CEBD55 /* 798-filter-toolbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "798-filter-toolbar@2x.png"; sourceTree = "<group>"; };
 		226337AE1B06B58F00CEBD55 /* 798-filter-toolbar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "798-filter-toolbar@3x.png"; sourceTree = "<group>"; };
 		2266226B1B7578FD0032F901 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Tour-t1387067_Sieben-Weiher-Tour.gpx"; sourceTree = "<group>"; };
-		227B456F1B0A8B470037DA19 /* 810-document-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "810-document-2.png"; path = "../../../../../../Downloads/Glyphish Complete/Glyphish 6/Glyphish 6 Icons (PNG)/Large (tab bar)/Normal/810-document-2.png"; sourceTree = "<group>"; };
-		227B45701B0A8B470037DA19 /* 810-document-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "810-document-2@2x.png"; path = "../../../../../../Downloads/Glyphish Complete/Glyphish 6/Glyphish 6 Icons (PNG)/Large (tab bar)/Normal/810-document-2@2x.png"; sourceTree = "<group>"; };
-		227B45711B0A8B470037DA19 /* 810-document-2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "810-document-2@3x.png"; path = "../../../../../../Downloads/Glyphish Complete/Glyphish 6/Glyphish 6 Icons (PNG)/Large (tab bar)/Normal/810-document-2@3x.png"; sourceTree = "<group>"; };
 		2297B1701B12467900015366 /* 760-refresh-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "760-refresh-3.png"; sourceTree = "<group>"; };
 		2297B1711B12467900015366 /* 760-refresh-3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "760-refresh-3@2x.png"; sourceTree = "<group>"; };
 		2297B1721B12467900015366 /* 760-refresh-3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "760-refresh-3@3x.png"; sourceTree = "<group>"; };
@@ -216,6 +219,16 @@
 		22F934FC19DD5E5B00996122 /* ObjcBikeGpsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjcBikeGpsTests.m; sourceTree = "<group>"; };
 		22F9350619DD5FFB00996122 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		22F9350819DD624800996122 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4AC3776C1BB887150027DFC7 /* InselhuepfenTag1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InselhuepfenTag1.gpx; sourceTree = "<group>"; };
+		4AC3776D1BB887150027DFC7 /* InselhuepfenTag2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InselhuepfenTag2.gpx; sourceTree = "<group>"; };
+		4AC3776E1BB887150027DFC7 /* InselhuepfenTag4.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InselhuepfenTag4.gpx; sourceTree = "<group>"; };
+		4AC3776F1BB887150027DFC7 /* InselhuepfenTag5.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InselhuepfenTag5.gpx; sourceTree = "<group>"; };
+		4AC377711BB887150027DFC7 /* Milna-13.9.15.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Milna-13.9.15.gpx"; sourceTree = "<group>"; };
+		4AC377721BB887150027DFC7 /* Postira-17.9.15.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Postira-17.9.15.gpx"; sourceTree = "<group>"; };
+		4AC377731BB887150027DFC7 /* Stari-Grad-14.9.15.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Stari-Grad-14.9.15.gpx"; sourceTree = "<group>"; };
+		4AC377741BB887150027DFC7 /* Stari-Grad-15.9.15.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Stari-Grad-15.9.15.gpx"; sourceTree = "<group>"; };
+		4AC377751BB887150027DFC7 /* Vela-Luka-16.9.15.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Vela-Luka-16.9.15.gpx"; sourceTree = "<group>"; };
+		4AC3777F1BB88ABF0027DFC7 /* InselhuepfenTag3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InselhuepfenTag3.gpx; sourceTree = "<group>"; };
 		5E583B3B03D649A69419F33C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E5F16014D6AD1CF535C10BFC /* PSTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrack.h; sourceTree = "<group>"; };
 		E5F1602E1C045FFFE12441F2 /* PSMapBoxRunBikeHikeTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapBoxRunBikeHikeTileOverlay.h; sourceTree = "<group>"; };
@@ -228,7 +241,6 @@
 		E5F1632D101D4D0933B0DC27 /* PSMapBoxDarkTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapBoxDarkTileOverlay.m; sourceTree = "<group>"; };
 		E5F16359648FB42289D3A3DC /* PSOpenStreetMapTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSOpenStreetMapTileOverlay.h; sourceTree = "<group>"; };
 		E5F1637FA2C9346B8A9FBED6 /* PSTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTileOverlay.m; sourceTree = "<group>"; };
-		E5F16397A9F897366E5F3EA1 /* Trail-Sonnenberg-2-oberere-felsenweg.gpx */ = {isa = PBXFileReference; lastKnownFileType = file.gpx; name = "Trail-Sonnenberg-2-oberere-felsenweg.gpx"; path = "SampleData/Trail-Sonnenberg-2-oberere-felsenweg.gpx"; sourceTree = SOURCE_ROOT; };
 		E5F16421E9C0906A48FF3B2F /* PSMapBoxHighContrastTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapBoxHighContrastTileOverlay.m; sourceTree = "<group>"; };
 		E5F1647F79F6289B49D51A9B /* PSMapBoxTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapBoxTileOverlay.h; sourceTree = "<group>"; };
 		E5F16562164A49A32D5DE446 /* PSTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTileOverlay.h; sourceTree = "<group>"; };
@@ -360,9 +372,6 @@
 				223832C21B075BF80039142B /* 1064-layers-4.png */,
 				223832C31B075BF80039142B /* 1064-layers-4@2x.png */,
 				223832C41B075BF80039142B /* 1064-layers-4@3x.png */,
-				227B456F1B0A8B470037DA19 /* 810-document-2.png */,
-				227B45701B0A8B470037DA19 /* 810-document-2@2x.png */,
-				227B45711B0A8B470037DA19 /* 810-document-2@3x.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -421,7 +430,6 @@
 				222DF31E1B659056003410E7 /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx */,
 				222DF31F1B659056003410E7 /* Trail-Winterberg1.gpx */,
 				222DF3201B659056003410E7 /* Trail.gpx */,
-				E5F16397A9F897366E5F3EA1 /* Trail-Sonnenberg-2-oberere-felsenweg.gpx */,
 			);
 			name = SampleFiles;
 			sourceTree = "<group>";
@@ -463,6 +471,7 @@
 		22F934D719DD5E5B00996122 /* ObjcBikeGps */ = {
 			isa = PBXGroup;
 			children = (
+				4AC3776A1BB887150027DFC7 /* GPS */,
 				22397A131B5510A000AA2379 /* Default-375w-667h@2x~iphone.png */,
 				22397A141B5510A000AA2379 /* Default-568h@2x.png */,
 				22397A151B5510A000AA2379 /* Default-Portrait-414w-736h@3x~iphone.png */,
@@ -518,6 +527,39 @@
 				22F934F919DD5E5B00996122 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4AC3776A1BB887150027DFC7 /* GPS */ = {
+			isa = PBXGroup;
+			children = (
+				4AC3776B1BB887150027DFC7 /* Ladies */,
+				4AC377701BB887150027DFC7 /* Roland */,
+			);
+			path = GPS;
+			sourceTree = SOURCE_ROOT;
+		};
+		4AC3776B1BB887150027DFC7 /* Ladies */ = {
+			isa = PBXGroup;
+			children = (
+				4AC3776C1BB887150027DFC7 /* InselhuepfenTag1.gpx */,
+				4AC3776D1BB887150027DFC7 /* InselhuepfenTag2.gpx */,
+				4AC3777F1BB88ABF0027DFC7 /* InselhuepfenTag3.gpx */,
+				4AC3776E1BB887150027DFC7 /* InselhuepfenTag4.gpx */,
+				4AC3776F1BB887150027DFC7 /* InselhuepfenTag5.gpx */,
+			);
+			path = Ladies;
+			sourceTree = "<group>";
+		};
+		4AC377701BB887150027DFC7 /* Roland */ = {
+			isa = PBXGroup;
+			children = (
+				4AC377711BB887150027DFC7 /* Milna-13.9.15.gpx */,
+				4AC377721BB887150027DFC7 /* Postira-17.9.15.gpx */,
+				4AC377731BB887150027DFC7 /* Stari-Grad-14.9.15.gpx */,
+				4AC377741BB887150027DFC7 /* Stari-Grad-15.9.15.gpx */,
+				4AC377751BB887150027DFC7 /* Vela-Luka-16.9.15.gpx */,
+			);
+			path = Roland;
 			sourceTree = "<group>";
 		};
 		E5F1604B9295F58CB6B76D3A /* Tiles */ = {
@@ -671,10 +713,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AC3777A1BB887150027DFC7 /* Milna-13.9.15.gpx in Resources */,
 				222DF3481B659F34003410E7 /* Emergeny.png in Resources */,
-				227B45731B0A8B470037DA19 /* 810-document-2@2x.png in Resources */,
-				227B45741B0A8B470037DA19 /* 810-document-2@3x.png in Resources */,
+				4AC3777B1BB887150027DFC7 /* Postira-17.9.15.gpx in Resources */,
 				222DF33A1B659056003410E7 /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */,
+				4AC3777C1BB887150027DFC7 /* Stari-Grad-14.9.15.gpx in Resources */,
 				222DF32D1B659056003410E7 /* Trail-Schwarzenberg3.gpx in Resources */,
 				222DF3451B659B9E003410E7 /* TrailSpichern.gpx in Resources */,
 				226337A81B065A4B00CEBD55 /* 854-list-toolbar-selected@2x.png in Resources */,
@@ -684,13 +727,16 @@
 				226337A71B065A4B00CEBD55 /* 854-list-toolbar-selected.png in Resources */,
 				22ED409A1B68038800D3E297 /* Tour-Goettelborn.gpx in Resources */,
 				222DF3291B659056003410E7 /* Trail-Nauwies.gpx in Resources */,
+				4AC3777E1BB887150027DFC7 /* Vela-Luka-16.9.15.gpx in Resources */,
 				222DF3331B659056003410E7 /* Trail-Schwarzenberg9.gpx in Resources */,
 				226337AB1B065A5F00CEBD55 /* 852-map-toolbar@3x.png in Resources */,
+				4AC377761BB887150027DFC7 /* InselhuepfenTag1.gpx in Resources */,
 				22397A1B1B5510A000AA2379 /* Default-568h@2x.png in Resources */,
 				22397A201B5510A000AA2379 /* Default~iphone.png in Resources */,
 				2297B1731B12467900015366 /* 760-refresh-3.png in Resources */,
 				222DF3321B659056003410E7 /* Trail-Schwarzenberg8.gpx in Resources */,
 				22397A1A1B5510A000AA2379 /* Default-375w-667h@2x~iphone.png in Resources */,
+				4AC3777D1BB887150027DFC7 /* Stari-Grad-15.9.15.gpx in Resources */,
 				226337A11B065A3700CEBD55 /* 1100-list-2-toolbar.png in Resources */,
 				222DF33B1B659056003410E7 /* Trail-Winterberg1.gpx in Resources */,
 				222DF3421B659976003410E7 /* Tour-Urwald.gpx in Resources */,
@@ -701,11 +747,12 @@
 				222DF3311B659056003410E7 /* Trail-Schwarzenberg7.gpx in Resources */,
 				223832C51B075BF80039142B /* 1064-layers-4.png in Resources */,
 				226337B01B06B58F00CEBD55 /* 798-filter-toolbar@2x.png in Resources */,
+				4AC377771BB887150027DFC7 /* InselhuepfenTag2.gpx in Resources */,
 				22397A1F1B5510A000AA2379 /* Default~ipad.png in Resources */,
-				227B45721B0A8B470037DA19 /* 810-document-2.png in Resources */,
 				22397A1C1B5510A000AA2379 /* Default-Portrait-414w-736h@3x~iphone.png in Resources */,
 				226337B11B06B58F00CEBD55 /* 798-filter-toolbar@3x.png in Resources */,
 				222DF32F1B659056003410E7 /* Trail-Schwarzenberg5.gpx in Resources */,
+				4AC377781BB887150027DFC7 /* InselhuepfenTag4.gpx in Resources */,
 				222DF3341B659056003410E7 /* Trail-Schwarzenberg10.gpx in Resources */,
 				223832C61B075BF80039142B /* 1064-layers-4@2x.png in Resources */,
 				222DF3301B659056003410E7 /* Trail-Schwarzenberg6.gpx in Resources */,
@@ -714,6 +761,7 @@
 				2297B1751B12467900015366 /* 760-refresh-3@3x.png in Resources */,
 				22146EB11B6A855800CE0360 /* Tour-KLB-SB.gpx in Resources */,
 				226069BB1B40820900650D19 /* 1435537202_54.png in Resources */,
+				4AC377791BB887150027DFC7 /* InselhuepfenTag5.gpx in Resources */,
 				226337A91B065A4B00CEBD55 /* 854-list-toolbar-selected@3x.png in Resources */,
 				222DF32E1B659056003410E7 /* Trail-Schwarzenberg4.gpx in Resources */,
 				222DF3351B659056003410E7 /* Trail-Schwarzenberg11.gpx in Resources */,
@@ -739,7 +787,7 @@
 				222DF3251B659056003410E7 /* Trail-AmHomburg1.gpx in Resources */,
 				226337A31B065A3700CEBD55 /* 1100-list-2-toolbar@3x.png in Resources */,
 				2263379D1B06587A00CEBD55 /* 852-map-toolbar@2x.png in Resources */,
-				E5F162BC853217FF9637E7BC /* Trail-Sonnenberg-2-oberere-felsenweg.gpx in Resources */,
+				4AC377801BB88ABF0027DFC7 /* InselhuepfenTag3.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -939,13 +987,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E583B3B03D649A69419F33C /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Philip Schneider (723AP2V5VG)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9b00b807-d681-4316-8529-a2238a3b4341";
+				PROVISIONING_PROFILE = "3bf9f429-8638-4826-a9b2-558dcc44f2ac";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
@@ -956,13 +1004,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E583B3B03D649A69419F33C /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Philip Schneider (723AP2V5VG)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9b00b807-d681-4316-8529-a2238a3b4341";
+				PROVISIONING_PROFILE = "3bf9f429-8638-4826-a9b2-558dcc44f2ac";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;

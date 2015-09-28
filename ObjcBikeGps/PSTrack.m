@@ -50,6 +50,20 @@
     self = [self initWithFilename:filename];
     if (self)
     {
+#ifdef INSELHUEPFEN_MODE
+        if ([[filename lowercaseString] rangeOfString:@"inselhuepfen"].location != NSNotFound)
+        {
+            self.color = [UIColor magentaColor];
+            self.lineDashPattern = @[@1,@5];
+            self.alpha = 0.5;
+        }
+        else
+        {
+            self.color = [UIColor blueColor];
+            self.lineDashPattern = @[@5,@5];
+            self.alpha = 0.5;
+        }
+#else
         self.trackType = trackType;
         if (trackType == PSTrackTypeTrail)
         {
@@ -75,7 +89,7 @@
             self.lineDashPattern = nil;
             self.alpha = 0.5;
         }
-
+#endif
 
     }
     return self;
@@ -433,7 +447,7 @@
 - (MKPolyline *)route
 {
 //    return [MKPolyline polylineWithPoints:self.pointArr count:self.pointArrCount];
-
+    NSAssert(self.pointsCoordinate,@"No coordinates for route");
     PSTrackOverlay *trackOverlay =  [PSTrackOverlay polylineWithCoordinates:self.pointsCoordinate count:self.pointArrCount];
     trackOverlay.track = self;
     return trackOverlay;
@@ -515,7 +529,8 @@
 - (void)generateSnapShotImage
 {
     DLogFuncName();
-
+    return;
+    
     MKMapSnapshotOptions *options = [[MKMapSnapshotOptions alloc] init];
     options.region = self.region;
     options.scale = [UIScreen mainScreen].scale;

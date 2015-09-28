@@ -23,6 +23,7 @@
 #import "MKMapView+PSTilesInMapRect.h"
 #import "PSTileOverlayRender.h"
 #import "PSWayPointAnnotation.h"
+#import "PSTrackStore.h"
 
 
 @interface PSMapViewController ()
@@ -54,17 +55,27 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(poisUpdated) name:@"POIS_UPDATED" object:nil];
 
         CGRect frame = self.view.bounds;
+        
+#ifndef INSELHUEPFEN_MODE
         frame.origin.y = 44 + 20;
         frame.size.height -= frame.origin.y;
-
+#else
+        [[PSTrackStore sharedInstance] addObserver:self forKeyPath:@"tracks" options:NSKeyValueObservingOptionNew context:nil];
+#endif
+        
         self.mapView = [[MKMapView alloc] initWithFrame:frame];
         self.mapView.autoresizingMask =  self.view.autoresizingMask;
         self.mapView.delegate = self;
         self.mapView.showsUserLocation = NO;
         [self.view addSubview:self.mapView];
 
+#ifdef SHOW_DEBUG_LABELS_ON_MAP
         [self addLabels];
+#endif
+
+#ifdef SHOW_BUTTONS_ON_MAP
         [self addButtons];
+#endif
 
         //View Area
         MKCoordinateRegion region = { { 0.0, 0.0 }, { 0.0, 0.0 } };
@@ -78,6 +89,29 @@
         [self.mapView addGestureRecognizer:longPressGestureRecognizer];
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tileClassChanged) name:@"USERDEFAULTS_SETTINGS_TILECLASS_CHANGED" object:nil];
+#ifdef INSELHUEPFEN_MODE
+        for (NSArray *coordArray in @[  @[@43.515,@16.2488], //Trogir
+                                        @[@43.3288, @16.4403],
+                                        @[@43.2605, @16.6551], // Bol
+                                        @[@43.1617 ,@16.6942], //Jelsa
+                                        @[@42.974, @17.0196],
+                                        @[@43.1039, @17.341], // Gradac
+                                        @[@42.9671, @16.8112],
+                                        @[@43.378, @16.6274], // Postira
+                                        @[ @43.39712, @16.300932], // Solta
+                                        @[ @43.184034, @16.591802], // Stari Grad
+                                        @[@43.3707, @16.3529],
+                                        @[@43.5041, @16.4424] // Split
+        ])
+        {
+            CLLocationCoordinate2D ctrpoint;
+            ctrpoint.latitude = [coordArray[0] floatValue];
+            ctrpoint.longitude = [coordArray[1] floatValue];;
+            MKPointAnnotation *addAnnotation = [[MKPointAnnotation alloc] init];
+            addAnnotation.coordinate = ctrpoint;
+            [self.mapView addAnnotation:addAnnotation];
+        }
+#endif
     }
     return self;
 }
@@ -924,11 +958,34 @@
         });
     }
 
+    if ([keyPath isEqualToString:@"tracks"])
+    {
+        dispatch_async(dispatch_get_main_queue(),^{
+            NSMutableArray *array = [NSMutableArray arrayWithArray:[[self tracks] copy]];
+            if ([[change objectForKey:@"new"] isKindOfClass:[NSArray class]])
+            {
+                [array addObjectsFromArray:[change objectForKey:@"new"]];
+            }
+            else
+            {
+                [array addObject:[change objectForKey:@"new"]];
+            }
+            [self setTracks:array];
+        });
+    }
+
 //    NSLog(@"Entries = %d", [[[PSPoiStore sharedInstance] poiList] count]);
     dispatch_async(dispatch_get_main_queue(),^{
         [self.mapView addAnnotations:[[PSPoiStore sharedInstance] poiList]];
     });
 }
+
+
+#ifdef INSELHUEPFEN_MODE
+-(BOOL)prefersStatusBarHidden{
+    return YES;
+}
+#endif
 
 
 - (void)singleTap:(id)singleTap

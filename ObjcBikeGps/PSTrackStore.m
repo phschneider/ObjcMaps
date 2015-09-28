@@ -52,6 +52,15 @@
     {
         PSTrack *track = nil;
         NSString *filename = [[[url absoluteString] lastPathComponent] stringByReplacingOccurrencesOfString:@".gpx" withString:@""];
+#ifdef INSELHUEPFEN_MODE
+        if (    [[filename lowercaseString] rangeOfString:@"trail"].location == NSNotFound &&
+                [[filename lowercaseString] rangeOfString:@"route"].location == NSNotFound &&
+                [[filename lowercaseString] rangeOfString:@"tour"].location == NSNotFound)
+        {
+            NSLog(@"FIlename = %@", filename);
+            track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeUnknown];
+        }
+#else
         if ([[filename lowercaseString] rangeOfString:@"trail"].location != NSNotFound)
         {
             track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeTrail];
@@ -64,10 +73,13 @@
         {
             track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeUnknown];
         }
-
-        [self willChangeValueForKey:@"tracks"];
-        [self.tracks insertObject:track atIndex:[_tracks count]];
-        [self didChangeValueForKey:@"tracks"];
+#endif
+        if (track)
+        {
+            [self willChangeValueForKey:@"tracks"];
+            [self.tracks insertObject:track atIndex:[_tracks count]];
+            [self didChangeValueForKey:@"tracks"];
+        }
     }
 }
 

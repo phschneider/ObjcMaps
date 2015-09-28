@@ -17,8 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+#ifdef INSELHUEPFEN_MODE
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+#endif
+    
     // Override point for customization after application launch.
-
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     // Points of interest ...
@@ -26,8 +30,14 @@
     
     [PSTrackStore sharedInstance];
 
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[PSMapViewController alloc] init]];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[PSTracksViewController alloc] init]];
+    UINavigationController *navigationController = nil;
+
+#ifdef INSELHUEPFEN_MODE
+    navigationController = [[UINavigationController alloc] initWithRootViewController:[[PSMapViewController alloc] init]];
+    navigationController.navigationBarHidden = YES;
+#else
+    navigationController = [[UINavigationController alloc] initWithRootViewController:[[PSTracksViewController alloc] init]];
+#endif
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = navigationController;
 
