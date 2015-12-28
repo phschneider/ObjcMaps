@@ -39,7 +39,11 @@
         self.lineDashPattern = @[@2, @5];
 
         [self parseElevationFile];
+
+#ifdef GENERATE_SNAPSHOTS
         [self generateSnapShotImage];
+#endif
+
     }
     return self;
 }
