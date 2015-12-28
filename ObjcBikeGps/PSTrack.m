@@ -283,7 +283,9 @@
             //            }
             Location1 = tmpLocation;
             [elevatioNData addObject:[NSNumber numberWithFloat:tmpElevation]];
-            [wayPoints addObject:[[PSWayPointAnnotation alloc] initWithCoordinate:[tmpLocation coordinate] title:[NSString stringWithFormat:@"%d",pointArrCount]]];
+            #ifdef SHOW_TRACK_WAYPOINTS
+                [wayPoints addObject:[[PSWayPointAnnotation alloc] initWithCoordinate:[tmpLocation coordinate] title:[NSString stringWithFormat:@"%d",pointArrCount]]];
+            #endif
             pointArrCount++;
         }
 
