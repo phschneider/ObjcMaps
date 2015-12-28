@@ -1218,12 +1218,26 @@
 }
 
 
-- (void)removeAllAnnotations
+- (void)removeAllPointAnnotations
 {
     DLogFuncName();
     if ([self.mapView.annotations count])
     {
         NSArray *annotations = [[self.mapView annotations] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [MKPointAnnotation class]]];
+        if ([annotations count])
+        {
+            [self.mapView removeAnnotations:annotations];
+        }
+    }
+}
+
+
+- (void)removeAllAnnotations
+{
+    DLogFuncName();
+    if ([self.mapView.annotations count])
+    {
+        NSArray *annotations = [self.mapView annotations];
         if ([annotations count])
         {
             [self.mapView removeAnnotations:annotations];
