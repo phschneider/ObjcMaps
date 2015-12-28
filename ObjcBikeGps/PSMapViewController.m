@@ -36,6 +36,7 @@
 @property (nonatomic) UILabel *debugLabel;
 @property (nonatomic) UILabel *boundingLabel;
 @property (nonatomic) UILabel *areaLabel;
+@property (nonatomic) UILabel *timeTillHomeLabel;
 @property (nonatomic) UILabel *distannceLabelWidth;
 @property (nonatomic) UILabel *distannceLabelHeight;
 @property (nonatomic) UIButton *locationButton;
@@ -73,9 +74,10 @@
         [self.view addSubview:self.mapView];
 
 #ifdef SHOW_DEBUG_LABELS_ON_MAP
-        [self addLabels];
+        [self addDebugLabels];
 #endif
 
+        [self addLabels];
 #ifdef SHOW_BUTTONS_ON_MAP
         [self addButtons];
 #endif
@@ -263,7 +265,7 @@
 
 
 #pragma mark - View Addons
-- (void) addLabels
+- (void) addDebugLabels
 {
     DLogFuncName();
 
@@ -322,6 +324,27 @@
     [self.debugView addSubview:self.debugLabel];
 
     [self.mapView addSubview:self.debugView];
+}
+
+
+- (void) addLabels
+{
+    DLogFuncName();
+
+    CGRect frame = self.view.bounds;
+    frame.origin.y = 44 + 20;
+    frame.size.height -= frame.origin.y ;
+
+    self.timeTillHomeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-20, frame.size.width, 20)];
+    self.timeTillHomeLabel.textAlignment = NSTextAlignmentCenter;
+    self.timeTillHomeLabel.backgroundColor = [UIColor clearColor];
+    self.timeTillHomeLabel.shadowColor = [UIColor whiteColor];
+    self.timeTillHomeLabel.layer.shadowOffset = CGSizeMake(0, 1);
+    self.timeTillHomeLabel.layer.shadowRadius = 1;
+    self.timeTillHomeLabel.font = [UIFont systemFontOfSize:10];
+    self.timeTillHomeLabel.textColor = [UIColor blackColor];
+
+    [self.mapView addSubview:self.timeTillHomeLabel];
 }
 
 
@@ -903,6 +926,34 @@
 - (void)mapViewDidStopLocatingUser:(MKMapView *)mapView
 {
     DLogFuncName();
+}
+
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    DLogFuncName();
+    CLLocation *location = userLocation.location;
+
+    CLLocationSpeed speed = location.speed;
+    CLLocationDistance altitude = location.altitude;
+    CLLocationAccuracy horizontalAccuracy = location.horizontalAccuracy;
+    CLLocationAccuracy verticalAccuracy = location.verticalAccuracy;
+
+    CLLocationDistance distance = [location distanceFromLocation:HOME_LOCATION];
+    CGFloat distanceInKm = (distance / 1000);
+    CGFloat timeInHours = (distance/DEFAULT_SPEED_IN_KM);
+
+    NSString *timeString = @"";
+    if (timeInHours < 1.0)
+    {
+        timeString = [NSString stringWithFormat:@"%.2fm",(timeInHours * 60)];
+    }
+    else
+    {
+        timeString = [NSString stringWithFormat:@"%.2fh",timeInHours];
+    }
+
+    self.timeTillHomeLabel.text = [NSString stringWithFormat:@"%.2f %.2fm | %.2fkm = %@ | %.2fh %.2fv", speed, altitude, distanceInKm, timeString, horizontalAccuracy, verticalAccuracy];
 }
 
 
