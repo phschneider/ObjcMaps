@@ -18,15 +18,16 @@
 
     #define THREAD_LOG                      (([NSThread isMainThread]) ? @"" : @"[THREAD NOT MAINTHREAD]")
 
-//    #define SHOW_DEBUG_LABELS_ON_MAP    1
-//    #define SHOW_BUTTONS_ON_MAP 1
-    #define INSELHUEPFEN_MODE 1
     #ifdef DEBUG
         #define DLogFuncName()                  NSLog((@"[FUNCNAME] %@ %s [Line %d] "), THREAD_LOG, __PRETTY_FUNCTION__, __LINE__);
     #else
         #define DLogFuncName()
     #endif
 
-    #define USE_OSM     1
+    #define USE_OSM                 1
+    #define SHOW_BUTTONS_ON_MAP     1
 //    #define USE_FLYOVER 1
+//    #define SHOW_DEBUG_LABELS_ON_MAP    1
+//    #define INSELHUEPFEN_MODE 1
+
 #endif

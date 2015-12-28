@@ -6,10 +6,12 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <MapKit/MapKit.h>
+#import <Foundation/Foundation.h>
 #import "PSMapViewController.h"
 #import "PSTrack.h"
 #import "WYPopoverController.h"
 #import "PSSettingsViewController.h"
+#import "PSMapLocationManager.h"
 #import "PSTileOverlay.h"
 #import "AFHTTPRequestOperation.h"
 #import "Ono.h"
@@ -28,7 +30,6 @@
 
 @interface PSMapViewController ()
 @property (nonatomic) MKMapView *mapView;
-@property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) PSTrack *track;
 @property (nonatomic) WYPopoverController *settingsPopoverController;
 @property (nonatomic) UILabel *debugLabel;
@@ -40,6 +41,7 @@
 @property (nonatomic) UIView *debugView;
 @property (nonatomic) MKZoomScale psZoomScale;
 @property (nonatomic) CLLocationDegrees olddlat;
+@property(nonatomic) PSMapLocationManager *mapLocationManager;
 @end
 
 
@@ -76,15 +78,6 @@
 #ifdef SHOW_BUTTONS_ON_MAP
         [self addButtons];
 #endif
-
-        //View Area
-        MKCoordinateRegion region = { { 0.0, 0.0 }, { 0.0, 0.0 } };
-        region.center.latitude = self.locationManager.location.coordinate.latitude;
-        region.center.longitude = self.locationManager.location.coordinate.longitude;
-        region.span.longitudeDelta = 0.005f;
-        region.span.longitudeDelta = 0.005f;
-        [self.mapView setRegion:region animated:YES];
-
         UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognizerFired:)];
         [self.mapView addGestureRecognizer:longPressGestureRecognizer];
 
@@ -112,6 +105,7 @@
             [self.mapView addAnnotation:addAnnotation];
         }
 #endif
+        self.mapLocationManager = [[PSMapLocationManager alloc] initWithMapViewController:self];
     }
     return self;
 }
@@ -323,7 +317,6 @@
 
 
 #pragma mark - View
-#pragma mark - Init
 - (void)viewWillAppear:(BOOL)animated
 {
     DLogFuncName();
@@ -468,22 +461,7 @@
 
 
     DLogFuncName();
-    if (    [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined ||
-            [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted ||
-            [CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied )
-    {
-        // Damit nicht beim laden des viewControllers schon bewegung in der Karte ist ...
-        if (!self.locationManager)
-        {
-            self.locationManager = [[CLLocationManager alloc] init];
-            self.locationManager.delegate = self;
-        }
-        [self.locationManager requestWhenInUseAuthorization];
-    }
-    else
-    {
-        [self switchUserTracking];
-    }
+    [self.mapLocationManager update];
 }
 
 
@@ -494,16 +472,19 @@
     {
         self.mapView.showsUserLocation = YES;
         [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
+        self.locationButton.titleLabel.text = @"Follow";
     }
     else if (self.mapView.userTrackingMode == MKUserTrackingModeFollow)
     {
         self.mapView.showsUserLocation = YES;
         [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
+        self.locationButton.titleLabel.text = @"Heading";
     }
     else if (self.mapView.userTrackingMode == MKUserTrackingModeFollowWithHeading)
     {
         self.mapView.showsUserLocation = NO;
         [self.mapView setUserTrackingMode:MKUserTrackingModeNone animated:YES];
+        self.locationButton.titleLabel.text = @"None";
     }
 
     [self updateTrackingButtonTitleForCurrentUserTrackingMode];
@@ -704,7 +685,7 @@
     for (PSTrack *track in tracks)
     {
         [self addTrack:track];
-//            [self.mapView addAnnotations:[track distanceAnnotations]];
+            [self.mapView addAnnotations:[track distanceAnnotations]];
     }
 
 
@@ -843,32 +824,20 @@
 //    }
 //}
 
-- (NSString *)deviceLocation
+
+
+- (void) setRegion
 {
     DLogFuncName();
-    return [NSString stringWithFormat:@"latitude: %f longitude: %f", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude];
+    //View Area
+    MKCoordinateRegion region = { { 0.0, 0.0 }, { 0.0, 0.0 } };
+//    region.center.latitude = self.mapLocationManager.location.coordinate.latitude;
+//    region.center.longitude = self.locationManager.location.coordinate.longitude;
+    region.span.longitudeDelta = 0.005f;
+    region.span.longitudeDelta = 0.005f;
+    [self.mapView setRegion:region animated:YES];
 }
 
-
-- (NSString *)deviceLat
-{
-    DLogFuncName();
-    return [NSString stringWithFormat:@"%f", self.locationManager.location.coordinate.latitude];
-}
-
-
-- (NSString *)deviceLon
-{
-    DLogFuncName();
-    return [NSString stringWithFormat:@"%f", self.locationManager.location.coordinate.longitude];
-}
-
-
-- (NSString *)deviceAlt
-{
-    DLogFuncName();
-    return [NSString stringWithFormat:@"%f", self.locationManager.location.altitude];
-}
 
 #pragma mark - Tracking the User Location
 - (void)mapViewWillStartLocatingUser:(MKMapView *)mapView
@@ -1679,72 +1648,6 @@
 {
     DLogFuncName();
     return UIInterfaceOrientationMaskAll;
-}
-
-
-#pragma mark - Location Manager Delegate
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    DLogFuncName();
-    NSLog(@"didUpdateLocations: %@", [locations lastObject]);
-    
-}
-
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading
-{
-    DLogFuncName();
-}
-
-
-- (void)locationManagerDidPauseLocationUpdates:(CLLocationManager *)manager
-{
-    DLogFuncName();
-}
-
-
-- (void)locationManagerDidResumeLocationUpdates:(CLLocationManager *)manager
-{
-    DLogFuncName();
-}
-
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    DLogFuncName();
-    NSLog(@"Location manager error: %@", error.localizedDescription);
-
-    dispatch_async(dispatch_get_main_queue(),^{
-        NSString *message = [NSString stringWithFormat:@"didFailWithError:\n%@", [error localizedDescription]];
-        [[[UIAlertView alloc] initWithTitle:@"LocationManager" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
-    });
-}
-
-
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
-{
-    DLogFuncName();
-    if (status == kCLAuthorizationStatusAuthorizedAlways)
-    {
-        [self switchUserTracking];
-    }
-    if (status == kCLAuthorizationStatusAuthorizedWhenInUse)
-    {
-        [self switchUserTracking];
-
-    }
-    else if (status == kCLAuthorizationStatusDenied)
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location services not authorized"
-                                                        message:@"This app needs you to authorize locations services to work."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
-        [alert show];
-    }
-    else
-    {
-        NSLog(@"Wrong location status");
-    }
 }
 
 @end

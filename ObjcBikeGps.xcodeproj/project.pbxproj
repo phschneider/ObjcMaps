@@ -84,28 +84,32 @@
 		22F934FD19DD5E5B00996122 /* ObjcBikeGpsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F934FC19DD5E5B00996122 /* ObjcBikeGpsTests.m */; };
 		22F9350719DD5FFB00996122 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350619DD5FFB00996122 /* MapKit.framework */; };
 		22F9350919DD624800996122 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350819DD624800996122 /* CoreLocation.framework */; };
-		4AC377761BB887150027DFC7 /* InselhuepfenTag1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776C1BB887150027DFC7 /* InselhuepfenTag1.gpx */; settings = {ASSET_TAGS = (); }; };
-		4AC377771BB887150027DFC7 /* InselhuepfenTag2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776D1BB887150027DFC7 /* InselhuepfenTag2.gpx */; settings = {ASSET_TAGS = (); }; };
-		4AC377781BB887150027DFC7 /* InselhuepfenTag4.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776E1BB887150027DFC7 /* InselhuepfenTag4.gpx */; settings = {ASSET_TAGS = (); }; };
-		4AC377791BB887150027DFC7 /* InselhuepfenTag5.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776F1BB887150027DFC7 /* InselhuepfenTag5.gpx */; settings = {ASSET_TAGS = (); }; };
-		4AC3777A1BB887150027DFC7 /* Milna-13.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377711BB887150027DFC7 /* Milna-13.9.15.gpx */; settings = {ASSET_TAGS = (); }; };
-		4AC3777B1BB887150027DFC7 /* Postira-17.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377721BB887150027DFC7 /* Postira-17.9.15.gpx */; settings = {ASSET_TAGS = (); }; };
-		4AC3777C1BB887150027DFC7 /* Stari-Grad-14.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377731BB887150027DFC7 /* Stari-Grad-14.9.15.gpx */; settings = {ASSET_TAGS = (); }; };
-		4AC3777D1BB887150027DFC7 /* Stari-Grad-15.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377741BB887150027DFC7 /* Stari-Grad-15.9.15.gpx */; settings = {ASSET_TAGS = (); }; };
-		4AC3777E1BB887150027DFC7 /* Vela-Luka-16.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377751BB887150027DFC7 /* Vela-Luka-16.9.15.gpx */; settings = {ASSET_TAGS = (); }; };
-		4AC377801BB88ABF0027DFC7 /* InselhuepfenTag3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3777F1BB88ABF0027DFC7 /* InselhuepfenTag3.gpx */; settings = {ASSET_TAGS = (); }; };
+		4AC377761BB887150027DFC7 /* InselhuepfenTag1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776C1BB887150027DFC7 /* InselhuepfenTag1.gpx */; };
+		4AC377771BB887150027DFC7 /* InselhuepfenTag2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776D1BB887150027DFC7 /* InselhuepfenTag2.gpx */; };
+		4AC377781BB887150027DFC7 /* InselhuepfenTag4.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776E1BB887150027DFC7 /* InselhuepfenTag4.gpx */; };
+		4AC377791BB887150027DFC7 /* InselhuepfenTag5.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776F1BB887150027DFC7 /* InselhuepfenTag5.gpx */; };
+		4AC3777A1BB887150027DFC7 /* Milna-13.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377711BB887150027DFC7 /* Milna-13.9.15.gpx */; };
+		4AC3777B1BB887150027DFC7 /* Postira-17.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377721BB887150027DFC7 /* Postira-17.9.15.gpx */; };
+		4AC3777C1BB887150027DFC7 /* Stari-Grad-14.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377731BB887150027DFC7 /* Stari-Grad-14.9.15.gpx */; };
+		4AC3777D1BB887150027DFC7 /* Stari-Grad-15.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377741BB887150027DFC7 /* Stari-Grad-15.9.15.gpx */; };
+		4AC3777E1BB887150027DFC7 /* Vela-Luka-16.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377751BB887150027DFC7 /* Vela-Luka-16.9.15.gpx */; };
+		4AC377801BB88ABF0027DFC7 /* InselhuepfenTag3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3777F1BB88ABF0027DFC7 /* InselhuepfenTag3.gpx */; };
+		67B4038CA92E902FFA829A1E /* PSTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40F0FAC4FD5F8B39E04F3 /* PSTrack.m */; };
+		67B40644E96BB7EC796E48D0 /* PSTrackOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40B684DF64CED8EC0087A /* PSTrackOverlay.m */; };
+		67B407FEDC81B61A9C5B8007 /* PSMapLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40B2C6B54957DD6B3655B /* PSMapLocationManager.m */; };
+		67B40934B52D328D61594741 /* PSMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40B261007D148CAFF0D04 /* PSMainMenuViewController.m */; };
+		67B40A579841A511938CC370 /* PSTrackRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B408F6C3063F7CA38035D1 /* PSTrackRenderer.m */; };
+		67B40C6DB378988C0D7BC3A9 /* PSTrackStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40512E50237F1430426F8 /* PSTrackStore.m */; };
 		7E00DAE2DCD044FA91CCAE5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF6413E1014CC8A7CDA52D /* libPods.a */; };
 		E5F160409C4C7CD1A7D28947 /* PSMapBoxLightTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16D4E25AC86ABE31C30F2 /* PSMapBoxLightTileOverlay.m */; };
 		E5F1604BE45C5CE367EC6BFC /* PSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16CB73DB1DCAFA0C881B7 /* PSSettingsViewController.m */; };
 		E5F161CA1D7F283F98B2BDA3 /* PSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16DD8436255C132C9F80A /* PSViewController.m */; };
 		E5F1622D239E5F9DFB95336E /* PSWayPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1603AD61C55A434A21E15 /* PSWayPointAnnotation.m */; };
 		E5F1624D1324D29A29A565C6 /* PSTrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16D4AC1785A59522E963F /* PSTrackViewController.m */; };
-		E5F16313CFF86B8B1D5C38F7 /* PSTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F168FB8070EB4890F8CD58 /* PSTrack.m */; };
 		E5F163365A77926C4AF5CA54 /* PSGpxParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16DC8E762580B653758D0 /* PSGpxParser.m */; };
 		E5F163569E08314CAB90F17D /* PSTileOverlayRender.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16CF121AFB03203C226C5 /* PSTileOverlayRender.m */; };
 		E5F163FB2E365B399585C067 /* MKMapView+PSTilesInMapRect.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1610D7F20638D9792FC80 /* MKMapView+PSTilesInMapRect.m */; };
 		E5F1645416730CCBD86C0E31 /* PSGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16F94BA02FB00F322D9FD /* PSGraphViewController.m */; };
-		E5F164B0BC15555DA4AB5E74 /* PSTrackRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1661AE1A1F91FE38E9414 /* PSTrackRenderer.m */; };
 		E5F164BF4A230E9FB40BE694 /* PSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F168D18BAEFFB2B0598F52 /* PSLocationManager.m */; };
 		E5F166051E8262FB29BB9D8C /* PSTracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16C8FC429FFB94D53B8B3 /* PSTracksViewController.m */; };
 		E5F166DDF48AFCFA4C0CBA05 /* PSDistanceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16A474E04F9B9B89A1ED5 /* PSDistanceAnnotation.m */; };
@@ -115,9 +119,7 @@
 		E5F16AB51767814071777DA4 /* PSTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1637FA2C9346B8A9FBED6 /* PSTileOverlay.m */; };
 		E5F16B120607C41DEB8D16B4 /* PSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16894BC25953F932B2F87 /* PSMapViewController.m */; };
 		E5F16BF1544241FCC9E5D536 /* PSOpenCycleMapTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F166591FB41C11AFFC7976 /* PSOpenCycleMapTileOverlay.m */; };
-		E5F16CCD34CBD8E48226654B /* PSTrackOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1663E77C19B30A2E46683 /* PSTrackOverlay.m */; };
 		E5F16CE353FA42E547F213AE /* PSMapBoxTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16133AE9565B510C0DC19 /* PSMapBoxTileOverlay.m */; };
-		E5F16CFBE9EEDB5CBE847CA2 /* PSTrackStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F169410F58F24ACF71F78C /* PSTrackStore.m */; };
 		E5F16D7065DC9CBC6BDCDBE3 /* PSPoi.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1624DEDD2116473F93EC7 /* PSPoi.m */; };
 		E5F16E0A5F6C8F534BCBF0FD /* PSMapBoxDarkTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1632D101D4D0933B0DC27 /* PSMapBoxDarkTileOverlay.m */; };
 		E5F16E878E2F28197226B48A /* MKMapView+PSZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F169D6A9E0A35F6962830F /* MKMapView+PSZoomLevel.m */; };
@@ -219,6 +221,7 @@
 		22F934FC19DD5E5B00996122 /* ObjcBikeGpsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjcBikeGpsTests.m; sourceTree = "<group>"; };
 		22F9350619DD5FFB00996122 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		22F9350819DD624800996122 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		292651F264F523FCBBD71335 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4AC3776C1BB887150027DFC7 /* InselhuepfenTag1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InselhuepfenTag1.gpx; sourceTree = "<group>"; };
 		4AC3776D1BB887150027DFC7 /* InselhuepfenTag2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InselhuepfenTag2.gpx; sourceTree = "<group>"; };
 		4AC3776E1BB887150027DFC7 /* InselhuepfenTag4.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InselhuepfenTag4.gpx; sourceTree = "<group>"; };
@@ -229,8 +232,19 @@
 		4AC377741BB887150027DFC7 /* Stari-Grad-15.9.15.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Stari-Grad-15.9.15.gpx"; sourceTree = "<group>"; };
 		4AC377751BB887150027DFC7 /* Vela-Luka-16.9.15.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Vela-Luka-16.9.15.gpx"; sourceTree = "<group>"; };
 		4AC3777F1BB88ABF0027DFC7 /* InselhuepfenTag3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InselhuepfenTag3.gpx; sourceTree = "<group>"; };
-		5E583B3B03D649A69419F33C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		E5F16014D6AD1CF535C10BFC /* PSTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrack.h; sourceTree = "<group>"; };
+		67B402E92391F8D1EB49C930 /* PSTrackRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackRenderer.h; sourceTree = "<group>"; };
+		67B40512E50237F1430426F8 /* PSTrackStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackStore.m; sourceTree = "<group>"; };
+		67B407BBABA2796157ED6222 /* PSMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMainMenuViewController.h; sourceTree = "<group>"; };
+		67B408F6C3063F7CA38035D1 /* PSTrackRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackRenderer.m; sourceTree = "<group>"; };
+		67B40B16ECAE76335CD77A02 /* PSMapLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapLocationManager.h; sourceTree = "<group>"; };
+		67B40B261007D148CAFF0D04 /* PSMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMainMenuViewController.m; sourceTree = "<group>"; };
+		67B40B2C6B54957DD6B3655B /* PSMapLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapLocationManager.m; sourceTree = "<group>"; };
+		67B40B684DF64CED8EC0087A /* PSTrackOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackOverlay.m; sourceTree = "<group>"; };
+		67B40F0FAC4FD5F8B39E04F3 /* PSTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrack.m; sourceTree = "<group>"; };
+		67B40F891A086B833138D738 /* PSTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrack.h; sourceTree = "<group>"; };
+		67B40FC581C61E69E3C22EE9 /* PSTrackOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackOverlay.h; sourceTree = "<group>"; };
+		67B40FDA2CAD5C7EBF580D61 /* PSTrackStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackStore.h; sourceTree = "<group>"; };
+		ABA11E6B8B64EB33BC0F9452 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E5F1602E1C045FFFE12441F2 /* PSMapBoxRunBikeHikeTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapBoxRunBikeHikeTileOverlay.h; sourceTree = "<group>"; };
 		E5F1603AD61C55A434A21E15 /* PSWayPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWayPointAnnotation.m; sourceTree = "<group>"; };
 		E5F1610D7F20638D9792FC80 /* MKMapView+PSTilesInMapRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+PSTilesInMapRect.m"; sourceTree = "<group>"; };
@@ -247,8 +261,6 @@
 		E5F165AB5D99134DF7E0EA0C /* PSMapBoxCustomTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapBoxCustomTileOverlay.m; sourceTree = "<group>"; };
 		E5F165DB082F4490B7172551 /* PSMapBoxRunBikeHikeTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapBoxRunBikeHikeTileOverlay.m; sourceTree = "<group>"; };
 		E5F166140591E564FAB51BB4 /* PSWayPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSWayPointAnnotation.h; sourceTree = "<group>"; };
-		E5F1661AE1A1F91FE38E9414 /* PSTrackRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackRenderer.m; sourceTree = "<group>"; };
-		E5F1663E77C19B30A2E46683 /* PSTrackOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackOverlay.m; sourceTree = "<group>"; };
 		E5F166591FB41C11AFFC7976 /* PSOpenCycleMapTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSOpenCycleMapTileOverlay.m; sourceTree = "<group>"; };
 		E5F166C06B79B63DCB75653D /* PSGraphViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGraphViewController.h; sourceTree = "<group>"; };
 		E5F166C23306DEAB6F5B2D2A /* PSSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSSettingsViewController.h; sourceTree = "<group>"; };
@@ -256,14 +268,10 @@
 		E5F167343F7B165B81A90E76 /* PSPoi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPoi.h; sourceTree = "<group>"; };
 		E5F1678CEBB4792358CE28F5 /* PSMapBoxDarkTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapBoxDarkTileOverlay.h; sourceTree = "<group>"; };
 		E5F16819058F2251C760B40C /* PSDistanceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDistanceAnnotation.h; sourceTree = "<group>"; };
-		E5F1686B0BCB6D2ECE9F789A /* PSTrackStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackStore.h; sourceTree = "<group>"; };
 		E5F168863199ECA19573D556 /* PSTileOverlayRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTileOverlayRender.h; sourceTree = "<group>"; };
 		E5F16894BC25953F932B2F87 /* PSMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapViewController.m; sourceTree = "<group>"; };
 		E5F168D18BAEFFB2B0598F52 /* PSLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSLocationManager.m; sourceTree = "<group>"; };
-		E5F168FB8070EB4890F8CD58 /* PSTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrack.m; sourceTree = "<group>"; };
 		E5F16900D70C5D3CB50EC26A /* PSMapBoxLightTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapBoxLightTileOverlay.h; sourceTree = "<group>"; };
-		E5F16919DE0D4C9A942A3110 /* PSTrackOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackOverlay.h; sourceTree = "<group>"; };
-		E5F169410F58F24ACF71F78C /* PSTrackStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackStore.m; sourceTree = "<group>"; };
 		E5F16983E85E79D7F9EEDF0C /* PSOpenStreetMapTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSOpenStreetMapTileOverlay.m; sourceTree = "<group>"; };
 		E5F169B2424E9A2355EF6ECE /* PSLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSLocationManager.h; sourceTree = "<group>"; };
 		E5F169D6A9E0A35F6962830F /* MKMapView+PSZoomLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+PSZoomLevel.m"; sourceTree = "<group>"; };
@@ -287,7 +295,6 @@
 		E5F16DDDBF1F0B5FC296A32E /* PSMapBoxHighContrastTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapBoxHighContrastTileOverlay.h; sourceTree = "<group>"; };
 		E5F16F8FEA1FA1B5EF4692ED /* PSHillShadingTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSHillShadingTileOverlay.m; sourceTree = "<group>"; };
 		E5F16F94BA02FB00F322D9FD /* PSGraphViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGraphViewController.m; sourceTree = "<group>"; };
-		E5F16FE3F38D1F0171823A94 /* PSTrackRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackRenderer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -389,6 +396,10 @@
 				E5F166C23306DEAB6F5B2D2A /* PSSettingsViewController.h */,
 				E5F16D4AC1785A59522E963F /* PSTrackViewController.m */,
 				E5F16D89907ECDAE6D7858D2 /* PSTrackViewController.h */,
+				67B40B261007D148CAFF0D04 /* PSMainMenuViewController.m */,
+				67B407BBABA2796157ED6222 /* PSMainMenuViewController.h */,
+				67B40B2C6B54957DD6B3655B /* PSMapLocationManager.m */,
+				67B40B16ECAE76335CD77A02 /* PSMapLocationManager.h */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -441,7 +452,7 @@
 				22F934F619DD5E5B00996122 /* ObjcBikeGpsTests */,
 				22F934D019DD5E5B00996122 /* Frameworks */,
 				22F934CF19DD5E5B00996122 /* Products */,
-				5E583B3B03D649A69419F33C /* Pods.xcconfig */,
+				C84131FBEBC733048FBD4C63 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -495,6 +506,7 @@
 				E5F16CF121AFB03203C226C5 /* PSTileOverlayRender.m */,
 				E5F168863199ECA19573D556 /* PSTileOverlayRender.h */,
 				E5F1604B9295F58CB6B76D3A /* Tiles */,
+				67B40A3172D7BB849BDE6FE6 /* Tracks */,
 			);
 			path = ObjcBikeGps;
 			sourceTree = "<group>";
@@ -506,7 +518,6 @@
 				22F934DA19DD5E5B00996122 /* InfoPlist.strings */,
 				22F934DD19DD5E5B00996122 /* main.m */,
 				22F934DF19DD5E5B00996122 /* ObjcBikeGps-Prefix.pch */,
-				E5F16DE3B4071A2C6A249093 /* Tracks */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -562,6 +573,30 @@
 			path = Roland;
 			sourceTree = "<group>";
 		};
+		67B40A3172D7BB849BDE6FE6 /* Tracks */ = {
+			isa = PBXGroup;
+			children = (
+				67B40F891A086B833138D738 /* PSTrack.h */,
+				67B40F0FAC4FD5F8B39E04F3 /* PSTrack.m */,
+				67B40FDA2CAD5C7EBF580D61 /* PSTrackStore.h */,
+				67B40512E50237F1430426F8 /* PSTrackStore.m */,
+				67B40B684DF64CED8EC0087A /* PSTrackOverlay.m */,
+				67B40FC581C61E69E3C22EE9 /* PSTrackOverlay.h */,
+				67B408F6C3063F7CA38035D1 /* PSTrackRenderer.m */,
+				67B402E92391F8D1EB49C930 /* PSTrackRenderer.h */,
+			);
+			name = Tracks;
+			sourceTree = "<group>";
+		};
+		C84131FBEBC733048FBD4C63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				292651F264F523FCBBD71335 /* Pods.debug.xcconfig */,
+				ABA11E6B8B64EB33BC0F9452 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E5F1604B9295F58CB6B76D3A /* Tiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -608,21 +643,6 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		E5F16DE3B4071A2C6A249093 /* Tracks */ = {
-			isa = PBXGroup;
-			children = (
-				E5F16014D6AD1CF535C10BFC /* PSTrack.h */,
-				E5F168FB8070EB4890F8CD58 /* PSTrack.m */,
-				E5F1686B0BCB6D2ECE9F789A /* PSTrackStore.h */,
-				E5F169410F58F24ACF71F78C /* PSTrackStore.m */,
-				E5F1663E77C19B30A2E46683 /* PSTrackOverlay.m */,
-				E5F16919DE0D4C9A942A3110 /* PSTrackOverlay.h */,
-				E5F1661AE1A1F91FE38E9414 /* PSTrackRenderer.m */,
-				E5F16FE3F38D1F0171823A94 /* PSTrackRenderer.h */,
-			);
-			name = Tracks;
-			sourceTree = "<group>";
-		};
 		E5F16FCD55E32364F034D5C6 /* Unused */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,6 +666,7 @@
 				22F934CB19DD5E5B00996122 /* Frameworks */,
 				22F934CC19DD5E5B00996122 /* Resources */,
 				330C507679574CBD9AA83423 /* Copy Pods Resources */,
+				8A2FE475F86549E0C717B92B /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -814,7 +835,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		363CD54E3045416CBBC6B968 /* Check Pods Manifest.lock */ = {
@@ -830,6 +851,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8A2FE475F86549E0C717B92B /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -851,10 +887,6 @@
 				E5F161CA1D7F283F98B2BDA3 /* PSViewController.m in Sources */,
 				E5F16D7065DC9CBC6BDCDBE3 /* PSPoi.m in Sources */,
 				E5F167A555E360562AEC80A1 /* PSPoiStore.m in Sources */,
-				E5F16313CFF86B8B1D5C38F7 /* PSTrack.m in Sources */,
-				E5F16CFBE9EEDB5CBE847CA2 /* PSTrackStore.m in Sources */,
-				E5F16CCD34CBD8E48226654B /* PSTrackOverlay.m in Sources */,
-				E5F164B0BC15555DA4AB5E74 /* PSTrackRenderer.m in Sources */,
 				E5F16E878E2F28197226B48A /* MKMapView+PSZoomLevel.m in Sources */,
 				E5F163FB2E365B399585C067 /* MKMapView+PSTilesInMapRect.m in Sources */,
 				E5F163569E08314CAB90F17D /* PSTileOverlayRender.m in Sources */,
@@ -870,6 +902,12 @@
 				E5F16CE353FA42E547F213AE /* PSMapBoxTileOverlay.m in Sources */,
 				E5F16E0A5F6C8F534BCBF0FD /* PSMapBoxDarkTileOverlay.m in Sources */,
 				E5F16F73FCBAA8668DAA43A6 /* PSMapBoxCustomTileOverlay.m in Sources */,
+				67B40934B52D328D61594741 /* PSMainMenuViewController.m in Sources */,
+				67B4038CA92E902FFA829A1E /* PSTrack.m in Sources */,
+				67B40C6DB378988C0D7BC3A9 /* PSTrackStore.m in Sources */,
+				67B40644E96BB7EC796E48D0 /* PSTrackOverlay.m in Sources */,
+				67B40A579841A511938CC370 /* PSTrackRenderer.m in Sources */,
+				67B407FEDC81B61A9C5B8007 /* PSMapLocationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -985,15 +1023,15 @@
 		};
 		22F9350119DD5E5B00996122 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5E583B3B03D649A69419F33C /* Pods.xcconfig */;
+			baseConfigurationReference = 292651F264F523FCBBD71335 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Philip Schneider (723AP2V5VG)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3bf9f429-8638-4826-a9b2-558dcc44f2ac";
+				PROVISIONING_PROFILE = "be18db8a-7aaa-4e23-b4ea-da40747b2f61";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
@@ -1002,15 +1040,15 @@
 		};
 		22F9350219DD5E5B00996122 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5E583B3B03D649A69419F33C /* Pods.xcconfig */;
+			baseConfigurationReference = ABA11E6B8B64EB33BC0F9452 /* Pods.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Philip Schneider (723AP2V5VG)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3bf9f429-8638-4826-a9b2-558dcc44f2ac";
+				PROVISIONING_PROFILE = "be18db8a-7aaa-4e23-b4ea-da40747b2f61";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				WRAPPER_EXTENSION = app;
@@ -1022,6 +1060,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ObjcBikeGps.app/ObjcBikeGps";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Gross (8YXRX3SJNG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1035,6 +1074,7 @@
 				);
 				INFOPLIST_FILE = "ObjcBikeGpsTests/ObjcBikeGpsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0f982c2a-e2e5-4131-a409-7305e88dba3c";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1045,6 +1085,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ObjcBikeGps.app/ObjcBikeGps";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Eric Gross (8YXRX3SJNG)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1054,6 +1095,7 @@
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGpsTests/ObjcBikeGpsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "0f982c2a-e2e5-4131-a409-7305e88dba3c";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};

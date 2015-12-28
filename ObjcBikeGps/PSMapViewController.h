@@ -7,14 +7,17 @@
 #import "WYPopoverController.h"
 
 @class PSTrack;
+@class PSMapLocationManager;
 
 
-@interface PSMapViewController : UIViewController  <MKMapViewDelegate, CLLocationManagerDelegate, WYPopoverControllerDelegate>
+@interface PSMapViewController : UIViewController  <MKMapViewDelegate, WYPopoverControllerDelegate>
 
 @property (nonatomic) NSArray *tracks;
 
 - (instancetype)initWithTrack:(PSTrack *)track;
 - (instancetype)initWithTracks:(NSArray *)tracks;
 
+- (void)switchUserTracking;
 - (void)clearMap;
+
 @end
