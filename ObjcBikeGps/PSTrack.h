@@ -51,6 +51,8 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 - (MKPolylineView *)overlayView;
 - (NSArray *)distanceAnnotations;
 
+- (NSArray *)directionAnnotations;
+
 - (UIImage *)snapShot;
 - (UIImage *)drawRoute:(MKPolyline *)polyline onSnapshot:(MKMapSnapshot *)snapShot withColor:(UIColor *)lineColor;
 - (NSString*)roundedUp;

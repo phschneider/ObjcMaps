@@ -26,6 +26,7 @@
 #import "PSTileOverlayRender.h"
 #import "PSWayPointAnnotation.h"
 #import "PSTrackStore.h"
+#import "PSDirectionAnnotation.h"
 
 
 @interface PSMapViewController ()
@@ -794,6 +795,7 @@
 
     [self.mapView addAnnotations:[self.track distanceAnnotations]];
     [self.mapView addAnnotations:[self.track wayPoints]];
+    [self.mapView addAnnotations:[self.track directionAnnotations]];
     [self addTrack:self.track];;
     [self zoomToPolyLine:self.mapView polyline:[track route] animated:YES];
 }
@@ -1446,6 +1448,7 @@
 
     if ([overlay isKindOfClass:[MKCircle class]] || [overlay isKindOfClass:[MKCircleView class]])
     {
+        NSLog(@"Circle Overlay");
         // MKCircle Skaliert mit :(
         MKCircleRenderer * renderer = [[MKCircleRenderer alloc] initWithOverlay:overlay];
         renderer.alpha = 0.5;
@@ -1454,7 +1457,9 @@
     }
 
 
-    if ([overlay isKindOfClass:[MKTileOverlay class]]) {
+    if ([overlay isKindOfClass:[MKTileOverlay class]])
+    {
+        NSLog(@"TileOverlay");
         PSTileOverlayRender *render =  [[PSTileOverlayRender alloc] initWithTileOverlay:overlay];
         return render;
     }
@@ -1466,18 +1471,19 @@
 
     if ([overlay isKindOfClass:[PSTrackOverlay class]])
     {
+        NSLog(@"TrackOverlay");
+
         PSTrackOverlay *trackOverlay = overlay;
 
         PSTrack *track = ((PSTrackOverlay*)overlay).track;
         MKPolyline *polyLine = (MKPolyline*)overlay;
-//        NSLog(@"Overlay = %@",polyLine);
 
         PSTrackRenderer *renderer = [[PSTrackRenderer alloc] initWithPolyline:polyLine];
         renderer.lineWidth = trackOverlay.lineWidth;
         renderer.strokeColor = trackOverlay.color;
         renderer.alpha = trackOverlay.alpha;
         renderer.lineDashPattern = trackOverlay.lineDashPattern;
-
+//
 //        MKCircle *circle = [MKCircle circleWithCenterCoordinate:[track coordinates][0] radius:5.0];
 //        [circle setTitle:@"circle1"];
 //        [mapView addOverlay:circle];
@@ -1486,6 +1492,12 @@
     }
     else
     {
+        dispatch_async(dispatch_get_main_queue(),^{
+            [[[UIAlertView alloc] initWithTitle:@"rendererForOverlay" message:@"not defined" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+        });
+
+        NSLog(@"PolyLine Overlay");
+
         CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
         CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
         CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
@@ -1522,7 +1534,8 @@
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
 {
     DLogFuncName();
-    if ([overlay isKindOfClass:[MKCircle class]]) {
+    if ([overlay isKindOfClass:[MKCircle class]])
+    {
         MKCircleView *circleView = [[MKCircleView alloc] initWithCircle:(MKCircle*)overlay];
         circleView.fillColor = [[UIColor greenColor] colorWithAlphaComponent:0.2];
         circleView.strokeColor = [[UIColor blackColor] colorWithAlphaComponent:0.7];
@@ -1554,7 +1567,9 @@
 
     if ([annotation isKindOfClass:[PSDistanceAnnotation class]])
     {
-        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@""];
+        NSLog(@"view For Distance Annotation");
+        static NSString *reuseIdentifier = @"DISTANCE";
+        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
         annotationView.canShowCallout = NO;
         
         CGRect frame = CGRectZero;
@@ -1580,7 +1595,10 @@
 
     if ([annotation isKindOfClass:[PSWayPointAnnotation class]])
     {
-        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@""];
+        NSLog(@"view For WayPoint Annotation");
+
+        static NSString *reuseIdentifier = @"WAYPOINT";
+        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
         annotationView.canShowCallout = NO;
 
         CGRect frame = CGRectZero;
@@ -1600,12 +1618,31 @@
         [annotationView addSubview:label];
         return annotationView;
     }
+
+
+    if ([annotation isKindOfClass:[PSDirectionAnnotation class]])
+    {
+        NSLog(@"view For Distance Annotation");
+        static NSString *reuseIdentifier = @"DIRECTION";
+        PSDirectionAnnotation *directionAnnotation = annotation;
+        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
+        annotationView.canShowCallout = NO;
+        annotationView.image = [UIImage imageNamed:@"white-193-location-arrow"];
+
+
+        CGAffineTransform transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(directionAnnotation.degrees));
+        annotationView.transform = transform;
+
+        return annotationView;;
+    }
     
 
     if ([annotation isKindOfClass:[PSPoi class]])
     {
+        NSLog(@"view For POI Annotation");
 
-        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@""];
+        static NSString *reuseIdentifier = @"POI";
+        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
         annotationView.canShowCallout = YES;
         
         CGRect frame = CGRectZero;
@@ -1635,6 +1672,8 @@
 
     if ([annotation isKindOfClass:[MKPointAnnotation class]])
     {
+        NSLog(@"view For MKPoint Annotation");
+
         MKPointAnnotation *pointAnnotation = (MKPointAnnotation *)annotation;
         if ([pointAnnotation.title isEqualToString:@"Finish"])
         {
@@ -1651,8 +1690,8 @@
 //
 //            [annotationView addSubview:imageView];
 //            return annotationView;
-
-            MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@""];
+            static NSString *reuseIdentifier = @"FINISH";
+            MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
             CGRect frame = CGRectZero;
             frame.size = CGSizeMake(labelSize,labelSize);
 
@@ -1677,8 +1716,8 @@
         {
 //            MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@""];
 //            annotationView.canShowCallout = YES;
-
-            MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@""];
+            static NSString *reuseIdentifier = @"START";
+            MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
             CGRect frame = CGRectZero;
             frame.size = CGSizeMake(labelSize,labelSize);
 

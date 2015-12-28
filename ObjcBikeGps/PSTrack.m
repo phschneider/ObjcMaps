@@ -11,6 +11,7 @@
 #import "PSTrackOverlay.h"
 #import "BEMSimpleLineGraphView.h"
 #import "PSWayPointAnnotation.h"
+#import "PSDirectionAnnotation.h"
 
 
 @interface PSTrack() <BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
@@ -20,6 +21,7 @@
 @property (nonatomic) CLLocationCoordinate2D *pointsCoordinate;
 @property (nonatomic) int pointArrCount;
 @property (nonatomic) NSMutableDictionary *distanceAnnotationsDict;
+@property (nonatomic) NSMutableDictionary *directionAnnotationsDict;
 @property (nonatomic) NSMutableDictionary *tags;
 @end
 
@@ -201,6 +203,7 @@
     NSMutableArray *smoothedElevatioNData = [[NSMutableArray alloc] initWithCapacity:[trek count]];
     NSMutableArray *wayPoints = [[NSMutableArray alloc] initWithCapacity:[trek count]];
     self.distanceAnnotationsDict = [[NSMutableDictionary alloc] initWithCapacity:[trek count]];
+    self.directionAnnotationsDict = [[NSMutableDictionary alloc] initWithCapacity:[trek count]];
 
     self.pointsCoordinate = (CLLocationCoordinate2D *)malloc(sizeof(CLLocationCoordinate2D) * [trek count]);
 
@@ -284,6 +287,39 @@
                 }
             }
 
+
+            int directionDist = (distance / 500);
+            if (directionDist %1 == 0)
+            {
+                NSString *key = [NSString stringWithFormat:@"%d", directionDist];
+                // Der 0.km wird ignoriert ...
+                if (![[self.directionAnnotationsDict allKeys] containsObject:key] && dist != 0)
+                {
+                    if ([trek count] > pointArrCount+1)
+                    {
+                        NSDictionary * directionPointDict = [trek objectAtIndex:pointArrCount+1];
+                        PSDirectionAnnotation *dirAnnotation = [[PSDirectionAnnotation alloc] initWithCoordinate:[tmpLocation coordinate] title:key];
+
+                        CGFloat directionLat = [[directionPointDict objectForKey:@"_lat"] doubleValue];
+                        CGFloat directionLon = [[directionPointDict objectForKey:@"_lon"] doubleValue];
+                        CLLocation *directionLocation = [[CLLocation alloc] initWithLatitude:directionLat longitude:directionLon];
+
+                        CLLocationCoordinate2D coord1 = tmpLocation.coordinate;
+                        CLLocationCoordinate2D coord2 = directionLocation.coordinate;
+
+                        CLLocationDegrees deltaLong = coord2.longitude - coord1.longitude;
+                        CLLocationDegrees yComponent = sin(deltaLong) * cos(coord2.latitude);
+                        CLLocationDegrees xComponent = (cos(coord1.latitude) * sin(coord2.latitude)) - (sin(coord1.latitude) * cos(coord2.latitude) * cos(deltaLong));
+
+                        CLLocationDegrees radians = atan2(yComponent, xComponent);
+                        CLLocationDegrees degrees = RADIANS_TO_DEGREES(radians) + 360;
+
+                        dirAnnotation.degrees = fmod(degrees, 360);
+
+                        [self.directionAnnotationsDict setObject:dirAnnotation forKey:key];
+                    }
+                }
+            }
             //            }
             Location1 = tmpLocation;
             [elevatioNData addObject:[NSNumber numberWithFloat:tmpElevation]];
@@ -513,6 +549,11 @@
     return [[self.distanceAnnotationsDict allValues] copy];
 }
 
+
+- (NSArray *)directionAnnotations
+{
+    return [[self.directionAnnotationsDict allValues] copy];
+}
 
 #pragma mark - Image
 - (UIImage *)snapShot

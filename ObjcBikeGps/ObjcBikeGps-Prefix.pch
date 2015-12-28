@@ -24,6 +24,9 @@
         #define DLogFuncName()
     #endif
 
+    #define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
+    #define DEGREES_TO_RADIANS( degrees ) ( ( degrees ) / 180.0 * M_PI )
+
     #define USE_OSM                 1
     #define SHOW_BUTTONS_ON_MAP     1
 //    #define SHOW_TRACK_WAYPOINTS    1
