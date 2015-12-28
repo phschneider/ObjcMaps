@@ -27,7 +27,10 @@
         [self.view addSubview:self.tableView];
 
 
-        self.maptypes = @[  @{ @"name" : @"Open Street Map", @"classString" : @"PSOpenStreetMapTileOverlay" },
+        self.maptypes = @[  @{ @"name" : @"Apple Default", @"classString" : @"PSAppleDefaultTileOverlay" },
+                            @{ @"name" : @"Apple Satellite", @"classString" : @"PSAppleSatelliteTileOverlay" },
+                            @{ @"name" : @"Apple Hybrid", @"classString" : @"PSAppleHybridTileOverlay" },
+                            @{ @"name" : @"Open Street Map", @"classString" : @"PSOpenStreetMapTileOverlay" },
                             @{ @"name" : @"Open Cycle Map", @"classString" : @"PSOpenCycleMapTileOverlay" },
                             @{ @"name" : @"Light (MapBox)", @"classString" : @"PSMapBoxLightTileOverlay" },
                             @{ @"name" : @"Dark (MapBox)", @"classString" : @"PSMapBoxDarkTileOverlay" },
@@ -44,8 +47,7 @@
 
 - (CGSize)preferredContentSize
 {
-//    return CGSizeMake(220, [self tableHeight]);
-    return CGSizeMake(280,400);
+    return CGSizeMake(280, [self tableHeight]);
 }
 
 

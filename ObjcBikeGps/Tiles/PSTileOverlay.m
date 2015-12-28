@@ -14,19 +14,13 @@
 
 + (NSString *)urlTemplate
 {
-    // http://wiki.openstreetmap.org/wiki/Tile_servers
-    // http://wiki.openstreetmap.org/wiki/Tileserver
-    NSString *urlString = [NSString stringWithFormat:@"http://b.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png"];
-    // http://b.tile.openstreetmap.org/${z}/${x}/${y}.png
-    // http://a.www.toolserver.org/tiles/osm
-    NSLog(@"urlTemplate = %@",urlString);
-    return urlString;
+    return nil;
 }
 
 
 - (MKOverlayLevel) level
 {
-    return MKOverlayLevelAboveRoads;
+    return MKOverlayLevelAboveLabels;
 }
 
 
@@ -43,16 +37,10 @@
 }
 
 
-//- (NSURL *)URLForTilePath:(MKTileOverlayPath)path {
-//
-//    NSString *template = [[self class] urlTemplate];
-//
-//    NSString *urlString = [template stringByReplacingOccurrencesOfString:<#(NSString *)target#> withString:<#(NSString *)replacement#>]
-//    self class[] t [NSString stringWithFormat:@"http://b.tiles.wmflabs.org/hikebike/%ld/%ld/%ld.png", path.z, path.x, path.y];
-//
-//    NSLog(@"URL = %@",urlString);
-//    return [NSURL URLWithString:urlString];
-//}
+- (NSURL *)URLForTilePath:(MKTileOverlayPath)path {
+    return nil;
+}
+
 
 
 - (NSString*)name

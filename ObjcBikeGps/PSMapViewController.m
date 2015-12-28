@@ -111,63 +111,6 @@
 }
 
 
-- (void) tileClassChanged
-{
-    [self removeAllOverlays];
-
-    NSString *tileClassString = [[NSUserDefaults standardUserDefaults] objectForKey:@"TILE_CLASS"];
-    NSLog(@"TileClass = %@", tileClassString);
-
-    if (!tileClassString)
-    {
-        tileClassString = @"PSTileOverlay";
-    }
-
-    Class tileClass = NSClassFromString(tileClassString);
-    id object = [[tileClass alloc] init];
-    if (object)
-    {
-
-        NSString *urlTemplate = [tileClass urlTemplate];
-        NSLog(@"URL Template = %@", urlTemplate);
-
-        PSTileOverlay *overlay = [(PSTileOverlay *) [tileClass alloc] initWithURLTemplate:urlTemplate];
-
-        [self.mapView addOverlay:overlay level:[overlay level]];
-    }
-    else
-    {
-        NSLog(@"No object");
-    }
-}
-
-- (void)longPressGestureRecognizerFired:(id)uilongPressGestureRecognizerFired
-{
-    DLogFuncName();
-    UILongPressGestureRecognizer *longPressGestureRecognizer = uilongPressGestureRecognizerFired;
-    if (longPressGestureRecognizer.state == UIGestureRecognizerStateEnded)
-    {
-        self.debugView.hidden = NO;
-        [UIView animateWithDuration:1.0 delay:0.5 options:UIViewAnimationCurveEaseInOut animations:^
-                {
-                    self.debugView.alpha = 1.0;
-                }
-        completion:^(BOOL completed)
-        {
-            [UIView animateWithDuration:1.0 delay:2.5 options:UIViewAnimationCurveEaseInOut animations:^
-                    {
-                        self.debugView.alpha = .0;
-                    }
-                             completion:^(BOOL completed)
-                             {
-                                               self.debugView.hidden = YES;
-                             }];
-        }
-        ];
-    }
-}
-
-
 - (instancetype) initWithTrack:(PSTrack*)track
 {
     DLogFuncName();
@@ -190,129 +133,6 @@
         self.tracks = tracks;
     }
     return self;
-}
-
-
-- (void) addLabels
-{
-    DLogFuncName();
-    
-    CGRect frame = self.view.bounds;
-    frame.origin.y = 44 + 20;
-    frame.size.height -= frame.origin.y ;
-
-    self.areaLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 20)];
-    self.areaLabel.textAlignment = NSTextAlignmentCenter;
-    self.areaLabel.backgroundColor = [UIColor clearColor];
-    self.areaLabel.shadowColor = [UIColor whiteColor];
-    self.areaLabel.layer.shadowOffset = CGSizeMake(0, 1);
-    self.areaLabel.layer.shadowRadius = 1;
-
-    [self.mapView addSubview:self.areaLabel];
-
-    self.distannceLabelWidth = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, frame.size.width, 20)];
-    self.distannceLabelWidth.textAlignment = NSTextAlignmentCenter;
-    self.distannceLabelWidth.backgroundColor = [UIColor clearColor];
-    self.distannceLabelWidth.shadowColor = [UIColor whiteColor];
-    self.distannceLabelWidth.layer.shadowOffset = CGSizeMake(0, 1);
-    self.distannceLabelWidth.layer.shadowRadius = 1;
-    [self.mapView addSubview:self.distannceLabelWidth];
-
-    self.distannceLabelHeight = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.height, 20)];
-    self.distannceLabelHeight.textAlignment = NSTextAlignmentCenter;
-    self.distannceLabelHeight.shadowColor = [UIColor whiteColor];
-    self.distannceLabelHeight.layer.shadowOffset = CGSizeMake(0, 1);
-    self.distannceLabelHeight.layer.shadowRadius = 1;
-    self.distannceLabelHeight.transform = CGAffineTransformMakeRotation( -(M_PI / 2));
-    [self.mapView addSubview: self.distannceLabelHeight];
-
-    CGRect dlhFrame = self.distannceLabelHeight.frame;
-    dlhFrame.origin.y += dlhFrame.origin.x;
-    dlhFrame.origin.x = self.view.bounds.size.width - self.distannceLabelHeight.bounds.size.height;
-    self.distannceLabelHeight.frame = dlhFrame;
-
-    self.debugView = [[UIView alloc] initWithFrame:self.mapView.bounds];
-    self.debugView.hidden = YES;
-    self.debugView.alpha = 0.0;
-
-    self.boundingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-20-20, frame.size.width, 20)];
-    self.boundingLabel.textAlignment = NSTextAlignmentCenter;
-    self.boundingLabel.backgroundColor = [UIColor clearColor];
-    self.boundingLabel.shadowColor = [UIColor whiteColor];
-    self.boundingLabel.layer.shadowOffset = CGSizeMake(0, 1);
-    self.boundingLabel.layer.shadowRadius = 1;
-    [self.debugView addSubview:self.boundingLabel];
-    
-    self.debugLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-20, frame.size.width, 20)];
-    self.debugLabel.textAlignment = NSTextAlignmentCenter;
-    self.debugLabel.backgroundColor = [UIColor clearColor];
-    self.debugLabel.shadowColor = [UIColor whiteColor];
-    self.debugLabel.layer.shadowOffset = CGSizeMake(0, 1);
-    self.debugLabel.layer.shadowRadius = 1;
-    [self.debugView addSubview:self.debugLabel];
-
-    [self.mapView addSubview:self.debugView];
-}
-
-
-- (void) addButtons
-{
-    DLogFuncName();
-    CGRect frame = self.view.bounds;
-    frame.origin.y = 44 + 20;
-    frame.size.height -= frame.origin.y;
-
-    UIImage *layersImage = [UIImage imageNamed:@"1064-layers-4"];
-    UIButton *layersButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    frame.origin.y = 48;
-    frame.origin.x = self.mapView.frame.size.width - layersImage.size.width - 15;
-    frame.size.width = layersImage.size.width;
-    frame.size.height =  layersImage.size.height;
-    
-    layersButton.frame = frame;
-    [layersButton setBackgroundColor:[UIColor whiteColor]];
-    [layersButton setImage:layersImage forState:UIControlStateNormal];
-    [layersButton addTarget:self action:@selector(showMapSwitcherButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.mapView addSubview:layersButton];
-    
-    
-    UIImage *syncImage = [UIImage imageNamed:@"760-refresh-3"];
-    UIButton *syncButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    frame.origin.y = 48;
-    frame.origin.x = 15;
-    frame.size.width = syncImage.size.width;
-    frame.size.height =  syncImage.size.height;
-    
-    syncButton.frame = frame;
-    [syncButton setBackgroundColor:[UIColor whiteColor]];
-    [syncButton setImage:syncImage forState:UIControlStateNormal];
-    [syncButton addTarget:self action:@selector(syncOsmMapButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.mapView addSubview:syncButton];
-    
-    UIImage *syncPoisImage = [UIImage imageNamed:@"Emergeny"];
-    UIButton *syncPoisButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    frame.origin.y = syncButton.frame.origin.y;
-    frame.origin.x = 15 + syncImage.size.width  + 15;
-    frame.size.width = syncImage.size.width;
-    frame.size.height =  syncImage.size.height;
-    
-    syncPoisButton.frame = frame;
-//    [syncPoisButton setBackgroundColor:[UIColor whiteColor]];
-    [syncPoisButton setImage:syncPoisImage forState:UIControlStateNormal];
-    [syncPoisButton addTarget:self action:@selector(syncOsmPoisButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-    [self.mapView addSubview:syncPoisButton];
-    
-    self.locationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.locationButton.backgroundColor = [UIColor whiteColor];
-    frame.origin.y = self.mapView.frame.size.height - 50 - 15;
-    frame.size.width = self.mapView.frame.size.width - 100;
-    frame.origin.x = ceil((self.mapView.frame.size.width - frame.size.width)/2);
-    frame.size.height =  50;
-    [self.locationButton setTitle:@"Track" forState:UIControlStateNormal];
-    self.locationButton.frame = frame;
-    
-    [self.locationButton addTarget:self action:@selector(locationButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    [self.mapView addSubview:self.locationButton];
 }
 
 
@@ -441,6 +261,131 @@
 }
 
 
+#pragma mark - View Addons
+- (void) addLabels
+{
+    DLogFuncName();
+
+    CGRect frame = self.view.bounds;
+    frame.origin.y = 44 + 20;
+    frame.size.height -= frame.origin.y ;
+
+    self.areaLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 20)];
+    self.areaLabel.textAlignment = NSTextAlignmentCenter;
+    self.areaLabel.backgroundColor = [UIColor clearColor];
+    self.areaLabel.shadowColor = [UIColor whiteColor];
+    self.areaLabel.layer.shadowOffset = CGSizeMake(0, 1);
+    self.areaLabel.layer.shadowRadius = 1;
+
+    [self.mapView addSubview:self.areaLabel];
+
+    self.distannceLabelWidth = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, frame.size.width, 20)];
+    self.distannceLabelWidth.textAlignment = NSTextAlignmentCenter;
+    self.distannceLabelWidth.backgroundColor = [UIColor clearColor];
+    self.distannceLabelWidth.shadowColor = [UIColor whiteColor];
+    self.distannceLabelWidth.layer.shadowOffset = CGSizeMake(0, 1);
+    self.distannceLabelWidth.layer.shadowRadius = 1;
+    [self.mapView addSubview:self.distannceLabelWidth];
+
+    self.distannceLabelHeight = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.height, 20)];
+    self.distannceLabelHeight.textAlignment = NSTextAlignmentCenter;
+    self.distannceLabelHeight.shadowColor = [UIColor whiteColor];
+    self.distannceLabelHeight.layer.shadowOffset = CGSizeMake(0, 1);
+    self.distannceLabelHeight.layer.shadowRadius = 1;
+    self.distannceLabelHeight.transform = CGAffineTransformMakeRotation( -(M_PI / 2));
+    [self.mapView addSubview: self.distannceLabelHeight];
+
+    CGRect dlhFrame = self.distannceLabelHeight.frame;
+    dlhFrame.origin.y += dlhFrame.origin.x;
+    dlhFrame.origin.x = self.view.bounds.size.width - self.distannceLabelHeight.bounds.size.height;
+    self.distannceLabelHeight.frame = dlhFrame;
+
+    self.debugView = [[UIView alloc] initWithFrame:self.mapView.bounds];
+    self.debugView.hidden = YES;
+    self.debugView.alpha = 0.0;
+
+    self.boundingLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-20-20, frame.size.width, 20)];
+    self.boundingLabel.textAlignment = NSTextAlignmentCenter;
+    self.boundingLabel.backgroundColor = [UIColor clearColor];
+    self.boundingLabel.shadowColor = [UIColor whiteColor];
+    self.boundingLabel.layer.shadowOffset = CGSizeMake(0, 1);
+    self.boundingLabel.layer.shadowRadius = 1;
+    [self.debugView addSubview:self.boundingLabel];
+
+    self.debugLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-20, frame.size.width, 20)];
+    self.debugLabel.textAlignment = NSTextAlignmentCenter;
+    self.debugLabel.backgroundColor = [UIColor clearColor];
+    self.debugLabel.shadowColor = [UIColor whiteColor];
+    self.debugLabel.layer.shadowOffset = CGSizeMake(0, 1);
+    self.debugLabel.layer.shadowRadius = 1;
+    [self.debugView addSubview:self.debugLabel];
+
+    [self.mapView addSubview:self.debugView];
+}
+
+
+- (void) addButtons
+{
+    DLogFuncName();
+    CGRect frame = self.view.bounds;
+    frame.origin.y = 44 + 20;
+    frame.size.height -= frame.origin.y;
+
+    UIImage *layersImage = [UIImage imageNamed:@"1064-layers-4"];
+    UIButton *layersButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    frame.origin.y = 48;
+    frame.origin.x = self.mapView.frame.size.width - layersImage.size.width - 15;
+    frame.size.width = layersImage.size.width;
+    frame.size.height =  layersImage.size.height;
+
+    layersButton.frame = frame;
+    [layersButton setBackgroundColor:[UIColor whiteColor]];
+    [layersButton setImage:layersImage forState:UIControlStateNormal];
+    [layersButton addTarget:self action:@selector(showMapSwitcherButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.mapView addSubview:layersButton];
+
+
+    UIImage *syncImage = [UIImage imageNamed:@"760-refresh-3"];
+    UIButton *syncButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    frame.origin.y = 48;
+    frame.origin.x = 15;
+    frame.size.width = syncImage.size.width;
+    frame.size.height =  syncImage.size.height;
+
+    syncButton.frame = frame;
+    [syncButton setBackgroundColor:[UIColor whiteColor]];
+    [syncButton setImage:syncImage forState:UIControlStateNormal];
+    [syncButton addTarget:self action:@selector(syncOsmMapButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.mapView addSubview:syncButton];
+
+    UIImage *syncPoisImage = [UIImage imageNamed:@"Emergeny"];
+    UIButton *syncPoisButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    frame.origin.y = syncButton.frame.origin.y;
+    frame.origin.x = 15 + syncImage.size.width  + 15;
+    frame.size.width = syncImage.size.width;
+    frame.size.height =  syncImage.size.height;
+
+    syncPoisButton.frame = frame;
+//    [syncPoisButton setBackgroundColor:[UIColor whiteColor]];
+    [syncPoisButton setImage:syncPoisImage forState:UIControlStateNormal];
+    [syncPoisButton addTarget:self action:@selector(syncOsmPoisButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    [self.mapView addSubview:syncPoisButton];
+
+    self.locationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.locationButton.backgroundColor = [UIColor whiteColor];
+    frame.origin.y = self.mapView.frame.size.height - 50 - 15;
+    frame.size.width = self.mapView.frame.size.width - 100;
+    frame.origin.x = ceil((self.mapView.frame.size.width - frame.size.width)/2);
+    frame.size.height =  50;
+    [self.locationButton setTitle:@"Track" forState:UIControlStateNormal];
+    self.locationButton.frame = frame;
+
+    [self.locationButton addTarget:self action:@selector(locationButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [self.mapView addSubview:self.locationButton];
+}
+
+
+#pragma mark - Gestures
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
     DLogFuncName();
@@ -449,19 +394,50 @@
 }
 
 
+- (void)longPressGestureRecognizerFired:(id)uilongPressGestureRecognizerFired
+{
+    DLogFuncName();
+    UILongPressGestureRecognizer *longPressGestureRecognizer = uilongPressGestureRecognizerFired;
+    if (longPressGestureRecognizer.state == UIGestureRecognizerStateEnded)
+    {
+        self.debugView.hidden = NO;
+        [UIView animateWithDuration:1.0 delay:0.5 options:UIViewAnimationCurveEaseInOut animations:^
+                {
+                    self.debugView.alpha = 1.0;
+                }
+                         completion:^(BOOL completed)
+                         {
+                             [UIView animateWithDuration:1.0 delay:2.5 options:UIViewAnimationCurveEaseInOut animations:^
+                                     {
+                                         self.debugView.alpha = .0;
+                                     }
+                                              completion:^(BOOL completed)
+                                              {
+                                                  self.debugView.hidden = YES;
+                                              }];
+                         }
+        ];
+    }
+}
+
+
 #pragma mark - Buttons
 - (void)locationButtonTapped
 {
+    DLogFuncName();
+    [self.mapLocationManager update];
+}
+
+
+- (void)debugMapTiles
+{
+    DLogFuncName();
 //    double numTilesAt1_0 = MKMapSizeWorld.width / TILE_SIZE;
 //    MKZoomScale currentZoomScale = self.mapView.bounds.size.width / self.mapView.visibleMapRect.size.width;
 //
 
 //    NSLog(@"Map Titles: \n %@", [self.mapView tilesInMapRect:self.mapView.visibleMapRect zoomScale:self.psZoomScale]);
 //
-
-
-    DLogFuncName();
-    [self.mapLocationManager update];
 }
 
 
@@ -472,19 +448,16 @@
     {
         self.mapView.showsUserLocation = YES;
         [self.mapView setUserTrackingMode:MKUserTrackingModeFollow animated:YES];
-        self.locationButton.titleLabel.text = @"Follow";
     }
     else if (self.mapView.userTrackingMode == MKUserTrackingModeFollow)
     {
         self.mapView.showsUserLocation = YES;
         [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
-        self.locationButton.titleLabel.text = @"Heading";
     }
     else if (self.mapView.userTrackingMode == MKUserTrackingModeFollowWithHeading)
     {
         self.mapView.showsUserLocation = NO;
         [self.mapView setUserTrackingMode:MKUserTrackingModeNone animated:YES];
-        self.locationButton.titleLabel.text = @"None";
     }
 
     [self updateTrackingButtonTitleForCurrentUserTrackingMode];
@@ -514,6 +487,7 @@
         [self.locationButton setTitle:@"-" forState:UIControlStateNormal];
     }
 }
+
 
 - (void)syncOsmMapButtonTapped:(id)sender
 {
@@ -675,6 +649,59 @@
 }
 
 
+#pragma mark - Notifications
+- (void) tileClassChanged
+{
+    [self removeAllTileOverlays];
+
+    NSString *tileClassString = [[NSUserDefaults standardUserDefaults] objectForKey:@"TILE_CLASS"];
+    NSLog(@"TileClass = %@", tileClassString);
+
+    if (!tileClassString)
+    {
+        tileClassString = @"PSTileOverlay";
+    }
+
+
+    if ([tileClassString isEqualToString:@"PSAppleSatelliteTileOverlay"])
+    {
+        self.mapView.mapType = MKMapTypeSatellite;
+        return;
+    }
+    else if ([tileClassString isEqualToString:@"PSAppleHybridTileOverlay"])
+    {
+        self.mapView.mapType = MKMapTypeHybrid;
+        return;
+    }
+    else if ([tileClassString isEqualToString:@"PSAppleDefaultTileOverlay"])
+    {
+        self.mapView.mapType = MKMapTypeStandard;
+        return;
+    }
+    else
+    {
+        self.mapView.mapType = MKMapTypeStandard;
+    }
+
+    Class tileClass = NSClassFromString(tileClassString);
+    id object = [[tileClass alloc] init];
+    if (object)
+    {
+
+        NSString *urlTemplate = [tileClass urlTemplate];
+        NSLog(@"URL Template = %@", urlTemplate);
+
+        PSTileOverlay *overlay = [(PSTileOverlay *) [tileClass alloc] initWithURLTemplate:urlTemplate];
+
+        [self.mapView addOverlay:overlay level:MKOverlayLevelAboveLabels];
+    }
+    else
+    {
+        NSLog(@"No object");
+    }
+}
+
+
 #pragma mark - Tracks
 
 - (void)setTracks:(NSArray *)tracks
@@ -685,7 +712,7 @@
     for (PSTrack *track in tracks)
     {
         [self addTrack:track];
-            [self.mapView addAnnotations:[track distanceAnnotations]];
+        [self.mapView addAnnotations:[track distanceAnnotations]];
     }
 
 
@@ -1183,6 +1210,19 @@
     if ([self.mapView.overlays count])
     {
         NSArray *overlays = [[self.mapView overlays] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [MKPolyline class]]];
+        if ([overlays count])
+        {
+            [self.mapView removeOverlays:overlays];
+        }
+    }
+}
+
+
+- (void)removeAllTileOverlays
+{
+    if ([self.mapView.overlays count])
+    {
+        NSArray *overlays = [[self.mapView overlays] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [MKTileOverlay class]]];
         if ([overlays count])
         {
             [self.mapView removeOverlays:overlays];
