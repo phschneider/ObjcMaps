@@ -272,7 +272,7 @@
             // Passt nicht ...
             distance += [tmpLocation distanceFromLocation:Location1];
 //            NSLog(@"Distance = %f", trackLength);
-            int dist = (distance / 1000);
+            int dist = (distance / DISTANCE_ANNOTATIONS_STEP_SIZE);
             if (dist %1 == 0)
             {
                 NSString *key = [NSString stringWithFormat:@"%d", dist];
@@ -288,11 +288,10 @@
             }
 
 
-            int directionDist = (distance / 500);
+            int directionDist = (distance / DIRECTION_ANNOTATIONS_STEP_SIZE);
             if (directionDist %1 == 0)
             {
                 NSString *key = [NSString stringWithFormat:@"%d", directionDist];
-                // Der 0.km wird ignoriert ...
                 if (![[self.directionAnnotationsDict allKeys] containsObject:key] && dist != 0)
                 {
                     if ([trek count] > pointArrCount+1)
