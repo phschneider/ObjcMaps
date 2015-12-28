@@ -652,8 +652,6 @@
 #pragma mark - Notifications
 - (void) tileClassChanged
 {
-    [self removeAllTileOverlays];
-
     NSString *tileClassString = [[NSUserDefaults standardUserDefaults] objectForKey:@"TILE_CLASS"];
     NSLog(@"TileClass = %@", tileClassString);
 
@@ -666,17 +664,14 @@
     if ([tileClassString isEqualToString:@"PSAppleSatelliteTileOverlay"])
     {
         self.mapView.mapType = MKMapTypeSatellite;
-        return;
     }
     else if ([tileClassString isEqualToString:@"PSAppleHybridTileOverlay"])
     {
         self.mapView.mapType = MKMapTypeHybrid;
-        return;
     }
     else if ([tileClassString isEqualToString:@"PSAppleDefaultTileOverlay"])
     {
         self.mapView.mapType = MKMapTypeStandard;
-        return;
     }
     else
     {
@@ -685,19 +680,48 @@
 
     Class tileClass = NSClassFromString(tileClassString);
     id object = [[tileClass alloc] init];
+    PSTileOverlay *overlay = nil;
     if (object)
     {
-
         NSString *urlTemplate = [tileClass urlTemplate];
         NSLog(@"URL Template = %@", urlTemplate);
-
-        PSTileOverlay *overlay = [(PSTileOverlay *) [tileClass alloc] initWithURLTemplate:urlTemplate];
-
-        [self.mapView addOverlay:overlay level:MKOverlayLevelAboveLabels];
+        overlay = [(PSTileOverlay *) [tileClass alloc] initWithURLTemplate:urlTemplate];
     }
     else
     {
         NSLog(@"No object");
+    }
+
+    if ([overlay level] == MKOverlayLevelAboveLabels)
+    {
+        [self removeAllOverlays];
+    }
+    else
+    {
+        [self removeAllTileOverlays];
+    }
+
+
+    if (overlay)
+    {
+        [self.mapView addOverlay:overlay level:[overlay level]];
+    }
+
+    if ([overlay level] == MKOverlayLevelAboveLabels)
+    {
+        if (self.track)
+        {
+            NSLog(@"Readding track");
+            [self addTrack:self.track];
+        }
+        else if (self.tracks)
+        {
+            NSLog(@"Readding tracks");
+            for (PSTrack *track in self.tracks)
+            {
+                [self addTrack:track];
+            }
+        }
     }
 }
 
@@ -767,9 +791,10 @@
 
     self.title = [track filename];
 
-    [self addTrack:self.track];
+
     [self.mapView addAnnotations:[self.track distanceAnnotations]];
     [self.mapView addAnnotations:[self.track wayPoints]];
+    [self addTrack:self.track];;
     [self zoomToPolyLine:self.mapView polyline:[track route] animated:YES];
 }
 
@@ -1187,13 +1212,13 @@
     DLogFuncName();
 
     [self removeAllPolylines];
-
     [self removeAllAnnotations];
 }
 
 
 - (void)removeAllAnnotations
 {
+    DLogFuncName();
     if ([self.mapView.annotations count])
     {
         NSArray *annotations = [[self.mapView annotations] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [MKPointAnnotation class]]];
@@ -1207,6 +1232,7 @@
 
 - (void)removeAllPolylines
 {
+    DLogFuncName();
     if ([self.mapView.overlays count])
     {
         NSArray *overlays = [[self.mapView overlays] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [MKPolyline class]]];
@@ -1220,6 +1246,7 @@
 
 - (void)removeAllTileOverlays
 {
+    DLogFuncName();
     if ([self.mapView.overlays count])
     {
         NSArray *overlays = [[self.mapView overlays] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [MKTileOverlay class]]];
@@ -1233,6 +1260,7 @@
 
 - (void)removeAllOverlays
 {
+    DLogFuncName();
     if ([self.mapView.overlays count])
     {
         NSArray *overlays = self.mapView.overlays;
