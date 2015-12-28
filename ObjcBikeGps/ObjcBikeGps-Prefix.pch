@@ -26,7 +26,7 @@
 
 
     #define DISTANCE_ANNOTATIONS_STEP_SIZE      1000
-    #define DIRECTION_ANNOTATIONS_STEP_SIZE      100
+    #define DIRECTION_ANNOTATIONS_STEP_SIZE      250
 
     #define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
     #define DEGREES_TO_RADIANS( degrees ) ( ( degrees ) / 180.0 * M_PI )

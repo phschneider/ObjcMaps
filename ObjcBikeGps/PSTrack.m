@@ -22,6 +22,7 @@
 @property (nonatomic) int pointArrCount;
 @property (nonatomic) NSMutableDictionary *distanceAnnotationsDict;
 @property (nonatomic) NSMutableDictionary *directionAnnotationsDict;
+@property (nonatomic) NSMutableDictionary *annotationsDict;
 @property (nonatomic) NSMutableDictionary *tags;
 @end
 
@@ -204,6 +205,7 @@
     NSMutableArray *wayPoints = [[NSMutableArray alloc] initWithCapacity:[trek count]];
     self.distanceAnnotationsDict = [[NSMutableDictionary alloc] initWithCapacity:[trek count]];
     self.directionAnnotationsDict = [[NSMutableDictionary alloc] initWithCapacity:[trek count]];
+    self.annotationsDict = [[NSMutableDictionary alloc] initWithCapacity:[trek count]];
 
     self.pointsCoordinate = (CLLocationCoordinate2D *)malloc(sizeof(CLLocationCoordinate2D) * [trek count]);
 
@@ -259,45 +261,46 @@
                 maxHeight = elevation;
             }
 
-
-
             tmpElevation = elevation;
-            //            NSLog(@"Coordinate = %f %f  ELEVATION %f TIME %@", workingCoordinate.latitude, workingCoordinate.longitude,[[pointDict objectForKey:@"ele"] doubleValue], [pointDict objectForKey:@"time"]);
 
             // Distance
             tmpLocation = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
-            //            if (pointArrIndex > 0)
-            //            {
 
             // Passt nicht ...
             distance += [tmpLocation distanceFromLocation:Location1];
 //            NSLog(@"Distance = %f", trackLength);
             int dist = (distance / DISTANCE_ANNOTATIONS_STEP_SIZE);
-            if (dist %1 == 0)
+            NSString *annotationsKey = [NSString stringWithFormat:@"%d", pointArrCount];
+            NSString *distanceKey = [NSString stringWithFormat:@"%d", dist];
+            BOOL addDistanceAnnotation = (dist %1 == 0);
+            if (addDistanceAnnotation)
             {
-                NSString *key = [NSString stringWithFormat:@"%d", dist];
+
                 // Der 0.km wird ignoriert ...
-                if (![[self.distanceAnnotationsDict allKeys] containsObject:key] && dist != 0)
+                if (![[self.distanceAnnotationsDict allKeys] containsObject:distanceKey] && dist != 0)
                 {
 //                    NSLog(@"ADDED %d", dist);
-                    PSDistanceAnnotation *annotation = [[PSDistanceAnnotation alloc] initWithCoordinate:[tmpLocation coordinate] title:key];
+                    PSDistanceAnnotation *annotation = [[PSDistanceAnnotation alloc] initWithCoordinate:[tmpLocation coordinate] title:distanceKey];
 
-                    [self.distanceAnnotationsDict setObject:annotation forKey:key];
+                    [self.distanceAnnotationsDict setObject:annotation forKey:distanceKey];
+                    [self.annotationsDict setObject:annotation forKey:annotationsKey];
                     [smoothedElevatioNData addObject:[NSNumber numberWithFloat:tmpElevation]];
                 }
             }
 
 
             int directionDist = (distance / DIRECTION_ANNOTATIONS_STEP_SIZE);
-            if (directionDist %1 == 0)
+            NSString *directionsKey = [NSString stringWithFormat:@"%d", directionDist];
+            BOOL addDirectionsAnnotation = ((directionDist %1 == 0) && ![[self.annotationsDict allKeys] containsObject:annotationsKey]);
+            if (addDirectionsAnnotation)
             {
-                NSString *key = [NSString stringWithFormat:@"%d", directionDist];
-                if (![[self.directionAnnotationsDict allKeys] containsObject:key] && dist != 0)
+
+                if (![[self.directionAnnotationsDict allKeys] containsObject:directionsKey] && directionDist != 0)
                 {
                     if ([trek count] > pointArrCount+1)
                     {
                         NSDictionary * directionPointDict = [trek objectAtIndex:pointArrCount+1];
-                        PSDirectionAnnotation *dirAnnotation = [[PSDirectionAnnotation alloc] initWithCoordinate:[tmpLocation coordinate] title:key];
+                        PSDirectionAnnotation *dirAnnotation = [[PSDirectionAnnotation alloc] initWithCoordinate:[tmpLocation coordinate] title:directionsKey];
 
                         CGFloat directionLat = [[directionPointDict objectForKey:@"_lat"] doubleValue];
                         CGFloat directionLon = [[directionPointDict objectForKey:@"_lon"] doubleValue];
@@ -315,7 +318,8 @@
 
                         dirAnnotation.degrees = fmod(degrees, 360);
 
-                        [self.directionAnnotationsDict setObject:dirAnnotation forKey:key];
+                        [self.directionAnnotationsDict setObject:dirAnnotation forKey:directionsKey];
+                        [self.annotationsDict setObject:dirAnnotation forKey:annotationsKey];
                     }
                 }
             }
