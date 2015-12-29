@@ -109,6 +109,11 @@
     self = [super init];
     if (self)
     {
+
+#ifdef DEBUG
+        NSLog(@"XML-Document = \n %@",[onoxmlElement childrenWithTag:@"tag"]);
+#endif
+
         __block NSMutableArray *points = [[NSMutableArray alloc] init];
         __block NSMutableDictionary*wayTags = [[NSMutableDictionary alloc] init];
         
@@ -136,12 +141,49 @@
 
         NSDictionary *dictionary = @{ @"trk" :  @{ @"trkseg" : @{ @"trkpt" : points} } };
         [self parseDictionary:dictionary];
-        self.color = [UIColor redColor];
+        self.color = [UIColor orangeColor];
         self.alpha = 0.5;
         self.lineWidth = 2.5;
         self.lineDashPattern = @[@5, @5];
         self.tags = [wayTags copy];
         self.trackType = PSTrackTypeOsm;
+        
+        if ([[wayTags allKeys] containsObject:@"tracktype"])
+        {
+            NSLog(@"TrackType = %@", [wayTags objectForKey:@"tracktype"]);
+        }
+        
+        if ([[wayTags allKeys] containsObject:@"surface"])
+        {
+            NSLog(@"surface = %@", [wayTags objectForKey:@"surface"]);
+        }
+        
+        if ([[wayTags allKeys] containsObject:@"mtb:scale"])
+        {
+            self.alpha = 0.75;
+            self.lineWidth = 3.5;
+            NSLog(@"mtb:scale = %@", [wayTags objectForKey:@"mtb:scale"]);
+            NSNumber *mtbScale = [wayTags objectForKey:@"mtb:scale"];
+            switch ([mtbScale integerValue]) {
+                case 0:
+                    self.color = [UIColor brownColor];
+                    break;
+                case 1:
+                    self.color = [UIColor greenColor];
+                    break;
+                case 2:
+                    self.color = [UIColor blueColor];
+                    break;
+                case 4:
+                    self.color = [UIColor redColor];
+                    break;
+                case 5:
+                    self.color = [UIColor blackColor];
+                    break;
+                default:
+                    break;
+            }
+        }
     }
     
     return self;
