@@ -81,16 +81,6 @@
 		4A0E71F71C32EE8200BCF6B8 /* gray-940-pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71DE1C32EE8200BCF6B8 /* gray-940-pin@2x.png */; };
 		4A0E71F81C32EE8200BCF6B8 /* white-193-location-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71DF1C32EE8200BCF6B8 /* white-193-location-arrow@2x.png */; };
 		4A0E71FA1C32EEF400BCF6B8 /* Tour-t1387067_Sieben-Weiher-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71F91C32EEF400BCF6B8 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */; };
-		4AC377761BB887150027DFC7 /* InselhuepfenTag1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776C1BB887150027DFC7 /* InselhuepfenTag1.gpx */; };
-		4AC377771BB887150027DFC7 /* InselhuepfenTag2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776D1BB887150027DFC7 /* InselhuepfenTag2.gpx */; };
-		4AC377781BB887150027DFC7 /* InselhuepfenTag4.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776E1BB887150027DFC7 /* InselhuepfenTag4.gpx */; };
-		4AC377791BB887150027DFC7 /* InselhuepfenTag5.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3776F1BB887150027DFC7 /* InselhuepfenTag5.gpx */; };
-		4AC3777A1BB887150027DFC7 /* Milna-13.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377711BB887150027DFC7 /* Milna-13.9.15.gpx */; };
-		4AC3777B1BB887150027DFC7 /* Postira-17.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377721BB887150027DFC7 /* Postira-17.9.15.gpx */; };
-		4AC3777C1BB887150027DFC7 /* Stari-Grad-14.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377731BB887150027DFC7 /* Stari-Grad-14.9.15.gpx */; };
-		4AC3777D1BB887150027DFC7 /* Stari-Grad-15.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377741BB887150027DFC7 /* Stari-Grad-15.9.15.gpx */; };
-		4AC3777E1BB887150027DFC7 /* Vela-Luka-16.9.15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC377751BB887150027DFC7 /* Vela-Luka-16.9.15.gpx */; };
-		4AC377801BB88ABF0027DFC7 /* InselhuepfenTag3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4AC3777F1BB88ABF0027DFC7 /* InselhuepfenTag3.gpx */; };
 		67B4038CA92E902FFA829A1E /* PSTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40F0FAC4FD5F8B39E04F3 /* PSTrack.m */; };
 		67B40644E96BB7EC796E48D0 /* PSTrackOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40B684DF64CED8EC0087A /* PSTrackOverlay.m */; };
 		67B407FEDC81B61A9C5B8007 /* PSMapLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40B2C6B54957DD6B3655B /* PSMapLocationManager.m */; };
@@ -754,10 +744,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A0E71F11C32EE8200BCF6B8 /* 854-list-toolbar-selected.png in Resources */,
-				4AC3777A1BB887150027DFC7 /* Milna-13.9.15.gpx in Resources */,
-				4AC3777B1BB887150027DFC7 /* Postira-17.9.15.gpx in Resources */,
 				222DF33A1B659056003410E7 /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */,
-				4AC3777C1BB887150027DFC7 /* Stari-Grad-14.9.15.gpx in Resources */,
 				4A0E71E51C32EE8200BCF6B8 /* 1100-list-2-toolbar@3x.png in Resources */,
 				222DF32D1B659056003410E7 /* Trail-Schwarzenberg3.gpx in Resources */,
 				222DF3451B659B9E003410E7 /* TrailSpichern.gpx in Resources */,
@@ -768,7 +755,6 @@
 				4A0E71E71C32EE8200BCF6B8 /* 512px-Viewpoint-16.svg.png in Resources */,
 				4A0E71ED1C32EE8200BCF6B8 /* 798-filter-toolbar@3x.png in Resources */,
 				222DF3291B659056003410E7 /* Trail-Nauwies.gpx in Resources */,
-				4AC3777E1BB887150027DFC7 /* Vela-Luka-16.9.15.gpx in Resources */,
 				4A0E71EB1C32EE8200BCF6B8 /* 798-filter-toolbar.png in Resources */,
 				4A0E71EA1C32EE8200BCF6B8 /* 760-refresh-3@3x.png in Resources */,
 				4A0E71F61C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png in Resources */,
@@ -776,20 +762,16 @@
 				4A0E71E61C32EE8200BCF6B8 /* 1435537202_54.png in Resources */,
 				4A0E71EC1C32EE8200BCF6B8 /* 798-filter-toolbar@2x.png in Resources */,
 				222DF3331B659056003410E7 /* Trail-Schwarzenberg9.gpx in Resources */,
-				4AC377761BB887150027DFC7 /* InselhuepfenTag1.gpx in Resources */,
 				4A0E71F41C32EE8200BCF6B8 /* Emergency_access_point.png in Resources */,
 				222DF3321B659056003410E7 /* Trail-Schwarzenberg8.gpx in Resources */,
-				4AC3777D1BB887150027DFC7 /* Stari-Grad-15.9.15.gpx in Resources */,
 				222DF33B1B659056003410E7 /* Trail-Winterberg1.gpx in Resources */,
 				222DF3421B659976003410E7 /* Tour-Urwald.gpx in Resources */,
 				222DF32B1B659056003410E7 /* Trail-Schwarzenberg1.gpx in Resources */,
 				4A0E71EE1C32EE8200BCF6B8 /* 852-map-toolbar.png in Resources */,
 				222DF3231B659056003410E7 /* Route-pur-blau-gpx.gpx in Resources */,
 				222DF3311B659056003410E7 /* Trail-Schwarzenberg7.gpx in Resources */,
-				4AC377771BB887150027DFC7 /* InselhuepfenTag2.gpx in Resources */,
 				4A0E71F01C32EE8200BCF6B8 /* 852-map-toolbar@3x.png in Resources */,
 				222DF32F1B659056003410E7 /* Trail-Schwarzenberg5.gpx in Resources */,
-				4AC377781BB887150027DFC7 /* InselhuepfenTag4.gpx in Resources */,
 				4A0E71E91C32EE8200BCF6B8 /* 760-refresh-3@2x.png in Resources */,
 				222DF3341B659056003410E7 /* Trail-Schwarzenberg10.gpx in Resources */,
 				222DF3301B659056003410E7 /* Trail-Schwarzenberg6.gpx in Resources */,
@@ -803,7 +785,6 @@
 				4A0E71F51C32EE8200BCF6B8 /* Emergeny.png in Resources */,
 				22146EB11B6A855800CE0360 /* Tour-KLB-SB.gpx in Resources */,
 				4A0E71FA1C32EEF400BCF6B8 /* Tour-t1387067_Sieben-Weiher-Tour.gpx in Resources */,
-				4AC377791BB887150027DFC7 /* InselhuepfenTag5.gpx in Resources */,
 				222DF32E1B659056003410E7 /* Trail-Schwarzenberg4.gpx in Resources */,
 				222DF3351B659056003410E7 /* Trail-Schwarzenberg11.gpx in Resources */,
 				222DF3281B659056003410E7 /* Trail-KlbTrail.gpx in Resources */,
@@ -824,7 +805,6 @@
 				4A0E71EF1C32EE8200BCF6B8 /* 852-map-toolbar@2x.png in Resources */,
 				4A0E71F81C32EE8200BCF6B8 /* white-193-location-arrow@2x.png in Resources */,
 				222DF3251B659056003410E7 /* Trail-AmHomburg1.gpx in Resources */,
-				4AC377801BB88ABF0027DFC7 /* InselhuepfenTag3.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
