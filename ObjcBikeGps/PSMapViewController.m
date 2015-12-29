@@ -71,6 +71,10 @@
         self.mapView.autoresizingMask =  self.view.autoresizingMask;
         self.mapView.delegate = self;
         self.mapView.showsUserLocation = NO;
+        if ([self.mapView respondsToSelector:@selector(showsScale:)])
+        {
+            self.mapView.showsScale = YES;
+        }
         [self.view addSubview:self.mapView];
 
 #ifdef SHOW_DEBUG_LABELS_ON_MAP
@@ -336,6 +340,7 @@
     frame.size.height -= frame.origin.y ;
 
     self.timeTillHomeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-20, frame.size.width, 20)];
+    self.timeTillHomeLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     self.timeTillHomeLabel.textAlignment = NSTextAlignmentCenter;
     self.timeTillHomeLabel.backgroundColor = [UIColor clearColor];
     self.timeTillHomeLabel.shadowColor = [UIColor whiteColor];
@@ -357,40 +362,41 @@
 
     UIImage *layersImage = [UIImage imageNamed:@"1064-layers-4"];
     UIButton *layersButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    frame.origin.y = 48;
-    frame.origin.x = self.mapView.frame.size.width - layersImage.size.width - 15;
-    frame.size.width = layersImage.size.width;
-    frame.size.height =  layersImage.size.height;
+    frame.origin.y = 15;
+    frame.origin.x = self.mapView.frame.size.width - 48 - 15;
+    frame.size.width = 48; // layersImage.size.width;
+    frame.size.height =  48; // layersImage.size.height;
 
     layersButton.frame = frame;
-    [layersButton setBackgroundColor:[UIColor whiteColor]];
+    [layersButton setBackgroundColor: [UIColor colorWithWhite:1 alpha:0.75]];
     [layersButton setImage:layersImage forState:UIControlStateNormal];
+    layersButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     [layersButton addTarget:self action:@selector(showMapSwitcherButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView addSubview:layersButton];
 
 
-    UIImage *syncImage = [UIImage imageNamed:@"760-refresh-3"];
+    UIImage *syncImage = [UIImage imageNamed:@"gray-1061-golf-shot"];
     UIButton *syncButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    frame.origin.y = 48;
+    frame.origin.y = layersButton.frame.origin.y;
     frame.origin.x = 15;
-    frame.size.width = syncImage.size.width;
-    frame.size.height =  syncImage.size.height;
+    frame.size.width = 48; //syncImage.size.width;
+    frame.size.height =  48; //syncImage.size.height;
 
     syncButton.frame = frame;
-    [syncButton setBackgroundColor:[UIColor whiteColor]];
+    [syncButton setBackgroundColor: [UIColor colorWithWhite:1 alpha:0.75]];
     [syncButton setImage:syncImage forState:UIControlStateNormal];
     [syncButton addTarget:self action:@selector(syncOsmMapButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView addSubview:syncButton];
 
-    UIImage *syncPoisImage = [UIImage imageNamed:@"Emergeny"];
+    UIImage *syncPoisImage = [UIImage imageNamed:@"gray-940-pin"];
     UIButton *syncPoisButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    frame.origin.y = syncButton.frame.origin.y;
-    frame.origin.x = 15 + syncImage.size.width  + 15;
-    frame.size.width = syncImage.size.width;
-    frame.size.height =  syncImage.size.height;
+    frame.origin.y = layersButton.frame.origin.y;
+    frame.origin.x = syncButton.frame.origin.x + syncButton.frame.size.width + 15;
+    frame.size.width = 48; //syncImage.size.width;
+    frame.size.height =  48; //syncImage.size.height;
 
     syncPoisButton.frame = frame;
-//    [syncPoisButton setBackgroundColor:[UIColor whiteColor]];
+    [syncPoisButton setBackgroundColor: [UIColor colorWithWhite:1 alpha:0.75]];
     [syncPoisButton setImage:syncPoisImage forState:UIControlStateNormal];
     [syncPoisButton addTarget:self action:@selector(syncOsmPoisButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView addSubview:syncPoisButton];
@@ -403,8 +409,9 @@
     frame.size.height =  50;
     [self.locationButton setTitle:@"Track" forState:UIControlStateNormal];
     self.locationButton.frame = frame;
-
+    self.locationButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     [self.locationButton addTarget:self action:@selector(locationButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+
     [self.mapView addSubview:self.locationButton];
 }
 
@@ -529,7 +536,8 @@
     NSString *boundingBoxString = [NSString stringWithFormat:@"%.3f,%.3f,%.3f,%.3f", [[boundingBox objectAtIndex:1] floatValue], [[boundingBox objectAtIndex:0] floatValue], [[boundingBox objectAtIndex:3] floatValue], [[boundingBox objectAtIndex:2] floatValue]];
     
     
-    NSString *string = [NSString stringWithFormat:@"http://overpass.osm.rambler.ru/cgi/xapi_meta?way[highway=path][bbox=%@]", boundingBoxString];
+//    NSString *string = [NSString stringWithFormat:@"http://overpass.osm.rambler.ru/cgi/xapi_meta?way[highway=path][bbox=%@]", boundingBoxString];
+    NSString *string = [NSString stringWithFormat:@"http://overpass.osm.rambler.ru/cgi/xapi_meta?way[mtb:scale=*][bbox=%@]", boundingBoxString];
     //    NSString *string = [NSString stringWithFormat:@"http://overpass.osm.rambler.ru/cgi/xapi_meta?node[highway=emergency_access_point][bbox=%@]", boundingBoxString];
     NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -677,7 +685,7 @@
 - (void) tileClassChanged
 {
     NSString *tileClassString = [[NSUserDefaults standardUserDefaults] objectForKey:@"TILE_CLASS"];
-    NSLog(@"TileClass = %@", tileClassString);
+//    NSLog(@"TileClass = %@", tileClassString);
 
     if (!tileClassString)
     {
@@ -708,7 +716,7 @@
     if (object)
     {
         NSString *urlTemplate = [tileClass urlTemplate];
-        NSLog(@"URL Template = %@", urlTemplate);
+//        NSLog(@"URL Template = %@", urlTemplate);
         overlay = [(PSTileOverlay *) [tileClass alloc] initWithURLTemplate:urlTemplate];
     }
     else
@@ -735,12 +743,12 @@
     {
         if (self.track)
         {
-            NSLog(@"Readding track");
+//            NSLog(@"Readding track");
             [self addTrack:self.track];
         }
         else if (self.tracks)
         {
-            NSLog(@"Readding tracks");
+//            NSLog(@"Readding tracks");
             for (PSTrack *track in self.tracks)
             {
                 [self addTrack:track];
@@ -926,6 +934,28 @@
 - (void)mapViewDidStopLocatingUser:(MKMapView *)mapView
 {
     DLogFuncName();
+}
+
+
+//- (void)viewWillLayoutSubviews
+//{
+//    DLogFuncName();
+//    [super viewWillLayoutSubviews];
+//}
+
+
+- (void)viewWillLayoutSubviews
+{
+    DLogFuncName();
+    [super viewWillLayoutSubviews];
+
+    CGRect windowFrame = [[[UIApplication sharedApplication] keyWindow] frame];
+    CGRect frame = self.view.frame;
+    frame.size.width = windowFrame.size.width;
+    frame.size.height = windowFrame.size.height;
+    self.view.frame =  frame;
+
+
 }
 
 
@@ -1134,12 +1164,12 @@
     CLLocationDistance vdistanceInMeters = [upperLeftLocation distanceFromLocation:bottomLeftLocation];
 
     CGFloat verticalDistanceInKm = vdistanceInMeters / 1000;
-    NSLog(@"vDistance in Meters= %.2f", verticalDistanceInKm);
+//    NSLog(@"vDistance in Meters= %.2f", verticalDistanceInKm);
     CGFloat horizontalDistanceInKm = hdistanceInMeters / 1000;
     
-    NSLog(@"hdistanceInMeters in Meters= %.2f", horizontalDistanceInKm);
+//    NSLog(@"hdistanceInMeters in Meters= %.2f", horizontalDistanceInKm);
     CGFloat area = (verticalDistanceInKm*horizontalDistanceInKm);
-    NSLog(@"Square in KMeters= %.2f", area);
+//    NSLog(@"Square in KMeters= %.2f", area);
 
     int size = 0;
     self.distannceLabelWidth.text = [NSString stringWithFormat:@"%.2f km (Size: %f)", horizontalDistanceInKm, size];
@@ -1179,7 +1209,7 @@
     [self calculateMapArea];
 
     MKZoomScale currentZoomScale = self.mapView.bounds.size.width / self.mapView.visibleMapRect.size.width;
-    NSLog(@"CurrentZoomScale = %f | PSZoomScale = %f", currentZoomScale, self.psZoomScale);
+//    NSLog(@"CurrentZoomScale = %f | PSZoomScale = %f", currentZoomScale, self.psZoomScale);
 
     NSArray * boundingBox = [self getBoundingBox:self.mapView.visibleMapRect];
     NSString *boundingBoxString = [NSString stringWithFormat:@"%.3f,%.3f,%.3f,%.3f", [[boundingBox objectAtIndex:1] floatValue], [[boundingBox objectAtIndex:0] floatValue], [[boundingBox objectAtIndex:3] floatValue], [[boundingBox objectAtIndex:2] floatValue]];
@@ -1241,7 +1271,7 @@
 
             MKCoordinateRegion mkcr = MKCoordinateRegionForMapRect(zoomRect);
             CGRect cgr = [self.mapView convertRegion:mkcr toRectToView:self.view];
-            NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
+//            NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
 //            [self.mapView setVisibleMapRect:zoomRect animated:YES];
         }
     }
@@ -1536,7 +1566,7 @@
 
     if ([overlay isKindOfClass:[PSTrackOverlay class]])
     {
-        NSLog(@"TrackOverlay");
+//        NSLog(@"TrackOverlay");
 
         PSTrackOverlay *trackOverlay = overlay;
 
@@ -1561,7 +1591,7 @@
             [[[UIAlertView alloc] initWithTitle:@"rendererForOverlay" message:@"not defined" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
         });
 
-        NSLog(@"PolyLine Overlay");
+//        NSLog(@"PolyLine Overlay");
 
         CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
         CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
@@ -1632,7 +1662,7 @@
 
     if ([annotation isKindOfClass:[PSDistanceAnnotation class]])
     {
-        NSLog(@"view For Distance Annotation");
+//        NSLog(@"view For Distance Annotation");
         static NSString *reuseIdentifier = @"DISTANCE";
         MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
         annotationView.canShowCallout = NO;
@@ -1660,7 +1690,7 @@
 
     if ([annotation isKindOfClass:[PSWayPointAnnotation class]])
     {
-        NSLog(@"view For WayPoint Annotation");
+//        NSLog(@"view For WayPoint Annotation");
 
         static NSString *reuseIdentifier = @"WAYPOINT";
         MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
@@ -1687,7 +1717,7 @@
 
     if ([annotation isKindOfClass:[PSDirectionAnnotation class]])
     {
-        NSLog(@"view For Distance Annotation");
+//        NSLog(@"view For Distance Annotation");
         static NSString *reuseIdentifier = @"DIRECTION";
         PSDirectionAnnotation *directionAnnotation = annotation;
         MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
@@ -1704,7 +1734,7 @@
 
     if ([annotation isKindOfClass:[PSPoi class]])
     {
-        NSLog(@"view For POI Annotation");
+//        NSLog(@"view For POI Annotation");
 
         static NSString *reuseIdentifier = @"POI";
         MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
@@ -1737,7 +1767,7 @@
 
     if ([annotation isKindOfClass:[MKPointAnnotation class]])
     {
-        NSLog(@"view For MKPoint Annotation");
+//        NSLog(@"view For MKPoint Annotation");
 
         MKPointAnnotation *pointAnnotation = (MKPointAnnotation *)annotation;
         if ([pointAnnotation.title isEqualToString:@"Finish"])

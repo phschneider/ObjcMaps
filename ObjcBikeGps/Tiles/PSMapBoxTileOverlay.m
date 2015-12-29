@@ -20,7 +20,7 @@
     NSString *format = @".png";
     NSString *urlString = [NSString stringWithFormat:@"https://api.mapbox.com/v4/%@/{z}/{x}/{y}%@?access_token=%@", [self mapId], format, accessToken];
 
-    NSLog(@"URL = %@",urlString);
+//    NSLog(@"URL = %@",urlString);
     return urlString;
 }
 
