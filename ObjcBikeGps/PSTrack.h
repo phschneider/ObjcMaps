@@ -21,6 +21,7 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 @property (nonatomic, readonly) NSString *filename;
 
 @property (nonatomic) CGFloat trackLength;
+@property (nonatomic) CGFloat trackDuration;
 @property (nonatomic) PSTrackType trackType;
 @property (nonatomic) CGFloat totalUp;
 @property (nonatomic) NSArray *elevationData;
@@ -44,6 +45,9 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 - (int)numberOfCoordinates;
 - (CLLocationCoordinate2D*)coordinates;
 - (NSString *)distanceInKm;
+
+- (NSString *)readableTrackDuration;
+
 - (MKPolyline *)route;
 - (CGFloat)distanceFromLocation:(CLLocation *)location;
 - (MKMapPoint)start;

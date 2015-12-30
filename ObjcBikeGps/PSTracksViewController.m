@@ -3,7 +3,6 @@
 // Copyright (c) 2015 phschneider.net. All rights reserved.
 //
 
-#import <BFNavigationBarDrawer/BFNavigationBarDrawer.h>
 #import "PSTracksViewController.h"
 #import "PSTrack.h"
 #import "PSTrackStore.h"
@@ -203,8 +202,6 @@
              break;
      };
 
-    [self.mapViewController clearMap];
-
     //    NSArray *clearableAnnotations = [self.mapView overlaysInLevel:MKOverlayLevelAboveRoads];
 
 //    [self.mapViewController.mapView removeOverlays:self.mapViewController.mapView.overlays];
@@ -243,7 +240,6 @@
         self.tableView.hidden = YES;
         self.mapViewController.view.hidden = NO;
 
-        [self.mapViewController clearMap];
         [self.mapViewController setTracks:self.visibleTracks];
 //        [self.mapViewController.mapView layoutSubviews];
         if (self.mapViewController.view.superview == nil)
@@ -299,7 +295,7 @@
     UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     PSTrack *track = [self.visibleTracks objectAtIndex:indexPath.row];
     cell.textLabel.text = [track filename];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ \t\t\tup: %@\tdown: %@ (%d)", [track distanceInKm], [track roundedUp], [track roundedDown], [[track elevationData] count] ];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ \t\t\tup: %@\tdown: %@ (%d) %@", [track distanceInKm], [track roundedUp], [track roundedDown], [[track elevationData] count], [track readableTrackDuration]];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     return cell;
@@ -319,7 +315,9 @@
     }
 
     PSTrack *track = [self.visibleTracks objectAtIndex:indexPath.row];
-    PSTrackViewController *trackViewController = [[PSTrackViewController alloc] initWithTrack:track];
+    PSMapViewController *trackViewController = [[PSMapViewController alloc] initWithTrack:track];
+
+//    PSTrackViewController *trackViewController = [[PSTrackViewController alloc] initWithTrack:track];
     [self.navigationController pushViewController:trackViewController animated:YES];
 }
 

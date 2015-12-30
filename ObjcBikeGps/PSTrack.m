@@ -6,6 +6,7 @@
 #import <XMLDictionary/XMLDictionary.h>
 #import <MapKit/MapKit.h>
 #import <Ono/ONOXMLDocument.h>
+#import <Foundation/Foundation.h>
 #import "PSTrack.h"
 #import "PSDistanceAnnotation.h"
 #import "PSTrackOverlay.h"
@@ -375,6 +376,7 @@
         }
 
     self.trackLength = (float) distance;
+    self.trackDuration = ((float)distance/DEFAULT_SPEED_IN_KM);
     self.pointArrCount = pointArrCount;
     
     self.elevationData = elevatioNData;
@@ -497,6 +499,21 @@
 - (NSString*)distanceInKm
 {
     return [NSString stringWithFormat:@"%0.2fkm",(self.trackLength / 1000.00)];
+}
+
+
+- (NSString*)readableTrackDuration
+{
+    DLogFuncName();
+
+    if (self.trackDuration < 1.0)
+    {
+        return [NSString stringWithFormat:@"%.2fm",(self.trackDuration * 60)];
+    }
+    else
+    {
+        return [NSString stringWithFormat:@"%.2fh",self.trackDuration];
+    }
 }
 
 

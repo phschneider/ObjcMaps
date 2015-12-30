@@ -95,7 +95,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     DLogFuncName();
-    return 5;
+    return 6;
 }
 
 
@@ -124,18 +124,22 @@
             value = [self.track distanceInKm];
             break;
         case 1:
+            text = [NSString stringWithFormat:@"Duration:"];
+            value = [self.track readableTrackDuration];
+            break;
+        case 2:
             text = [NSString stringWithFormat:@"Up"];
             value = [self.track roundedUp];
             break;
-        case 2:
+        case 3:
             text = [NSString stringWithFormat:@"Down"];
             value = [self.track roundedDown];
             break;
-        case 3:
+        case 4:
             text = [NSString stringWithFormat:@"min"];
             value = [NSString stringWithFormat:@"%.0fm", [self.track minElevationData]];
             break;
-        case 4:
+        case 5:
             text = [NSString stringWithFormat:@"max"];
             value = [NSString stringWithFormat:@"%.0fm", [self.track maxElevationData]];
             break;
