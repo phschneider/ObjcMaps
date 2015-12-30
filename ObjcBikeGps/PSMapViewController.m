@@ -523,11 +523,8 @@
 - (void)syncOsmMapButtonTapped:(id)sender
 {
     DLogFuncName();
-#warning - dieser teil sollte manuell ausgelöst werden, ansonsten gehen zuviele anfragen raus, welche evtl in einen TimeOut laufen
-    // 1
+
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:NO];
-    //    HUD.mode = MBProgressHUDModeIndeterminate;
-    HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
     
     UITapGestureRecognizer *HUDSingleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(singleTap:)];
     [HUD addGestureRecognizer:HUDSingleTap];
@@ -542,19 +539,40 @@
     NSURL *url = [NSURL URLWithString:string];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    // 2
+    
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     // Make sure to set the responseSerializer correctly
     //    operation.responseSerializer = [AFXMLParserResponseSerializer serializer];
 
     [operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
-        double progress = (double)totalBytesRead / (double)totalBytesExpectedToRead;
-        dispatch_async(dispatch_get_main_queue(),^{
-            MBProgressHUD *HUD = [MBProgressHUD HUDForView:self.view];
-            HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
-            HUD.labelText = [NSString stringWithFormat:@"SR %lld/%lld", totalBytesRead / 1024, totalBytesExpectedToRead / 1024];
-            HUD.progress = (double) totalBytesRead / (double) totalBytesExpectedToRead;
-        });
+        if (totalBytesExpectedToRead == -1)
+        {
+            dispatch_async(dispatch_get_main_queue(),^{
+                MBProgressHUD *HUD = [MBProgressHUD HUDForView:self.view];
+                HUD.mode = MBProgressHUDModeIndeterminate;
+                HUD.labelText = [NSString stringWithFormat:@"%lld", totalBytesRead];
+            });
+        }
+        else
+        {
+            if (totalBytesExpectedToRead == totalBytesRead)
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    MBProgressHUD *HUD = [MBProgressHUD HUDForView:self.view];
+                    [HUD hide:NO];
+                });
+            }
+            else
+            {
+                double progress = (double)totalBytesRead / (double)totalBytesExpectedToRead;
+                dispatch_async(dispatch_get_main_queue(),^{
+                    MBProgressHUD *HUD = [MBProgressHUD HUDForView:self.view];
+                    HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
+                    HUD.labelText = [NSString stringWithFormat:@"%lld/%lld", totalBytesRead / 1024, totalBytesExpectedToRead / 1024];
+                    HUD.progress = progress;
+                });
+            }
+        }
     }];
 
 
@@ -562,59 +580,47 @@
     // https://github.com/AFNetworking/AFOnoResponseSerializer
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        // 3
-        
         NSData *data = responseObject;
         NSError *error;
         
         ONOXMLDocument *document = [ONOXMLDocument XMLDocumentWithData:data error:&error];
-        //        for (ONOXMLElement *element in document.rootElement.children) {
-        //            NSLog(@"%@: %@", element.tag, element.attributes);
-        //        }
-
-
         id xPath = [document functionResultByEvaluatingXPath:@"count(//way)"];
-        __block double resultCount = [xPath numericValue];
-        __block double current = 0;
+        __block int resultCount = [xPath numericValue];
+        __block int current = 0;
 
         NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *docsDir = [dirPaths objectAtIndex:0];
         NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.xml",boundingBoxString]]];
         [data writeToFile:databasePath atomically:YES];
         
+        __block NSMutableArray *trackArray = [[NSMutableArray alloc] initWithArray:self.tracks];
+        
         NSString *xPathString = @"//way";
         [document enumerateElementsWithXPath:xPathString usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
-            //            NSLog(@"%@", element);
             current++;
 
-            MBProgressHUD *HUD = [MBProgressHUD HUDForView:self.view];
-            HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
-            HUD.labelText = [NSString stringWithFormat:@"R %lld/%lld", current, resultCount];
-            HUD.progress = (double)current / (double)resultCount;;
-
-        
-            __block PSTrack *track = [[PSTrack alloc] initWithXmlData:element document:document];
-            dispatch_async(dispatch_get_main_queue(),^{
-
-                [self setTracks: @[ track ]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                MBProgressHUD *HUD = [MBProgressHUD HUDForView:self.view];
+                HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
+                HUD.labelText = [NSString stringWithFormat:@"verarbeite %d von %d", current, resultCount];
+                HUD.progress = (double)current / (double)resultCount;
             });
+           
+            [trackArray addObject:[[PSTrack alloc] initWithXmlData:element document:document]];
+            
+            if (current == resultCount)
+            {
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+                dispatch_async(dispatch_get_main_queue(),^{
+                    [self setTracks: [trackArray copy]];
+                });
+            }
         }];
         
-        
-        
-        //        [self clearMap];
-        
-        
-        //        [document enumerateElementsWithXPath:@"//Content" usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
-        //            NSLog(@"%@", element);
-        //        }];
-        
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        // 4
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Weather"
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving OSM Data ..."
                                                             message:[error localizedDescription]
                                                            delegate:nil
                                                   cancelButtonTitle:@"Ok"
@@ -765,53 +771,13 @@
     DLogFuncName();
     _tracks = tracks;
 
+    [self clearMap];
+
     for (PSTrack *track in tracks)
     {
         [self addTrack:track];
-        [self.mapView addAnnotations:[track distanceAnnotations]];
     }
 
-
-//    MKMapRect zoomRect = MKMapRectNull;
-//    for (id <MKAnnotation> annotation in self.mapView.annotations)
-//    {
-//        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
-//        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 1000);
-//        if (MKMapRectIsNull(zoomRect)) {
-//            zoomRect = pointRect;
-//        } else {
-//            zoomRect = MKMapRectUnion(zoomRect, pointRect);
-//        }
-//
-//        double minMapHeight = 10; //choose some value that fit your needs
-//        double minMapWidth = 10;  //the same as above
-//        BOOL needChange = NO;
-//
-//        double x = MKMapRectGetMinX(zoomRect);
-//        double y = MKMapRectGetMinY(zoomRect);
-//        double w = MKMapRectGetWidth(zoomRect);
-//        double h = MKMapRectGetHeight(zoomRect);  //here was an error!!
-//
-//        if(MKMapRectGetHeight(zoomRect) < minMapHeight){
-//            x -= minMapWidth/2;
-//            w += minMapWidth/2;
-//            needChange = YES;
-//        }
-//        if(MKMapRectGetWidth(zoomRect) < minMapWidth){
-//            y -= minMapHeight/2;
-//            h += minMapHeight/2;
-//            needChange = YES;
-//        }
-//        if(needChange){
-//            zoomRect = MKMapRectMake(x, y, w, h);
-//        }
-//
-//        MKCoordinateRegion mkcr = MKCoordinateRegionForMapRect(zoomRect);
-//        CGRect cgr = [self.mapView convertRegion:mkcr toRectToView:self.view];
-//        NSLog(@"ZoomRect = %@", NSStringFromCGRect(cgr));
-//        [self.mapView setVisibleMapRect:zoomRect animated:YES];
-//    }
-//
     [self zoomToOverlays];
 }
 
@@ -823,11 +789,11 @@
 
     self.title = [track filename];
 
-
     [self.mapView addAnnotations:[self.track distanceAnnotations]];
     [self.mapView addAnnotations:[self.track wayPoints]];
     [self.mapView addAnnotations:[self.track directionAnnotations]];
-    [self addTrack:self.track];;
+    [self addTrack:self.track];
+    
     [self zoomToPolyLine:self.mapView polyline:[track route] animated:YES];
 }
 
@@ -838,7 +804,19 @@
     MKPolyline *route = [track route];
     [self.mapView addOverlay:route];
 
-    if (track.trackType != PSTrackTypeOsm)
+    if (track.trackType == PSTrackTypeOsm)
+    {
+        NSArray *directionAnnotations = [track directionAnnotations];
+        if ([directionAnnotations count] > 3)
+        {
+             [self.mapView addAnnotations:@[ [directionAnnotations firstObject] , [directionAnnotations lastObject] ]];
+        }
+        else  if ([directionAnnotations count] > 0)
+        {
+             [self.mapView addAnnotations:@[ [directionAnnotations firstObject]] ];
+        }
+    }
+    else if (track.trackType != PSTrackTypeOsm)
     {
         CLLocationCoordinate2D annocoord = MKCoordinateForMapPoint([track start]);
 //    MKAnnotationView *startAnnotation = [[MKAnnotationView alloc]init];
@@ -860,9 +838,7 @@
         [self.mapView addAnnotation:finishAnnotation];
     }
 
-    // MKCircle Skaliert mit :(
-//    MKCircle *finishOverlay = [MKCircle circleWithCenterCoordinate:finishAnnocoord radius:150];
-//    [self.mapView addOverlay:finishOverlay];
+    
 
 #ifdef USE_FLYOVER
     int padding = 30;
