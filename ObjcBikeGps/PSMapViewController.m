@@ -27,6 +27,7 @@
 #import "PSWayPointAnnotation.h"
 #import "PSTrackStore.h"
 #import "PSDirectionAnnotation.h"
+#import "PSTrackViewController.h"
 
 
 @interface PSMapViewController ()
@@ -88,6 +89,25 @@
         UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGestureRecognizerFired:)];
         [self.mapView addGestureRecognizer:longPressGestureRecognizer];
 
+        
+        // Add Gesture Recognizer to MapView to detect taps
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+        
+        // we require all gesture recognizer except other single-tap gesture recognizers to fail
+        for (UIGestureRecognizer *gesture in self.mapView.gestureRecognizers) {
+            if ([gesture isKindOfClass:[UITapGestureRecognizer class]]) {
+                UITapGestureRecognizer *systemTap = (UITapGestureRecognizer *)gesture;
+                
+                if (systemTap.numberOfTapsRequired > 1) {
+                    [tap requireGestureRecognizerToFail:systemTap];
+                }
+            } else {
+                [tap requireGestureRecognizerToFail:gesture];
+            }
+        }
+        
+        [self.mapView addGestureRecognizer:tap];
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tileClassChanged) name:@"USERDEFAULTS_SETTINGS_TILECLASS_CHANGED" object:nil];
 #ifdef INSELHUEPFEN_MODE
         for (NSArray *coordArray in @[  @[@43.515,@16.2488], //Trogir
@@ -897,6 +917,110 @@
     region.span.longitudeDelta = 0.005f;
     region.span.longitudeDelta = 0.005f;
     [self.mapView setRegion:region animated:YES];
+}
+
+
+#pragma mark - 
+/** Returns the distance of |pt| to |poly| in meters
+ *
+ * from http://paulbourke.net/geometry/pointlineplane/DistancePoint.java
+ *
+ */
+- (double)distanceOfPoint:(MKMapPoint)pt toPoly:(MKPolyline *)poly
+{
+    double distance = MAXFLOAT;
+    for (int n = 0; n < poly.pointCount - 1; n++) {
+        
+        MKMapPoint ptA = poly.points[n];
+        MKMapPoint ptB = poly.points[n + 1];
+        
+        double xDelta = ptB.x - ptA.x;
+        double yDelta = ptB.y - ptA.y;
+        
+        if (xDelta == 0.0 && yDelta == 0.0) {
+            
+            // Points must not be equal
+            continue;
+        }
+        
+        double u = ((pt.x - ptA.x) * xDelta + (pt.y - ptA.y) * yDelta) / (xDelta * xDelta + yDelta * yDelta);
+        MKMapPoint ptClosest;
+        if (u < 0.0) {
+            
+            ptClosest = ptA;
+        }
+        else if (u > 1.0) {
+            
+            ptClosest = ptB;
+        }
+        else {
+            
+            ptClosest = MKMapPointMake(ptA.x + u * xDelta, ptA.y + u * yDelta);
+        }
+        
+        distance = MIN(distance, MKMetersBetweenMapPoints(ptClosest, pt));
+    }
+    
+    return distance;
+}
+
+
+/** Converts |px| to meters at location |pt| */
+- (double)metersFromPixel:(NSUInteger)px atPoint:(CGPoint)pt
+{
+    CGPoint ptB = CGPointMake(pt.x + px, pt.y);
+    
+    CLLocationCoordinate2D coordA = [self.mapView convertPoint:pt toCoordinateFromView:self.mapView];
+    CLLocationCoordinate2D coordB = [self.mapView convertPoint:ptB toCoordinateFromView:self.mapView];
+    
+    return MKMetersBetweenMapPoints(MKMapPointForCoordinate(coordA), MKMapPointForCoordinate(coordB));
+}
+
+
+#define MAX_DISTANCE_PX 22.0f
+- (void)handleTap:(UITapGestureRecognizer *)tap
+{
+    if ((tap.state & UIGestureRecognizerStateRecognized) == UIGestureRecognizerStateRecognized) {
+        
+        // Get map coordinate from touch point
+        CGPoint touchPt = [tap locationInView:self.mapView];
+        CLLocationCoordinate2D coord = [self.mapView convertPoint:touchPt toCoordinateFromView:self.mapView];
+        
+        double maxMeters = [self metersFromPixel:MAX_DISTANCE_PX atPoint:touchPt];
+        
+        float nearestDistance = MAXFLOAT;
+        MKPolyline *nearestPoly = nil;
+        
+        // for every overlay ...
+        for (id <MKOverlay> overlay in self.mapView.overlays) {
+            
+            // .. if MKPolyline ...
+            if ([overlay isKindOfClass:[MKPolyline class]]) {
+                
+                // ... get the distance ...
+                float distance = [self distanceOfPoint:MKMapPointForCoordinate(coord)
+                                                toPoly:overlay];
+                
+                // ... and find the nearest one
+                if (distance < nearestDistance) {
+                    
+                    nearestDistance = distance;
+                    nearestPoly = overlay;
+                }
+            }
+        }
+        
+        if (nearestDistance <= maxMeters) {
+            if ([nearestPoly isKindOfClass:[PSTrackOverlay class]])
+            {
+                PSTrackOverlay *trackOverlay = nearestPoly;
+                PSTrackViewController *trackViewController = [[PSTrackViewController alloc] initWithTrack:trackOverlay.track];
+                [self.navigationController pushViewController:trackViewController animated:YES];
+            }
+            NSLog(@"Touched poly: %@\n"
+                  "    distance: %f", nearestPoly, nearestDistance);
+        }
+    }
 }
 
 

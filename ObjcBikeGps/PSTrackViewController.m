@@ -112,10 +112,11 @@
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellIdentifier" forIndexPath:indexPath];
 //    cell.textLabel.text = @"Test";
 
-
     UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
     NSString *text = @"-";
     NSString *value = @"-";
+    cell.userInteractionEnabled = NO;
+    
     switch (indexPath.row)
     {
         case 0:
