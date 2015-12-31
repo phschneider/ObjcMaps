@@ -609,6 +609,23 @@
         id xPath = [document functionResultByEvaluatingXPath:@"count(//way)"];
         __block int resultCount = [xPath numericValue];
         __block int current = 0;
+        
+        if (resultCount == 0)
+        {
+            dispatch_async(dispatch_get_main_queue(),^{
+                MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:NO];
+                HUD.mode = MBProgressHUDModeText;
+                HUD.labelText = [NSString stringWithFormat:@"No Data"];
+                
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    // Do something...
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                });
+                
+            });
+            return;
+        }
 
         dispatch_async(dispatch_get_main_queue(),^{
             MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:NO];
@@ -663,12 +680,17 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving OSM Data ..."
-                                                            message:[error localizedDescription]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Ok"
-                                                  otherButtonTitles:nil];
-        [alertView show];
+        dispatch_async(dispatch_get_main_queue(),^{
+            MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:NO];
+            HUD.mode = MBProgressHUDModeText;
+            HUD.labelText = [NSString stringWithFormat:@"%@",[error localizedDescription]];
+            
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                // Do something...
+                [MBProgressHUD hideHUDForView:self.view animated:YES];
+            });
+        });
     }];
     
     // 5
