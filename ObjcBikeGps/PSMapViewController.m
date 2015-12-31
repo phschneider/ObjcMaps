@@ -72,12 +72,14 @@
         self.mapView.autoresizingMask =  self.view.autoresizingMask;
         self.mapView.delegate = self;
         self.mapView.showsUserLocation = NO;
-        if ([self.mapView respondsToSelector:@selector(showsScale:)])
+        SEL showScaleSelector = NSSelectorFromString(@"showsScale");
+        if ([self.mapView respondsToSelector:showScaleSelector])
         {
+//            [self.mapView performSelector:showScaleSelector withObject:@YES];
             self.mapView.showsScale = YES;
         }
         [self.view addSubview:self.mapView];
-
+        
 #ifdef SHOW_DEBUG_LABELS_ON_MAP
         [self addDebugLabels];
 #endif
@@ -380,53 +382,59 @@
     frame.origin.y = 44 + 20;
     frame.size.height -= frame.origin.y;
 
+    CGFloat originY = self.mapView.frame.size.height - 50 - 15;
+    CGFloat originX = 15;
+    CGFloat height = 48;
+    
     UIImage *layersImage = [UIImage imageNamed:@"1064-layers-4"];
     UIButton *layersButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    frame.origin.y = 15;
-    frame.origin.x = self.mapView.frame.size.width - 48 - 15;
-    frame.size.width = 48; // layersImage.size.width;
-    frame.size.height =  48; // layersImage.size.height;
+    frame.origin.y = originY;
+    frame.origin.x = self.mapView.frame.size.width - height - originX;
+    frame.size.width = height; // layersImage.size.width;
+    frame.size.height =  height; // layersImage.size.height;
 
     layersButton.frame = frame;
     [layersButton setBackgroundColor: [UIColor colorWithWhite:1 alpha:0.75]];
     [layersButton setImage:layersImage forState:UIControlStateNormal];
-    layersButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+    layersButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
     [layersButton addTarget:self action:@selector(showMapSwitcherButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView addSubview:layersButton];
 
 
     UIImage *syncImage = [UIImage imageNamed:@"gray-1061-golf-shot"];
     UIButton *syncButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    frame.origin.y = layersButton.frame.origin.y;
-    frame.origin.x = 15;
-    frame.size.width = 48; //syncImage.size.width;
-    frame.size.height =  48; //syncImage.size.height;
+    frame.origin.y = originY;
+    frame.origin.x = originX;
+    frame.size.width = height; //syncImage.size.width;
+    frame.size.height =  height; //syncImage.size.height;
 
     syncButton.frame = frame;
     [syncButton setBackgroundColor: [UIColor colorWithWhite:1 alpha:0.75]];
     [syncButton setImage:syncImage forState:UIControlStateNormal];
+    syncButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin |UIViewAutoresizingFlexibleRightMargin;
     [syncButton addTarget:self action:@selector(syncOsmMapButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView addSubview:syncButton];
 
     UIImage *syncPoisImage = [UIImage imageNamed:@"gray-940-pin"];
     UIButton *syncPoisButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    frame.origin.y = layersButton.frame.origin.y;
-    frame.origin.x = syncButton.frame.origin.x + syncButton.frame.size.width + 15;
-    frame.size.width = 48; //syncImage.size.width;
-    frame.size.height =  48; //syncImage.size.height;
+    frame.origin.y = originY;
+    frame.origin.x = syncButton.frame.origin.x + syncButton.frame.size.width + originX;
+    frame.size.width = height; //syncImage.size.width;
+    frame.size.height =  height; //syncImage.size.height;
 
     syncPoisButton.frame = frame;
     [syncPoisButton setBackgroundColor: [UIColor colorWithWhite:1 alpha:0.75]];
     [syncPoisButton setImage:syncPoisImage forState:UIControlStateNormal];
+    syncPoisButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin;
     [syncPoisButton addTarget:self action:@selector(syncOsmPoisButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView addSubview:syncPoisButton];
 
     self.locationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     self.locationButton.backgroundColor = [UIColor whiteColor];
-    frame.origin.y = self.mapView.frame.size.height - 50 - 15;
-    frame.size.width = self.mapView.frame.size.width - 100;
+    frame.origin.y = originY;
+    frame.size.width = self.mapView.frame.size.width - ((5*originX) + (4*height) + (2*originX));
     frame.origin.x = ceil((self.mapView.frame.size.width - frame.size.width)/2);
-    frame.size.height =  50;
+    frame.size.height =  height;
     [self.locationButton setTitle:@"Track" forState:UIControlStateNormal];
     self.locationButton.frame = frame;
     self.locationButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
