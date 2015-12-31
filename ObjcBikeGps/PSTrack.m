@@ -76,27 +76,36 @@
         if (trackType == PSTrackTypeTrail)
         {
             self.color = [UIColor magentaColor];
-            self.lineDashPattern = nil;
-            self.alpha = .5;
         }
         else if (trackType == PSTrackTypeUnknown)
         {
-            self.color = [UIColor blueColor];
-            self.lineDashPattern = nil;
-            self.alpha = .5;
+            self.color = [UIColor darkGrayColor];
         }
         else if (trackType == PSTrackTypeRoundTrip)
         {
-            self.color = [UIColor yellowColor];
-            self.lineDashPattern = nil;
-            self.alpha = .75;
+            self.color = [UIColor orangeColor];
         }
         else
         {
             self.color = [UIColor blackColor];
-            self.lineDashPattern = nil;
-            self.alpha = 0.5;
         }
+
+        self.lineDashPattern = nil;
+        self.alpha = 0.5;
+        
+        NSArray *components = [[filename stringByReplacingOccurrencesOfString:@".gpx" withString:@"" ]componentsSeparatedByString:@"_"];
+        if ([components count] > 1)
+       {
+           self.alpha = 0.5;
+           if ([components[1] isEqualToString:@"blueColor"])
+           {
+               self.color = [UIColor blueColor];
+           }
+           else if ([components[1] isEqualToString:@"greenColor"])
+           {
+               self.color = [UIColor greenColor];
+           }
+       }
 #endif
 
     }

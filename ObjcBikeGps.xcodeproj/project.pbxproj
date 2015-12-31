@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		22146EB11B6A855800CE0360 /* Tour-KLB-SB.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */; };
 		222DF3221B659056003410E7 /* Route-NrideHom-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3061B659056003410E7 /* Route-NrideHom-3.gpx */; };
-		222DF3231B659056003410E7 /* Route-pur-blau-gpx.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3071B659056003410E7 /* Route-pur-blau-gpx.gpx */; };
-		222DF3241B659056003410E7 /* Route-pur-gruen-gpx.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3081B659056003410E7 /* Route-pur-gruen-gpx.gpx */; };
+		222DF3231B659056003410E7 /* Route-pur-blau_blueColor.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3071B659056003410E7 /* Route-pur-blau_blueColor.gpx */; };
+		222DF3241B659056003410E7 /* Route-pur-gruen_greenColor.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3081B659056003410E7 /* Route-pur-gruen_greenColor.gpx */; };
 		222DF3251B659056003410E7 /* Trail-AmHomburg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3091B659056003410E7 /* Trail-AmHomburg1.gpx */; };
 		222DF3261B659056003410E7 /* Trail-Dudweiler1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30A1B659056003410E7 /* Trail-Dudweiler1.gpx */; };
 		222DF3271B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30B1B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx */; };
@@ -144,8 +144,8 @@
 		18CF6413E1014CC8A7CDA52D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Tour-KLB-SB.gpx"; path = "SampleData/Tour-KLB-SB.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF3061B659056003410E7 /* Route-NrideHom-3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-NrideHom-3.gpx"; path = "SampleData/Route-NrideHom-3.gpx"; sourceTree = SOURCE_ROOT; };
-		222DF3071B659056003410E7 /* Route-pur-blau-gpx.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-pur-blau-gpx.gpx"; path = "SampleData/Route-pur-blau-gpx.gpx"; sourceTree = SOURCE_ROOT; };
-		222DF3081B659056003410E7 /* Route-pur-gruen-gpx.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-pur-gruen-gpx.gpx"; path = "SampleData/Route-pur-gruen-gpx.gpx"; sourceTree = SOURCE_ROOT; };
+		222DF3071B659056003410E7 /* Route-pur-blau_blueColor.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-pur-blau_blueColor.gpx"; path = "SampleData/Route-pur-blau_blueColor.gpx"; sourceTree = SOURCE_ROOT; };
+		222DF3081B659056003410E7 /* Route-pur-gruen_greenColor.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-pur-gruen_greenColor.gpx"; path = "SampleData/Route-pur-gruen_greenColor.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF3091B659056003410E7 /* Trail-AmHomburg1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-AmHomburg1.gpx"; path = "SampleData/Trail-AmHomburg1.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF30A1B659056003410E7 /* Trail-Dudweiler1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Dudweiler1.gpx"; path = "SampleData/Trail-Dudweiler1.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF30B1B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-HaldeCamphauserStrasse.gpx"; path = "SampleData/Trail-HaldeCamphauserStrasse.gpx"; sourceTree = SOURCE_ROOT; };
@@ -402,8 +402,8 @@
 				222DF3491B659F41003410E7 /* TrailSpichern3.gpx */,
 				222DF33F1B659976003410E7 /* Tour-Urwald.gpx */,
 				222DF3061B659056003410E7 /* Route-NrideHom-3.gpx */,
-				222DF3071B659056003410E7 /* Route-pur-blau-gpx.gpx */,
-				222DF3081B659056003410E7 /* Route-pur-gruen-gpx.gpx */,
+				222DF3071B659056003410E7 /* Route-pur-blau_blueColor.gpx */,
+				222DF3081B659056003410E7 /* Route-pur-gruen_greenColor.gpx */,
 				222DF3091B659056003410E7 /* Trail-AmHomburg1.gpx */,
 				222DF30A1B659056003410E7 /* Trail-Dudweiler1.gpx */,
 				222DF30B1B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx */,
@@ -813,7 +813,7 @@
 				222DF3421B659976003410E7 /* Tour-Urwald.gpx in Resources */,
 				222DF32B1B659056003410E7 /* Trail-Schwarzenberg1.gpx in Resources */,
 				4A0E71EE1C32EE8200BCF6B8 /* 852-map-toolbar.png in Resources */,
-				222DF3231B659056003410E7 /* Route-pur-blau-gpx.gpx in Resources */,
+				222DF3231B659056003410E7 /* Route-pur-blau_blueColor.gpx in Resources */,
 				222DF3311B659056003410E7 /* Trail-Schwarzenberg7.gpx in Resources */,
 				4A0E71F01C32EE8200BCF6B8 /* 852-map-toolbar@3x.png in Resources */,
 				222DF32F1B659056003410E7 /* Trail-Schwarzenberg5.gpx in Resources */,
@@ -822,7 +822,7 @@
 				222DF3301B659056003410E7 /* Trail-Schwarzenberg6.gpx in Resources */,
 				4A0E71F31C32EE8200BCF6B8 /* 854-list-toolbar-selected@3x.png in Resources */,
 				4A0E71E21C32EE8200BCF6B8 /* 1064-layers-4@3x.png in Resources */,
-				222DF3241B659056003410E7 /* Route-pur-gruen-gpx.gpx in Resources */,
+				222DF3241B659056003410E7 /* Route-pur-gruen_greenColor.gpx in Resources */,
 				4A0E71E11C32EE8200BCF6B8 /* 1064-layers-4@2x.png in Resources */,
 				4A0E71E31C32EE8200BCF6B8 /* 1100-list-2-toolbar.png in Resources */,
 				4A0E71E41C32EE8200BCF6B8 /* 1100-list-2-toolbar@2x.png in Resources */,
