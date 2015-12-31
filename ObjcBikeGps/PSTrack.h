@@ -36,9 +36,14 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 @property (nonatomic) CGFloat minElevationData;
 @property (nonatomic) NSArray *wayPoints;
 
+@property (nonatomic,readonly) NSDictionary *infoTags;
+
 @property (nonatomic) UIImage *lineGraphSnapShotImage;
 - (instancetype)initWithFilename:(NSString *)filename;
 - (instancetype)initWithFilename:(NSString *)filename trackType:(PSTrackType)trackType;
+
+
+- (UIImage *)lineGraphSnapShotImageWithWidth:(CGFloat)width;
 
 - (instancetype)initWithXmlData:(ONOXMLElement *)onoxmlElement document:(ONOXMLDocument *)document;
 

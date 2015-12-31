@@ -44,9 +44,9 @@
 
         [self parseElevationFile];
 
-#ifdef GENERATE_SNAPSHOTS
-        [self generateSnapShotImage];
-#endif
+//#ifdef GENERATE_SNAPSHOTS
+//        [self generateSnapShotImage];
+//#endif
 
     }
     return self;
@@ -638,7 +638,6 @@
 - (void)generateSnapShotImage
 {
     DLogFuncName();
-    return;
     
     MKMapSnapshotOptions *options = [[MKMapSnapshotOptions alloc] init];
     options.region = self.region;
@@ -921,6 +920,19 @@
 }
 
 
+- (UIImage *)lineGraphSnapShotImageWithWidth:(CGFloat)width
+{
+    DLogFuncName();
+    if (!_lineGraphSnapShotImage)
+    {
+        [self createLineGraphSnapShotImageWithWidth:width];
+    }
+    
+    return _lineGraphSnapShotImage;
+}
+
+
+
 - (void) createLineGraphSnapShotImage
 {
     DLogFuncName();
@@ -943,6 +955,31 @@
 
 //    self.lineGraphSnapShotImage = [self.graphView graphSnapshotImage];
 
+}
+
+
+- (void) createLineGraphSnapShotImageWithWidth:(CGFloat)width
+{
+    DLogFuncName();
+    self.graphView = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0,0,width,200)];
+    self.graphView.dataSource = self;
+    self.graphView.delegate = self;
+    self.graphView.enableYAxisLabel = YES;
+    self.graphView.enablePopUpReport = NO;
+    self.graphView.enableTouchReport = NO;
+    self.graphView.animationGraphStyle = BEMLineAnimationNone;
+    
+    self.graphView.enableReferenceAxisFrame = YES;
+    self.graphView.enableReferenceAxisLines = YES;
+    
+    self.graphView.backgroundColor = [UIColor clearColor];
+    self.graphView.tintColor = [UIColor clearColor];
+    self.graphView.colorTop = [UIColor whiteColor];
+    self.graphView.colorLine = [UIColor blackColor];
+    //    self.graphView.colorBottom = [UIColor redColor];
+    
+    //    self.lineGraphSnapShotImage = [self.graphView graphSnapshotImage];
+    
 }
 
 #pragma mark - BEMSSimpleLineGraphView DataSource
@@ -989,6 +1026,12 @@
         return [NSString stringWithFormat:@"%d", index];
     }
     return @"";
+}
+
+
+- (NSDictionary*)infoTags
+{
+    return [self.tags copy];
 }
 
 

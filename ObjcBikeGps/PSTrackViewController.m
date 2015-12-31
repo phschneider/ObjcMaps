@@ -53,12 +53,15 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     DLogFuncName();
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[self.track snapShot] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(headerButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    if (section == 0)
+    {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setImage:[self.track snapShot] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(headerButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 
-    return button;
-
+        return button;
+    }
+    return nil;
 }
 
 
@@ -73,36 +76,55 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     DLogFuncName();
-    [self.track lineGraphSnapShotImage];
-    return self.track.graphView;
+    
+    if (section == [tableView numberOfSections] - 1)
+    {
+        double width = self.tableView.frame.size.width - (2*tableView.separatorInset.left);
+        [self.track lineGraphSnapShotImageWithWidth:width];
+        return self.track.graphView;
+    }
+    return nil;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     DLogFuncName();
-    return 250.0;
+    if (section == 0)
+    {
+        return 250.0;
+    }
+    return 50;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     DLogFuncName();
-    return 200.0;
+    if (section == [tableView numberOfSections] -1)
+    {
+        return 200.0;
+    }
+    return 0;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     DLogFuncName();
-    return 6;
+    if (section == 0)
+    {
+        return 6;
+    }
+    
+    return [[self.track.infoTags allKeys] count];
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     DLogFuncName();
-    return 1;
+    return 2;
 }
 
 
@@ -117,33 +139,44 @@
     NSString *value = @"-";
     cell.userInteractionEnabled = NO;
     
-    switch (indexPath.row)
+    if (indexPath.section == 0)
     {
-        case 0:
-            text = [NSString stringWithFormat:@"Length:"];
-            value = [self.track distanceInKm];
-            break;
-        case 1:
-            text = [NSString stringWithFormat:@"Duration:"];
-            value = [self.track readableTrackDuration];
-            break;
-        case 2:
-            text = [NSString stringWithFormat:@"Up"];
-            value = [self.track roundedUp];
-            break;
-        case 3:
-            text = [NSString stringWithFormat:@"Down"];
-            value = [self.track roundedDown];
-            break;
-        case 4:
-            text = [NSString stringWithFormat:@"min"];
-            value = [NSString stringWithFormat:@"%.0fm", [self.track minElevationData]];
-            break;
-        case 5:
-            text = [NSString stringWithFormat:@"max"];
-            value = [NSString stringWithFormat:@"%.0fm", [self.track maxElevationData]];
-            break;
+        switch (indexPath.row)
+        {
+            case 0:
+                text = [NSString stringWithFormat:@"Length:"];
+                value = [self.track distanceInKm];
+                break;
+            case 1:
+                text = [NSString stringWithFormat:@"Duration:"];
+                value = [self.track readableTrackDuration];
+                break;
+            case 2:
+                text = [NSString stringWithFormat:@"Up"];
+                value = [self.track roundedUp];
+                break;
+            case 3:
+                text = [NSString stringWithFormat:@"Down"];
+                value = [self.track roundedDown];
+                break;
+            case 4:
+                text = [NSString stringWithFormat:@"min"];
+                value = [NSString stringWithFormat:@"%.0fm", [self.track minElevationData]];
+                break;
+            case 5:
+                text = [NSString stringWithFormat:@"max"];
+                value = [NSString stringWithFormat:@"%.0fm", [self.track maxElevationData]];
+                break;
+        }
     }
+    else
+    {
+        NSDictionary *tags = self.track.infoTags;
+        NSString *key = [[tags allKeys] objectAtIndex:indexPath.row];
+        text = key;
+        value = [tags valueForKey:key];
+    }
+    
     cell.textLabel.text = text;
     cell.detailTextLabel.text = value;
     return cell;
