@@ -149,21 +149,21 @@
         self.tags = [wayTags copy];
         self.trackType = PSTrackTypeOsm;
         
-        if ([[wayTags allKeys] containsObject:@"tracktype"])
-        {
-            NSLog(@"TrackType = %@", [wayTags objectForKey:@"tracktype"]);
-        }
-        
-        if ([[wayTags allKeys] containsObject:@"surface"])
-        {
-            NSLog(@"surface = %@", [wayTags objectForKey:@"surface"]);
-        }
+//        if ([[wayTags allKeys] containsObject:@"tracktype"])
+//        {
+//            NSLog(@"TrackType = %@", [wayTags objectForKey:@"tracktype"]);
+//        }
+//        
+//        if ([[wayTags allKeys] containsObject:@"surface"])
+//        {
+//            NSLog(@"surface = %@", [wayTags objectForKey:@"surface"]);
+//        }
         
         if ([[wayTags allKeys] containsObject:@"mtb:scale"])
         {
             self.alpha = 0.75;
             self.lineWidth = 3.5;
-            NSLog(@"mtb:scale = %@", [wayTags objectForKey:@"mtb:scale"]);
+//            NSLog(@"mtb:scale = %@", [wayTags objectForKey:@"mtb:scale"]);
             NSNumber *mtbScale = [wayTags objectForKey:@"mtb:scale"];
             switch ([mtbScale integerValue]) {
                 case 0:

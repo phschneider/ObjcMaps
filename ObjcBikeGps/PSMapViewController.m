@@ -540,6 +540,7 @@
 }
 
 
+// TODO: Lager mich aus
 - (void)syncOsmMapButtonTapped:(id)sender
 {
     DLogFuncName();
@@ -600,6 +601,7 @@
     // https://github.com/AFNetworking/AFOnoResponseSerializer
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         NSData *data = responseObject;
         NSError *error;
         
@@ -608,33 +610,54 @@
         __block int resultCount = [xPath numericValue];
         __block int current = 0;
 
+        dispatch_async(dispatch_get_main_queue(),^{
+            MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:NO];
+            UITapGestureRecognizer *HUDSingleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector  (singleTap:)];
+            [HUD addGestureRecognizer:HUDSingleTap];
+            HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
+            HUD.labelText = [NSString stringWithFormat:@"verarbeite %d von %d", 0, resultCount];
+            HUD.progress = 0.0 / (double)resultCount;
+        });
+        
+        
         NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *docsDir = [dirPaths objectAtIndex:0];
         NSString *databasePath = [[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.xml",boundingBoxString]]];
         [data writeToFile:databasePath atomically:YES];
         
-        __block NSMutableArray *trackArray = [[NSMutableArray alloc] initWithArray:self.tracks];
-        
         NSString *xPathString = @"//way";
+        
+        __block NSMutableArray *trackArray = [[NSMutableArray alloc] init];
         [document enumerateElementsWithXPath:xPathString usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
-            current++;
-
-            dispatch_async(dispatch_get_main_queue(), ^{
-                MBProgressHUD *HUD = [MBProgressHUD HUDForView:self.view];
-                HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
-                HUD.labelText = [NSString stringWithFormat:@"verarbeite %d von %d", current, resultCount];
-                HUD.progress = (double)current / (double)resultCount;
-            });
-           
-            [trackArray addObject:[[PSTrack alloc] initWithXmlData:element document:document]];
-            
-            if (current == resultCount)
-            {
-                [MBProgressHUD hideHUDForView:self.view animated:YES];
-                dispatch_async(dispatch_get_main_queue(),^{
-                    [self setTracks: [trackArray copy]];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),^{
+                ++current;
+//                NSLog(@"Track y%d",current);
+                PSTrack *track = [[PSTrack alloc] initWithXmlData:element document:document];
+                [trackArray addObject:track];
+                
+                dispatch_sync(dispatch_get_main_queue(), ^{
+//                    NSLog(@"HUD = %d", current);
+                    MBProgressHUD *HUD = [MBProgressHUD HUDForView:self.view];
+                    HUD.labelText = [NSString stringWithFormat:@"verarbeite %d von %d", current, resultCount];
+                    HUD.progress = (double)current / (double)resultCount;
                 });
-            }
+                
+                
+                if ([trackArray count] == resultCount)
+                {
+                    dispatch_async(dispatch_get_main_queue(),^{
+//                        NSLog(@"DONE ...");
+                        
+                        NSMutableArray *oldArray = [[NSMutableArray alloc] initWithArray:self.tracks];
+                        [oldArray addObjectsFromArray:[trackArray copy]];
+                        [self setTracks: oldArray];
+                        [trackArray removeAllObjects];
+                        
+                        MBProgressHUD *HUD = [MBProgressHUD HUDForView:self.view];
+                        [HUD hide:NO];
+                    });
+                }
+            });
         }];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -792,7 +815,12 @@
     _tracks = tracks;
 
     [self clearMap];
-
+    
+    if (self.track)
+    {
+        [self setTrack:self.track];
+    }
+    
     for (PSTrack *track in tracks)
     {
         [self addTrack:track];
