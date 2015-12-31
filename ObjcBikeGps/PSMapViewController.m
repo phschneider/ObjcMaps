@@ -38,6 +38,7 @@
 @property (nonatomic) UILabel *boundingLabel;
 @property (nonatomic) UILabel *areaLabel;
 @property (nonatomic) UILabel *timeTillHomeLabel;
+@property (nonatomic) UILabel *altitudeLabel;
 @property (nonatomic) UILabel *distannceLabelWidth;
 @property (nonatomic) UILabel *distannceLabelHeight;
 @property (nonatomic) UIButton *locationButton;
@@ -360,6 +361,20 @@
     CGRect frame = self.view.bounds;
     frame.origin.y = 44 + 20;
     frame.size.height -= frame.origin.y ;
+
+    self.altitudeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, frame.size.width, 30)];
+    self.altitudeLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+    self.altitudeLabel.textAlignment = NSTextAlignmentCenter;
+    self.altitudeLabel.backgroundColor = [UIColor clearColor];
+    self.altitudeLabel.shadowColor = [UIColor whiteColor];
+    self.altitudeLabel.layer.shadowOffset = CGSizeMake(0, 1);
+    self.altitudeLabel.layer.shadowRadius = 1;
+    self.altitudeLabel.font = [UIFont systemFontOfSize:30];
+    self.altitudeLabel.textColor = [UIColor blackColor];
+
+    [self.mapView addSubview:self.altitudeLabel];
+
+
 
     self.timeTillHomeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-20, frame.size.width, 20)];
     self.timeTillHomeLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
@@ -1142,6 +1157,7 @@
     }
 
     self.timeTillHomeLabel.text = [NSString stringWithFormat:@"%.2f %.2fm | %.2fkm = %@ | %.2fh %.2fv", speed, altitude, distanceInKm, timeString, horizontalAccuracy, verticalAccuracy];
+    self.altitudeLabel.text = [NSString stringWithFormat: @"%.2fm",altitude];
 }
 
 
