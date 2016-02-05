@@ -21,6 +21,8 @@
 
     if (self)
     {
+        self.edgesForExtendedLayout = UIRectEdgeBottom;
+        self.extendedLayoutIncludesOpaqueBars = NO;
     }
     return self;
 }
@@ -72,7 +74,6 @@
     trailsButton.layer.cornerRadius = 5.0;
 
     [self.view addSubview:trailsButton];
-
 }
 
 

@@ -168,20 +168,40 @@
 
 -(NSString *)sizeOfFolder:(NSString *)folderPath
 {
+    DLogFuncName();
+
+    unsigned long long int folderSize = [self recursiveSizeForFolder:folderPath];
+    //This line will give you formatted size from bytes ....
+    NSString *folderSizeStr = [NSByteCountFormatter stringFromByteCount:folderSize countStyle:NSByteCountFormatterCountStyleFile];
+
+    return folderSizeStr;
+}
+
+
+- (unsigned long long int)recursiveSizeForFolder:(NSString*)folderPath
+{
+    DLogFuncName();
+
+    unsigned long long int folderSize = 0;
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
     NSEnumerator *contentsEnumurator = [contents objectEnumerator];
 
     NSString *file;
-    unsigned long long int folderSize = 0;
-
-    while (file = [contentsEnumurator nextObject]) {
+    while (file = [contentsEnumurator nextObject]) 
+    {
         NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[folderPath stringByAppendingPathComponent:file] error:nil];
-        folderSize += [[fileAttributes objectForKey:NSFileSize] intValue];
-    }
+        NSString *fileType = [fileAttributes objectForKey:NSFileType];
 
-    //This line will give you formatted size from bytes ....
-    NSString *folderSizeStr = [NSByteCountFormatter stringFromByteCount:folderSize countStyle:NSByteCountFormatterCountStyleFile];
-    return folderSizeStr;
+        if ([fileType isEqualToString:NSFileTypeDirectory])
+        {
+            folderSize += [self recursiveSizeForFolder:[folderPath stringByAppendingPathComponent:file]];
+        }
+        else
+        {
+            folderSize += [[fileAttributes objectForKey:NSFileSize] intValue];
+        }
+    }
+    return folderSize;
 }
 
 @end
