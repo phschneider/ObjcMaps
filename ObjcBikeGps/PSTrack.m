@@ -505,6 +505,7 @@
 }
 
 
+#pragma mark -
 - (NSString*)distanceInKm
 {
     return [NSString stringWithFormat:@"%0.2fkm",(self.trackLength / 1000.00)];
@@ -526,8 +527,28 @@
 }
 
 
+- (BOOL)isDownhill
+{
+    DLogFuncName();
+    CGFloat diff = self.totalDown - self.totalUp;
+    // Nur wenn die Differenz mehr wie 10 % der Höhenmeter ausmacht, geht es wirklich bergab
+    return (diff > ([self totalDown] / 10));
+}
+
+
+- (BOOL)isUphill
+{
+    DLogFuncName();
+    CGFloat diff = self.totalDown  - self.totalDown;
+    // Nur wenn die Differenz mehr wie 10 % der Höhenmeter ausmacht, geht es wirklich bergauf
+    return (diff > ([self totalDown] / 10));
+}
+
+
+#pragma mark - Map-Stuff
 - (MKCoordinateRegion) region
 {
+    DLogFuncName();
     CLLocationCoordinate2D topLeftCoord;
     topLeftCoord.latitude = -90;
     topLeftCoord.longitude = 180;

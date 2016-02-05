@@ -27,6 +27,7 @@
 
 - (instancetype)init
 {
+    DLogFuncName();
     self = [super init];
     if (self)
     {
@@ -106,8 +107,62 @@
 }
 
 
+- (instancetype)initWithTitle:(NSString*)title tracks:(NSArray*)array
+{
+    DLogFuncName();
+    self = [super init];
+    if (self)
+    {
+        self.tracks = array;
+        self.visibleTracks = array;
+
+        self.title = title;
+        self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+        self.tableView.autoresizingMask = self.view.autoresizingMask;
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
+
+        [self.view addSubview:self.tableView];
+
+        self.mapViewController = [[PSMapViewController alloc] initWithTracks:self.visibleTracks];
+        [self.tableView reloadData];
+
+        UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"852-map-toolbar"] style:UIBarButtonItemStylePlain target:self action:@selector(showAllOnMap)];
+        self.navigationItem.rightBarButtonItem = mapButton;
+
+    }
+    return self;
+}
+
+
+#pragma mark - View
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    DLogFuncName();
+
+    [self.filterDrawer hideAnimated:animated];
+    [self.sortingDrawer hideAnimated:animated];
+}
+
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
+}
+
+
+#pragma mark - Button Actions
+- (void)showAllOnMap
+{
+    DLogFuncName();
+    [self.navigationController pushViewController:self.mapViewController animated:YES];
+}
+
+
 - (void)sortByName
 {
+    DLogFuncName();
     NSArray *tmpArray = [self.visibleTracks copy];
     self.visibleTracks = [tmpArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"filename" ascending:YES]]];
     [self.tableView reloadData];
@@ -116,6 +171,7 @@
 
 - (void)sortByLength
 {
+    DLogFuncName();
     NSArray *tmpArray = [self.visibleTracks copy];
     self.visibleTracks = [tmpArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"trackLength" ascending:YES]]];
     [self.tableView reloadData];
@@ -124,6 +180,7 @@
 
 - (void)sortByDistance
 {
+    DLogFuncName();
     NSArray *tmpArray = [self.visibleTracks copy];
     self.visibleTracks = [tmpArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"trackLength" ascending:YES]]];
     [self.tableView reloadData];
@@ -132,6 +189,7 @@
 
 - (void)sortByUp
 {
+    DLogFuncName();
     NSArray *tmpArray = [self.visibleTracks copy];
     self.visibleTracks = [tmpArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"totalUp" ascending:YES]]];
     [self.tableView reloadData];
@@ -140,6 +198,7 @@
 
 - (void)sortByDown
 {
+    DLogFuncName();
     NSArray *tmpArray = [self.visibleTracks copy];
     self.visibleTracks = [tmpArray sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"totalDown" ascending:YES]]];
     [self.tableView reloadData];
@@ -148,6 +207,7 @@
 
 - (void)showSortingOptions
 {
+    DLogFuncName();
     if ([self.filterDrawer isVisible])
     {
         [self showFilterOptions];
@@ -166,6 +226,7 @@
 
 - (void)showFilterOptions
 {
+    DLogFuncName();
     if ([self.sortingDrawer isVisible])
     {
         [self showSortingOptions];
@@ -185,6 +246,7 @@
 
 - (void)selectedSegment:(UISegmentedControl*)segmentedControl
 {
+    DLogFuncName();
     int index = segmentedControl.selectedSegmentIndex;
      switch (index)
      {
@@ -212,12 +274,14 @@
 
 - (UIBarPosition)positionForBar:(id <UIBarPositioning>)bar
 {
+    DLogFuncName();
     return UIBarPositionAny;
 }
 
 
 - (void)viewSwitched:(UISegmentedControl*)segmentedControl
 {
+    DLogFuncName();
     if (segmentedControl.selectedSegmentIndex == 0)
     {
 //        // Assign the table view as the affected scroll view of the drawer.
@@ -255,11 +319,13 @@
 }
 
 
+#pragma mark - KVO
 - (void) observeValueForKeyPath:(NSString *)keyPath
                        ofObject:(id)object
                          change:(NSDictionary *)change
                         context:(void *)context
 {
+    DLogFuncName();
     if ([keyPath isEqualToString:@"tracks"])
     {
         dispatch_async(dispatch_get_main_queue(),^{
@@ -277,25 +343,42 @@
 }
 
 
+#pragma mark - TableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    DLogFuncName();
     return [[[self visibleTracks] copy] count];
 }
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    DLogFuncName();
     return 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    DLogFuncName();
     UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     PSTrack *track = [self.visibleTracks objectAtIndex:indexPath.row];
     cell.textLabel.text = [track filename];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ \t\t\tup: %@\tdown: %@ (%d) %@", [track distanceInKm], [track roundedUp], [track roundedDown], [[track elevationData] count], [track readableTrackDuration]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ \t\t +%@ \t -%@ \t %dwp \t\t %@", [track distanceInKm], [track roundedUp], [track roundedDown], [[track elevationData] count], [track readableTrackDuration]];
+
+    if ([track isDownhill])
+    {
+        cell.detailTextLabel.textColor = [UIColor blueColor];
+    }
+    else if ([track isUphill])
+    {
+        cell.detailTextLabel.textColor = [UIColor redColor];
+    }
+    else
+    {
+        cell.detailTextLabel.textColor = [UIColor blackColor];
+    }
+
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     return cell;
@@ -304,6 +387,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DLogFuncName();
     if ([self.sortingDrawer isVisible])
     {
         [self.filterDrawer hideAnimated:YES];
@@ -316,15 +400,7 @@
 
     PSTrack *track = [self.visibleTracks objectAtIndex:indexPath.row];
     PSMapViewController *trackViewController = [[PSMapViewController alloc] initWithTrack:track];
-
-//    PSTrackViewController *trackViewController = [[PSTrackViewController alloc] initWithTrack:track];
     [self.navigationController pushViewController:trackViewController animated:YES];
-}
-
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskAll;
 }
 
 @end

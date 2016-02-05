@@ -73,6 +73,7 @@
         self.mapView.autoresizingMask =  self.view.autoresizingMask;
         self.mapView.delegate = self;
         self.mapView.showsUserLocation = NO;
+        self.mapView.zoomEnabled = NO;
         SEL showScaleSelector = NSSelectorFromString(@"showsScale");
         if ([self.mapView respondsToSelector:showScaleSelector])
         {

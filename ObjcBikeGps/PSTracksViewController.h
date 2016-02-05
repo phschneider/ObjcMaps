@@ -10,4 +10,5 @@
 
 
 @interface PSTracksViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+- (instancetype)initWithTitle:(NSString *)title tracks:(NSArray *)array;
 @end

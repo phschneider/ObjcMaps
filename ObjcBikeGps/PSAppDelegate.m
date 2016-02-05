@@ -29,7 +29,7 @@
     // Points of interest ...
     // 49,1509838, 7,0485482
     
-//    [PSTrackStore sharedInstance];
+    [PSTrackStore sharedInstance];
 
     UINavigationController *navigationController = nil;
     UIViewController *rootViewController = nil;
@@ -38,8 +38,7 @@
     navigationController = [[UINavigationController alloc] initWithRootViewController:[[PSMapViewController alloc] init]];
     navigationController.navigationBarHidden = YES;
 #else
-    rootViewController = [[PSTracksViewController alloc] init];
-//    rootViewController = [[PSMainMenuViewController alloc] init];
+    rootViewController = [[PSMainMenuViewController alloc] init];
 #endif
     navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     self.window.backgroundColor = [UIColor whiteColor];

@@ -57,6 +57,11 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 - (CGFloat)distanceFromLocation:(CLLocation *)location;
 - (MKMapPoint)start;
 - (MKMapPoint)finish;
+
+- (BOOL)isDownhill;
+
+- (BOOL)isUphill;
+
 - (MKPolylineView *)overlayView;
 - (NSArray *)distanceAnnotations;
 

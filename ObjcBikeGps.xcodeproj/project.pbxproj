@@ -98,6 +98,7 @@
 		67B40934B52D328D61594741 /* PSMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40B261007D148CAFF0D04 /* PSMainMenuViewController.m */; };
 		67B40A579841A511938CC370 /* PSTrackRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B408F6C3063F7CA38035D1 /* PSTrackRenderer.m */; };
 		67B40C6DB378988C0D7BC3A9 /* PSTrackStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40512E50237F1430426F8 /* PSTrackStore.m */; };
+		67B40D5645574C4E71581DE4 /* PSGridButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40958A34B898CE8040AD0 /* PSGridButton.m */; };
 		7E00DAE2DCD044FA91CCAE5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF6413E1014CC8A7CDA52D /* libPods.a */; };
 		E5F160409C4C7CD1A7D28947 /* PSMapBoxLightTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16D4E25AC86ABE31C30F2 /* PSMapBoxLightTileOverlay.m */; };
 		E5F1604BE45C5CE367EC6BFC /* PSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16CB73DB1DCAFA0C881B7 /* PSSettingsViewController.m */; };
@@ -245,7 +246,9 @@
 		67B402E92391F8D1EB49C930 /* PSTrackRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackRenderer.h; sourceTree = "<group>"; };
 		67B40512E50237F1430426F8 /* PSTrackStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackStore.m; sourceTree = "<group>"; };
 		67B407BBABA2796157ED6222 /* PSMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMainMenuViewController.h; sourceTree = "<group>"; };
+		67B40889319B41922B2369D8 /* PSGridButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGridButton.h; sourceTree = "<group>"; };
 		67B408F6C3063F7CA38035D1 /* PSTrackRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackRenderer.m; sourceTree = "<group>"; };
+		67B40958A34B898CE8040AD0 /* PSGridButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGridButton.m; sourceTree = "<group>"; };
 		67B40B16ECAE76335CD77A02 /* PSMapLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapLocationManager.h; sourceTree = "<group>"; };
 		67B40B261007D148CAFF0D04 /* PSMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMainMenuViewController.m; sourceTree = "<group>"; };
 		67B40B2C6B54957DD6B3655B /* PSMapLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapLocationManager.m; sourceTree = "<group>"; };
@@ -491,6 +494,8 @@
 				E5F168863199ECA19573D556 /* PSTileOverlayRender.h */,
 				E5F1604B9295F58CB6B76D3A /* Tiles */,
 				67B40A3172D7BB849BDE6FE6 /* Tracks */,
+				67B40958A34B898CE8040AD0 /* PSGridButton.m */,
+				67B40889319B41922B2369D8 /* PSGridButton.h */,
 			);
 			path = ObjcBikeGps;
 			sourceTree = "<group>";
@@ -960,6 +965,7 @@
 				E5F16E2B7CA0D098C1E60145 /* PSAppleSatelliteTileOverlay.m in Sources */,
 				E5F162977BEA29990CEEE98E /* PSAppleHybridTileOverlay.m in Sources */,
 				E5F165B8F30797CD65377187 /* PSDirectionAnnotation.m in Sources */,
+				67B40D5645574C4E71581DE4 /* PSGridButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

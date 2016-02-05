@@ -3,6 +3,7 @@
 // Copyright (c) 2015 phschneider.net. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "PSTrackStore.h"
 #import "PSTrack.h"
 
@@ -25,19 +26,21 @@
 
 - (instancetype)init
 {
+    DLogFuncName();
     self = [super init];
     if (self)
     {
         self.tracks = [[NSMutableArray alloc] init];
         [self performSelectorInBackground:@selector(loadTracks) withObject:nil];
     }
-
     return self;
 }
 
 
 - (void) loadTracks
 {
+    DLogFuncName();
+
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *bundleRoot = [[NSBundle mainBundle] bundleURL];
     NSArray * dirContents =
@@ -81,6 +84,25 @@
             [self didChangeValueForKey:@"tracks"];
         }
     }
+    NSLog(@"finished loading tracks");
 }
+
+
+#pragma mark - Getter
+- (NSArray*)trails
+{
+    DLogFuncName();
+
+    return [self.tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeTrail]];
+}
+
+
+- (NSArray*)routes
+{
+    DLogFuncName();
+
+    return [self.tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeRoundTrip]];
+}
+
 
 @end

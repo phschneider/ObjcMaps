@@ -7,5 +7,9 @@
 #import "CNPGridMenu.h"
 
 
-@interface PSMainMenuViewController : UIViewController <CNPGridMenuDelegate>
+@interface PSMainMenuViewController : UIViewController
+
+
+
+
 @end
