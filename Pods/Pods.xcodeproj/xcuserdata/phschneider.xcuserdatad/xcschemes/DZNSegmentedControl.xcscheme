@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E4EE399F03E509253A5901F9'
-               BlueprintName = 'DZNSegmentedControl'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libDZNSegmentedControl.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2EA9CE52E417F3330A46DCC93CB4118"
+               BlueprintName = "DZNSegmentedControl"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libDZNSegmentedControl.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

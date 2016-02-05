@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9B60C69C7FD044BC77F9F11D'
-               BlueprintName = 'BFNavigationBarDrawer'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libBFNavigationBarDrawer.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "29C110B6AD2284AB394DAC3BCDA85CE7"
+               BlueprintName = "BFNavigationBarDrawer"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libBFNavigationBarDrawer.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

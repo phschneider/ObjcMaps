@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB64922B8DA93A5FBC3F62F2A1D8B14D"
+               BlueprintIdentifier = "D42CA8AD21F1884BA63F3EEF2A7B7673"
                BuildableName = "libOno.a"
                BlueprintName = "Ono"
                ReferencedContainer = "container:Pods.xcodeproj">

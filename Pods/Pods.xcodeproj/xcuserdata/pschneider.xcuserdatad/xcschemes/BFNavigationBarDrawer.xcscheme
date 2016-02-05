@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B87BA8141ECCCC243703F096F814CC5C"
+               BlueprintIdentifier = "29C110B6AD2284AB394DAC3BCDA85CE7"
                BuildableName = "libBFNavigationBarDrawer.a"
                BlueprintName = "BFNavigationBarDrawer"
                ReferencedContainer = "container:Pods.xcodeproj">

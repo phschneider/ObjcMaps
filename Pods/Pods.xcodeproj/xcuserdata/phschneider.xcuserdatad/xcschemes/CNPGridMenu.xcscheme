@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '6FD7C77658554228018375F4'
-               BlueprintName = 'CNPGridMenu'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libCNPGridMenu.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BDA9A9D3A19C2526FB7AEE21BCEB9B34"
+               BlueprintName = "CNPGridMenu"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libCNPGridMenu.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

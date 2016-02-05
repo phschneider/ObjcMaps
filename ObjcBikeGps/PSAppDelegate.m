@@ -11,6 +11,7 @@
 #import "PSMapViewController.h"
 #import "PSTracksViewController.h"
 #import "PSTrackStore.h"
+#import "PSMainMenuViewController.h"
 
 
 @implementation PSAppDelegate
@@ -28,16 +29,19 @@
     // Points of interest ...
     // 49,1509838, 7,0485482
     
-    [PSTrackStore sharedInstance];
+//    [PSTrackStore sharedInstance];
 
     UINavigationController *navigationController = nil;
+    UIViewController *rootViewController = nil;
 
 #ifdef INSELHUEPFEN_MODE
     navigationController = [[UINavigationController alloc] initWithRootViewController:[[PSMapViewController alloc] init]];
     navigationController.navigationBarHidden = YES;
 #else
-    navigationController = [[UINavigationController alloc] initWithRootViewController:[[PSTracksViewController alloc] init]];
+    rootViewController = [[PSTracksViewController alloc] init];
+//    rootViewController = [[PSMainMenuViewController alloc] init];
 #endif
+    navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = navigationController;
 

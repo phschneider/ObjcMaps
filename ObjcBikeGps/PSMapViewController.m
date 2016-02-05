@@ -400,11 +400,24 @@
     CGFloat originY = self.mapView.frame.size.height - 50 - 15;
     CGFloat originX = 15;
     CGFloat height = 48;
-    
+
+    self.locationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.locationButton.backgroundColor = [UIColor whiteColor];
+    frame.origin.y = originY;
+    frame.size.width = self.mapView.frame.size.width - ((5*originX) + (4*height) + (2*originX));
+    frame.origin.x = ceil((self.mapView.frame.size.width - frame.size.width)/2);
+    frame.size.height =  height;
+    [self.locationButton setTitle:@"Track" forState:UIControlStateNormal];
+    self.locationButton.frame = frame;
+    self.locationButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    [self.locationButton addTarget:self action:@selector(locationButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.mapView addSubview:self.locationButton];
+
     UIImage *layersImage = [UIImage imageNamed:@"1064-layers-4"];
     UIButton *layersButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     frame.origin.y = originY;
-    frame.origin.x = self.mapView.frame.size.width - height - originX;
+    frame.origin.x = self.mapView.frame.size.width - height - originX - height - originX;
     frame.size.width = height; // layersImage.size.width;
     frame.size.height =  height; // layersImage.size.height;
 
@@ -414,7 +427,6 @@
     layersButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
     [layersButton addTarget:self action:@selector(showMapSwitcherButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView addSubview:layersButton];
-
 
     UIImage *syncImage = [UIImage imageNamed:@"gray-1061-golf-shot"];
     UIButton *syncButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -444,18 +456,31 @@
     [syncPoisButton addTarget:self action:@selector(syncOsmPoisButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView addSubview:syncPoisButton];
 
-    self.locationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    self.locationButton.backgroundColor = [UIColor whiteColor];
-    frame.origin.y = originY;
-    frame.size.width = self.mapView.frame.size.width - ((5*originX) + (4*height) + (2*originX));
-    frame.origin.x = ceil((self.mapView.frame.size.width - frame.size.width)/2);
+    UIButton *zoomInButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    zoomInButton.backgroundColor = [UIColor whiteColor];
+    frame.origin.x = self.mapView.frame.size.width - height - originX;
+    frame.origin.y = layersButton.frame.origin.y - height - 15;
+    frame.size.width = height;
     frame.size.height =  height;
-    [self.locationButton setTitle:@"Track" forState:UIControlStateNormal];
-    self.locationButton.frame = frame;
-    self.locationButton.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    [self.locationButton addTarget:self action:@selector(locationButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    [zoomInButton setTitle:@"+" forState:UIControlStateNormal];
+    zoomInButton.frame = frame;
+    zoomInButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+    [zoomInButton addTarget:self action:@selector(zoomIn) forControlEvents:UIControlEventTouchUpInside];
 
-    [self.mapView addSubview:self.locationButton];
+    [self.mapView addSubview:zoomInButton];
+
+    UIButton *zoomOutButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    zoomOutButton.backgroundColor = [UIColor whiteColor];
+    frame.origin.y = layersButton.frame.origin.y;
+    frame.origin.x = self.mapView.frame.size.width - height - originX;
+    frame.size.width = height;
+    frame.size.height =  height;
+    [zoomOutButton setTitle:@"-" forState:UIControlStateNormal];
+    zoomOutButton.frame = frame;
+    zoomOutButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+    [zoomOutButton addTarget:self action:@selector(zoomOut) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.mapView addSubview:zoomOutButton];
 }
 
 
@@ -992,6 +1017,38 @@
     [self.mapView setRegion:region animated:YES];
 }
 
+
+- (void) zoomIn
+{
+    DLogFuncName();
+    [self zoomMap:self.mapView byDelta:0.5];
+}
+
+
+- (void) zoomOut
+{
+    DLogFuncName();
+    [self zoomMap:self.mapView byDelta:2.0];
+}
+
+
+// delta is the zoom factor
+// 2 will zoom out x2
+// .5 will zoom in by x2
+- (void)zoomMap:(MKMapView*)mapView byDelta:(float) delta
+{
+    DLogFuncName();
+    MKCoordinateRegion region = mapView.region;
+    MKCoordinateSpan span = mapView.region.span;
+    span.latitudeDelta*=delta;
+    span.longitudeDelta*=delta;
+    region.span=span;
+    if (span.latitudeDelta < 200)
+    {
+        [mapView setRegion:region animated:YES];
+    }
+
+}
 
 #pragma mark - 
 /** Returns the distance of |pt| to |poly| in meters

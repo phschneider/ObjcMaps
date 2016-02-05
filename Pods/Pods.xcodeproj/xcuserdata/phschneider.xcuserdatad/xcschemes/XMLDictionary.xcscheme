@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '970C16F8ADD8B3EB7F729C27'
-               BlueprintName = 'XMLDictionary'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libXMLDictionary.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "FFC7225582EF926C8329684334C360D9"
+               BlueprintName = "XMLDictionary"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libXMLDictionary.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
