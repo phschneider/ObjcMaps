@@ -35,6 +35,8 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 @property (nonatomic) CGFloat maxElevationData;
 @property (nonatomic) CGFloat minElevationData;
 @property (nonatomic) NSArray *wayPoints;
+@property (nonatomic) CLLocation *peak;
+@property (nonatomic) CLLocation *low;
 
 @property (nonatomic,readonly) NSDictionary *infoTags;
 

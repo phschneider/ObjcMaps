@@ -54,6 +54,8 @@
 		22F934FD19DD5E5B00996122 /* ObjcBikeGpsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F934FC19DD5E5B00996122 /* ObjcBikeGpsTests.m */; };
 		22F9350719DD5FFB00996122 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350619DD5FFB00996122 /* MapKit.framework */; };
 		22F9350919DD624800996122 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350819DD624800996122 /* CoreLocation.framework */; };
+		4A07FAA91C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAA81C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx */; };
+		4A07FAAB1C65FFE300FA554D /* Route-Die-Pur-Nord-West-Schleife.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAAA1C65FFE300FA554D /* Route-Die-Pur-Nord-West-Schleife.gpx */; };
 		4A0E71C51C32EDFA00BCF6B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C41C32EDFA00BCF6B8 /* Launch Screen.storyboard */; };
 		4A0E71E01C32EE8200BCF6B8 /* 1064-layers-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C71C32EE8200BCF6B8 /* 1064-layers-4.png */; };
 		4A0E71E11C32EE8200BCF6B8 /* 1064-layers-4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C81C32EE8200BCF6B8 /* 1064-layers-4@2x.png */; };
@@ -99,6 +101,7 @@
 		67B40A579841A511938CC370 /* PSTrackRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B408F6C3063F7CA38035D1 /* PSTrackRenderer.m */; };
 		67B40C6DB378988C0D7BC3A9 /* PSTrackStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40512E50237F1430426F8 /* PSTrackStore.m */; };
 		67B40D5645574C4E71581DE4 /* PSGridButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40958A34B898CE8040AD0 /* PSGridButton.m */; };
+		67B40FEB4D187D9CC4D18988 /* PSPeakLowAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B405CD8E8A0E64C4D9552F /* PSPeakLowAnnotation.m */; };
 		7E00DAE2DCD044FA91CCAE5F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 18CF6413E1014CC8A7CDA52D /* libPods.a */; };
 		E5F160409C4C7CD1A7D28947 /* PSMapBoxLightTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16D4E25AC86ABE31C30F2 /* PSMapBoxLightTileOverlay.m */; };
 		E5F1604BE45C5CE367EC6BFC /* PSSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16CB73DB1DCAFA0C881B7 /* PSSettingsViewController.m */; };
@@ -195,6 +198,8 @@
 		22F9350619DD5FFB00996122 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		22F9350819DD624800996122 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		292651F264F523FCBBD71335 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		4A07FAA81C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-9-Konditions-Tour.gpx"; sourceTree = "<group>"; };
+		4A07FAAA1C65FFE300FA554D /* Route-Die-Pur-Nord-West-Schleife.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Die-Pur-Nord-West-Schleife.gpx"; sourceTree = "<group>"; };
 		4A0E71C41C32EDFA00BCF6B8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4A0E71C71C32EE8200BCF6B8 /* 1064-layers-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1064-layers-4.png"; sourceTree = "<group>"; };
 		4A0E71C81C32EE8200BCF6B8 /* 1064-layers-4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1064-layers-4@2x.png"; sourceTree = "<group>"; };
@@ -245,10 +250,12 @@
 		4AC3777F1BB88ABF0027DFC7 /* InselhuepfenTag3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InselhuepfenTag3.gpx; sourceTree = "<group>"; };
 		67B402E92391F8D1EB49C930 /* PSTrackRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTrackRenderer.h; sourceTree = "<group>"; };
 		67B40512E50237F1430426F8 /* PSTrackStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackStore.m; sourceTree = "<group>"; };
+		67B405CD8E8A0E64C4D9552F /* PSPeakLowAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPeakLowAnnotation.m; sourceTree = "<group>"; };
 		67B407BBABA2796157ED6222 /* PSMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMainMenuViewController.h; sourceTree = "<group>"; };
 		67B40889319B41922B2369D8 /* PSGridButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSGridButton.h; sourceTree = "<group>"; };
 		67B408F6C3063F7CA38035D1 /* PSTrackRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTrackRenderer.m; sourceTree = "<group>"; };
 		67B40958A34B898CE8040AD0 /* PSGridButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSGridButton.m; sourceTree = "<group>"; };
+		67B40978B27ED97972D996D3 /* PSPeakLowAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPeakLowAnnotation.h; sourceTree = "<group>"; };
 		67B40B16ECAE76335CD77A02 /* PSMapLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapLocationManager.h; sourceTree = "<group>"; };
 		67B40B261007D148CAFF0D04 /* PSMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMainMenuViewController.m; sourceTree = "<group>"; };
 		67B40B2C6B54957DD6B3655B /* PSMapLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapLocationManager.m; sourceTree = "<group>"; };
@@ -399,6 +406,8 @@
 		22D2316C1AFFF2770019EF15 /* SampleFiles */ = {
 			isa = PBXGroup;
 			children = (
+				4A07FAA81C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx */,
+				4A07FAAA1C65FFE300FA554D /* Route-Die-Pur-Nord-West-Schleife.gpx */,
 				22ED40991B68038800D3E297 /* Tour-Goettelborn.gpx */,
 				222DF3431B659B9E003410E7 /* TrailSpichern.gpx */,
 				222DF3441B659B9E003410E7 /* TrailSpichern2.gpx */,
@@ -681,6 +690,8 @@
 				E5F166140591E564FAB51BB4 /* PSWayPointAnnotation.h */,
 				E5F16E6D979D69546BE2261B /* PSDirectionAnnotation.m */,
 				E5F1631C738F52A2F09699B7 /* PSDirectionAnnotation.h */,
+				67B405CD8E8A0E64C4D9552F /* PSPeakLowAnnotation.m */,
+				67B40978B27ED97972D996D3 /* PSPeakLowAnnotation.h */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -794,6 +805,7 @@
 				4A0E71E51C32EE8200BCF6B8 /* 1100-list-2-toolbar@3x.png in Resources */,
 				222DF32D1B659056003410E7 /* Trail-Schwarzenberg3.gpx in Resources */,
 				222DF3451B659B9E003410E7 /* TrailSpichern.gpx in Resources */,
+				4A07FAAB1C65FFE300FA554D /* Route-Die-Pur-Nord-West-Schleife.gpx in Resources */,
 				222DF32C1B659056003410E7 /* Trail-Schwarzenberg2.gpx in Resources */,
 				4A0E720F1C34817900BCF6B8 /* Icon-40@3x.png in Resources */,
 				222DF33C1B659056003410E7 /* Trail.gpx in Resources */,
@@ -813,6 +825,7 @@
 				222DF3331B659056003410E7 /* Trail-Schwarzenberg9.gpx in Resources */,
 				4A0E720D1C34817900BCF6B8 /* Icon-40.png in Resources */,
 				4A0E71F41C32EE8200BCF6B8 /* Emergency_access_point.png in Resources */,
+				4A07FAA91C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx in Resources */,
 				222DF3321B659056003410E7 /* Trail-Schwarzenberg8.gpx in Resources */,
 				222DF33B1B659056003410E7 /* Trail-Winterberg1.gpx in Resources */,
 				222DF3421B659976003410E7 /* Tour-Urwald.gpx in Resources */,
@@ -966,6 +979,7 @@
 				E5F162977BEA29990CEEE98E /* PSAppleHybridTileOverlay.m in Sources */,
 				E5F165B8F30797CD65377187 /* PSDirectionAnnotation.m in Sources */,
 				67B40D5645574C4E71581DE4 /* PSGridButton.m in Sources */,
+				67B40FEB4D187D9CC4D18988 /* PSPeakLowAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

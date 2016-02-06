@@ -28,6 +28,7 @@
 #import "PSTrackStore.h"
 #import "PSDirectionAnnotation.h"
 #import "PSTrackViewController.h"
+#import "PSPeakLowAnnotation.h"
 
 
 @interface PSMapViewController ()
@@ -958,7 +959,15 @@
     }
 
     
+    if (track.trackType != PSTrackTypeTrail)
+    {
+        PSPeakLowAnnotation *lowAnnotation = [[PSPeakLowAnnotation alloc] initWithCoordinate:track.low.coordinate title:[NSString stringWithFormat:@"%.1fm", track.low.altitude]];
+        [self.mapView addAnnotation:lowAnnotation];
 
+        PSPeakLowAnnotation *peakAnnotation = [[PSPeakLowAnnotation alloc] initWithCoordinate:track.peak.coordinate title:[NSString stringWithFormat:@"%.1fm", track.peak.altitude]];
+        peakAnnotation.isPeak = YES;
+        [self.mapView addAnnotation:peakAnnotation];
+    }
 #ifdef USE_FLYOVER
     int padding = 30;
     [self.mapView setVisibleMapRect:[route boundingMapRect] edgePadding:UIEdgeInsetsMake(padding, padding, padding, padding) animated:YES];
@@ -1111,37 +1120,53 @@
 #define MAX_DISTANCE_PX 22.0f
 - (void)handleTap:(UITapGestureRecognizer *)tap
 {
-    if ((tap.state & UIGestureRecognizerStateRecognized) == UIGestureRecognizerStateRecognized) {
-        
+    if ((tap.state & UIGestureRecognizerStateRecognized) == UIGestureRecognizerStateRecognized)
+    {
         // Get map coordinate from touch point
         CGPoint touchPt = [tap locationInView:self.mapView];
         CLLocationCoordinate2D coord = [self.mapView convertPoint:touchPt toCoordinateFromView:self.mapView];
         
         double maxMeters = [self metersFromPixel:MAX_DISTANCE_PX atPoint:touchPt];
         
-        float nearestDistance = MAXFLOAT;
+        float nearestDistanceToPoly = MAXFLOAT;
+        float nearestDistanceToAnnotation = MAXFLOAT;
         MKPolyline *nearestPoly = nil;
-        
-        // for every overlay ...
-        for (id <MKOverlay> overlay in self.mapView.overlays) {
-            
-            // .. if MKPolyline ...
-            if ([overlay isKindOfClass:[MKPolyline class]]) {
-                
-                // ... get the distance ...
-                float distance = [self distanceOfPoint:MKMapPointForCoordinate(coord)
-                                                toPoly:overlay];
-                
-                // ... and find the nearest one
-                if (distance < nearestDistance) {
-                    
-                    nearestDistance = distance;
+        id <MKAnnotation> nearestAnnotation = nil;
+
+        for (id <MKOverlay> overlay in self.mapView.overlays)
+        {
+            if ([overlay isKindOfClass:[MKPolyline class]])
+            {
+                float distance = [self distanceOfPoint:MKMapPointForCoordinate(coord) toPoly:overlay];
+                if (distance < nearestDistanceToPoly)
+                {
+                    nearestDistanceToPoly = distance;
                     nearestPoly = overlay;
                 }
             }
         }
-        
-        if (nearestDistance <= maxMeters) {
+
+        for (id <MKAnnotation> annotation in self.mapView.annotations)
+        {
+            if ([self.mapView viewForAnnotation:annotation].canShowCallout)
+            {
+                float distance = MKMetersBetweenMapPoints(MKMapPointForCoordinate(coord), MKMapPointForCoordinate(annotation.coordinate));
+                // ... and find the nearest one
+                if (distance < nearestDistanceToAnnotation)
+                {
+                    nearestDistanceToAnnotation = distance;
+                    nearestAnnotation = annotation;
+                }
+            }
+        }
+
+//        if (nearestDistanceToAnnotation <= nearestDistanceToPoly && nearestDistanceToAnnotation <= maxMeters)
+        if (nearestDistanceToAnnotation <= maxMeters)
+        {
+            // Do nothing - show callout
+        }
+        else if (nearestDistanceToPoly <= maxMeters)
+        {
             if ([nearestPoly isKindOfClass:[PSTrackOverlay class]])
             {
                 PSTrackOverlay *trackOverlay = nearestPoly;
@@ -1149,7 +1174,7 @@
                 [self.navigationController pushViewController:trackViewController animated:YES];
             }
             NSLog(@"Touched poly: %@\n"
-                  "    distance: %f", nearestPoly, nearestDistance);
+                  "    distance: %f", nearestPoly, nearestDistanceToPoly);
         }
     }
 }
@@ -2066,6 +2091,32 @@
             [annotationView addSubview:label];
             return annotationView;
         }
+    }
+    else if ([annotation isKindOfClass:[PSPeakLowAnnotation class]])
+    {
+        static NSString *reuseIdentifier = @"HIGHLOW";
+        MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
+        annotationView.canShowCallout = YES;
+        CGRect frame = CGRectZero;
+        frame.size = CGSizeMake(labelSize,labelSize);
+
+        UILabel *label = [[UILabel alloc] initWithFrame:annotationView.frame];
+        label.frame = frame;
+        label.textAlignment = NSTextAlignmentCenter;
+        label.text = (((PSPeakLowAnnotation*)annotation).isPeak) ? @"H" : @"L";
+        label.backgroundColor = [UIColor redColor];
+        label.adjustsFontSizeToFitWidth = YES;
+        label.font = [UIFont systemFontOfSize:10.0];
+        label.clipsToBounds = YES;
+        label.textColor = [UIColor blackColor];
+        label.layer.cornerRadius = frame.size.width/2;
+        label.alpha = 0.8;
+        label.center = annotationView.center;
+        label.layer.borderColor = [[UIColor whiteColor] CGColor];
+        label.layer.borderWidth = 1.0;
+        label.center = annotationView.center;
+        [annotationView addSubview:label];
+        return annotationView;
     }
 //    else
 //    {

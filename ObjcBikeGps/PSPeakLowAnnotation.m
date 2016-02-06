@@ -1,14 +1,12 @@
 //
-//  PSDistanceAnnotation.m
-//  ObjcBikeGps
-//
-//  Created by Philip Schneider on 03.05.15.
-//  Copyright (c) 2015 phschneider.net. All rights reserved.
+// Created by Philip Schneider on 06.02.16.
+// Copyright (c) 2016 phschneider.net. All rights reserved.
 //
 
-#import "PSDistanceAnnotation.h"
+#import "PSPeakLowAnnotation.h"
 
-@implementation PSDistanceAnnotation
+
+@implementation PSPeakLowAnnotation
 
 - (id) initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString*)title
 {
@@ -18,9 +16,9 @@
     {
         _title = title;
         _coordinate = coordinate;
+        _isPeak = NO;
     }
     return self;
 }
-
 
 @end

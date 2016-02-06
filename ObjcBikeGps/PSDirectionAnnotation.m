@@ -10,6 +10,7 @@
 
 - (id) initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString*)title
 {
+    DLogFuncName();
     self = [super init];
     if (self)
     {

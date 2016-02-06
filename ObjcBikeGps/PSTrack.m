@@ -7,6 +7,7 @@
 #import <MapKit/MapKit.h>
 #import <Ono/ONOXMLDocument.h>
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 #import "PSTrack.h"
 #import "PSDistanceAnnotation.h"
 #import "PSTrackOverlay.h"
@@ -271,7 +272,6 @@
 
     self.totalDown = 0.0;
     self.totalUp = 0.0;
-
     CGFloat tmpElevation = 0.0;
 
     for (NSDictionary * pointDict in trek)
@@ -316,9 +316,26 @@
             tmpElevation = elevation;
 
             // Distance
-            tmpLocation = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
+            if (elevation)
+            {
+                tmpLocation = [[CLLocation alloc] initWithCoordinate:workingCoordinate altitude:elevation horizontalAccuracy:5.0 verticalAccuracy:5.0 timestamp:[NSDate date]];
+            }
+            else
+            {
+                tmpLocation = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
+            }
+            // NSLog(@"tmpLocation Alt = %f, low.alt = %f peak.alt = %f", tmpLocation.altitude, self.low.altitude, self.peak.altitude);
+            if (!self.low || tmpLocation.altitude < self.low.altitude)
+            {
+                self.low = [tmpLocation copy];
+            }
+            if (!self.peak || tmpLocation.altitude > self.peak.altitude)
+            {
+                self.peak = [tmpLocation copy];
+            }
 
-            // Passt nicht ...
+
+        // Passt nicht ...
             distance += [tmpLocation distanceFromLocation:Location1];
 //            NSLog(@"Distance = %f", trackLength);
             int dist = (distance / DISTANCE_ANNOTATIONS_STEP_SIZE);
