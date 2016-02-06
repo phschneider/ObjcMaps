@@ -93,15 +93,14 @@
 //    result(tileData,nil);
 //    return
 
-    NSData *cachedData = nil; // [self.cache objectForKey:[self URLForTilePath:path]];
+    NSData *cachedData = [self.cache objectForKey:[self URLForTilePath:path]];
     if (cachedData)
     {
         result(cachedData, nil);
     }
     else
     {
-
-        NSData *storedData = nil; //[NSData dataWithContentsOfFile:databasePath];
+        NSData *storedData = [NSData dataWithContentsOfFile:[self storageForPath:path]];
         if (storedData)
         {
             // Cache für die Laufzeit der App
@@ -124,9 +123,6 @@
         }
     }
 }
-
-
-
 
 
 
