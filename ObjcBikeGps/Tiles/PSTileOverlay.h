@@ -9,7 +9,12 @@
 @interface PSTileOverlay : MKTileOverlay
 
 +(NSString*) urlTemplate;
+
++ (NSArray *)tilesInMapRect:(MKMapRect)rect zoomScale:(MKZoomScale)scale;
+
 - (MKOverlayLevel) level;
 
 - (NSString *)name;
+
+- (NSString *)folderSize;
 @end

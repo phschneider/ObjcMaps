@@ -61,12 +61,8 @@
         NSString *urlTemplate = [tileClass urlTemplate];
         PSTileOverlay *overlay = [(PSTileOverlay *) [tileClass alloc] initWithURLTemplate:urlTemplate];
 
-        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *docsDir = [dirPaths objectAtIndex:0];
-        NSString *databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/tiles/%@", [overlay name]]]];
-
         int index = [self.maptypes indexOfObject:model];
-        [model setObject:[self sizeOfFolder:databasePath] forKey:@"size"];
+        [model setObject:[overlay folderSize] forKey:@"size"];
 
         dispatch_async(dispatch_get_main_queue(),^{
             [self.tableView reloadRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:index inSection:0] ] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -206,45 +202,6 @@
     [aTableView reloadData];
 
     [[NSNotificationCenter defaultCenter] postNotificationName:@"USERDEFAULTS_SETTINGS_TILECLASS_CHANGED" object:nil];
-}
-
-
--(NSString *)sizeOfFolder:(NSString *)folderPath
-{
-    DLogFuncName();
-
-    unsigned long long int folderSize = [self recursiveSizeForFolder:folderPath];
-    //This line will give you formatted size from bytes ....
-    NSString *folderSizeStr = [NSByteCountFormatter stringFromByteCount:folderSize countStyle:NSByteCountFormatterCountStyleFile];
-
-    return folderSizeStr;
-}
-
-
-- (unsigned long long int)recursiveSizeForFolder:(NSString*)folderPath
-{
-    DLogFuncName();
-
-    unsigned long long int folderSize = 0;
-    NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
-    NSEnumerator *contentsEnumurator = [contents objectEnumerator];
-
-    NSString *file;
-    while (file = [contentsEnumurator nextObject]) 
-    {
-        NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[folderPath stringByAppendingPathComponent:file] error:nil];
-        NSString *fileType = [fileAttributes objectForKey:NSFileType];
-
-        if ([fileType isEqualToString:NSFileTypeDirectory])
-        {
-            folderSize += [self recursiveSizeForFolder:[folderPath stringByAppendingPathComponent:file]];
-        }
-        else
-        {
-            folderSize += [[fileAttributes objectForKey:NSFileSize] intValue];
-        }
-    }
-    return folderSize;
 }
 
 @end
