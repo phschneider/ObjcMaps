@@ -26,22 +26,52 @@
 
         [self.view addSubview:self.tableView];
 
-
-        self.maptypes = @[  @{ @"name" : @"Apple Default", @"classString" : @"PSAppleDefaultTileOverlay" },
-                            @{ @"name" : @"Apple Satellite", @"classString" : @"PSAppleSatelliteTileOverlay" },
-                            @{ @"name" : @"Apple Hybrid", @"classString" : @"PSAppleHybridTileOverlay" },
-                            @{ @"name" : @"Open Street Map", @"classString" : @"PSOpenStreetMapTileOverlay" },
-                            @{ @"name" : @"Open Cycle Map", @"classString" : @"PSOpenCycleMapTileOverlay" },
-                            @{ @"name" : @"Light (MapBox)", @"classString" : @"PSMapBoxLightTileOverlay" },
-                            @{ @"name" : @"Dark (MapBox)", @"classString" : @"PSMapBoxDarkTileOverlay" },
-                            @{ @"name" : @"Street (MapBox)", @"classString" : @"PSMapBoxTileOverlay" },
-                            @{ @"name" : @"Run/Bike/Hike (MapBox)", @"classString" : @"PSMapBoxRunBikeHikeTileOverlay" },
-                            @{ @"name" : @"PS Custom (MapBox)", @"classString" : @"PSMapBoxCustomTileOverlay" },
-                            @{ @"name" : @"Hight contrast (MapBox)", @"classString" : @"PSMapBoxHighContrastTileOverlay" }
+        // TODO: Auslagern in TileManager
+        self.maptypes = @[  [ @{ @"name" : @"Apple Default", @"classString" : @"PSAppleDefaultTileOverlay" , @"size" : @""} mutableCopy],
+                            [ @{ @"name" : @"Apple Satellite", @"classString" : @"PSAppleSatelliteTileOverlay" , @"size" : @""} mutableCopy],
+                            [ @{ @"name" : @"Apple Hybrid", @"classString" : @"PSAppleHybridTileOverlay" , @"size" : @""}  mutableCopy],
+                            [ @{ @"name" : @"Open Street Map", @"classString" : @"PSOpenStreetMapTileOverlay" , @"size" : @""} mutableCopy],
+                            [ @{ @"name" : @"Open Cycle Map", @"classString" : @"PSOpenCycleMapTileOverlay" , @"size" : @""} mutableCopy],
+                            [ @{ @"name" : @"Light (MapBox)", @"classString" : @"PSMapBoxLightTileOverlay" , @"size" : @""} mutableCopy],
+                            [ @{ @"name" : @"Dark (MapBox)", @"classString" : @"PSMapBoxDarkTileOverlay" , @"size" : @""} mutableCopy],
+                            [ @{ @"name" : @"Street (MapBox)", @"classString" : @"PSMapBoxTileOverlay" , @"size" : @""} mutableCopy],
+                            [ @{ @"name" : @"Run/Bike/Hike (MapBox)", @"classString" : @"PSMapBoxRunBikeHikeTileOverlay" , @"size" : @""} mutableCopy],
+                            [ @{ @"name" : @"PS Custom (MapBox)", @"classString" : @"PSMapBoxCustomTileOverlay" , @"size" : @""} mutableCopy],
+                            [ @{ @"name" : @"Hight contrast (MapBox)", @"classString" : @"PSMapBoxHighContrastTileOverlay" , @"size" : @""} mutableCopy],
         ];
+
+        dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+        dispatch_async(backgroundQueue,^{
+            [self calculateSizes];
+        });
     }
 
     return self;
+}
+
+
+// TODO: auslagern in Tiles
+- (void) calculateSizes
+{
+    DLogFuncName();
+
+    for (NSMutableDictionary *model in self.maptypes)
+    {
+        Class tileClass = NSClassFromString([model objectForKey:@"classString"]);
+        NSString *urlTemplate = [tileClass urlTemplate];
+        PSTileOverlay *overlay = [(PSTileOverlay *) [tileClass alloc] initWithURLTemplate:urlTemplate];
+
+        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *docsDir = [dirPaths objectAtIndex:0];
+        NSString *databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/tiles/%@", [overlay name]]]];
+
+        int index = [self.maptypes indexOfObject:model];
+        [model setObject:[self sizeOfFolder:databasePath] forKey:@"size"];
+
+        dispatch_async(dispatch_get_main_queue(),^{
+            [self.tableView reloadRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:index inSection:0] ] withRowAnimation:UITableViewRowAnimationAutomatic];
+        });
+    }
 }
 
 
@@ -62,7 +92,7 @@
 //        height += 100;
     }
 
-    height += self.tableView.rowHeight;
+//    height += self.tableView.rowHeight;
 //    NSLog(@"Height = %f", height);
     return height;
 }
@@ -100,8 +130,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)aTableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //UITableViewCell* cell = [aTableView dequeueReusableCellWithIdentifier:@"WYSettingsTableViewCell" forIndexPath:indexPath];
-
     UITableViewCell* cell = [aTableView dequeueReusableCellWithIdentifier:@"WYSettingsTableViewCell"];
 
     if (cell == nil) {
@@ -109,28 +137,28 @@
     }
 
     NSString* tileClassString = [[NSUserDefaults standardUserDefaults] stringForKey:@"TILE_CLASS"];
-
-    cell.textLabel.text = @"";
-    cell.accessoryType = UITableViewCellAccessoryNone;
     NSDictionary *model = [self.maptypes objectAtIndex:indexPath.row];
+    Class tileClass = NSClassFromString([model objectForKey:@"classString"]);
+    
     cell.textLabel.text = [model objectForKey:@"name"];
 
-    Class tileClass = NSClassFromString([model objectForKey:@"classString"]);
     id object = [[tileClass alloc] init];
-    if (object) {
-
+    if (object)
+    {
         NSString *urlTemplate = [tileClass urlTemplate];
         NSLog(@"URL Template = %@", urlTemplate);
 
-        PSTileOverlay *overlay = [(PSTileOverlay *) [tileClass alloc] initWithURLTemplate:urlTemplate];
+        cell.detailTextLabel.text = [model objectForKey:@"size"];
 
-
-        NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *docsDir = [dirPaths objectAtIndex:0];
-        NSString *databasePath = [[NSString alloc] initWithString:[docsDir stringByAppendingPathComponent:[NSString stringWithFormat:@"/tiles/%@", [overlay name]]]];
-
-
-        cell.detailTextLabel.text = [self sizeOfFolder:databasePath];
+        if (![tileClassString isEqualToString:[model objectForKey:@"classString"]])
+        {
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gray-265-download"]];
+            cell.accessoryView = imageView;
+        }
+        else
+        {
+            cell.accessoryView = nil;
+        }
     }
     else
     {
@@ -138,12 +166,11 @@
     }
 
 
-
     if ([tileClassString isEqualToString:[model objectForKey:@"classString"]])
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
-    else
+    else if ([[model objectForKey:@"name"] rangeOfString:@"Apple"].location != NSNotFound)
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
@@ -152,9 +179,25 @@
 }
 
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    DLogFuncName();
+
+    NSDictionary *model = [self.maptypes objectAtIndex:indexPath.row];
+    Class tileClass = NSClassFromString([model objectForKey:@"classString"]);
+    id object = [[tileClass alloc] init];
+    if (object)
+    {
+        NSString * urlTemplate = [tileClass urlTemplate];
+    }
+}
+
+
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    DLogFuncName();
+
     [aTableView deselectRowAtIndexPath:indexPath animated:YES];
 
     NSDictionary *model = [self.maptypes objectAtIndex:indexPath.row];

@@ -64,6 +64,8 @@
 		4A07FABB1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABA1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx */; };
 		4A07FABE1C661C8400FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABC1C661C8400FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx */; };
 		4A07FABF1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABD1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx */; };
+		4A07FAC21C66917800FA554D /* gray-265-download.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAC01C66917800FA554D /* gray-265-download.png */; };
+		4A07FAC31C66917800FA554D /* gray-265-download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAC11C66917800FA554D /* gray-265-download@2x.png */; };
 		4A0E71C51C32EDFA00BCF6B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C41C32EDFA00BCF6B8 /* Launch Screen.storyboard */; };
 		4A0E71E01C32EE8200BCF6B8 /* 1064-layers-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C71C32EE8200BCF6B8 /* 1064-layers-4.png */; };
 		4A0E71E11C32EE8200BCF6B8 /* 1064-layers-4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C81C32EE8200BCF6B8 /* 1064-layers-4@2x.png */; };
@@ -216,6 +218,8 @@
 		4A07FABA1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-3-Knochen-Tour.gpx"; sourceTree = "<group>"; };
 		4A07FABC1C661C8400FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-1-Warm-up-Tour.gpx"; sourceTree = "<group>"; };
 		4A07FABD1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-2-Fitness-Tour.gpx"; sourceTree = "<group>"; };
+		4A07FAC01C66917800FA554D /* gray-265-download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-265-download.png"; sourceTree = "<group>"; };
+		4A07FAC11C66917800FA554D /* gray-265-download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-265-download@2x.png"; sourceTree = "<group>"; };
 		4A0E71C41C32EDFA00BCF6B8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4A0E71C71C32EE8200BCF6B8 /* 1064-layers-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1064-layers-4.png"; sourceTree = "<group>"; };
 		4A0E71C81C32EE8200BCF6B8 /* 1064-layers-4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1064-layers-4@2x.png"; sourceTree = "<group>"; };
@@ -597,6 +601,8 @@
 		4A0E71C61C32EE8200BCF6B8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4A07FAC01C66917800FA554D /* gray-265-download.png */,
+				4A07FAC11C66917800FA554D /* gray-265-download@2x.png */,
 				4A0E71C71C32EE8200BCF6B8 /* 1064-layers-4.png */,
 				4A0E71C81C32EE8200BCF6B8 /* 1064-layers-4@2x.png */,
 				4A0E71C91C32EE8200BCF6B8 /* 1064-layers-4@3x.png */,
@@ -915,9 +921,11 @@
 				222DF3351B659056003410E7 /* Trail-Schwarzenberg11.gpx in Resources */,
 				222DF3281B659056003410E7 /* Trail-KlbTrail.gpx in Resources */,
 				222DF3261B659056003410E7 /* Trail-Dudweiler1.gpx in Resources */,
+				4A07FAC31C66917800FA554D /* gray-265-download@2x.png in Resources */,
 				4A07FABB1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx in Resources */,
 				22F934EA19DD5E5B00996122 /* Images.xcassets in Resources */,
 				222DF3461B659B9E003410E7 /* TrailSpichern2.gpx in Resources */,
+				4A07FAC21C66917800FA554D /* gray-265-download.png in Resources */,
 				222DF34A1B659F41003410E7 /* TrailSpichern3.gpx in Resources */,
 				222DF3391B659056003410E7 /* Trail-Schwarzenberg15.gpx in Resources */,
 				222DF3271B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx in Resources */,
