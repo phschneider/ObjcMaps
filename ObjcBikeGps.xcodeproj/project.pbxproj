@@ -55,7 +55,15 @@
 		22F9350719DD5FFB00996122 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350619DD5FFB00996122 /* MapKit.framework */; };
 		22F9350919DD624800996122 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350819DD624800996122 /* CoreLocation.framework */; };
 		4A07FAA91C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAA81C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx */; };
-		4A07FAAB1C65FFE300FA554D /* Route-Die-Pur-Nord-West-Schleife.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAAA1C65FFE300FA554D /* Route-Die-Pur-Nord-West-Schleife.gpx */; };
+		4A07FAAB1C65FFE300FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAAA1C65FFE300FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx */; };
+		4A07FAB01C661B2200FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAAF1C661B2200FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx */; };
+		4A07FAB31C661BDB00FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAB21C661BDB00FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx */; };
+		4A07FAB51C661C0C00FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAB41C661C0C00FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx */; };
+		4A07FAB71C661C3D00FA554D /* Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAB61C661C3D00FA554D /* Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx */; };
+		4A07FAB91C661C5B00FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAB81C661C5B00FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx */; };
+		4A07FABB1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABA1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx */; };
+		4A07FABE1C661C8400FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABC1C661C8400FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx */; };
+		4A07FABF1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABD1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx */; };
 		4A0E71C51C32EDFA00BCF6B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C41C32EDFA00BCF6B8 /* Launch Screen.storyboard */; };
 		4A0E71E01C32EE8200BCF6B8 /* 1064-layers-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C71C32EE8200BCF6B8 /* 1064-layers-4.png */; };
 		4A0E71E11C32EE8200BCF6B8 /* 1064-layers-4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C81C32EE8200BCF6B8 /* 1064-layers-4@2x.png */; };
@@ -199,7 +207,15 @@
 		22F9350819DD624800996122 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		292651F264F523FCBBD71335 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4A07FAA81C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-9-Konditions-Tour.gpx"; sourceTree = "<group>"; };
-		4A07FAAA1C65FFE300FA554D /* Route-Die-Pur-Nord-West-Schleife.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Die-Pur-Nord-West-Schleife.gpx"; sourceTree = "<group>"; };
+		4A07FAAA1C65FFE300FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Die-Pur-Nord-West-Schleife.gpx"; sourceTree = "<group>"; };
+		4A07FAAF1C661B2200FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-8-Hoehen-Tour.gpx"; sourceTree = "<group>"; };
+		4A07FAB21C661BDB00FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-7-Relax-Tour.gpx"; sourceTree = "<group>"; };
+		4A07FAB41C661C0C00FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-6-Ausdauer-Tour.gpx"; sourceTree = "<group>"; };
+		4A07FAB61C661C3D00FA554D /* Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx"; sourceTree = "<group>"; };
+		4A07FAB81C661C5B00FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-4-Profi-Tour.gpx"; sourceTree = "<group>"; };
+		4A07FABA1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-3-Knochen-Tour.gpx"; sourceTree = "<group>"; };
+		4A07FABC1C661C8400FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-1-Warm-up-Tour.gpx"; sourceTree = "<group>"; };
+		4A07FABD1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-2-Fitness-Tour.gpx"; sourceTree = "<group>"; };
 		4A0E71C41C32EDFA00BCF6B8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4A0E71C71C32EE8200BCF6B8 /* 1064-layers-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1064-layers-4.png"; sourceTree = "<group>"; };
 		4A0E71C81C32EE8200BCF6B8 /* 1064-layers-4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1064-layers-4@2x.png"; sourceTree = "<group>"; };
@@ -406,42 +422,9 @@
 		22D2316C1AFFF2770019EF15 /* SampleFiles */ = {
 			isa = PBXGroup;
 			children = (
-				4A07FAA81C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx */,
-				4A07FAAA1C65FFE300FA554D /* Route-Die-Pur-Nord-West-Schleife.gpx */,
-				22ED40991B68038800D3E297 /* Tour-Goettelborn.gpx */,
-				222DF3431B659B9E003410E7 /* TrailSpichern.gpx */,
-				222DF3441B659B9E003410E7 /* TrailSpichern2.gpx */,
-				222DF3491B659F41003410E7 /* TrailSpichern3.gpx */,
-				222DF33F1B659976003410E7 /* Tour-Urwald.gpx */,
-				222DF3061B659056003410E7 /* Route-NrideHom-3.gpx */,
-				222DF3071B659056003410E7 /* Route-pur-blau_blueColor.gpx */,
-				222DF3081B659056003410E7 /* Route-pur-gruen_greenColor.gpx */,
-				222DF3091B659056003410E7 /* Trail-AmHomburg1.gpx */,
-				222DF30A1B659056003410E7 /* Trail-Dudweiler1.gpx */,
-				222DF30B1B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx */,
-				222DF30C1B659056003410E7 /* Trail-KlbTrail.gpx */,
-				222DF30D1B659056003410E7 /* Trail-Nauwies.gpx */,
-				22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */,
-				222DF30E1B659056003410E7 /* Trail-Nauwies2.gpx */,
-				222DF30F1B659056003410E7 /* Trail-Schwarzenberg1.gpx */,
-				222DF3101B659056003410E7 /* Trail-Schwarzenberg2.gpx */,
-				222DF3111B659056003410E7 /* Trail-Schwarzenberg3.gpx */,
-				222DF3121B659056003410E7 /* Trail-Schwarzenberg4.gpx */,
-				222DF3131B659056003410E7 /* Trail-Schwarzenberg5.gpx */,
-				222DF3141B659056003410E7 /* Trail-Schwarzenberg6.gpx */,
-				222DF3151B659056003410E7 /* Trail-Schwarzenberg7.gpx */,
-				222DF3161B659056003410E7 /* Trail-Schwarzenberg8.gpx */,
-				222DF3171B659056003410E7 /* Trail-Schwarzenberg9.gpx */,
-				222DF3181B659056003410E7 /* Trail-Schwarzenberg10.gpx */,
-				222DF3191B659056003410E7 /* Trail-Schwarzenberg11.gpx */,
-				222DF31A1B659056003410E7 /* Trail-Schwarzenberg12.gpx */,
-				222DF31B1B659056003410E7 /* Trail-Schwarzenberg13.gpx */,
-				222DF31C1B659056003410E7 /* Trail-Schwarzenberg14.gpx */,
-				222DF31D1B659056003410E7 /* Trail-Schwarzenberg15.gpx */,
-				222DF31E1B659056003410E7 /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx */,
-				222DF31F1B659056003410E7 /* Trail-Winterberg1.gpx */,
-				222DF3201B659056003410E7 /* Trail.gpx */,
-				4A0E71F91C32EEF400BCF6B8 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */,
+				4A07FAAC1C661ACE00FA554D /* Routen */,
+				4A07FAAE1C661AF600FA554D /* Tour */,
+				4A07FAAD1C661AD600FA554D /* Trails */,
 			);
 			name = SampleFiles;
 			sourceTree = "<group>";
@@ -536,6 +519,79 @@
 				22F934F919DD5E5B00996122 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4A07FAAC1C661ACE00FA554D /* Routen */ = {
+			isa = PBXGroup;
+			children = (
+				222DF3061B659056003410E7 /* Route-NrideHom-3.gpx */,
+				222DF3071B659056003410E7 /* Route-pur-blau_blueColor.gpx */,
+				222DF3081B659056003410E7 /* Route-pur-gruen_greenColor.gpx */,
+				4A07FAB11C661B3300FA554D /* Saarland */,
+			);
+			name = Routen;
+			sourceTree = "<group>";
+		};
+		4A07FAAD1C661AD600FA554D /* Trails */ = {
+			isa = PBXGroup;
+			children = (
+				222DF3091B659056003410E7 /* Trail-AmHomburg1.gpx */,
+				222DF30A1B659056003410E7 /* Trail-Dudweiler1.gpx */,
+				222DF30B1B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx */,
+				222DF30C1B659056003410E7 /* Trail-KlbTrail.gpx */,
+				222DF30D1B659056003410E7 /* Trail-Nauwies.gpx */,
+				222DF3201B659056003410E7 /* Trail.gpx */,
+				222DF30E1B659056003410E7 /* Trail-Nauwies2.gpx */,
+				222DF30F1B659056003410E7 /* Trail-Schwarzenberg1.gpx */,
+				222DF3101B659056003410E7 /* Trail-Schwarzenberg2.gpx */,
+				222DF3111B659056003410E7 /* Trail-Schwarzenberg3.gpx */,
+				222DF3121B659056003410E7 /* Trail-Schwarzenberg4.gpx */,
+				222DF3131B659056003410E7 /* Trail-Schwarzenberg5.gpx */,
+				222DF3141B659056003410E7 /* Trail-Schwarzenberg6.gpx */,
+				222DF3151B659056003410E7 /* Trail-Schwarzenberg7.gpx */,
+				222DF3161B659056003410E7 /* Trail-Schwarzenberg8.gpx */,
+				222DF3171B659056003410E7 /* Trail-Schwarzenberg9.gpx */,
+				222DF3181B659056003410E7 /* Trail-Schwarzenberg10.gpx */,
+				222DF3191B659056003410E7 /* Trail-Schwarzenberg11.gpx */,
+				222DF31A1B659056003410E7 /* Trail-Schwarzenberg12.gpx */,
+				222DF31B1B659056003410E7 /* Trail-Schwarzenberg13.gpx */,
+				222DF31C1B659056003410E7 /* Trail-Schwarzenberg14.gpx */,
+				222DF31D1B659056003410E7 /* Trail-Schwarzenberg15.gpx */,
+				222DF31E1B659056003410E7 /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx */,
+				222DF31F1B659056003410E7 /* Trail-Winterberg1.gpx */,
+				222DF3431B659B9E003410E7 /* TrailSpichern.gpx */,
+				222DF3441B659B9E003410E7 /* TrailSpichern2.gpx */,
+				222DF3491B659F41003410E7 /* TrailSpichern3.gpx */,
+			);
+			name = Trails;
+			sourceTree = "<group>";
+		};
+		4A07FAAE1C661AF600FA554D /* Tour */ = {
+			isa = PBXGroup;
+			children = (
+				22ED40991B68038800D3E297 /* Tour-Goettelborn.gpx */,
+				222DF33F1B659976003410E7 /* Tour-Urwald.gpx */,
+				22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */,
+				4A0E71F91C32EEF400BCF6B8 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */,
+			);
+			name = Tour;
+			sourceTree = "<group>";
+		};
+		4A07FAB11C661B3300FA554D /* Saarland */ = {
+			isa = PBXGroup;
+			children = (
+				4A07FABC1C661C8400FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx */,
+				4A07FABD1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx */,
+				4A07FABA1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx */,
+				4A07FAB81C661C5B00FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx */,
+				4A07FAB61C661C3D00FA554D /* Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx */,
+				4A07FAB41C661C0C00FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx */,
+				4A07FAB21C661BDB00FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx */,
+				4A07FAAF1C661B2200FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx */,
+				4A07FAA81C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx */,
+				4A07FAAA1C65FFE300FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx */,
+			);
+			name = Saarland;
 			sourceTree = "<group>";
 		};
 		4A0E71C61C32EE8200BCF6B8 /* Images */ = {
@@ -805,8 +861,9 @@
 				4A0E71E51C32EE8200BCF6B8 /* 1100-list-2-toolbar@3x.png in Resources */,
 				222DF32D1B659056003410E7 /* Trail-Schwarzenberg3.gpx in Resources */,
 				222DF3451B659B9E003410E7 /* TrailSpichern.gpx in Resources */,
-				4A07FAAB1C65FFE300FA554D /* Route-Die-Pur-Nord-West-Schleife.gpx in Resources */,
+				4A07FAAB1C65FFE300FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */,
 				222DF32C1B659056003410E7 /* Trail-Schwarzenberg2.gpx in Resources */,
+				4A07FAB71C661C3D00FA554D /* Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx in Resources */,
 				4A0E720F1C34817900BCF6B8 /* Icon-40@3x.png in Resources */,
 				222DF33C1B659056003410E7 /* Trail.gpx in Resources */,
 				4A0E71F71C32EE8200BCF6B8 /* gray-940-pin@2x.png in Resources */,
@@ -819,6 +876,7 @@
 				4A0E71EA1C32EE8200BCF6B8 /* 760-refresh-3@3x.png in Resources */,
 				4A0E71F61C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png in Resources */,
 				4A0E71E81C32EE8200BCF6B8 /* 760-refresh-3.png in Resources */,
+				4A07FAB91C661C5B00FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx in Resources */,
 				4A0E71E61C32EE8200BCF6B8 /* 1435537202_54.png in Resources */,
 				4A0E72141C34817900BCF6B8 /* iTunesArtwork@2x.png in Resources */,
 				4A0E71EC1C32EE8200BCF6B8 /* 798-filter-toolbar@2x.png in Resources */,
@@ -837,13 +895,16 @@
 				222DF32F1B659056003410E7 /* Trail-Schwarzenberg5.gpx in Resources */,
 				4A0E71E91C32EE8200BCF6B8 /* 760-refresh-3@2x.png in Resources */,
 				222DF3341B659056003410E7 /* Trail-Schwarzenberg10.gpx in Resources */,
+				4A07FAB31C661BDB00FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx in Resources */,
 				222DF3301B659056003410E7 /* Trail-Schwarzenberg6.gpx in Resources */,
 				4A0E71F31C32EE8200BCF6B8 /* 854-list-toolbar-selected@3x.png in Resources */,
 				4A0E71E21C32EE8200BCF6B8 /* 1064-layers-4@3x.png in Resources */,
 				222DF3241B659056003410E7 /* Route-pur-gruen_greenColor.gpx in Resources */,
 				4A0E71E11C32EE8200BCF6B8 /* 1064-layers-4@2x.png in Resources */,
+				4A07FABF1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx in Resources */,
 				4A0E71E31C32EE8200BCF6B8 /* 1100-list-2-toolbar.png in Resources */,
 				4A0E71E41C32EE8200BCF6B8 /* 1100-list-2-toolbar@2x.png in Resources */,
+				4A07FABE1C661C8400FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx in Resources */,
 				222DF3371B659056003410E7 /* Trail-Schwarzenberg13.gpx in Resources */,
 				4A0E71F51C32EE8200BCF6B8 /* Emergeny.png in Resources */,
 				22146EB11B6A855800CE0360 /* Tour-KLB-SB.gpx in Resources */,
@@ -854,6 +915,7 @@
 				222DF3351B659056003410E7 /* Trail-Schwarzenberg11.gpx in Resources */,
 				222DF3281B659056003410E7 /* Trail-KlbTrail.gpx in Resources */,
 				222DF3261B659056003410E7 /* Trail-Dudweiler1.gpx in Resources */,
+				4A07FABB1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx in Resources */,
 				22F934EA19DD5E5B00996122 /* Images.xcassets in Resources */,
 				222DF3461B659B9E003410E7 /* TrailSpichern2.gpx in Resources */,
 				222DF34A1B659F41003410E7 /* TrailSpichern3.gpx in Resources */,
@@ -866,6 +928,8 @@
 				4A0E720E1C34817900BCF6B8 /* Icon-40@2x.png in Resources */,
 				222DF3221B659056003410E7 /* Route-NrideHom-3.gpx in Resources */,
 				4A0E72101C34817900BCF6B8 /* Icon-60@2x.png in Resources */,
+				4A07FAB01C661B2200FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx in Resources */,
+				4A07FAB51C661C0C00FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx in Resources */,
 				222DF3381B659056003410E7 /* Trail-Schwarzenberg14.gpx in Resources */,
 				4A0E720A1C34817900BCF6B8 /* Icon-29.png in Resources */,
 				4A0E720C1C34817900BCF6B8 /* Icon-29@3x.png in Resources */,
