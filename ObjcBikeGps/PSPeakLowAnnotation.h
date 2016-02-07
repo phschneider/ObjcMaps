@@ -4,14 +4,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PSMapAnnotation.h"
 
+@interface PSPeakLowAnnotation : PSMapAnnotation
 
-@interface PSPeakLowAnnotation : NSObject
-
-@property (nonatomic) NSString *title;
-@property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic) BOOL isPeak;
 
-- (id) initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString*)title;
 
 @end

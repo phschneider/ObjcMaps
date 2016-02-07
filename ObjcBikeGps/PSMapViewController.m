@@ -1030,6 +1030,8 @@
 - (void)zoomMap:(MKMapView*)mapView byDelta:(float) delta
 {
     DLogFuncName();
+    MKMapCamera *camera = mapView.camera;
+    
     MKCoordinateRegion region = mapView.region;
     MKCoordinateSpan span = mapView.region.span;
     span.latitudeDelta*=delta;
@@ -1038,6 +1040,9 @@
     if (span.latitudeDelta < 200)
     {
         [mapView setRegion:region animated:YES];
+//        dispatch_async(dispatch_get_main_queue(),^{
+//            mapView.camera.heading = camera.heading;
+//        });
     }
 
 }
@@ -1427,6 +1432,20 @@
     self.debugLabel.text = [NSString stringWithFormat:@"lat: %f long: %f z: %f", self.mapView.region.span.latitudeDelta, self.mapView.region.span.longitudeDelta, [self.mapView zoomLevel]];
 //    NSLog(@"http://api.openstreetmap.org/api/0.6/map?bbox=%@",boundingBoxString);
 //    NSLog(@"http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=%@]",boundingBoxString);
+    
+    for (id annotation in [mapView annotationsInMapRect:mapView.visibleMapRect])
+    {
+        if ([annotation isKindOfClass:[PSDirectionAnnotation class]] )
+        {
+            PSDirectionAnnotation *directionAnnotation = annotation;
+            MKMapCamera *camera = self.mapView.camera;
+            CGAffineTransform transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(directionAnnotation.degrees)-DEGREES_TO_RADIANS(camera.heading));
+//            dispatch_async(dispatch_get_main_queue(),^{
+                directionAnnotation.view.transform = transform;
+//            });
+            
+                   }
+    }
 }
 
 
@@ -1435,15 +1454,62 @@
     DLogFuncName();
     [self calculateMapArea];
 
+    for (id annotation in [mapView annotationsInMapRect:mapView.visibleMapRect])
+    {
+        if ([annotation isKindOfClass:[PSDirectionAnnotation class]] )
+        {
+            PSDirectionAnnotation *directionAnnotation = annotation;
+            MKMapCamera *camera = self.mapView.camera;
+            CGAffineTransform transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(directionAnnotation.degrees)-DEGREES_TO_RADIANS(camera.heading));
+            //            dispatch_async(dispatch_get_main_queue(),^{
+            directionAnnotation.view.transform = transform;
+            //            });
+            
+            if (mapView.zoomLevel < 17)
+            {
+                directionAnnotation.view.hidden = YES;
+            }
+            else
+            {
+                directionAnnotation.view.hidden = NO;
+                UIImage *orangeImage = [UIImage imageNamed:@"white-193-location-arrow"];
+                CGRect resizeRect;
+                //rescale image based on zoom level
+                double scale = (1.0 * mapView.zoomLevel / 30) + 0.5;
+                resizeRect.size.height = orangeImage.size.height * scale;
+                resizeRect.size.width = orangeImage.size.width  * scale ;
+//                NSLog(@"height =  %f, width = %f, zoomLevel = %f", resizeRect.size.height, resizeRect.size.width,mapView.zoomLevel );
+                resizeRect.origin = (CGPoint){0,0};
+                UIGraphicsBeginImageContext(resizeRect.size);
+                [orangeImage drawInRect:resizeRect];
+                UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                directionAnnotation.view.image = resizedImage;
+            }
+        }
+        else if ([annotation isKindOfClass:[PSDistanceAnnotation class]] )
+        {
+            PSDistanceAnnotation *distanceAnnotation = annotation;
+            if (mapView.zoomLevel < 14)
+            {
+                distanceAnnotation.view.hidden = YES;
+            }
+            else
+            {
+                distanceAnnotation.view.hidden = NO;
+            }
+        }
+    }
+    
     double realZoomLevel = [mapView realZoomLevel];
     if( realZoomLevel != round(realZoomLevel))
     {
         dispatch_async(dispatch_get_main_queue(),^{
-            [mapView setCenterCoordinate:mapView.region.center zoomLevel:realZoomLevel animated:NO];
+//            [mapView setCenterCoordinate:mapView.region.center zoomLevel:realZoomLevel animated:NO];
         });
         return;
     }
-
+    
     NSArray * boundingBox = [self getBoundingBox:self.mapView.visibleMapRect];
     NSString *boundingBoxString = [NSString stringWithFormat:@"%.3f,%.3f,%.3f,%.3f", [[boundingBox objectAtIndex:1] floatValue], [[boundingBox objectAtIndex:0] floatValue], [[boundingBox objectAtIndex:3] floatValue], [[boundingBox objectAtIndex:2] floatValue]];
     self.boundingLabel.text = boundingBoxString;
@@ -1775,7 +1841,6 @@
 
     if ([overlay isKindOfClass:[MKCircle class]] || [overlay isKindOfClass:[MKCircleView class]])
     {
-        NSLog(@"Circle Overlay");
         // MKCircle Skaliert mit :(
         MKCircleRenderer * renderer = [[MKCircleRenderer alloc] initWithOverlay:overlay];
         renderer.alpha = 0.5;
@@ -1790,8 +1855,8 @@
         return render;
     }
 
-    if (![overlay isKindOfClass:[MKPolyline class]]) {
-//        NSLog(@"ERROR ERROR ERROR");
+    if (![overlay isKindOfClass:[MKPolyline class]])
+    {
         return nil;
     }
 
@@ -1809,11 +1874,6 @@
         renderer.strokeColor = trackOverlay.color;
         renderer.alpha = trackOverlay.alpha;
         renderer.lineDashPattern = trackOverlay.lineDashPattern;
-//
-//        MKCircle *circle = [MKCircle circleWithCenterCoordinate:[track coordinates][0] radius:5.0];
-//        [circle setTitle:@"circle1"];
-//        [mapView addOverlay:circle];
-       
         return renderer;
     }
     else
@@ -1872,6 +1932,7 @@
 }
 
 
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
     DLogFuncName();
@@ -1915,6 +1976,7 @@
         label.layer.borderWidth = 1.0;
         label.center = annotationView.center;
         [annotationView addSubview:label];
+        ((PSDistanceAnnotation *)annotation).view = annotationView;
         return annotationView;
     }
 
@@ -1942,6 +2004,7 @@
         label.layer.cornerRadius = frame.size.width/2;
         label.center = annotationView.center;
         [annotationView addSubview:label];
+        ((PSWayPointAnnotation *)annotation).view = annotationView;
         return annotationView;
     }
 
@@ -1954,11 +2017,12 @@
         MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseIdentifier];
         annotationView.canShowCallout = NO;
         annotationView.image = [UIImage imageNamed:@"white-193-location-arrow"];
-
+        annotationView.contentMode = UIViewContentModeScaleAspectFit;
 
         CGAffineTransform transform = CGAffineTransformMakeRotation(DEGREES_TO_RADIANS(directionAnnotation.degrees));
         annotationView.transform = transform;
 
+        directionAnnotation.view = annotationView;
         return annotationView;;
     }
     
@@ -2090,14 +2154,10 @@
         label.layer.borderWidth = 1.0;
         label.center = annotationView.center;
         [annotationView addSubview:label];
+        ((PSPeakLowAnnotation *)annotation).view = annotationView;
         return annotationView;
     }
-//    else
-//    {
-//        annotationView=(MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:annotaionIdentifier ];
-//        annotationView.pinColor = [UIColor blueColor];
-//    }
-
+    
     return nil;
 }
 

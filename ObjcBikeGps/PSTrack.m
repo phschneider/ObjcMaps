@@ -40,7 +40,7 @@
         self.filename = filename;
         self.color = [UIColor blackColor];
         self.alpha = 1.0;
-        self.lineWidth = 2.5;
+        self.lineWidth = 5.5;
         self.lineDashPattern = @[@2, @5];
 
         [self parseElevationFile];

@@ -7,12 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PSMapAnnotation.h"
 
-@interface PSDistanceAnnotation : NSObject
-
-@property (nonatomic) NSString *title;
-@property (nonatomic) CLLocationCoordinate2D coordinate;
-
-- (id) initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString*)title;
+@interface PSDistanceAnnotation : PSMapAnnotation
 
 @end

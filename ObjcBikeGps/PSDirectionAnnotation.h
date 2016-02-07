@@ -4,14 +4,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PSMapAnnotation.h"
 
+@interface PSDirectionAnnotation : PSMapAnnotation
 
-@interface PSDirectionAnnotation : NSObject
-
-@property (nonatomic) NSString *title;
-@property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic) CLLocationDegrees degrees;
 
-- (id) initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString*)title;
 
 @end

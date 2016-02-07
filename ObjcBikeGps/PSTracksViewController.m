@@ -16,7 +16,6 @@
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) NSArray *tracks;
 @property (nonatomic) NSArray *visibleTracks;
-@property (nonatomic) PSMapViewController *mapViewController;
 @property (nonatomic) DZNSegmentedControl *control;
 @property (nonatomic, strong) BFNavigationBarDrawer *filterDrawer;
 @property (nonatomic, strong) BFNavigationBarDrawer *sortingDrawer;
@@ -41,8 +40,6 @@
         self.tableView.dataSource = self;
 
         [self.view addSubview:self.tableView];
-
-        self.mapViewController = [[PSMapViewController alloc] initWithTracks:self.visibleTracks];
 
         [[PSTrackStore sharedInstance] addObserver:self forKeyPath:@"tracks" options:NSKeyValueObservingOptionNew context:nil];
 
@@ -123,8 +120,6 @@
         self.tableView.dataSource = self;
 
         [self.view addSubview:self.tableView];
-
-        self.mapViewController = [[PSMapViewController alloc] initWithTracks:self.visibleTracks];
         [self.tableView reloadData];
 
         UIBarButtonItem *mapButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"852-map-toolbar"] style:UIBarButtonItemStylePlain target:self action:@selector(showAllOnMap)];
@@ -156,7 +151,9 @@
 - (void)showAllOnMap
 {
     DLogFuncName();
-    [self.navigationController pushViewController:self.mapViewController animated:YES];
+    
+    PSMapViewController *mapViewController = [[PSMapViewController alloc] initWithTracks:self.visibleTracks];
+    [self.navigationController pushViewController:mapViewController animated:YES];
 }
 
 
@@ -266,8 +263,6 @@
 
     //    NSArray *clearableAnnotations = [self.mapView overlaysInLevel:MKOverlayLevelAboveRoads];
 
-//    [self.mapViewController.mapView removeOverlays:self.mapViewController.mapView.overlays];
-    [self.mapViewController setTracks:self.visibleTracks];
     [self.tableView reloadData];
 }
 
@@ -291,7 +286,6 @@
 
         self.navigationItem.rightBarButtonItem.enabled = YES;
         self.tableView.hidden = NO;
-        self.mapViewController.view.hidden = YES;
     }
     else
     {
@@ -302,19 +296,6 @@
 
         self.navigationItem.rightBarButtonItem.enabled = NO;
         self.tableView.hidden = YES;
-        self.mapViewController.view.hidden = NO;
-
-        [self.mapViewController setTracks:self.visibleTracks];
-//        [self.mapViewController.mapView layoutSubviews];
-        if (self.mapViewController.view.superview == nil)
-        {
-//            [self.mapViewController willMoveToParentViewController:self];
-            [self addChildViewController:self.mapViewController];
-            // Ruft ein viewWillAppear auf ...
-            [self.view addSubview:self.mapViewController.view];
-
-        }
-        [self.mapViewController didMoveToParentViewController:self];
     }
 }
 

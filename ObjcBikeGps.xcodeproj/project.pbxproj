@@ -7,39 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		22146EB11B6A855800CE0360 /* Tour-KLB-SB.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */; };
 		222DF3221B659056003410E7 /* Route-NrideHom-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3061B659056003410E7 /* Route-NrideHom-3.gpx */; };
-		222DF3231B659056003410E7 /* Route-pur-blau_blueColor.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3071B659056003410E7 /* Route-pur-blau_blueColor.gpx */; };
-		222DF3241B659056003410E7 /* Route-pur-gruen_greenColor.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3081B659056003410E7 /* Route-pur-gruen_greenColor.gpx */; };
-		222DF3251B659056003410E7 /* Trail-AmHomburg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3091B659056003410E7 /* Trail-AmHomburg1.gpx */; };
-		222DF3261B659056003410E7 /* Trail-Dudweiler1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30A1B659056003410E7 /* Trail-Dudweiler1.gpx */; };
-		222DF3271B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30B1B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx */; };
-		222DF3281B659056003410E7 /* Trail-KlbTrail.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30C1B659056003410E7 /* Trail-KlbTrail.gpx */; };
-		222DF3291B659056003410E7 /* Trail-Nauwies.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30D1B659056003410E7 /* Trail-Nauwies.gpx */; };
-		222DF32A1B659056003410E7 /* Trail-Nauwies2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30E1B659056003410E7 /* Trail-Nauwies2.gpx */; };
-		222DF32B1B659056003410E7 /* Trail-Schwarzenberg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30F1B659056003410E7 /* Trail-Schwarzenberg1.gpx */; };
-		222DF32C1B659056003410E7 /* Trail-Schwarzenberg2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3101B659056003410E7 /* Trail-Schwarzenberg2.gpx */; };
-		222DF32D1B659056003410E7 /* Trail-Schwarzenberg3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3111B659056003410E7 /* Trail-Schwarzenberg3.gpx */; };
-		222DF32E1B659056003410E7 /* Trail-Schwarzenberg4.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3121B659056003410E7 /* Trail-Schwarzenberg4.gpx */; };
-		222DF32F1B659056003410E7 /* Trail-Schwarzenberg5.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3131B659056003410E7 /* Trail-Schwarzenberg5.gpx */; };
-		222DF3301B659056003410E7 /* Trail-Schwarzenberg6.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3141B659056003410E7 /* Trail-Schwarzenberg6.gpx */; };
-		222DF3311B659056003410E7 /* Trail-Schwarzenberg7.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3151B659056003410E7 /* Trail-Schwarzenberg7.gpx */; };
-		222DF3321B659056003410E7 /* Trail-Schwarzenberg8.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3161B659056003410E7 /* Trail-Schwarzenberg8.gpx */; };
-		222DF3331B659056003410E7 /* Trail-Schwarzenberg9.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3171B659056003410E7 /* Trail-Schwarzenberg9.gpx */; };
-		222DF3341B659056003410E7 /* Trail-Schwarzenberg10.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3181B659056003410E7 /* Trail-Schwarzenberg10.gpx */; };
-		222DF3351B659056003410E7 /* Trail-Schwarzenberg11.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3191B659056003410E7 /* Trail-Schwarzenberg11.gpx */; };
-		222DF3361B659056003410E7 /* Trail-Schwarzenberg12.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF31A1B659056003410E7 /* Trail-Schwarzenberg12.gpx */; };
-		222DF3371B659056003410E7 /* Trail-Schwarzenberg13.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF31B1B659056003410E7 /* Trail-Schwarzenberg13.gpx */; };
-		222DF3381B659056003410E7 /* Trail-Schwarzenberg14.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF31C1B659056003410E7 /* Trail-Schwarzenberg14.gpx */; };
-		222DF3391B659056003410E7 /* Trail-Schwarzenberg15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF31D1B659056003410E7 /* Trail-Schwarzenberg15.gpx */; };
-		222DF33A1B659056003410E7 /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF31E1B659056003410E7 /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx */; };
-		222DF33B1B659056003410E7 /* Trail-Winterberg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF31F1B659056003410E7 /* Trail-Winterberg1.gpx */; };
-		222DF33C1B659056003410E7 /* Trail.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3201B659056003410E7 /* Trail.gpx */; };
-		222DF3421B659976003410E7 /* Tour-Urwald.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF33F1B659976003410E7 /* Tour-Urwald.gpx */; };
-		222DF3451B659B9E003410E7 /* TrailSpichern.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3431B659B9E003410E7 /* TrailSpichern.gpx */; };
-		222DF3461B659B9E003410E7 /* TrailSpichern2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3441B659B9E003410E7 /* TrailSpichern2.gpx */; };
-		222DF34A1B659F41003410E7 /* TrailSpichern3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3491B659F41003410E7 /* TrailSpichern3.gpx */; };
-		22ED409A1B68038800D3E297 /* Tour-Goettelborn.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22ED40991B68038800D3E297 /* Tour-Goettelborn.gpx */; };
 		22F934D219DD5E5B00996122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D119DD5E5B00996122 /* Foundation.framework */; };
 		22F934D419DD5E5B00996122 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D319DD5E5B00996122 /* CoreGraphics.framework */; };
 		22F934D619DD5E5B00996122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D519DD5E5B00996122 /* UIKit.framework */; };
@@ -54,18 +22,52 @@
 		22F934FD19DD5E5B00996122 /* ObjcBikeGpsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22F934FC19DD5E5B00996122 /* ObjcBikeGpsTests.m */; };
 		22F9350719DD5FFB00996122 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350619DD5FFB00996122 /* MapKit.framework */; };
 		22F9350919DD624800996122 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F9350819DD624800996122 /* CoreLocation.framework */; };
-		4A07FAA91C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAA81C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx */; };
-		4A07FAAB1C65FFE300FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAAA1C65FFE300FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx */; };
-		4A07FAB01C661B2200FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAAF1C661B2200FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx */; };
-		4A07FAB31C661BDB00FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAB21C661BDB00FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx */; };
-		4A07FAB51C661C0C00FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAB41C661C0C00FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx */; };
-		4A07FAB71C661C3D00FA554D /* Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAB61C661C3D00FA554D /* Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx */; };
-		4A07FAB91C661C5B00FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAB81C661C5B00FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx */; };
-		4A07FABB1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABA1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx */; };
-		4A07FABE1C661C8400FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABC1C661C8400FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx */; };
-		4A07FABF1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABD1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx */; };
 		4A07FAC21C66917800FA554D /* gray-265-download.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAC01C66917800FA554D /* gray-265-download.png */; };
 		4A07FAC31C66917800FA554D /* gray-265-download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAC11C66917800FA554D /* gray-265-download@2x.png */; };
+		4A07FAC61C67D5BF00FA554D /* PSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07FAC51C67D5BF00FA554D /* PSMapAnnotation.m */; };
+		4A07FAC71C67DECA00FA554D /* Route-pur-blau_blueColor.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3071B659056003410E7 /* Route-pur-blau_blueColor.gpx */; };
+		4A07FAC81C67DECA00FA554D /* Route-pur-gruen_greenColor.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3081B659056003410E7 /* Route-pur-gruen_greenColor.gpx */; };
+		4A07FAC91C67DED000FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABC1C661C8400FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx */; };
+		4A07FACA1C67DED000FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABD1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx */; };
+		4A07FACB1C67DED000FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABA1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx */; };
+		4A07FACC1C67DED000FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAB81C661C5B00FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx */; };
+		4A07FACD1C67DED000FA554D /* Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAB61C661C3D00FA554D /* Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx */; };
+		4A07FACE1C67DED000FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAB41C661C0C00FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx */; };
+		4A07FACF1C67DED000FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAB21C661BDB00FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx */; };
+		4A07FAD01C67DED000FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAAF1C661B2200FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx */; };
+		4A07FAD11C67DED000FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAA81C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx */; };
+		4A07FAD21C67DED000FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAAA1C65FFE300FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx */; };
+		4A07FAD31C67DEDA00FA554D /* Tour-Goettelborn.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22ED40991B68038800D3E297 /* Tour-Goettelborn.gpx */; };
+		4A07FAD41C67DEDA00FA554D /* Tour-Urwald.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF33F1B659976003410E7 /* Tour-Urwald.gpx */; };
+		4A07FAD51C67DEDA00FA554D /* Tour-KLB-SB.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */; };
+		4A07FAD61C67DEDA00FA554D /* Tour-t1387067_Sieben-Weiher-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71F91C32EEF400BCF6B8 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */; };
+		4A07FAD71C67DEE200FA554D /* Trail-AmHomburg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3091B659056003410E7 /* Trail-AmHomburg1.gpx */; };
+		4A07FAD81C67DEE200FA554D /* Trail-Dudweiler1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30A1B659056003410E7 /* Trail-Dudweiler1.gpx */; };
+		4A07FAD91C67DEE200FA554D /* Trail-HaldeCamphauserStrasse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30B1B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx */; };
+		4A07FADA1C67DEE200FA554D /* Trail-KlbTrail.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30C1B659056003410E7 /* Trail-KlbTrail.gpx */; };
+		4A07FADB1C67DEE200FA554D /* Trail-Nauwies.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30D1B659056003410E7 /* Trail-Nauwies.gpx */; };
+		4A07FADC1C67DEE200FA554D /* Trail.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3201B659056003410E7 /* Trail.gpx */; };
+		4A07FADD1C67DEE200FA554D /* Trail-Nauwies2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30E1B659056003410E7 /* Trail-Nauwies2.gpx */; };
+		4A07FADE1C67DEE200FA554D /* Trail-Schwarzenberg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30F1B659056003410E7 /* Trail-Schwarzenberg1.gpx */; };
+		4A07FADF1C67DEE200FA554D /* Trail-Schwarzenberg2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3101B659056003410E7 /* Trail-Schwarzenberg2.gpx */; };
+		4A07FAE01C67DEE200FA554D /* Trail-Schwarzenberg3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3111B659056003410E7 /* Trail-Schwarzenberg3.gpx */; };
+		4A07FAE11C67DEE200FA554D /* Trail-Schwarzenberg4.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3121B659056003410E7 /* Trail-Schwarzenberg4.gpx */; };
+		4A07FAE21C67DEE200FA554D /* Trail-Schwarzenberg5.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3131B659056003410E7 /* Trail-Schwarzenberg5.gpx */; };
+		4A07FAE31C67DEE200FA554D /* Trail-Schwarzenberg6.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3141B659056003410E7 /* Trail-Schwarzenberg6.gpx */; };
+		4A07FAE41C67DEE200FA554D /* Trail-Schwarzenberg7.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3151B659056003410E7 /* Trail-Schwarzenberg7.gpx */; };
+		4A07FAE51C67DEE200FA554D /* Trail-Schwarzenberg8.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3161B659056003410E7 /* Trail-Schwarzenberg8.gpx */; };
+		4A07FAE61C67DEE200FA554D /* Trail-Schwarzenberg9.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3171B659056003410E7 /* Trail-Schwarzenberg9.gpx */; };
+		4A07FAE71C67DEE200FA554D /* Trail-Schwarzenberg10.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3181B659056003410E7 /* Trail-Schwarzenberg10.gpx */; };
+		4A07FAE81C67DEE200FA554D /* Trail-Schwarzenberg11.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3191B659056003410E7 /* Trail-Schwarzenberg11.gpx */; };
+		4A07FAE91C67DEE200FA554D /* Trail-Schwarzenberg12.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF31A1B659056003410E7 /* Trail-Schwarzenberg12.gpx */; };
+		4A07FAEA1C67DEE200FA554D /* Trail-Schwarzenberg13.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF31B1B659056003410E7 /* Trail-Schwarzenberg13.gpx */; };
+		4A07FAEB1C67DEE200FA554D /* Trail-Schwarzenberg14.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF31C1B659056003410E7 /* Trail-Schwarzenberg14.gpx */; };
+		4A07FAEC1C67DEE200FA554D /* Trail-Schwarzenberg15.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF31D1B659056003410E7 /* Trail-Schwarzenberg15.gpx */; };
+		4A07FAED1C67DEE200FA554D /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF31E1B659056003410E7 /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx */; };
+		4A07FAEE1C67DEE200FA554D /* Trail-Winterberg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF31F1B659056003410E7 /* Trail-Winterberg1.gpx */; };
+		4A07FAEF1C67DEE200FA554D /* TrailSpichern.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3431B659B9E003410E7 /* TrailSpichern.gpx */; };
+		4A07FAF01C67DEE200FA554D /* TrailSpichern2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3441B659B9E003410E7 /* TrailSpichern2.gpx */; };
+		4A07FAF11C67DEE200FA554D /* TrailSpichern3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3491B659F41003410E7 /* TrailSpichern3.gpx */; };
 		4A0E71C51C32EDFA00BCF6B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C41C32EDFA00BCF6B8 /* Launch Screen.storyboard */; };
 		4A0E71E01C32EE8200BCF6B8 /* 1064-layers-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C71C32EE8200BCF6B8 /* 1064-layers-4.png */; };
 		4A0E71E11C32EE8200BCF6B8 /* 1064-layers-4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C81C32EE8200BCF6B8 /* 1064-layers-4@2x.png */; };
@@ -92,7 +94,6 @@
 		4A0E71F61C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71DD1C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png */; };
 		4A0E71F71C32EE8200BCF6B8 /* gray-940-pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71DE1C32EE8200BCF6B8 /* gray-940-pin@2x.png */; };
 		4A0E71F81C32EE8200BCF6B8 /* white-193-location-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71DF1C32EE8200BCF6B8 /* white-193-location-arrow@2x.png */; };
-		4A0E71FA1C32EEF400BCF6B8 /* Tour-t1387067_Sieben-Weiher-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71F91C32EEF400BCF6B8 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */; };
 		4A0E720A1C34817900BCF6B8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71FF1C34817900BCF6B8 /* Icon-29.png */; };
 		4A0E720B1C34817900BCF6B8 /* Icon-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E72001C34817900BCF6B8 /* Icon-29@2x.png */; };
 		4A0E720C1C34817900BCF6B8 /* Icon-29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E72011C34817900BCF6B8 /* Icon-29@3x.png */; };
@@ -220,6 +221,8 @@
 		4A07FABD1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-MTB-2-Fitness-Tour.gpx"; sourceTree = "<group>"; };
 		4A07FAC01C66917800FA554D /* gray-265-download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-265-download.png"; sourceTree = "<group>"; };
 		4A07FAC11C66917800FA554D /* gray-265-download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-265-download@2x.png"; sourceTree = "<group>"; };
+		4A07FAC41C67D5BF00FA554D /* PSMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapAnnotation.h; sourceTree = "<group>"; };
+		4A07FAC51C67D5BF00FA554D /* PSMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapAnnotation.m; sourceTree = "<group>"; };
 		4A0E71C41C32EDFA00BCF6B8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4A0E71C71C32EE8200BCF6B8 /* 1064-layers-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1064-layers-4.png"; sourceTree = "<group>"; };
 		4A0E71C81C32EE8200BCF6B8 /* 1064-layers-4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1064-layers-4@2x.png"; sourceTree = "<group>"; };
@@ -748,12 +751,14 @@
 			children = (
 				E5F16819058F2251C760B40C /* PSDistanceAnnotation.h */,
 				E5F16A474E04F9B9B89A1ED5 /* PSDistanceAnnotation.m */,
-				E5F1603AD61C55A434A21E15 /* PSWayPointAnnotation.m */,
 				E5F166140591E564FAB51BB4 /* PSWayPointAnnotation.h */,
+				E5F1603AD61C55A434A21E15 /* PSWayPointAnnotation.m */,
 				E5F16E6D979D69546BE2261B /* PSDirectionAnnotation.m */,
 				E5F1631C738F52A2F09699B7 /* PSDirectionAnnotation.h */,
-				67B405CD8E8A0E64C4D9552F /* PSPeakLowAnnotation.m */,
 				67B40978B27ED97972D996D3 /* PSPeakLowAnnotation.h */,
+				67B405CD8E8A0E64C4D9552F /* PSPeakLowAnnotation.m */,
+				4A07FAC41C67D5BF00FA554D /* PSMapAnnotation.h */,
+				4A07FAC51C67D5BF00FA554D /* PSMapAnnotation.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -863,90 +868,90 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A0E71F11C32EE8200BCF6B8 /* 854-list-toolbar-selected.png in Resources */,
-				222DF33A1B659056003410E7 /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */,
+				4A07FADA1C67DEE200FA554D /* Trail-KlbTrail.gpx in Resources */,
+				4A07FADC1C67DEE200FA554D /* Trail.gpx in Resources */,
+				4A07FAE11C67DEE200FA554D /* Trail-Schwarzenberg4.gpx in Resources */,
 				4A0E71E51C32EE8200BCF6B8 /* 1100-list-2-toolbar@3x.png in Resources */,
-				222DF32D1B659056003410E7 /* Trail-Schwarzenberg3.gpx in Resources */,
-				222DF3451B659B9E003410E7 /* TrailSpichern.gpx in Resources */,
-				4A07FAAB1C65FFE300FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */,
-				222DF32C1B659056003410E7 /* Trail-Schwarzenberg2.gpx in Resources */,
-				4A07FAB71C661C3D00FA554D /* Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx in Resources */,
 				4A0E720F1C34817900BCF6B8 /* Icon-40@3x.png in Resources */,
-				222DF33C1B659056003410E7 /* Trail.gpx in Resources */,
+				4A07FAD71C67DEE200FA554D /* Trail-AmHomburg1.gpx in Resources */,
+				4A07FADB1C67DEE200FA554D /* Trail-Nauwies.gpx in Resources */,
+				4A07FAE61C67DEE200FA554D /* Trail-Schwarzenberg9.gpx in Resources */,
+				4A07FAEB1C67DEE200FA554D /* Trail-Schwarzenberg14.gpx in Resources */,
 				4A0E71F71C32EE8200BCF6B8 /* gray-940-pin@2x.png in Resources */,
-				22ED409A1B68038800D3E297 /* Tour-Goettelborn.gpx in Resources */,
 				4A0E71E71C32EE8200BCF6B8 /* 512px-Viewpoint-16.svg.png in Resources */,
 				4A0E71ED1C32EE8200BCF6B8 /* 798-filter-toolbar@3x.png in Resources */,
-				222DF3291B659056003410E7 /* Trail-Nauwies.gpx in Resources */,
+				4A07FAEE1C67DEE200FA554D /* Trail-Winterberg1.gpx in Resources */,
+				4A07FAE91C67DEE200FA554D /* Trail-Schwarzenberg12.gpx in Resources */,
 				4A0E720B1C34817900BCF6B8 /* Icon-29@2x.png in Resources */,
+				4A07FAD81C67DEE200FA554D /* Trail-Dudweiler1.gpx in Resources */,
+				4A07FADE1C67DEE200FA554D /* Trail-Schwarzenberg1.gpx in Resources */,
+				4A07FACF1C67DED000FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx in Resources */,
 				4A0E71EB1C32EE8200BCF6B8 /* 798-filter-toolbar.png in Resources */,
 				4A0E71EA1C32EE8200BCF6B8 /* 760-refresh-3@3x.png in Resources */,
 				4A0E71F61C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png in Resources */,
 				4A0E71E81C32EE8200BCF6B8 /* 760-refresh-3.png in Resources */,
-				4A07FAB91C661C5B00FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx in Resources */,
+				4A07FAC71C67DECA00FA554D /* Route-pur-blau_blueColor.gpx in Resources */,
+				4A07FAD61C67DEDA00FA554D /* Tour-t1387067_Sieben-Weiher-Tour.gpx in Resources */,
+				4A07FAF01C67DEE200FA554D /* TrailSpichern2.gpx in Resources */,
 				4A0E71E61C32EE8200BCF6B8 /* 1435537202_54.png in Resources */,
+				4A07FACB1C67DED000FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx in Resources */,
+				4A07FAD91C67DEE200FA554D /* Trail-HaldeCamphauserStrasse.gpx in Resources */,
 				4A0E72141C34817900BCF6B8 /* iTunesArtwork@2x.png in Resources */,
 				4A0E71EC1C32EE8200BCF6B8 /* 798-filter-toolbar@2x.png in Resources */,
-				222DF3331B659056003410E7 /* Trail-Schwarzenberg9.gpx in Resources */,
+				4A07FAD51C67DEDA00FA554D /* Tour-KLB-SB.gpx in Resources */,
 				4A0E720D1C34817900BCF6B8 /* Icon-40.png in Resources */,
 				4A0E71F41C32EE8200BCF6B8 /* Emergency_access_point.png in Resources */,
-				4A07FAA91C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx in Resources */,
-				222DF3321B659056003410E7 /* Trail-Schwarzenberg8.gpx in Resources */,
-				222DF33B1B659056003410E7 /* Trail-Winterberg1.gpx in Resources */,
-				222DF3421B659976003410E7 /* Tour-Urwald.gpx in Resources */,
-				222DF32B1B659056003410E7 /* Trail-Schwarzenberg1.gpx in Resources */,
+				4A07FADD1C67DEE200FA554D /* Trail-Nauwies2.gpx in Resources */,
 				4A0E71EE1C32EE8200BCF6B8 /* 852-map-toolbar.png in Resources */,
-				222DF3231B659056003410E7 /* Route-pur-blau_blueColor.gpx in Resources */,
-				222DF3311B659056003410E7 /* Trail-Schwarzenberg7.gpx in Resources */,
+				4A07FAE31C67DEE200FA554D /* Trail-Schwarzenberg6.gpx in Resources */,
 				4A0E71F01C32EE8200BCF6B8 /* 852-map-toolbar@3x.png in Resources */,
-				222DF32F1B659056003410E7 /* Trail-Schwarzenberg5.gpx in Resources */,
 				4A0E71E91C32EE8200BCF6B8 /* 760-refresh-3@2x.png in Resources */,
-				222DF3341B659056003410E7 /* Trail-Schwarzenberg10.gpx in Resources */,
-				4A07FAB31C661BDB00FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx in Resources */,
-				222DF3301B659056003410E7 /* Trail-Schwarzenberg6.gpx in Resources */,
 				4A0E71F31C32EE8200BCF6B8 /* 854-list-toolbar-selected@3x.png in Resources */,
 				4A0E71E21C32EE8200BCF6B8 /* 1064-layers-4@3x.png in Resources */,
-				222DF3241B659056003410E7 /* Route-pur-gruen_greenColor.gpx in Resources */,
 				4A0E71E11C32EE8200BCF6B8 /* 1064-layers-4@2x.png in Resources */,
-				4A07FABF1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx in Resources */,
 				4A0E71E31C32EE8200BCF6B8 /* 1100-list-2-toolbar.png in Resources */,
+				4A07FAE71C67DEE200FA554D /* Trail-Schwarzenberg10.gpx in Resources */,
+				4A07FAF11C67DEE200FA554D /* TrailSpichern3.gpx in Resources */,
 				4A0E71E41C32EE8200BCF6B8 /* 1100-list-2-toolbar@2x.png in Resources */,
-				4A07FABE1C661C8400FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx in Resources */,
-				222DF3371B659056003410E7 /* Trail-Schwarzenberg13.gpx in Resources */,
+				4A07FAD01C67DED000FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx in Resources */,
 				4A0E71F51C32EE8200BCF6B8 /* Emergeny.png in Resources */,
-				22146EB11B6A855800CE0360 /* Tour-KLB-SB.gpx in Resources */,
-				4A0E71FA1C32EEF400BCF6B8 /* Tour-t1387067_Sieben-Weiher-Tour.gpx in Resources */,
-				222DF32E1B659056003410E7 /* Trail-Schwarzenberg4.gpx in Resources */,
 				4A0E72131C34817900BCF6B8 /* Icon-76@2x.png in Resources */,
+				4A07FACD1C67DED000FA554D /* Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx in Resources */,
 				4A0E72111C34817900BCF6B8 /* Icon-60@3x.png in Resources */,
-				222DF3351B659056003410E7 /* Trail-Schwarzenberg11.gpx in Resources */,
-				222DF3281B659056003410E7 /* Trail-KlbTrail.gpx in Resources */,
-				222DF3261B659056003410E7 /* Trail-Dudweiler1.gpx in Resources */,
 				4A07FAC31C66917800FA554D /* gray-265-download@2x.png in Resources */,
-				4A07FABB1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx in Resources */,
+				4A07FAD31C67DEDA00FA554D /* Tour-Goettelborn.gpx in Resources */,
 				22F934EA19DD5E5B00996122 /* Images.xcassets in Resources */,
-				222DF3461B659B9E003410E7 /* TrailSpichern2.gpx in Resources */,
 				4A07FAC21C66917800FA554D /* gray-265-download.png in Resources */,
-				222DF34A1B659F41003410E7 /* TrailSpichern3.gpx in Resources */,
-				222DF3391B659056003410E7 /* Trail-Schwarzenberg15.gpx in Resources */,
-				222DF3271B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx in Resources */,
 				22F934DC19DD5E5B00996122 /* InfoPlist.strings in Resources */,
-				222DF32A1B659056003410E7 /* Trail-Nauwies2.gpx in Resources */,
 				4A0E72121C34817900BCF6B8 /* Icon-76.png in Resources */,
-				222DF3361B659056003410E7 /* Trail-Schwarzenberg12.gpx in Resources */,
 				4A0E720E1C34817900BCF6B8 /* Icon-40@2x.png in Resources */,
+				4A07FAEF1C67DEE200FA554D /* TrailSpichern.gpx in Resources */,
+				4A07FAE51C67DEE200FA554D /* Trail-Schwarzenberg8.gpx in Resources */,
+				4A07FACE1C67DED000FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx in Resources */,
+				4A07FAD21C67DED000FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */,
 				222DF3221B659056003410E7 /* Route-NrideHom-3.gpx in Resources */,
+				4A07FAD41C67DEDA00FA554D /* Tour-Urwald.gpx in Resources */,
 				4A0E72101C34817900BCF6B8 /* Icon-60@2x.png in Resources */,
-				4A07FAB01C661B2200FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx in Resources */,
-				4A07FAB51C661C0C00FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx in Resources */,
-				222DF3381B659056003410E7 /* Trail-Schwarzenberg14.gpx in Resources */,
 				4A0E720A1C34817900BCF6B8 /* Icon-29.png in Resources */,
+				4A07FAED1C67DEE200FA554D /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */,
 				4A0E720C1C34817900BCF6B8 /* Icon-29@3x.png in Resources */,
 				4A0E71F21C32EE8200BCF6B8 /* 854-list-toolbar-selected@2x.png in Resources */,
+				4A07FAE21C67DEE200FA554D /* Trail-Schwarzenberg5.gpx in Resources */,
 				4A0E71C51C32EDFA00BCF6B8 /* Launch Screen.storyboard in Resources */,
 				4A0E71E01C32EE8200BCF6B8 /* 1064-layers-4.png in Resources */,
+				4A07FACA1C67DED000FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx in Resources */,
+				4A07FAE81C67DEE200FA554D /* Trail-Schwarzenberg11.gpx in Resources */,
 				4A0E71EF1C32EE8200BCF6B8 /* 852-map-toolbar@2x.png in Resources */,
+				4A07FAC91C67DED000FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx in Resources */,
+				4A07FADF1C67DEE200FA554D /* Trail-Schwarzenberg2.gpx in Resources */,
+				4A07FAE41C67DEE200FA554D /* Trail-Schwarzenberg7.gpx in Resources */,
+				4A07FAEA1C67DEE200FA554D /* Trail-Schwarzenberg13.gpx in Resources */,
+				4A07FAEC1C67DEE200FA554D /* Trail-Schwarzenberg15.gpx in Resources */,
+				4A07FAD11C67DED000FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx in Resources */,
 				4A0E71F81C32EE8200BCF6B8 /* white-193-location-arrow@2x.png in Resources */,
-				222DF3251B659056003410E7 /* Trail-AmHomburg1.gpx in Resources */,
+				4A07FAC81C67DECA00FA554D /* Route-pur-gruen_greenColor.gpx in Resources */,
+				4A07FAE01C67DEE200FA554D /* Trail-Schwarzenberg3.gpx in Resources */,
+				4A07FACC1C67DED000FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1021,6 +1026,7 @@
 				E5F166051E8262FB29BB9D8C /* PSTracksViewController.m in Sources */,
 				E5F1604BE45C5CE367EC6BFC /* PSSettingsViewController.m in Sources */,
 				E5F166DDF48AFCFA4C0CBA05 /* PSDistanceAnnotation.m in Sources */,
+				4A07FAC61C67D5BF00FA554D /* PSMapAnnotation.m in Sources */,
 				E5F164BF4A230E9FB40BE694 /* PSLocationManager.m in Sources */,
 				E5F161CA1D7F283F98B2BDA3 /* PSViewController.m in Sources */,
 				E5F16D7065DC9CBC6BDCDBE3 /* PSPoi.m in Sources */,
