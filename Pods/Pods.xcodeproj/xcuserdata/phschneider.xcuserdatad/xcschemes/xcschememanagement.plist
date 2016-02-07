@@ -19,11 +19,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CNPGridMenu.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>DZNSegmentedControl.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,12 +52,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>03936074F65ACF727D95AAC4AB27457F</key>
+		<key>29C110B6AD2284AB394DAC3BCDA85CE7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>29C110B6AD2284AB394DAC3BCDA85CE7</key>
+		<key>3D0CFFFE611E26AAADF8DFDAA1BDF946</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,12 +67,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A5A2FD9CE7E14938A2441B43B6F69435</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BDA9A9D3A19C2526FB7AEE21BCEB9B34</key>
+		<key>D0A26F69AA7E3E014308D21101C27ADF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,17 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>DF4D1A61D1E5E0E6A98D539A9FD343EF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>EC2D1F5AB154BAA868011CF0F37D9C31</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>F2EA9CE52E417F3330A46DCC93CB4118</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FFC7225582EF926C8329684334C360D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

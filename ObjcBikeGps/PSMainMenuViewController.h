@@ -4,7 +4,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CNPGridMenu.h"
 
 
 @interface PSMainMenuViewController : UIViewController

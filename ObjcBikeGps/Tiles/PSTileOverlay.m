@@ -3,7 +3,9 @@
 // Copyright (c) 2015 phschneider.net. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "PSTileOverlay.h"
+#import "MKMapView+PSZoomLevel.h"
 
 @interface PSTileOverlay ()
 @property NSCache *cache;
@@ -65,46 +67,60 @@
 {
     DLogFuncName();
 
-    return [NSString stringWithFormat:@"%@/%ld/%ld/%ld.png", [self mainFolder], path.z, path.x, path.y];
+    return [self storageForZ:path.z x:path.x y:path.y];
+}
+
+
+- (NSString*)storageForZ:(NSInteger)z x:(NSInteger)x y:(NSInteger)y
+{
+    DLogFuncName();
+    return [NSString stringWithFormat:@"%@/%ld/%ld/%ld.png", [self mainFolder], z, x, y];
 }
 
 
 - (void)loadTileAtPath:(MKTileOverlayPath)path result:(void (^)(NSData *data, NSError *error))result
 {
+    DLogFuncName();
     if (!result) {
 //        NSLog(@"No result");
         return;
     }
 
-    //    // Tile Overlays
-//    CGSize sz = self.tileSize;
-//    CGRect rect = CGRectMake(0, 0, sz.width, sz.height);
-//    UIGraphicsBeginImageContext(sz);
-//    CGContextRef ctx = UIGraphicsGetCurrentContext();
-//    [[UIColor blackColor] setStroke];
-//    CGContextSetLineWidth(ctx, 1.0);
-//    CGContextStrokeRect(ctx, CGRectMake(0, 0, sz.width, sz.height));
-//    NSString *text = [NSString stringWithFormat:@"X=%d\nY=%d\nZ=%d",path.x,path.y,path.z];
-//    [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20.0],
-//            NSForegroundColorAttributeName:[UIColor blackColor]}];
-//    UIImage *tileImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    NSData *tileData = UIImagePNGRepresentation(tileImage);
-//    result(tileData,nil);
-//    return
+    if (USE_DEMO_TILES)
+    {
+        // Tile Overlays
+        CGSize sz = self.tileSize;
+        CGRect rect = CGRectMake(0, 0, sz.width, sz.height);
+        UIGraphicsBeginImageContext(sz);
+        CGContextRef ctx = UIGraphicsGetCurrentContext();
+        [[UIColor blackColor] setStroke];
+        CGContextSetLineWidth(ctx, 1.0);
+        CGContextStrokeRect(ctx, CGRectMake(0, 0, sz.width, sz.height));
+        NSString *text = [NSString stringWithFormat:@"X=%d\nY=%d\nZ=%d",path.x,path.y,path.z];
+        [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20.0],
+                NSForegroundColorAttributeName:[UIColor blackColor]}];
+        UIImage *tileImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        NSData *tileData = UIImagePNGRepresentation(tileImage);
+        result(tileData,nil);
+        return;
+    }
 
-    NSData *cachedData = [self.cache objectForKey:[self URLForTilePath:path]];
+    NSData *cachedData = (USE_CACHE) ? [self.cache objectForKey:[self URLForTilePath:path]] : nil;
     if (cachedData)
     {
         result(cachedData, nil);
     }
     else
     {
-        NSData *storedData = [NSData dataWithContentsOfFile:[self storageForPath:path]];
+        NSData *storedData = (USE_LOCAL_STORAGE) ? [NSData dataWithContentsOfFile:[self storageForPath:path]] : nil;
         if (storedData)
         {
             // Cache für die Laufzeit der App
-            [self.cache setObject:storedData forKey:[self URLForTilePath:path]];
+            if (USE_CACHE)
+            {
+                [self.cache setObject:storedData forKey:[self URLForTilePath:path]];
+            }
             result(storedData, nil);
         }
         else
@@ -114,14 +130,106 @@
             [NSURLConnection sendAsynchronousRequest:request queue:self.operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                 if (data)
                 {
-                    [self.cache setObject:data forKey:[self URLForTilePath:path]];
-                    [[NSFileManager defaultManager] createDirectoryAtPath:[[self storageForPath:path] stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
-                    [data writeToFile:[self storageForPath:path] atomically:YES];
+                    if (USE_CACHE)
+                    {
+                        [self.cache setObject:data forKey:[self URLForTilePath:path]];
+                    }
+
+                    if (USE_LOCAL_STORAGE)
+                    {
+                        [[NSFileManager defaultManager] createDirectoryAtPath:[[self storageForPath:path] stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+                        [data writeToFile:[self storageForPath:path] atomically:YES];
+                    }
                 }
                 result(data, connectionError);
             }];
         }
     }
+}
+
+
+- (NSDictionary *)tilesInMapRect:(MKMapRect)rect forAllZoomLevelsStartingWith:(int)startZoomLevel
+{
+    DLogFuncName();
+
+    return [self tilesInMapRect:rect startingZoomLevel:startZoomLevel endZoomLevel:MAX_GOOGLE_LEVELS];
+}
+
+
+
+- (NSDictionary *)tilesInMapRect:(MKMapRect)rect startingZoomLevel:(int)startZoomLevel endZoomLevel:(int)endZoomLevel
+{
+    DLogFuncName();
+
+    NSInteger currentZoomLevel = startZoomLevel;
+    NSMutableDictionary *mutableDictionary = [[NSMutableDictionary alloc] init];
+    if (startZoomLevel == endZoomLevel)
+    {
+        NSArray * tiles = [self tilesInMapRect:rect zoomLevel:currentZoomLevel];
+        [mutableDictionary setObject:tiles forKey:[NSNumber numberWithInteger:currentZoomLevel]];
+    }
+    else
+    {
+        while (currentZoomLevel <= endZoomLevel)
+        {
+            NSArray * tiles = [self tilesInMapRect:rect zoomLevel:currentZoomLevel];
+            [mutableDictionary setObject:tiles forKey:[NSNumber numberWithInteger:currentZoomLevel]];
+            currentZoomLevel++;
+        }
+    }
+    return mutableDictionary;
+}
+
+
+- (NSArray *)tilesInMapRect:(MKMapRect)rect zoomLevel:(int)zoomLevel
+{
+    DLogFuncName();
+
+    NSInteger z = zoomLevel;
+
+    NSMutableArray *tiles = [NSMutableArray array];
+
+    double width = MKMapSizeWorld.width;
+    double height = MKMapSizeWorld.height;
+    double horizontalTiles = pow(2, zoomLevel);;
+
+    CGFloat x = MKMapRectGetMinX(rect);
+    CGFloat y = MKMapRectGetMinY(rect);
+    CGFloat w = MKMapRectGetWidth(rect);
+    CGFloat h = MKMapRectGetHeight(rect);
+
+    CGFloat tileSizeForCurrentZoomLevel = width / horizontalTiles;
+    CGFloat minXTile = (CGFloat)x / tileSizeForCurrentZoomLevel;
+    CGFloat maxXTile = (x + w) / tileSizeForCurrentZoomLevel;
+
+    CGFloat minYTile = (CGFloat)y / (height / horizontalTiles);
+    CGFloat maxYTile = (y + h) / (height / horizontalTiles);
+
+    NSInteger minX = floor(minXTile);
+    NSInteger maxX = ceil(maxXTile);
+    NSInteger minY = floor(minYTile);
+    NSInteger maxY = ceil(maxYTile);
+
+    for(NSInteger x = minX; x <= maxX; x++)
+    {
+        for(NSInteger y = minY; y <=maxY; y++)
+        {
+            NSString *tileKey = [self storageForZ:z x:x y:y];
+            if (![NSData dataWithContentsOfFile:tileKey])
+            {
+                MKTileOverlayPath path;
+                path.x = x;
+                path.y = y;
+                path.z = z;
+                path.contentScaleFactor = [[UIScreen mainScreen] scale];
+
+                NSURL *url = [super URLForTilePath:path];
+                NSAssert(url, @"No url to add, perhaps missed init with template ...");
+                [tiles addObject:@{@"URL": url, @"STORAGE": [self storageForPath:path]}];
+            }
+        }
+    }
+    return tiles;
 }
 
 

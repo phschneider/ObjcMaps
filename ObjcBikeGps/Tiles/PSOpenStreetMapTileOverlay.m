@@ -11,8 +11,8 @@
 
 + (NSString *)urlTemplate
 {
+    DLogFuncName();
     NSString *urlString = [NSString stringWithFormat:@"http://b.tiles.wmflabs.org/hikebike/{z}/{x}/{y}.png"];
-    NSLog(@"urlTemplate = %@",urlString);
     return urlString;
 }
 

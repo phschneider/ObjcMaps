@@ -121,7 +121,6 @@
 		E5F162977BEA29990CEEE98E /* PSAppleHybridTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1655E9E7D468585EE42F8 /* PSAppleHybridTileOverlay.m */; };
 		E5F163365A77926C4AF5CA54 /* PSGpxParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16DC8E762580B653758D0 /* PSGpxParser.m */; };
 		E5F163569E08314CAB90F17D /* PSTileOverlayRender.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16CF121AFB03203C226C5 /* PSTileOverlayRender.m */; };
-		E5F163FB2E365B399585C067 /* MKMapView+PSTilesInMapRect.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1610D7F20638D9792FC80 /* MKMapView+PSTilesInMapRect.m */; };
 		E5F1645416730CCBD86C0E31 /* PSGraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16F94BA02FB00F322D9FD /* PSGraphViewController.m */; };
 		E5F164BF4A230E9FB40BE694 /* PSLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F168D18BAEFFB2B0598F52 /* PSLocationManager.m */; };
 		E5F165B8F30797CD65377187 /* PSDirectionAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F16E6D979D69546BE2261B /* PSDirectionAnnotation.m */; };
@@ -288,7 +287,6 @@
 		E5F1602E1C045FFFE12441F2 /* PSMapBoxRunBikeHikeTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapBoxRunBikeHikeTileOverlay.h; sourceTree = "<group>"; };
 		E5F1603AD61C55A434A21E15 /* PSWayPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSWayPointAnnotation.m; sourceTree = "<group>"; };
 		E5F160D6F4769797758D2A7F /* PSAppleHybridTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSAppleHybridTileOverlay.h; sourceTree = "<group>"; };
-		E5F1610D7F20638D9792FC80 /* MKMapView+PSTilesInMapRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+PSTilesInMapRect.m"; sourceTree = "<group>"; };
 		E5F16133AE9565B510C0DC19 /* PSMapBoxTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapBoxTileOverlay.m; sourceTree = "<group>"; };
 		E5F16201171F1AB27BB554CE /* PSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSViewController.h; sourceTree = "<group>"; };
 		E5F16218C30DFB97749F17A0 /* PSPoiStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSPoiStore.m; sourceTree = "<group>"; };
@@ -325,7 +323,6 @@
 		E5F16AB745696991ADE41D3A /* PSHillShadingTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSHillShadingTileOverlay.h; sourceTree = "<group>"; };
 		E5F16AFAAA79D593CBD3813C /* PSMapBoxCustomTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapBoxCustomTileOverlay.h; sourceTree = "<group>"; };
 		E5F16B1F0824998F4131C7E6 /* PSPoiStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSPoiStore.h; sourceTree = "<group>"; };
-		E5F16B385F6FABAE20128E54 /* MKMapView+PSTilesInMapRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKMapView+PSTilesInMapRect.h"; sourceTree = "<group>"; };
 		E5F16B5BFA83DB7DEFEFA007 /* PSOpenCycleMapTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSOpenCycleMapTileOverlay.h; sourceTree = "<group>"; };
 		E5F16BC618CDE2FDB64A040D /* PSMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapViewController.h; sourceTree = "<group>"; };
 		E5F16C8FC429FFB94D53B8B3 /* PSTracksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTracksViewController.m; sourceTree = "<group>"; };
@@ -737,8 +734,6 @@
 			children = (
 				E5F169D6A9E0A35F6962830F /* MKMapView+PSZoomLevel.m */,
 				E5F16CA6DCEBB5E5B57C7845 /* MKMapView+PSZoomLevel.h */,
-				E5F1610D7F20638D9792FC80 /* MKMapView+PSTilesInMapRect.m */,
-				E5F16B385F6FABAE20128E54 /* MKMapView+PSTilesInMapRect.h */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1026,7 +1021,6 @@
 				E5F16D7065DC9CBC6BDCDBE3 /* PSPoi.m in Sources */,
 				E5F167A555E360562AEC80A1 /* PSPoiStore.m in Sources */,
 				E5F16E878E2F28197226B48A /* MKMapView+PSZoomLevel.m in Sources */,
-				E5F163FB2E365B399585C067 /* MKMapView+PSTilesInMapRect.m in Sources */,
 				E5F163569E08314CAB90F17D /* PSTileOverlayRender.m in Sources */,
 				E5F1624D1324D29A29A565C6 /* PSTrackViewController.m in Sources */,
 				E5F1622D239E5F9DFB95336E /* PSWayPointAnnotation.m in Sources */,
@@ -1170,6 +1164,7 @@
 			baseConfigurationReference = 292651F264F523FCBBD71335 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
+				CURRENT_PROJECT_VERSION = 9;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
@@ -1178,6 +1173,7 @@
 				PROVISIONING_PROFILE = "be18db8a-7aaa-4e23-b4ea-da40747b2f61";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1187,6 +1183,7 @@
 			baseConfigurationReference = ABA11E6B8B64EB33BC0F9452 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
+				CURRENT_PROJECT_VERSION = 9;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
@@ -1195,6 +1192,7 @@
 				PROVISIONING_PROFILE = "be18db8a-7aaa-4e23-b4ea-da40747b2f61";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1283,6 +1281,7 @@
 			baseConfigurationReference = ABA11E6B8B64EB33BC0F9452 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Philip Schneider (723AP2V5VG)";
+				CURRENT_PROJECT_VERSION = 9;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
@@ -1291,6 +1290,7 @@
 				PROVISIONING_PROFILE = "076d4204-bf62-4138-8c14-784019329c11";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				VERSIONING_SYSTEM = "apple-generic";
 				WRAPPER_EXTENSION = app;
 			};
 			name = AppStore;

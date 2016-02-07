@@ -22,7 +22,6 @@
 #import "PSPoi.h"
 #import "PSDistanceAnnotation.h"
 #import "MKMapView+PSZoomLevel.h"
-#import "MKMapView+PSTilesInMapRect.h"
 #import "PSTileOverlayRender.h"
 #import "PSWayPointAnnotation.h"
 #import "PSTrackStore.h"

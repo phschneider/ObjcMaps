@@ -3,11 +3,17 @@
 // Copyright (c) 2015 phschneider.net. All rights reserved.
 //
 
+#import <AFNetworking/AFHTTPRequestOperation.h>
 #import "PSSettingsViewController.h"
 #import "PSTileOverlay.h"
+#import "PSAppDelegate.h"
+#import "PSMapViewController.h"
+#import "MKMapView+PSZoomLevel.h"
+#import "MBProgressHUD.h"
 
 @interface PSSettingsViewController()
 @property (nonatomic) NSArray *maptypes;
+@property(nonatomic) BOOL downloadsEnabled;
 @end
 
 @implementation PSSettingsViewController
@@ -142,14 +148,18 @@
     if (object)
     {
         NSString *urlTemplate = [tileClass urlTemplate];
-        NSLog(@"URL Template = %@", urlTemplate);
-
         cell.detailTextLabel.text = [model objectForKey:@"size"];
 
         if (![tileClassString isEqualToString:[model objectForKey:@"classString"]])
         {
-            UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gray-265-download"]];
-            cell.accessoryView = imageView;
+            UIImage *image = [UIImage imageNamed:@"gray-265-download"];
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 28, 28)]; // tested also initWithFrame:CGRectMake(0, 0, image.size.width, image.size.heigth)
+            [UIButton buttonWithType:UIButtonTypeCustom];
+            [button setBackgroundImage:image forState:UIControlStateNormal];
+            button.backgroundColor = [UIColor clearColor];
+
+            cell.accessoryView = button;
+            [button addTarget:self action:@selector(accessoryButtonTapped:withEvent:) forControlEvents:UIControlEventTouchUpInside];
         }
         else
         {
@@ -175,17 +185,133 @@
 }
 
 
+- (void) accessoryButtonTapped: (UIControl *) button withEvent: (UIEvent *) event
+{
+    DLogFuncName();
+    NSIndexPath * indexPath = [self.tableView indexPathForRowAtPoint: [[[event touchesForView: button] anyObject] locationInView: self.tableView]];
+    if ( indexPath == nil )
+        return;
+
+    [self.tableView.delegate tableView: self.tableView accessoryButtonTappedForRowWithIndexPath: indexPath];
+}
+
+
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     DLogFuncName();
 
     NSDictionary *model = [self.maptypes objectAtIndex:indexPath.row];
     Class tileClass = NSClassFromString([model objectForKey:@"classString"]);
-    id object = [[tileClass alloc] init];
+    NSString * urlTemplate = [tileClass urlTemplate];
+    id object = [(PSTileOverlay *) [tileClass alloc] initWithURLTemplate:urlTemplate];
+
     if (object)
     {
-        NSString * urlTemplate = [tileClass urlTemplate];
+        UINavigationController * navigationController = [((PSAppDelegate *) [[UIApplication sharedApplication] delegate]) window].rootViewController;
+        PSMapViewController *mapViewController = [navigationController topViewController];
+
+//        NSDictionary *tileUrls = [object tilesInMapRect:mapViewController.mapView.visibleMapRect startingZoomLevel:mapViewController.mapView.zoomLevel endZoomLevel:mapViewController.mapView.zoomLevel+1];
+
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:NO];
+        HUD.mode = MBProgressHUDModeIndeterminate;
+        self.downloadsEnabled = YES;
+
+        UITapGestureRecognizer *HUDSingleTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(singleTap:)];
+        [HUD addGestureRecognizer:HUDSingleTap];
+
+        dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+        dispatch_async(backgroundQueue,^{
+            NSDictionary * tileUrls = [object tilesInMapRect:mapViewController.mapView.visibleMapRect forAllZoomLevelsStartingWith:mapViewController.mapView.zoomLevel];
+            [self downloadTilesInDictionary:tileUrls];
+        });
     }
+}
+
+
+- (void) downloadTilesInDictionary:(NSDictionary *)tileDictionary
+{
+    DLogFuncName();
+
+    if (!self.downloadsEnabled)
+    {
+        return;
+    }
+
+    MBProgressHUD *HUD = [MBProgressHUD HUDForView:self.view];
+    HUD.mode = MBProgressHUDModeDeterminateHorizontalBar;
+    HUD.progress = 0.0;
+
+    if ([[tileDictionary allKeys] count] == 0)
+    {
+        [HUD hide:YES];
+    }
+    else
+    {
+        [HUD show:YES];
+    }
+
+    for (NSNumber *zoomLevel in [tileDictionary allKeys])
+    {
+        __block NSArray *tiles = [tileDictionary objectForKey:zoomLevel];
+        __block int index = 0;
+
+        if ([tiles count] == 0)
+        {
+            [HUD hide:YES];
+        }
+        else
+        {
+            [HUD show:YES];
+        }
+
+        for (NSDictionary *model in tiles)
+        {
+            NSURL *tileUrl = [model objectForKey:@"URL"];
+            __block NSString *storagePath = [model objectForKey:@"STORAGE"];
+
+            NSURLRequest *request = [NSURLRequest requestWithURL:tileUrl];
+            AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+
+            [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSData *data = responseObject;
+
+                [[NSFileManager defaultManager] createDirectoryAtPath:[storagePath stringByDeletingLastPathComponent] withIntermediateDirectories:YES attributes:nil error:nil];
+                [data writeToFile:storagePath atomically:YES];
+
+                double progress = (double)index / [tiles count];
+                dispatch_async(dispatch_get_main_queue(),^{
+                    HUD.progress = progress;
+                    [HUD show:NO];
+                    HUD.labelText = [NSString stringWithFormat:@"%lld/%lld", ++index, [tiles count]];
+                    if (index == [tiles count])
+                    {
+                        [HUD hide:YES];
+                    }
+                });
+
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [HUD hide:NO];
+                [[[UIAlertView alloc] initWithTitle:[error localizedDescription] message:[error userInfo] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+
+            }];
+
+            if (self.downloadsEnabled)
+            {
+                useconds_t seconds = (useconds_t)(100000/(0.5));
+                usleep(seconds);
+                [operation start];
+            }
+        }
+    }
+}
+
+
+- (void)singleTap:(id)singleTap
+{
+    DLogFuncName();
+    self.downloadsEnabled = NO;
+    MBProgressHUD *HUD = [MBProgressHUD HUDForView:self.view];
+    [HUD hide:NO];
 }
 
 

@@ -5,7 +5,6 @@
 
 #import <Foundation/Foundation.h>
 #import "PSMainMenuViewController.h"
-#import "CNPGridMenu.h"
 #import "PSMapViewController.h"
 #import "PSTracksViewController.h"
 #import "PSGridButton.h"

@@ -10,11 +10,15 @@
 
 +(NSString*) urlTemplate;
 
-+ (NSArray *)tilesInMapRect:(MKMapRect)rect zoomScale:(MKZoomScale)scale;
-
 - (MKOverlayLevel) level;
 
 - (NSString *)name;
+
+- (NSDictionary *)tilesInMapRect:(MKMapRect)rect forAllZoomLevelsStartingWith:(int)startZoomLevel;
+
+- (NSDictionary *)tilesInMapRect:(MKMapRect)rect startingZoomLevel:(int)startZoomLevel endZoomLevel:(int)endZoomLevel;
+
+- (NSArray *)tilesInMapRect:(MKMapRect)rect zoomLevel:(int)zoomLevel;
 
 - (NSString *)folderSize;
 @end
