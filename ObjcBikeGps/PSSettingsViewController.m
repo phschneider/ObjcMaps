@@ -33,7 +33,8 @@
         [self.view addSubview:self.tableView];
 
         // TODO: Auslagern in TileManager
-        self.maptypes = @[  [ @{ @"name" : @"Apple Default", @"classString" : @"PSAppleDefaultTileOverlay" , @"size" : @""} mutableCopy],
+        self.maptypes = @[  [ @{ @"name" : @"Debug", @"classString" : @"PSDebugTileOverlay" , @"size" : @""} mutableCopy],
+                            [ @{ @"name" : @"Apple Default", @"classString" : @"PSAppleDefaultTileOverlay" , @"size" : @""} mutableCopy],
                             [ @{ @"name" : @"Apple Satellite", @"classString" : @"PSAppleSatelliteTileOverlay" , @"size" : @""} mutableCopy],
                             [ @{ @"name" : @"Apple Hybrid", @"classString" : @"PSAppleHybridTileOverlay" , @"size" : @""}  mutableCopy],
                             [ @{ @"name" : @"Open Street Map", @"classString" : @"PSOpenStreetMapTileOverlay" , @"size" : @""} mutableCopy],

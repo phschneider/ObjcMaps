@@ -1794,7 +1794,6 @@
 
     if ([overlay isKindOfClass:[MKTileOverlay class]])
     {
-        NSLog(@"TileOverlay");
         PSTileOverlayRender *render =  [[PSTileOverlayRender alloc] initWithTileOverlay:overlay];
         return render;
     }

@@ -24,7 +24,6 @@
         #define DLogFuncName()
     #endif
 
-    #define USE_DEMO_TILES      1
     #define USE_CACHE           1
     #define USE_LOCAL_STORAGE   1
 

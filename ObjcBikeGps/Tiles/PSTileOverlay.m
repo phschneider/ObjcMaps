@@ -86,26 +86,6 @@
         return;
     }
 
-    if (USE_DEMO_TILES)
-    {
-        // Tile Overlays
-        CGSize sz = self.tileSize;
-        CGRect rect = CGRectMake(0, 0, sz.width, sz.height);
-        UIGraphicsBeginImageContext(sz);
-        CGContextRef ctx = UIGraphicsGetCurrentContext();
-        [[UIColor blackColor] setStroke];
-        CGContextSetLineWidth(ctx, 1.0);
-        CGContextStrokeRect(ctx, CGRectMake(0, 0, sz.width, sz.height));
-        NSString *text = [NSString stringWithFormat:@"X=%d\nY=%d\nZ=%d",path.x,path.y,path.z];
-        [text drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20.0],
-                NSForegroundColorAttributeName:[UIColor blackColor]}];
-        UIImage *tileImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        NSData *tileData = UIImagePNGRepresentation(tileImage);
-        result(tileData,nil);
-        return;
-    }
-
     NSData *cachedData = (USE_CACHE) ? [self.cache objectForKey:[self URLForTilePath:path]] : nil;
     if (cachedData)
     {
