@@ -364,7 +364,7 @@
     UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
     PSTrack *track = [self.visibleTracks objectAtIndex:indexPath.row];
     cell.textLabel.text = [track filename];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ \t\t +%@ \t -%@ \t %dwp \t\t %@", [track distanceInKm], [track roundedUp], [track roundedDown], [[track elevationData] count], [track readableTrackDuration]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ \t\t +%@ \t -%@ \t %dwp \t\t %@ \t\t\t min %.0fm \t\t max %0.fm ", [track distanceInKm], [track roundedUp], [track roundedDown], [[track elevationData] count], [track readableTrackDuration],track.low.altitude, [track peak].altitude];
 
     if ([track isDownhill])
     {

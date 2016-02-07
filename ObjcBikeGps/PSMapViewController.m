@@ -71,7 +71,6 @@
         self.mapView.autoresizingMask =  self.view.autoresizingMask;
         self.mapView.delegate = self;
         self.mapView.showsUserLocation = NO;
-        self.mapView.zoomEnabled = NO;
         SEL showScaleSelector = NSSelectorFromString(@"showsScale");
         if ([self.mapView respondsToSelector:showScaleSelector])
         {
@@ -1436,10 +1435,18 @@
     DLogFuncName();
     [self calculateMapArea];
 
+    double realZoomLevel = [mapView realZoomLevel];
+    if( realZoomLevel != round(realZoomLevel))
+    {
+        dispatch_async(dispatch_get_main_queue(),^{
+            [mapView setCenterCoordinate:mapView.region.center zoomLevel:realZoomLevel animated:NO];
+        });
+        return;
+    }
+
     NSArray * boundingBox = [self getBoundingBox:self.mapView.visibleMapRect];
     NSString *boundingBoxString = [NSString stringWithFormat:@"%.3f,%.3f,%.3f,%.3f", [[boundingBox objectAtIndex:1] floatValue], [[boundingBox objectAtIndex:0] floatValue], [[boundingBox objectAtIndex:3] floatValue], [[boundingBox objectAtIndex:2] floatValue]];
     self.boundingLabel.text = boundingBoxString;
-//    NSLog(@"BoudningBox = %@", boundingBoxString);
     self.debugLabel.text = [NSString stringWithFormat:@"lat: %f long: %f z: %f", self.mapView.region.span.latitudeDelta, self.mapView.region.span.longitudeDelta, [self.mapView zoomLevel]];
 
 //    NSLog(@"http://api.openstreetmap.org/api/0.6/map?bbox=%@",boundingBoxString);
