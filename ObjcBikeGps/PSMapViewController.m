@@ -59,8 +59,7 @@
         [[PSPoiStore sharedInstance] addObserver:self forKeyPath:@"pois" options:NSKeyValueObservingOptionNew context:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(poisUpdated) name:@"POIS_UPDATED" object:nil];
 
-        CGRect frame = self.view.bounds;
-        
+        CGRect frame = self.view.frame;
 #ifndef INSELHUEPFEN_MODE
         frame.origin.y = 44 + 20;
         frame.size.height -= frame.origin.y;
@@ -171,27 +170,10 @@
 {
     DLogFuncName();
     [super viewWillAppear:animated];
+    
+    self.mapView.frame = self.view.bounds;
     //    // http://wiki.openstreetmap.org/wiki/OpenTopoMap
-
-    if (!self.parentViewController)
-    {
-        CGRect frame = self.view.bounds;
-        if (frame.size.height > frame.size.width)
-        {
-//            NSLog(@"viewWillAppear  Height > width");
-            frame.origin.y = 44 + 20;
-            frame.size.height -= frame.origin.y;
-        }
-        else
-        {
-//            NSLog(@"viewWillAppear width > height");
-            frame.origin.y = 44 + 20;
-            frame.size.height -= frame.origin.y;
-        }
-
-        self.mapView.frame = frame;
-    }
-
+    
 
 //    NSString *template = @"http://tile.openstreetmap.org/${z}/${x}/${y}.png";
 //    MKTileOverlay *overlay = [[MKTileOverlay alloc] initWithURLTemplate:template];
@@ -270,6 +252,9 @@
     // Darf nicht ausgeführt werden da die Karte ansonsten wieder umpositioniert wird :(
 //    [self zoomToOverlays];
 
+    
+    self.mapView.frame = self.view.bounds;
+    
     // Disable iOS 7 back gesture
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
@@ -1198,19 +1183,19 @@
 //}
 
 
-- (void)viewWillLayoutSubviews
-{
-    DLogFuncName();
-    [super viewWillLayoutSubviews];
-
-    CGRect windowFrame = [[[UIApplication sharedApplication] keyWindow] frame];
-    CGRect frame = self.view.frame;
-    frame.size.width = windowFrame.size.width;
-    frame.size.height = windowFrame.size.height;
-    self.view.frame =  frame;
-
-
-}
+//- (void)viewWillLayoutSubviews
+//{
+//    DLogFuncName();
+//    [super viewWillLayoutSubviews];
+//
+//    CGRect windowFrame = [[[UIApplication sharedApplication] keyWindow] frame];
+//    CGRect frame = self.view.frame;
+//    frame.size.width = windowFrame.size.width;
+//    frame.size.height = windowFrame.size.height;
+//    self.view.frame =  frame;
+//
+//
+//}
 
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
