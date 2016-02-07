@@ -32,7 +32,6 @@
 
 
 @interface PSMapViewController ()
-@property (nonatomic) MKMapView *mapView;
 @property (nonatomic) PSTrack *track;
 @property (nonatomic) WYPopoverController *settingsPopoverController;
 @property (nonatomic) UILabel *debugLabel;
@@ -1435,18 +1434,6 @@
 }
 
 
-- (double)getZoomLevel
-{
-    DLogFuncName();
-    CLLocationDegrees longitudeDelta = self.mapView.region.span.longitudeDelta;
-    CGFloat mapWidthInPixels = self.mapView.bounds.size.width;
-    double zoomScale = longitudeDelta * MERCATOR_RADIUS * M_PI / (180.0 * mapWidthInPixels);
-    double zoomer = MAX_GOOGLE_LEVELS - log2( zoomScale );
-    if ( zoomer < 0 ) zoomer = 0;
-//  zoomer = round(zoomer);
-    return zoomer;
-}
-
 //
 - (void)mapView:(MKMapView *)mapView regionWillChangeAnimated:(BOOL)animated
 {
@@ -1454,7 +1441,7 @@
     NSArray * boundingBox = [self getBoundingBox:self.mapView.visibleMapRect];
     NSString *boundingBoxString = [NSString stringWithFormat:@"%.3f,%.3f,%.3f,%.3f", [[boundingBox objectAtIndex:1] floatValue], [[boundingBox objectAtIndex:0] floatValue], [[boundingBox objectAtIndex:3] floatValue], [[boundingBox objectAtIndex:2] floatValue]];
 //    NSLog(@"BoudningBox = %@", boundingBoxString);
-    self.debugLabel.text = [NSString stringWithFormat:@"lat: %f long: %f z: %f", self.mapView.region.span.latitudeDelta, self.mapView.region.span.longitudeDelta, [self getZoomLevel]];
+    self.debugLabel.text = [NSString stringWithFormat:@"lat: %f long: %f z: %f", self.mapView.region.span.latitudeDelta, self.mapView.region.span.longitudeDelta, [self.mapView zoomLevel]];
 //    NSLog(@"http://api.openstreetmap.org/api/0.6/map?bbox=%@",boundingBoxString);
 //    NSLog(@"http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=%@]",boundingBoxString);
 }
@@ -1465,14 +1452,11 @@
     DLogFuncName();
     [self calculateMapArea];
 
-    MKZoomScale currentZoomScale = self.mapView.bounds.size.width / self.mapView.visibleMapRect.size.width;
-//    NSLog(@"CurrentZoomScale = %f | PSZoomScale = %f", currentZoomScale, self.psZoomScale);
-
     NSArray * boundingBox = [self getBoundingBox:self.mapView.visibleMapRect];
     NSString *boundingBoxString = [NSString stringWithFormat:@"%.3f,%.3f,%.3f,%.3f", [[boundingBox objectAtIndex:1] floatValue], [[boundingBox objectAtIndex:0] floatValue], [[boundingBox objectAtIndex:3] floatValue], [[boundingBox objectAtIndex:2] floatValue]];
     self.boundingLabel.text = boundingBoxString;
 //    NSLog(@"BoudningBox = %@", boundingBoxString);
-    self.debugLabel.text = [NSString stringWithFormat:@"lat: %f long: %f z: %f", self.mapView.region.span.latitudeDelta, self.mapView.region.span.longitudeDelta, [self getZoomLevel]];
+    self.debugLabel.text = [NSString stringWithFormat:@"lat: %f long: %f z: %f", self.mapView.region.span.latitudeDelta, self.mapView.region.span.longitudeDelta, [self.mapView zoomLevel]];
 
 //    NSLog(@"http://api.openstreetmap.org/api/0.6/map?bbox=%@",boundingBoxString);
 //    NSLog(@"http://overpass.osm.rambler.ru/cgi/xapi_meta?*[bbox=%@]",boundingBoxString);

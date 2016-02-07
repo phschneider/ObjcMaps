@@ -13,6 +13,7 @@
 @interface PSMapViewController : UIViewController  <MKMapViewDelegate, WYPopoverControllerDelegate>
 
 @property (nonatomic) NSArray *tracks;
+@property (nonatomic) MKMapView *mapView;
 
 - (instancetype)initWithTrack:(PSTrack *)track;
 - (instancetype)initWithTracks:(NSArray *)tracks;

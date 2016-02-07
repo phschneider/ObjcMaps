@@ -12,5 +12,4 @@
 
 - (int) zoomLevel;
 
-- (MKZoomScale)zoomScale;
 @end
