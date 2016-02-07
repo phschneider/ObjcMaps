@@ -798,11 +798,11 @@
 
     if ([tileClassString isEqualToString:@"PSAppleSatelliteTileOverlay"])
     {
-        self.mapView.mapType = MKMapTypeSatellite;
+        self.mapView.mapType = MKMapTypeSatelliteFlyover;
     }
     else if ([tileClassString isEqualToString:@"PSAppleHybridTileOverlay"])
     {
-        self.mapView.mapType = MKMapTypeHybrid;
+        self.mapView.mapType = MKMapTypeHybridFlyover;
     }
     else if ([tileClassString isEqualToString:@"PSAppleDefaultTileOverlay"])
     {
