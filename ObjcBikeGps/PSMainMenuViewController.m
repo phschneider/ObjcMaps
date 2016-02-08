@@ -16,91 +16,134 @@
 - (instancetype)init
 {
     DLogFuncName();
-    self = [super init];
-
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    self = [super initWithCollectionViewLayout:flowLayout];
     if (self)
     {
         self.edgesForExtendedLayout = UIRectEdgeBottom;
         self.extendedLayoutIncludesOpaqueBars = NO;
+        self.collectionView.backgroundColor = [UIColor whiteColor];
+        self.collectionView.delegate = self;
+        self.collectionView.dataSource = self;
+        [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"bla"];
     }
     return self;
 }
 
 
-- (void)viewDidAppear:(BOOL)animated
+#pragma mark - DataSource
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    [super viewDidAppear:animated];
-    DLogFuncName();
-
-    CGFloat padding = 25;
-
-    PSGridButton *mapsButton = [PSGridButton buttonWithType:UIButtonTypeRoundedRect];
-    mapsButton.backgroundColor = [UIColor whiteColor];
-    [mapsButton setTitle:@"Maps" forState:UIControlStateNormal];
-    [mapsButton addTarget:self action:@selector(showMaps) forControlEvents:UIControlEventTouchUpInside];
-    CGRect frame = CGRectZero;
-    frame.origin.x = 50;
-    frame.origin.y = 50;
-    frame.size.width = ceil((self.view.frame.size.width - (2*frame.origin.x) - padding) / 2);
-    frame.size.height = frame.size.width;
-    mapsButton.frame = frame;
-    mapsButton.layer.borderColor = [[UIColor darkGrayColor] CGColor];
-    mapsButton.layer.borderWidth = 1.0;
-    mapsButton.layer.cornerRadius = 5.0;
-    [self.view addSubview:mapsButton];
-
-    PSGridButton *tracksButton = [PSGridButton buttonWithType:UIButtonTypeRoundedRect];
-    tracksButton.backgroundColor = [UIColor whiteColor];
-    [tracksButton setTitle:@"Tracks" forState:UIControlStateNormal];
-    [tracksButton addTarget:self action:@selector(showTracks) forControlEvents:UIControlEventTouchUpInside];
-    frame.origin.x += padding + frame.size.width;
-    tracksButton.frame = frame;
-    tracksButton.layer.borderColor = [[UIColor darkGrayColor] CGColor];
-    tracksButton.layer.borderWidth = 1.0;
-    tracksButton.layer.cornerRadius = 5.0;
-
-    [self.view addSubview:tracksButton];
-
-    PSGridButton *trailsButton = [PSGridButton buttonWithType:UIButtonTypeRoundedRect];
-    trailsButton.backgroundColor = [UIColor whiteColor];
-    [trailsButton setTitle:@"Trails" forState:UIControlStateNormal];
-    [trailsButton addTarget:self action:@selector(showTrails) forControlEvents:UIControlEventTouchUpInside];
-    frame = mapsButton.frame;
-    frame.origin.y += padding + frame.size.width;
-    trailsButton.frame = frame;
-    trailsButton.layer.borderColor = [[UIColor darkGrayColor] CGColor];
-    trailsButton.layer.borderWidth = 1.0;
-    trailsButton.layer.cornerRadius = 5.0;
-
-    [self.view addSubview:trailsButton];
+    return 1;
 }
 
 
-- (void)showMaps
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     DLogFuncName();
-
-    PSMapViewController *mapViewController = [[PSMapViewController alloc] init];
-    [self.navigationController pushViewController:mapViewController animated:YES];
+    return 5;
 }
 
 
-- (void)showTracks
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DLogFuncName();
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"bla" forIndexPath:indexPath];
 
-    PSTracksViewController *tracksViewController = [[PSTracksViewController alloc] initWithTitle:@"Touren" tracks:[[PSTrackStore sharedInstance] routes]];
-    [self.navigationController pushViewController:tracksViewController animated:YES];
+    UILabel *label = [[UILabel alloc] initWithFrame:cell.contentView.bounds];
+    label.text = [NSString stringWithFormat:@"%d %d", indexPath.row, indexPath.section];
+    label.textAlignment = NSTextAlignmentCenter;
+    for (UIView *view in cell.contentView.subviews)
+    {
+        [view removeFromSuperview];
+    }
+    [cell.contentView addSubview:label];
+
+    cell.contentView.layer.borderColor = [[UIColor blackColor] CGColor];
+    cell.contentView.layer.borderWidth = 1.0;
+    cell.contentView.layer.cornerRadius = 5.0;
+
+    switch (indexPath.row)
+    {
+        case 0:
+            label.text = @"Map";
+            break;
+        case 1:
+            label.text = @"Alle Tracks";
+            break;
+        case 2:
+            label.text = @"Trails";
+            break;
+        case 3:
+            label.text = @"MTB";
+            break;
+        case 4:
+            label.text = @"Bike";
+            break;
+
+    }
+
+    return cell;
 }
 
 
-- (void)showTrails
+#pragma mark - Delegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DLogFuncName();
+    UIViewController *viewController = nil;
+    switch (indexPath.row)
+    {
+        case 0:
+            viewController = [[PSMapViewController alloc] init];
+            break;
+        case 1:
+            viewController = [[PSTracksViewController alloc] initWithTitle:@"Alle Tracks" tracks:[[PSTrackStore sharedInstance] tracks]];
+            break;
+        case 2:
+            viewController = [[PSTracksViewController alloc] initWithTitle:@"Trails" tracks:[[PSTrackStore sharedInstance] trails]];
+            break;
+        case 3:
+            viewController = [[PSTracksViewController alloc] initWithTitle:@"MTB" tracks:[[PSTrackStore sharedInstance] mtbRoutes]];
+            break;
+        case 4:
+            viewController = [[PSTracksViewController alloc] initWithTitle:@"Bike" tracks:[[PSTrackStore sharedInstance] bikeRoutes]];
+            break;
+    }
 
-    PSTracksViewController *tracksViewController = [[PSTracksViewController alloc] initWithTitle:@"Trails" tracks:[[PSTrackStore sharedInstance] trails]];
-    [self.navigationController pushViewController:tracksViewController animated:YES];
+    if (viewController)
+    {
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
 }
 
+
+#pragma mark - Layout Delegate
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    DLogFuncName();
+    CGFloat width = self.view.bounds.size.width / 3;
+    CGFloat height = self.view.bounds.size.height / 3;
+    CGFloat size = MIN(width,height);
+    CGSize result = CGSizeMake(size,size);
+    return result;
+}
+
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    DLogFuncName();
+    CGFloat width = self.view.bounds.size.width / 3;
+    CGFloat diff = (self.view.bounds.size.width / 2) - width;
+    return 50;
+}
+
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    DLogFuncName();
+    UIEdgeInsets result = UIEdgeInsetsMake(50,50,50,50);
+    return result;
+}
 
 @end

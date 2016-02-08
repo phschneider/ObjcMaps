@@ -12,7 +12,13 @@
 + (PSTrackStore *)sharedInstance;
 //@property (nonatomic, readonly) NSMutableArray* tracks;
 
+- (NSArray *)tracks;
+
 - (NSArray *)trails;
 
 - (NSArray *)routes;
+
+- (NSArray *)mtbRoutes;
+
+- (NSArray *)bikeRoutes;
 @end

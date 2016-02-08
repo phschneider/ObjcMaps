@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		222DF3221B659056003410E7 /* Route-NrideHom-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3061B659056003410E7 /* Route-NrideHom-3.gpx */; };
+		222DF3221B659056003410E7 /* Route-MTB-NrideHom-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3061B659056003410E7 /* Route-MTB-NrideHom-3.gpx */; };
 		22F934D219DD5E5B00996122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D119DD5E5B00996122 /* Foundation.framework */; };
 		22F934D419DD5E5B00996122 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D319DD5E5B00996122 /* CoreGraphics.framework */; };
 		22F934D619DD5E5B00996122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D519DD5E5B00996122 /* UIKit.framework */; };
@@ -25,8 +25,8 @@
 		4A07FAC21C66917800FA554D /* gray-265-download.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAC01C66917800FA554D /* gray-265-download.png */; };
 		4A07FAC31C66917800FA554D /* gray-265-download@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAC11C66917800FA554D /* gray-265-download@2x.png */; };
 		4A07FAC61C67D5BF00FA554D /* PSMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07FAC51C67D5BF00FA554D /* PSMapAnnotation.m */; };
-		4A07FAC71C67DECA00FA554D /* Route-pur-blau_blueColor.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3071B659056003410E7 /* Route-pur-blau_blueColor.gpx */; };
-		4A07FAC81C67DECA00FA554D /* Route-pur-gruen_greenColor.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3081B659056003410E7 /* Route-pur-gruen_greenColor.gpx */; };
+		4A07FAC71C67DECA00FA554D /* Route-MTB-pur-blau_blueColor.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3071B659056003410E7 /* Route-MTB-pur-blau_blueColor.gpx */; };
+		4A07FAC81C67DECA00FA554D /* Route-MTB-pur-gruen_greenColor.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3081B659056003410E7 /* Route-MTB-pur-gruen_greenColor.gpx */; };
 		4A07FAC91C67DED000FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABC1C661C8400FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx */; };
 		4A07FACA1C67DED000FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABD1C661C8400FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx */; };
 		4A07FACB1C67DED000FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FABA1C661C7600FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx */; };
@@ -199,9 +199,9 @@
 /* Begin PBXFileReference section */
 		18CF6413E1014CC8A7CDA52D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Tour-KLB-SB.gpx"; path = "SampleData/Tour-KLB-SB.gpx"; sourceTree = SOURCE_ROOT; };
-		222DF3061B659056003410E7 /* Route-NrideHom-3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-NrideHom-3.gpx"; path = "SampleData/Route-NrideHom-3.gpx"; sourceTree = SOURCE_ROOT; };
-		222DF3071B659056003410E7 /* Route-pur-blau_blueColor.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-pur-blau_blueColor.gpx"; path = "SampleData/Route-pur-blau_blueColor.gpx"; sourceTree = SOURCE_ROOT; };
-		222DF3081B659056003410E7 /* Route-pur-gruen_greenColor.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-pur-gruen_greenColor.gpx"; path = "SampleData/Route-pur-gruen_greenColor.gpx"; sourceTree = SOURCE_ROOT; };
+		222DF3061B659056003410E7 /* Route-MTB-NrideHom-3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-MTB-NrideHom-3.gpx"; path = "SampleData/Route-MTB-NrideHom-3.gpx"; sourceTree = SOURCE_ROOT; };
+		222DF3071B659056003410E7 /* Route-MTB-pur-blau_blueColor.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-MTB-pur-blau_blueColor.gpx"; path = "SampleData/Route-MTB-pur-blau_blueColor.gpx"; sourceTree = SOURCE_ROOT; };
+		222DF3081B659056003410E7 /* Route-MTB-pur-gruen_greenColor.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-MTB-pur-gruen_greenColor.gpx"; path = "SampleData/Route-MTB-pur-gruen_greenColor.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF3091B659056003410E7 /* Trail-AmHomburg1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-AmHomburg1.gpx"; path = "SampleData/Trail-AmHomburg1.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF30A1B659056003410E7 /* Trail-Dudweiler1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-Dudweiler1.gpx"; path = "SampleData/Trail-Dudweiler1.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF30B1B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-HaldeCamphauserStrasse.gpx"; path = "SampleData/Trail-HaldeCamphauserStrasse.gpx"; sourceTree = SOURCE_ROOT; };
@@ -614,9 +614,9 @@
 			isa = PBXGroup;
 			children = (
 				4A07FAF21C6894A400FA554D /* Bike-Saarland */,
-				222DF3061B659056003410E7 /* Route-NrideHom-3.gpx */,
-				222DF3071B659056003410E7 /* Route-pur-blau_blueColor.gpx */,
-				222DF3081B659056003410E7 /* Route-pur-gruen_greenColor.gpx */,
+				222DF3061B659056003410E7 /* Route-MTB-NrideHom-3.gpx */,
+				222DF3071B659056003410E7 /* Route-MTB-pur-blau_blueColor.gpx */,
+				222DF3081B659056003410E7 /* Route-MTB-pur-gruen_greenColor.gpx */,
 				4A07FAB11C661B3300FA554D /* MTB-Saarland */,
 			);
 			name = Routen;
@@ -1038,7 +1038,7 @@
 				4A0E71EA1C32EE8200BCF6B8 /* 760-refresh-3@3x.png in Resources */,
 				4A0E71F61C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png in Resources */,
 				4A0E71E81C32EE8200BCF6B8 /* 760-refresh-3.png in Resources */,
-				4A07FAC71C67DECA00FA554D /* Route-pur-blau_blueColor.gpx in Resources */,
+				4A07FAC71C67DECA00FA554D /* Route-MTB-pur-blau_blueColor.gpx in Resources */,
 				4A07FAD61C67DEDA00FA554D /* Tour-t1387067_Sieben-Weiher-Tour.gpx in Resources */,
 				4A07FAF01C67DEE200FA554D /* TrailSpichern2.gpx in Resources */,
 				4A07FB2F1C68A02100FA554D /* Route-Saarland-Bike-Weiselberg-Radweg.gpx in Resources */,
@@ -1094,7 +1094,7 @@
 				4A07FAE51C67DEE200FA554D /* Trail-Schwarzenberg8.gpx in Resources */,
 				4A07FACE1C67DED000FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx in Resources */,
 				4A07FAD21C67DED000FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */,
-				222DF3221B659056003410E7 /* Route-NrideHom-3.gpx in Resources */,
+				222DF3221B659056003410E7 /* Route-MTB-NrideHom-3.gpx in Resources */,
 				4A07FAD41C67DEDA00FA554D /* Tour-Urwald.gpx in Resources */,
 				4A0E72101C34817900BCF6B8 /* Icon-60@2x.png in Resources */,
 				4A0E720A1C34817900BCF6B8 /* Icon-29.png in Resources */,
@@ -1121,7 +1121,7 @@
 				4A07FAD11C67DED000FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx in Resources */,
 				4A0E71F81C32EE8200BCF6B8 /* white-193-location-arrow@2x.png in Resources */,
 				4A07FB2B1C68A02100FA554D /* Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx in Resources */,
-				4A07FAC81C67DECA00FA554D /* Route-pur-gruen_greenColor.gpx in Resources */,
+				4A07FAC81C67DECA00FA554D /* Route-MTB-pur-gruen_greenColor.gpx in Resources */,
 				4A07FAE01C67DEE200FA554D /* Trail-Schwarzenberg3.gpx in Resources */,
 				4A07FACC1C67DED000FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx in Resources */,
 			);
@@ -1348,7 +1348,7 @@
 			baseConfigurationReference = 292651F264F523FCBBD71335 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
@@ -1367,7 +1367,7 @@
 			baseConfigurationReference = ABA11E6B8B64EB33BC0F9452 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
@@ -1465,7 +1465,7 @@
 			baseConfigurationReference = ABA11E6B8B64EB33BC0F9452 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Philip Schneider (723AP2V5VG)";
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 13;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";

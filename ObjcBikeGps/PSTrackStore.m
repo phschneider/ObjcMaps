@@ -55,6 +55,7 @@
     {
         PSTrack *track = nil;
         NSString *filename = [[[url absoluteString] lastPathComponent] stringByReplacingOccurrencesOfString:@".gpx" withString:@""];
+        NSString *lowerCaseName = [filename lowercaseString];
 #ifdef INSELHUEPFEN_MODE
         if (    [[filename lowercaseString] rangeOfString:@"trail"].location == NSNotFound &&
                 [[filename lowercaseString] rangeOfString:@"route"].location == NSNotFound &&
@@ -64,13 +65,24 @@
             track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeUnknown];
         }
 #else
-        if ([[filename lowercaseString] rangeOfString:@"trail"].location != NSNotFound)
+        if ([lowerCaseName rangeOfString:@"trail"].location != NSNotFound)
         {
             track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeTrail];
         }
-        else if ([[filename lowercaseString] rangeOfString:@"route"].location != NSNotFound)
+        else if ([lowerCaseName rangeOfString:@"route"].location != NSNotFound)
         {
-            track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeRoundTrip];
+            if ([lowerCaseName rangeOfString:@"mtb"].location != NSNotFound)
+            {
+                track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeMTBTrip];
+            }
+            else if ([lowerCaseName rangeOfString:@"bike"].location != NSNotFound)
+            {
+                track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeBikeTrip];
+            }
+            else
+            {
+                track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeRoundTrip];
+            }
         }
         else
         {
@@ -80,7 +92,7 @@
         if (track)
         {
             [self willChangeValueForKey:@"tracks"];
-            [self.tracks insertObject:track atIndex:[_tracks count]];
+            [_tracks insertObject:track atIndex:[_tracks count]];
             [self didChangeValueForKey:@"tracks"];
         }
     }
@@ -93,7 +105,14 @@
 {
     DLogFuncName();
 
-    return [self.tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeTrail]];
+    return [_tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeTrail]];
+}
+
+
+- (NSArray*)tracks
+{
+    DLogFuncName();
+    return _tracks;
 }
 
 
@@ -101,8 +120,23 @@
 {
     DLogFuncName();
 
-    return [self.tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeRoundTrip]];
+    return [_tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeRoundTrip]];
 }
 
+
+- (NSArray*)mtbRoutes
+{
+    DLogFuncName();
+
+    return [_tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeMTBTrip]];
+}
+
+
+- (NSArray*)bikeRoutes
+{
+    DLogFuncName();
+
+    return [_tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeBikeTrip]];
+}
 
 @end

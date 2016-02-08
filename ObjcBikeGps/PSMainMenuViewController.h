@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface PSMainMenuViewController : UIViewController
+@interface PSMainMenuViewController : UICollectionViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 
 
