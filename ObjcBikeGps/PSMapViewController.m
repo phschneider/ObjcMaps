@@ -145,7 +145,9 @@
     self = [self init];
     if (self)
     {
-        self.track = track;
+        dispatch_async(dispatch_get_main_queue(),^{
+            self.track = track;
+        });
     }
     return self;
 }
@@ -158,7 +160,9 @@
     self = [self init];
     if (self)
     {
-        self.tracks = tracks;
+        dispatch_async(dispatch_get_main_queue(),^{
+            self.tracks = tracks;
+        });
     }
     return self;
 }
