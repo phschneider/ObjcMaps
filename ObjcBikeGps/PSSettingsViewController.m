@@ -25,7 +25,7 @@
     if (self)
     {
         self.title = @"Settings";
-        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,0,280,400) style:UITableViewStylePlain];
+        self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         self.tableView.rowHeight = 40;
@@ -33,18 +33,18 @@
         [self.view addSubview:self.tableView];
 
         // TODO: Auslagern in TileManager
-        self.maptypes = @[  [ @{ @"name" : @"Debug", @"classString" : @"PSDebugTileOverlay" , @"size" : @""} mutableCopy],
-                            [ @{ @"name" : @"Apple Default", @"classString" : @"PSAppleDefaultTileOverlay" , @"size" : @""} mutableCopy],
-                            [ @{ @"name" : @"Apple Satellite", @"classString" : @"PSAppleSatelliteTileOverlay" , @"size" : @""} mutableCopy],
-                            [ @{ @"name" : @"Apple Hybrid", @"classString" : @"PSAppleHybridTileOverlay" , @"size" : @""}  mutableCopy],
-                            [ @{ @"name" : @"Open Street Map", @"classString" : @"PSOpenStreetMapTileOverlay" , @"size" : @""} mutableCopy],
-                            [ @{ @"name" : @"Open Cycle Map", @"classString" : @"PSOpenCycleMapTileOverlay" , @"size" : @""} mutableCopy],
-                            [ @{ @"name" : @"Light (MapBox)", @"classString" : @"PSMapBoxLightTileOverlay" , @"size" : @""} mutableCopy],
-                            [ @{ @"name" : @"Dark (MapBox)", @"classString" : @"PSMapBoxDarkTileOverlay" , @"size" : @""} mutableCopy],
-                            [ @{ @"name" : @"Street (MapBox)", @"classString" : @"PSMapBoxTileOverlay" , @"size" : @""} mutableCopy],
-                            [ @{ @"name" : @"Run/Bike/Hike (MapBox)", @"classString" : @"PSMapBoxRunBikeHikeTileOverlay" , @"size" : @""} mutableCopy],
-                            [ @{ @"name" : @"PS Custom (MapBox)", @"classString" : @"PSMapBoxCustomTileOverlay" , @"size" : @""} mutableCopy],
-                            [ @{ @"name" : @"Hight contrast (MapBox)", @"classString" : @"PSMapBoxHighContrastTileOverlay" , @"size" : @""} mutableCopy],
+        self.maptypes = @[  [ @{ @"name" : @"Debug", @"classString" : @"PSDebugTileOverlay" , @"size" : @"" , @"canDownload" : @NO } mutableCopy],
+                            [ @{ @"name" : @"Apple Default", @"classString" : @"PSAppleDefaultTileOverlay" , @"size" : @"", @"canDownload" : @NO } mutableCopy],
+                            [ @{ @"name" : @"Apple Satellite", @"classString" : @"PSAppleSatelliteTileOverlay" , @"size" : @"", @"canDownload" : @NO } mutableCopy],
+                            [ @{ @"name" : @"Apple Hybrid", @"classString" : @"PSAppleHybridTileOverlay" , @"size" : @"", @"canDownload" : @NO }  mutableCopy],
+                            [ @{ @"name" : @"Open Street Map", @"classString" : @"PSOpenStreetMapTileOverlay" , @"size" : @"", @"canDownload" : @YES } mutableCopy],
+                            [ @{ @"name" : @"Open Cycle Map", @"classString" : @"PSOpenCycleMapTileOverlay" , @"size" : @"" , @"canDownload" : @YES } mutableCopy],
+                            [ @{ @"name" : @"Light (MapBox)", @"classString" : @"PSMapBoxLightTileOverlay" , @"size" : @"", @"canDownload" : @YES } mutableCopy],
+                            [ @{ @"name" : @"Dark (MapBox)", @"classString" : @"PSMapBoxDarkTileOverlay" , @"size" : @"", @"canDownload" : @YES } mutableCopy],
+                            [ @{ @"name" : @"Street (MapBox)", @"classString" : @"PSMapBoxTileOverlay" , @"size" : @"",  @"canDownload" : @YES } mutableCopy],
+                            [ @{ @"name" : @"Run/Bike/Hike (MapBox)", @"classString" : @"PSMapBoxRunBikeHikeTileOverlay" , @"size" : @"", @"canDownload" : @YES } mutableCopy],
+                            [ @{ @"name" : @"PS Custom (MapBox)", @"classString" : @"PSMapBoxCustomTileOverlay" , @"size" : @"", @"canDownload" : @YES } mutableCopy],
+                            [ @{ @"name" : @"Hight contrast (MapBox)", @"classString" : @"PSMapBoxHighContrastTileOverlay" , @"size" : @"", @"canDownload" : @YES } mutableCopy],
         ];
 
         dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
@@ -142,7 +142,6 @@
     NSString* tileClassString = [[NSUserDefaults standardUserDefaults] stringForKey:@"TILE_CLASS"];
     NSDictionary *model = [self.maptypes objectAtIndex:indexPath.row];
     Class tileClass = NSClassFromString([model objectForKey:@"classString"]);
-    
     cell.textLabel.text = [model objectForKey:@"name"];
 
     id object = [[tileClass alloc] init];
@@ -151,7 +150,7 @@
         NSString *urlTemplate = [tileClass urlTemplate];
         cell.detailTextLabel.text = [model objectForKey:@"size"];
 
-        if (![tileClassString isEqualToString:[model objectForKey:@"classString"]])
+        if (![tileClassString isEqualToString:[model objectForKey:@"classString"]] && [[model objectForKey:@"canDownload"] boolValue])
         {
             UIImage *image = [UIImage imageNamed:@"gray-265-download"];
             UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 28, 28)]; // tested also initWithFrame:CGRectMake(0, 0, image.size.width, image.size.heigth)
@@ -206,7 +205,7 @@
     NSString * urlTemplate = [tileClass urlTemplate];
     id object = [(PSTileOverlay *) [tileClass alloc] initWithURLTemplate:urlTemplate];
 
-    if (object)
+    if (object && [[model objectForKey:@"canDownload"] boolValue])
     {
         UINavigationController * navigationController = [((PSAppDelegate *) [[UIApplication sharedApplication] delegate]) window].rootViewController;
         PSMapViewController *mapViewController = [navigationController topViewController];
