@@ -8,8 +8,6 @@
 #import "MKMapView+PSZoomLevel.h"
 
 @interface PSTileOverlay ()
-@property NSCache *cache;
-@property NSOperationQueue *operationQueue;
 @end
 
 @implementation PSTileOverlay

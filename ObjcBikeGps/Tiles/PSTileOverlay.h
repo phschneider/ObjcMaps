@@ -8,11 +8,16 @@
 
 @interface PSTileOverlay : MKTileOverlay
 
+@property NSCache *cache;
+@property NSOperationQueue *operationQueue;
+
 +(NSString*) urlTemplate;
 
 - (MKOverlayLevel) level;
 
 - (NSString *)name;
+
+- (NSString*)storageForPath:(MKTileOverlayPath)path;
 
 - (NSDictionary *)tilesInMapRect:(MKMapRect)rect forAllZoomLevelsStartingWith:(int)startZoomLevel;
 

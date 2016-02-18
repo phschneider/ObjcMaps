@@ -45,6 +45,7 @@
                             [ @{ @"name" : @"Run/Bike/Hike (MapBox)", @"classString" : @"PSMapBoxRunBikeHikeTileOverlay" , @"size" : @"", @"canDownload" : @YES } mutableCopy],
                             [ @{ @"name" : @"PS Custom (MapBox)", @"classString" : @"PSMapBoxCustomTileOverlay" , @"size" : @"", @"canDownload" : @YES } mutableCopy],
                             [ @{ @"name" : @"Hight contrast (MapBox)", @"classString" : @"PSMapBoxHighContrastTileOverlay" , @"size" : @"", @"canDownload" : @YES } mutableCopy],
+                            [ @{ @"name" : @"Trails (MapBox)", @"classString" : @"PSMapBoxTrailsTileOverlay" , @"size" : @"", @"canDownload" : @NO } mutableCopy],
         ];
 
         dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
@@ -54,6 +55,22 @@
     }
 
     return self;
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    DLogFuncName();
+    [super viewWillAppear:animated];
+    self.tableView.frame = self.view.bounds;
+}
+
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    DLogFuncName();
+    [super viewDidAppear:animated];
+    self.tableView.frame = self.view.bounds;
 }
 
 
