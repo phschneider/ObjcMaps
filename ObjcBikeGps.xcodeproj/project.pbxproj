@@ -8,6 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		222DF3221B659056003410E7 /* Route-MTB-NrideHom-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3061B659056003410E7 /* Route-MTB-NrideHom-3.gpx */; };
+		22CEB12E1C77167800E44D7C /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1171C77167800E44D7C /* Icon-29.png */; };
+		22CEB12F1C77167800E44D7C /* Icon-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1181C77167800E44D7C /* Icon-29@2x.png */; };
+		22CEB1301C77167800E44D7C /* Icon-29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1191C77167800E44D7C /* Icon-29@3x.png */; };
+		22CEB1311C77167800E44D7C /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB11A1C77167800E44D7C /* Icon-40.png */; };
+		22CEB1321C77167800E44D7C /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB11B1C77167800E44D7C /* Icon-40@2x.png */; };
+		22CEB1331C77167800E44D7C /* Icon-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB11C1C77167800E44D7C /* Icon-40@3x.png */; };
+		22CEB1341C77167800E44D7C /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB11D1C77167800E44D7C /* Icon-60.png */; };
+		22CEB1351C77167800E44D7C /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB11E1C77167800E44D7C /* Icon-60@2x.png */; };
+		22CEB1361C77167800E44D7C /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB11F1C77167800E44D7C /* Icon-60@3x.png */; };
+		22CEB1371C77167800E44D7C /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1201C77167800E44D7C /* Icon-72.png */; };
+		22CEB1381C77167800E44D7C /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1211C77167800E44D7C /* Icon-72@2x.png */; };
+		22CEB1391C77167800E44D7C /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1221C77167800E44D7C /* Icon-76.png */; };
+		22CEB13A1C77167800E44D7C /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1231C77167800E44D7C /* Icon-76@2x.png */; };
+		22CEB13B1C77167800E44D7C /* Icon-83.5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1241C77167800E44D7C /* Icon-83.5@2x.png */; };
+		22CEB13C1C77167800E44D7C /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1251C77167800E44D7C /* Icon-Small-50.png */; };
+		22CEB13D1C77167800E44D7C /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1261C77167800E44D7C /* Icon-Small-50@2x.png */; };
+		22CEB13E1C77167800E44D7C /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1271C77167800E44D7C /* Icon-Small.png */; };
+		22CEB13F1C77167800E44D7C /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1281C77167800E44D7C /* Icon-Small@2x.png */; };
+		22CEB1401C77167800E44D7C /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1291C77167800E44D7C /* Icon-Small@3x.png */; };
+		22CEB1411C77167800E44D7C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB12A1C77167800E44D7C /* Icon.png */; };
+		22CEB1421C77167800E44D7C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB12B1C77167800E44D7C /* Icon@2x.png */; };
+		22CEB1431C77167800E44D7C /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB12C1C77167800E44D7C /* iTunesArtwork.png */; };
+		22CEB1441C77167800E44D7C /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB12D1C77167800E44D7C /* iTunesArtwork@2x.png */; };
 		22F934D219DD5E5B00996122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D119DD5E5B00996122 /* Foundation.framework */; };
 		22F934D419DD5E5B00996122 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D319DD5E5B00996122 /* CoreGraphics.framework */; };
 		22F934D619DD5E5B00996122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D519DD5E5B00996122 /* UIKit.framework */; };
@@ -135,17 +158,6 @@
 		4A0E71F61C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71DD1C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png */; };
 		4A0E71F71C32EE8200BCF6B8 /* gray-940-pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71DE1C32EE8200BCF6B8 /* gray-940-pin@2x.png */; };
 		4A0E71F81C32EE8200BCF6B8 /* white-193-location-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71DF1C32EE8200BCF6B8 /* white-193-location-arrow@2x.png */; };
-		4A0E720A1C34817900BCF6B8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71FF1C34817900BCF6B8 /* Icon-29.png */; };
-		4A0E720B1C34817900BCF6B8 /* Icon-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E72001C34817900BCF6B8 /* Icon-29@2x.png */; };
-		4A0E720C1C34817900BCF6B8 /* Icon-29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E72011C34817900BCF6B8 /* Icon-29@3x.png */; };
-		4A0E720D1C34817900BCF6B8 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E72021C34817900BCF6B8 /* Icon-40.png */; };
-		4A0E720E1C34817900BCF6B8 /* Icon-40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E72031C34817900BCF6B8 /* Icon-40@2x.png */; };
-		4A0E720F1C34817900BCF6B8 /* Icon-40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E72041C34817900BCF6B8 /* Icon-40@3x.png */; };
-		4A0E72101C34817900BCF6B8 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E72051C34817900BCF6B8 /* Icon-60@2x.png */; };
-		4A0E72111C34817900BCF6B8 /* Icon-60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E72061C34817900BCF6B8 /* Icon-60@3x.png */; };
-		4A0E72121C34817900BCF6B8 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E72071C34817900BCF6B8 /* Icon-76.png */; };
-		4A0E72131C34817900BCF6B8 /* Icon-76@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E72081C34817900BCF6B8 /* Icon-76@2x.png */; };
-		4A0E72141C34817900BCF6B8 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E72091C34817900BCF6B8 /* iTunesArtwork@2x.png */; };
 		4AC180EF1C76738C00804EEE /* PSMapBoxTrailsTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC180EE1C76738C00804EEE /* PSMapBoxTrailsTileOverlay.m */; };
 		67B4038CA92E902FFA829A1E /* PSTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40F0FAC4FD5F8B39E04F3 /* PSTrack.m */; };
 		67B40644E96BB7EC796E48D0 /* PSTrackOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40B684DF64CED8EC0087A /* PSTrackOverlay.m */; };
@@ -231,6 +243,29 @@
 		222DF3431B659B9E003410E7 /* TrailSpichern.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TrailSpichern.gpx; path = SampleData/TrailSpichern.gpx; sourceTree = SOURCE_ROOT; };
 		222DF3441B659B9E003410E7 /* TrailSpichern2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TrailSpichern2.gpx; path = SampleData/TrailSpichern2.gpx; sourceTree = SOURCE_ROOT; };
 		222DF3491B659F41003410E7 /* TrailSpichern3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TrailSpichern3.gpx; path = SampleData/TrailSpichern3.gpx; sourceTree = SOURCE_ROOT; };
+		22CEB1171C77167800E44D7C /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
+		22CEB1181C77167800E44D7C /* Icon-29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29@2x.png"; sourceTree = "<group>"; };
+		22CEB1191C77167800E44D7C /* Icon-29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29@3x.png"; sourceTree = "<group>"; };
+		22CEB11A1C77167800E44D7C /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
+		22CEB11B1C77167800E44D7C /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
+		22CEB11C1C77167800E44D7C /* Icon-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@3x.png"; sourceTree = "<group>"; };
+		22CEB11D1C77167800E44D7C /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60.png"; sourceTree = "<group>"; };
+		22CEB11E1C77167800E44D7C /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
+		22CEB11F1C77167800E44D7C /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
+		22CEB1201C77167800E44D7C /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		22CEB1211C77167800E44D7C /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		22CEB1221C77167800E44D7C /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
+		22CEB1231C77167800E44D7C /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
+		22CEB1241C77167800E44D7C /* Icon-83.5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-83.5@2x.png"; sourceTree = "<group>"; };
+		22CEB1251C77167800E44D7C /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		22CEB1261C77167800E44D7C /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		22CEB1271C77167800E44D7C /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		22CEB1281C77167800E44D7C /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		22CEB1291C77167800E44D7C /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
+		22CEB12A1C77167800E44D7C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		22CEB12B1C77167800E44D7C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		22CEB12C1C77167800E44D7C /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		22CEB12D1C77167800E44D7C /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		22ED40991B68038800D3E297 /* Tour-Goettelborn.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Tour-Goettelborn.gpx"; path = "SampleData/Tour-Goettelborn.gpx"; sourceTree = SOURCE_ROOT; };
 		22F934CE19DD5E5B00996122 /* ObjcBikeGps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjcBikeGps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F934D119DD5E5B00996122 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -333,17 +368,6 @@
 		4A0E71DE1C32EE8200BCF6B8 /* gray-940-pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-940-pin@2x.png"; sourceTree = "<group>"; };
 		4A0E71DF1C32EE8200BCF6B8 /* white-193-location-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-193-location-arrow@2x.png"; sourceTree = "<group>"; };
 		4A0E71F91C32EEF400BCF6B8 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Tour-t1387067_Sieben-Weiher-Tour.gpx"; sourceTree = "<group>"; };
-		4A0E71FF1C34817900BCF6B8 /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
-		4A0E72001C34817900BCF6B8 /* Icon-29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29@2x.png"; sourceTree = "<group>"; };
-		4A0E72011C34817900BCF6B8 /* Icon-29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29@3x.png"; sourceTree = "<group>"; };
-		4A0E72021C34817900BCF6B8 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
-		4A0E72031C34817900BCF6B8 /* Icon-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@2x.png"; sourceTree = "<group>"; };
-		4A0E72041C34817900BCF6B8 /* Icon-40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40@3x.png"; sourceTree = "<group>"; };
-		4A0E72051C34817900BCF6B8 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
-		4A0E72061C34817900BCF6B8 /* Icon-60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@3x.png"; sourceTree = "<group>"; };
-		4A0E72071C34817900BCF6B8 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76.png"; sourceTree = "<group>"; };
-		4A0E72081C34817900BCF6B8 /* Icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-76@2x.png"; sourceTree = "<group>"; };
-		4A0E72091C34817900BCF6B8 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		4AC180ED1C76738C00804EEE /* PSMapBoxTrailsTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapBoxTrailsTileOverlay.h; sourceTree = "<group>"; };
 		4AC180EE1C76738C00804EEE /* PSMapBoxTrailsTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapBoxTrailsTileOverlay.m; sourceTree = "<group>"; };
 		4AC3776C1BB887150027DFC7 /* InselhuepfenTag1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InselhuepfenTag1.gpx; sourceTree = "<group>"; };
@@ -774,17 +798,29 @@
 		4A0E71FE1C34817900BCF6B8 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
-				4A0E71FF1C34817900BCF6B8 /* Icon-29.png */,
-				4A0E72001C34817900BCF6B8 /* Icon-29@2x.png */,
-				4A0E72011C34817900BCF6B8 /* Icon-29@3x.png */,
-				4A0E72021C34817900BCF6B8 /* Icon-40.png */,
-				4A0E72031C34817900BCF6B8 /* Icon-40@2x.png */,
-				4A0E72041C34817900BCF6B8 /* Icon-40@3x.png */,
-				4A0E72051C34817900BCF6B8 /* Icon-60@2x.png */,
-				4A0E72061C34817900BCF6B8 /* Icon-60@3x.png */,
-				4A0E72071C34817900BCF6B8 /* Icon-76.png */,
-				4A0E72081C34817900BCF6B8 /* Icon-76@2x.png */,
-				4A0E72091C34817900BCF6B8 /* iTunesArtwork@2x.png */,
+				22CEB1171C77167800E44D7C /* Icon-29.png */,
+				22CEB1181C77167800E44D7C /* Icon-29@2x.png */,
+				22CEB1191C77167800E44D7C /* Icon-29@3x.png */,
+				22CEB11A1C77167800E44D7C /* Icon-40.png */,
+				22CEB11B1C77167800E44D7C /* Icon-40@2x.png */,
+				22CEB11C1C77167800E44D7C /* Icon-40@3x.png */,
+				22CEB11D1C77167800E44D7C /* Icon-60.png */,
+				22CEB11E1C77167800E44D7C /* Icon-60@2x.png */,
+				22CEB11F1C77167800E44D7C /* Icon-60@3x.png */,
+				22CEB1201C77167800E44D7C /* Icon-72.png */,
+				22CEB1211C77167800E44D7C /* Icon-72@2x.png */,
+				22CEB1221C77167800E44D7C /* Icon-76.png */,
+				22CEB1231C77167800E44D7C /* Icon-76@2x.png */,
+				22CEB1241C77167800E44D7C /* Icon-83.5@2x.png */,
+				22CEB1251C77167800E44D7C /* Icon-Small-50.png */,
+				22CEB1261C77167800E44D7C /* Icon-Small-50@2x.png */,
+				22CEB1271C77167800E44D7C /* Icon-Small.png */,
+				22CEB1281C77167800E44D7C /* Icon-Small@2x.png */,
+				22CEB1291C77167800E44D7C /* Icon-Small@3x.png */,
+				22CEB12A1C77167800E44D7C /* Icon.png */,
+				22CEB12B1C77167800E44D7C /* Icon@2x.png */,
+				22CEB12C1C77167800E44D7C /* iTunesArtwork.png */,
+				22CEB12D1C77167800E44D7C /* iTunesArtwork@2x.png */,
 			);
 			path = Icons;
 			sourceTree = "<group>";
@@ -1003,19 +1039,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22CEB1401C77167800E44D7C /* Icon-Small@3x.png in Resources */,
 				4A0E71F11C32EE8200BCF6B8 /* 854-list-toolbar-selected.png in Resources */,
 				4A07FB181C68A00F00FA554D /* Route-Saarland-Bike-Niedtal-Radweg.gpx in Resources */,
 				4A07FADA1C67DEE200FA554D /* Trail-KlbTrail.gpx in Resources */,
+				22CEB12E1C77167800E44D7C /* Icon-29.png in Resources */,
 				4A07FADC1C67DEE200FA554D /* Trail.gpx in Resources */,
 				4A07FB141C68A00F00FA554D /* Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx in Resources */,
 				4A07FB301C68A02100FA554D /* Route-Saarland-Bike-Sieben-Weiher-Tour.gpx in Resources */,
+				22CEB1301C77167800E44D7C /* Icon-29@3x.png in Resources */,
 				4A07FB161C68A00F00FA554D /* Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx in Resources */,
 				4A07FAE11C67DEE200FA554D /* Trail-Schwarzenberg4.gpx in Resources */,
 				4A0E71E51C32EE8200BCF6B8 /* 1100-list-2-toolbar@3x.png in Resources */,
-				4A0E720F1C34817900BCF6B8 /* Icon-40@3x.png in Resources */,
 				4A07FAD71C67DEE200FA554D /* Trail-AmHomburg1.gpx in Resources */,
 				4A07FADB1C67DEE200FA554D /* Trail-Nauwies.gpx in Resources */,
 				4A07FB3D1C68A03200FA554D /* Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx in Resources */,
+				22CEB13A1C77167800E44D7C /* Icon-76@2x.png in Resources */,
 				4A07FAE61C67DEE200FA554D /* Trail-Schwarzenberg9.gpx in Resources */,
 				4A07FB3B1C68A03200FA554D /* Route-Saarland-Bike-Lebacher-Runde.gpx in Resources */,
 				4A07FB131C68A00F00FA554D /* Route-Saarland-Bike-Saar-Bostalsee-Radweg.gpx in Resources */,
@@ -1027,18 +1066,21 @@
 				4A07FB3F1C68A03200FA554D /* Route-Saarland-Bike-Eppelborner-Runde.gpx in Resources */,
 				4A0E71E71C32EE8200BCF6B8 /* 512px-Viewpoint-16.svg.png in Resources */,
 				4A07FAF41C6894AD00FA554D /* Route-Saarland-Bike-Teufelsburg-Runde.gpx in Resources */,
+				22CEB1411C77167800E44D7C /* Icon.png in Resources */,
 				4A0E71ED1C32EE8200BCF6B8 /* 798-filter-toolbar@3x.png in Resources */,
+				22CEB1371C77167800E44D7C /* Icon-72.png in Resources */,
 				4A07FB3C1C68A03200FA554D /* Route-Saarland-Bike-Schmelzer-Runde.gpx in Resources */,
 				4A07FB101C68A00F00FA554D /* Route-Saarland-Bike-Saarbruecker-Radler-Runde.gpx in Resources */,
 				4A07FAEE1C67DEE200FA554D /* Trail-Winterberg1.gpx in Resources */,
+				22CEB1351C77167800E44D7C /* Icon-60@2x.png in Resources */,
 				4A07FAFA1C68954B00FA554D /* Route-Saarland-Bike-VeloRoute-SaarLorLux.gpx in Resources */,
 				4A07FB111C68A00F00FA554D /* Route-Saarland-Bike-Saargau-Runde.gpx in Resources */,
 				4A07FAE91C67DEE200FA554D /* Trail-Schwarzenberg12.gpx in Resources */,
-				4A0E720B1C34817900BCF6B8 /* Icon-29@2x.png in Resources */,
 				4A07FAD81C67DEE200FA554D /* Trail-Dudweiler1.gpx in Resources */,
 				4A07FADE1C67DEE200FA554D /* Trail-Schwarzenberg1.gpx in Resources */,
 				4A07FACF1C67DED000FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx in Resources */,
 				4A0E71EB1C32EE8200BCF6B8 /* 798-filter-toolbar.png in Resources */,
+				22CEB1391C77167800E44D7C /* Icon-76.png in Resources */,
 				4A07FB3E1C68A03200FA554D /* Route-Saarland-Bike-Adebar-Runde.gpx in Resources */,
 				4A0E71EA1C32EE8200BCF6B8 /* 760-refresh-3@3x.png in Resources */,
 				4A0E71F61C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png in Resources */,
@@ -1046,18 +1088,20 @@
 				4A07FAC71C67DECA00FA554D /* Route-MTB-pur-blau_blueColor.gpx in Resources */,
 				4A07FAD61C67DEDA00FA554D /* Tour-t1387067_Sieben-Weiher-Tour.gpx in Resources */,
 				4A07FAF01C67DEE200FA554D /* TrailSpichern2.gpx in Resources */,
+				22CEB13C1C77167800E44D7C /* Icon-Small-50.png in Resources */,
 				4A07FB2F1C68A02100FA554D /* Route-Saarland-Bike-Weiselberg-Radweg.gpx in Resources */,
 				4A0E71E61C32EE8200BCF6B8 /* 1435537202_54.png in Resources */,
 				4A07FACB1C67DED000FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx in Resources */,
 				4A07FB261C68A02100FA554D /* Route-Saarland-Bike-Traumschleife-Kaltensteinpfad.gpx in Resources */,
 				4A07FAD91C67DEE200FA554D /* Trail-HaldeCamphauserStrasse.gpx in Resources */,
-				4A0E72141C34817900BCF6B8 /* iTunesArtwork@2x.png in Resources */,
 				4A0E71EC1C32EE8200BCF6B8 /* 798-filter-toolbar@2x.png in Resources */,
 				4A07FB411C68A03200FA554D /* Route-Saarland-Bike-Biber-Tour.gpx in Resources */,
 				4A07FAD51C67DEDA00FA554D /* Tour-KLB-SB.gpx in Resources */,
-				4A0E720D1C34817900BCF6B8 /* Icon-40.png in Resources */,
+				22CEB13E1C77167800E44D7C /* Icon-Small.png in Resources */,
 				4A0E71F41C32EE8200BCF6B8 /* Emergency_access_point.png in Resources */,
+				22CEB1311C77167800E44D7C /* Icon-40.png in Resources */,
 				4A07FADD1C67DEE200FA554D /* Trail-Nauwies2.gpx in Resources */,
+				22CEB1381C77167800E44D7C /* Icon-72@2x.png in Resources */,
 				4A07FB2A1C68A02100FA554D /* Route-Saarland-Bike-Bostalsee-Runde.gpx in Resources */,
 				4A07FB271C68A02100FA554D /* Route-Saarland-Bike-Hochwaelder-Runde.gpx in Resources */,
 				4A07FAF61C6894D300FA554D /* Route-Saarland-Bike-Saar-Radweg.gpx in Resources */,
@@ -1070,22 +1114,25 @@
 				4A07FB0C1C68A00F00FA554D /* Route-Saarland-Bike-Koellertal-Radweg.gpx in Resources */,
 				4A0E71E21C32EE8200BCF6B8 /* 1064-layers-4@3x.png in Resources */,
 				4A0E71E11C32EE8200BCF6B8 /* 1064-layers-4@2x.png in Resources */,
+				22CEB12F1C77167800E44D7C /* Icon-29@2x.png in Resources */,
 				4A0E71E31C32EE8200BCF6B8 /* 1100-list-2-toolbar.png in Resources */,
 				4A07FAE71C67DEE200FA554D /* Trail-Schwarzenberg10.gpx in Resources */,
+				22CEB1321C77167800E44D7C /* Icon-40@2x.png in Resources */,
 				4A07FB151C68A00F00FA554D /* Route-Saarland-Bike-Saar-Elsass-Tour.gpx in Resources */,
 				4A07FB0F1C68A00F00FA554D /* Route-Saarland-Bike-Blumengarten-Runde.gpx in Resources */,
+				22CEB1421C77167800E44D7C /* Icon@2x.png in Resources */,
 				4A07FB0B1C68A00F00FA554D /* Route-Saarland-Bike-Saarkohlenwald-Runde.gpx in Resources */,
 				4A07FAF11C67DEE200FA554D /* TrailSpichern3.gpx in Resources */,
 				4A0E71E41C32EE8200BCF6B8 /* 1100-list-2-toolbar@2x.png in Resources */,
 				4A07FAD01C67DED000FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx in Resources */,
 				4A07FB2E1C68A02100FA554D /* Route-Saarland-Bike-Saar-Koellertal-Runde.gpx in Resources */,
 				4A07FB281C68A02100FA554D /* Route-Saarland-Bike-Warndt-Runde.gpx in Resources */,
+				22CEB13D1C77167800E44D7C /* Icon-Small-50@2x.png in Resources */,
 				4A07FB421C68A03200FA554D /* Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx in Resources */,
 				4A07FAFC1C68955E00FA554D /* Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx in Resources */,
+				22CEB1441C77167800E44D7C /* iTunesArtwork@2x.png in Resources */,
 				4A0E71F51C32EE8200BCF6B8 /* Emergeny.png in Resources */,
-				4A0E72131C34817900BCF6B8 /* Icon-76@2x.png in Resources */,
 				4A07FACD1C67DED000FA554D /* Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx in Resources */,
-				4A0E72111C34817900BCF6B8 /* Icon-60@3x.png in Resources */,
 				4A07FAC31C66917800FA554D /* gray-265-download@2x.png in Resources */,
 				4A07FAD31C67DEDA00FA554D /* Tour-Goettelborn.gpx in Resources */,
 				22F934EA19DD5E5B00996122 /* Images.xcassets in Resources */,
@@ -1093,20 +1140,18 @@
 				4A07FAC21C66917800FA554D /* gray-265-download.png in Resources */,
 				4A07FB0E1C68A00F00FA554D /* Route-Saarland-Bike-Saargemuender-Runde.gpx in Resources */,
 				22F934DC19DD5E5B00996122 /* InfoPlist.strings in Resources */,
-				4A0E72121C34817900BCF6B8 /* Icon-76.png in Resources */,
-				4A0E720E1C34817900BCF6B8 /* Icon-40@2x.png in Resources */,
+				22CEB13F1C77167800E44D7C /* Icon-Small@2x.png in Resources */,
 				4A07FAEF1C67DEE200FA554D /* TrailSpichern.gpx in Resources */,
+				22CEB1431C77167800E44D7C /* iTunesArtwork.png in Resources */,
 				4A07FAE51C67DEE200FA554D /* Trail-Schwarzenberg8.gpx in Resources */,
 				4A07FACE1C67DED000FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx in Resources */,
 				4A07FAD21C67DED000FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */,
 				222DF3221B659056003410E7 /* Route-MTB-NrideHom-3.gpx in Resources */,
 				4A07FAD41C67DEDA00FA554D /* Tour-Urwald.gpx in Resources */,
-				4A0E72101C34817900BCF6B8 /* Icon-60@2x.png in Resources */,
-				4A0E720A1C34817900BCF6B8 /* Icon-29.png in Resources */,
 				4A07FAED1C67DEE200FA554D /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */,
-				4A0E720C1C34817900BCF6B8 /* Icon-29@3x.png in Resources */,
 				4A0E71F21C32EE8200BCF6B8 /* 854-list-toolbar-selected@2x.png in Resources */,
 				4A07FB0D1C68A00F00FA554D /* Route-Saarland-Bike-Schaumberg-Runde.gpx in Resources */,
+				22CEB1331C77167800E44D7C /* Icon-40@3x.png in Resources */,
 				4A07FAE21C67DEE200FA554D /* Trail-Schwarzenberg5.gpx in Resources */,
 				4A0E71C51C32EDFA00BCF6B8 /* Launch Screen.storyboard in Resources */,
 				4A0E71E01C32EE8200BCF6B8 /* 1064-layers-4.png in Resources */,
@@ -1116,8 +1161,11 @@
 				4A07FB441C68A03200FA554D /* Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx in Resources */,
 				4A07FAC91C67DED000FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx in Resources */,
 				4A07FB121C68A00F00FA554D /* Route-Saarland-Bike-Saarschleifen-Runde.gpx in Resources */,
+				22CEB13B1C77167800E44D7C /* Icon-83.5@2x.png in Resources */,
+				22CEB1341C77167800E44D7C /* Icon-60.png in Resources */,
 				4A07FADF1C67DEE200FA554D /* Trail-Schwarzenberg2.gpx in Resources */,
 				4A07FAE41C67DEE200FA554D /* Trail-Schwarzenberg7.gpx in Resources */,
+				22CEB1361C77167800E44D7C /* Icon-60@3x.png in Resources */,
 				4A07FAEA1C67DEE200FA554D /* Trail-Schwarzenberg13.gpx in Resources */,
 				4A07FB2D1C68A02100FA554D /* Route-Saarland-Bike-Wendelinus-Radweg.gpx in Resources */,
 				4A07FB171C68A00F00FA554D /* Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx in Resources */,
