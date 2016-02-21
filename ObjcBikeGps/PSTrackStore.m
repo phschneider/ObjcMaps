@@ -31,7 +31,10 @@
     if (self)
     {
         self.tracks = [[NSMutableArray alloc] init];
-        [self performSelectorInBackground:@selector(loadTracks) withObject:nil];
+        if (!TARGET_IPHONE_SIMULATOR)
+        {
+            [self performSelectorInBackground:@selector(loadTracks) withObject:nil];
+        }
     }
     return self;
 }

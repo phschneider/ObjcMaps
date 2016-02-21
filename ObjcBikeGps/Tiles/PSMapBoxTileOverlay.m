@@ -14,11 +14,16 @@
 }
 
 
++ (NSString *)accessToken
+{
+    return @"pk.eyJ1IjoicGhzY2huZWlkZXIiLCJhIjoiajRrY3hyUSJ9.iUqFM9KNijSRZoI-cHkyLw";
+}
+
+
 + (NSString *)urlTemplate
 {
-    NSString *accessToken = @"pk.eyJ1IjoicGhzY2huZWlkZXIiLCJhIjoiajRrY3hyUSJ9.iUqFM9KNijSRZoI-cHkyLw";
     NSString *format = @".png";
-    NSString *urlString = [NSString stringWithFormat:@"https://api.mapbox.com/v4/%@/{z}/{x}/{y}%@?access_token=%@", [self mapId], format, accessToken];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.mapbox.com/v4/%@/{z}/{x}/{y}%@?access_token=%@", [self mapId], format, [self accessToken]];
 
 //    NSLog(@"URL = %@",urlString);
     return urlString;

@@ -22,6 +22,12 @@
 }
 
 
++ (NSString *)accessToken
+{
+    return @"pk.eyJ1IjoicGhzY2huZWlkZXIiLCJhIjoiajRrY3hyUSJ9.iUqFM9KNijSRZoI-cHkyLw";
+}
+
+
 - (void)loadTileAtPath:(MKTileOverlayPath)path result:(void (^)(NSData *data, NSError *error))result
 {
     DLogFuncName();
@@ -49,9 +55,14 @@
         }
         else
         {
-            NSURL *url = [super URLForTilePath:path];
+            NSURL *url = [self URLForTilePath:path];
+        
             NSURLRequest *request = [NSURLRequest requestWithURL:url];
             [NSURLConnection sendAsynchronousRequest:request queue:self.operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                if (connectionError)
+                {
+                    NSLog(@"Error = %@", connectionError);
+                }
                 if (data)
                 {
                     if (0)

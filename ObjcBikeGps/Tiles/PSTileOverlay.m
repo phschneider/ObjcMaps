@@ -37,11 +37,6 @@
 }
 
 
-- (NSURL *)URLForTilePath:(MKTileOverlayPath)path {
-    return nil;
-}
-
-
 
 - (NSString*)name
 {
@@ -103,7 +98,7 @@
         }
         else
         {
-            NSURL *url = [super URLForTilePath:path];
+            NSURL *url = [self URLForTilePath:path];
             NSURLRequest *request = [NSURLRequest requestWithURL:url];
             [NSURLConnection sendAsynchronousRequest:request queue:self.operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                 if (data)
