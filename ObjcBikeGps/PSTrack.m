@@ -353,8 +353,14 @@
 
                     [self.distanceAnnotationsDict setObject:annotation forKey:distanceKey];
                     [self.annotationsDict setObject:annotation forKey:annotationsKey];
-                    [smoothedElevatioNData addObject:[NSNumber numberWithFloat:tmpElevation]];
                 }
+            }
+
+            int elevationDistance = (distance / SMOOTHED_ELEVATION_STEP_SIZE);
+            BOOL addElevationAnnotation = (elevationDistance %1 == 0);
+            if (addElevationAnnotation)
+            {
+                [smoothedElevatioNData addObject:[NSNumber numberWithFloat:tmpElevation]];
             }
 
 

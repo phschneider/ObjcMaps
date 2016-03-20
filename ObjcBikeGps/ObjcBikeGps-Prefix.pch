@@ -27,6 +27,7 @@
     #define USE_CACHE           1
     #define USE_LOCAL_STORAGE   1
 
+    #define SMOOTHED_ELEVATION_STEP_SIZE         100
     #define DISTANCE_ANNOTATIONS_STEP_SIZE      1000
     #define DIRECTION_ANNOTATIONS_STEP_SIZE      250
 
