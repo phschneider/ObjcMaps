@@ -469,6 +469,19 @@
     [zoomOutButton addTarget:self action:@selector(zoomOut) forControlEvents:UIControlEventTouchUpInside];
 
     [self.mapView addSubview:zoomOutButton];
+    
+    UIButton *cameraButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    cameraButton.backgroundColor = [UIColor whiteColor];
+    frame.origin.y = layersButton.frame.origin.y - height - 15;
+    frame.origin.x = syncButton.frame.origin.x;
+    frame.size.width = height;
+    frame.size.height =  height;
+    [cameraButton setTitle:@"3D" forState:UIControlStateNormal];
+    cameraButton.frame = frame;
+    cameraButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+    [cameraButton addTarget:self action:@selector(toogleCamera:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.mapView addSubview:cameraButton];
 }
 
 
@@ -1051,7 +1064,35 @@
 
 }
 
-#pragma mark - 
+
+- (void)toogleCamera:(id)sender
+{
+    DLogFuncName();
+    
+    MKMapCamera *newCamera = [[self.mapView camera] copy];
+    BOOL is3D = (newCamera.pitch != 0);
+    if (is3D)
+    {
+        // Camera wird 2D
+        [newCamera setPitch:0.0];
+//        [newCamera setHeading:90.0];
+        // Button wechselt danach in die 3D Darstellung
+        [sender setTitle:@"3D" forState:UIControlStateNormal];
+    }
+    else
+    {
+        // Camera wird 3D
+        [newCamera setPitch:45.0];
+//        [newCamera setHeading:90.0];
+        // Button wechselt danach in die 2D Darstellung
+        [sender setTitle:@"2D" forState:UIControlStateNormal];
+    }
+//    [newCamera setAltitude:500.0];
+    [self.mapView setCamera:newCamera animated:YES];
+}
+
+
+#pragma mark -
 /** Returns the distance of |pt| to |poly| in meters
  *
  * from http://paulbourke.net/geometry/pointlineplane/DistancePoint.java
