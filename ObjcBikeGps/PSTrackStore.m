@@ -67,8 +67,12 @@
             NSLog(@"FIlename = %@", filename);
             track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeUnknown];
         }
-#else
-        if ([lowerCaseName rangeOfString:@"trail"].location != NSNotFound)
+#else        
+        if ([lowerCaseName rangeOfString:@"custom"].location != NSNotFound)
+        {
+            track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeCustom];
+        }
+        else if ([lowerCaseName rangeOfString:@"trail"].location != NSNotFound)
         {
             track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeTrail];
         }
@@ -86,10 +90,6 @@
             {
                 track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeRoundTrip];
             }
-        }
-        else if ([lowerCaseName rangeOfString:@"custom"].location != NSNotFound)
-        {
-            track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeCustom];
         }
         else
         {
