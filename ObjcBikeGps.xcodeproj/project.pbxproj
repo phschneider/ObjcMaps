@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		222DF3221B659056003410E7 /* Route-MTB-NrideHom-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3061B659056003410E7 /* Route-MTB-NrideHom-3.gpx */; };
 		22CEB12E1C77167800E44D7C /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1171C77167800E44D7C /* Icon-29.png */; };
 		22CEB12F1C77167800E44D7C /* Icon-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1181C77167800E44D7C /* Icon-29@2x.png */; };
 		22CEB1301C77167800E44D7C /* Icon-29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1191C77167800E44D7C /* Icon-29@3x.png */; };
@@ -63,7 +62,6 @@
 		4A07FAD31C67DEDA00FA554D /* Tour-Goettelborn.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22ED40991B68038800D3E297 /* Tour-Goettelborn.gpx */; };
 		4A07FAD41C67DEDA00FA554D /* Tour-Urwald.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF33F1B659976003410E7 /* Tour-Urwald.gpx */; };
 		4A07FAD51C67DEDA00FA554D /* Tour-KLB-SB.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */; };
-		4A07FAD61C67DEDA00FA554D /* Tour-t1387067_Sieben-Weiher-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71F91C32EEF400BCF6B8 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */; };
 		4A07FAD71C67DEE200FA554D /* Trail-AmHomburg1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3091B659056003410E7 /* Trail-AmHomburg1.gpx */; };
 		4A07FAD81C67DEE200FA554D /* Trail-Dudweiler1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30A1B659056003410E7 /* Trail-Dudweiler1.gpx */; };
 		4A07FAD91C67DEE200FA554D /* Trail-HaldeCamphauserStrasse.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF30B1B659056003410E7 /* Trail-HaldeCamphauserStrasse.gpx */; };
@@ -91,47 +89,6 @@
 		4A07FAEF1C67DEE200FA554D /* TrailSpichern.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3431B659B9E003410E7 /* TrailSpichern.gpx */; };
 		4A07FAF01C67DEE200FA554D /* TrailSpichern2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3441B659B9E003410E7 /* TrailSpichern2.gpx */; };
 		4A07FAF11C67DEE200FA554D /* TrailSpichern3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF3491B659F41003410E7 /* TrailSpichern3.gpx */; };
-		4A07FAF41C6894AD00FA554D /* Route-Saarland-Bike-Teufelsburg-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAF31C6894AD00FA554D /* Route-Saarland-Bike-Teufelsburg-Runde.gpx */; };
-		4A07FAF61C6894D300FA554D /* Route-Saarland-Bike-Saar-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAF51C6894D300FA554D /* Route-Saarland-Bike-Saar-Radweg.gpx */; };
-		4A07FAF81C6894FD00FA554D /* Route-Saarland-Bike-Saarlouiser-Runde-Im-Reich-des-Sonnenkoenigs.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAF71C6894FD00FA554D /* Route-Saarland-Bike-Saarlouiser-Runde-Im-Reich-des-Sonnenkoenigs.gpx */; };
-		4A07FAFA1C68954B00FA554D /* Route-Saarland-Bike-VeloRoute-SaarLorLux.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAF91C68954B00FA554D /* Route-Saarland-Bike-VeloRoute-SaarLorLux.gpx */; };
-		4A07FAFC1C68955E00FA554D /* Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAFB1C68955E00FA554D /* Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx */; };
-		4A07FB0B1C68A00F00FA554D /* Route-Saarland-Bike-Saarkohlenwald-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAFD1C68A00F00FA554D /* Route-Saarland-Bike-Saarkohlenwald-Runde.gpx */; };
-		4A07FB0C1C68A00F00FA554D /* Route-Saarland-Bike-Koellertal-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAFE1C68A00F00FA554D /* Route-Saarland-Bike-Koellertal-Radweg.gpx */; };
-		4A07FB0D1C68A00F00FA554D /* Route-Saarland-Bike-Schaumberg-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAFF1C68A00F00FA554D /* Route-Saarland-Bike-Schaumberg-Runde.gpx */; };
-		4A07FB0E1C68A00F00FA554D /* Route-Saarland-Bike-Saargemuender-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB001C68A00F00FA554D /* Route-Saarland-Bike-Saargemuender-Runde.gpx */; };
-		4A07FB0F1C68A00F00FA554D /* Route-Saarland-Bike-Blumengarten-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB011C68A00F00FA554D /* Route-Saarland-Bike-Blumengarten-Runde.gpx */; };
-		4A07FB101C68A00F00FA554D /* Route-Saarland-Bike-Saarbruecker-Radler-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB021C68A00F00FA554D /* Route-Saarland-Bike-Saarbruecker-Radler-Runde.gpx */; };
-		4A07FB111C68A00F00FA554D /* Route-Saarland-Bike-Saargau-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB031C68A00F00FA554D /* Route-Saarland-Bike-Saargau-Runde.gpx */; };
-		4A07FB121C68A00F00FA554D /* Route-Saarland-Bike-Saarschleifen-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB041C68A00F00FA554D /* Route-Saarland-Bike-Saarschleifen-Runde.gpx */; };
-		4A07FB131C68A00F00FA554D /* Route-Saarland-Bike-Saar-Bostalsee-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB051C68A00F00FA554D /* Route-Saarland-Bike-Saar-Bostalsee-Radweg.gpx */; };
-		4A07FB141C68A00F00FA554D /* Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB061C68A00F00FA554D /* Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx */; };
-		4A07FB151C68A00F00FA554D /* Route-Saarland-Bike-Saar-Elsass-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB071C68A00F00FA554D /* Route-Saarland-Bike-Saar-Elsass-Tour.gpx */; };
-		4A07FB161C68A00F00FA554D /* Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB081C68A00F00FA554D /* Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx */; };
-		4A07FB171C68A00F00FA554D /* Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB091C68A00F00FA554D /* Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx */; };
-		4A07FB181C68A00F00FA554D /* Route-Saarland-Bike-Niedtal-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB0A1C68A00F00FA554D /* Route-Saarland-Bike-Niedtal-Radweg.gpx */; };
-		4A07FB251C68A02100FA554D /* Route-Saarland-Bike-Saarland-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB191C68A02100FA554D /* Route-Saarland-Bike-Saarland-Radweg.gpx */; };
-		4A07FB261C68A02100FA554D /* Route-Saarland-Bike-Traumschleife-Kaltensteinpfad.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB1A1C68A02100FA554D /* Route-Saarland-Bike-Traumschleife-Kaltensteinpfad.gpx */; };
-		4A07FB271C68A02100FA554D /* Route-Saarland-Bike-Hochwaelder-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB1B1C68A02100FA554D /* Route-Saarland-Bike-Hochwaelder-Runde.gpx */; };
-		4A07FB281C68A02100FA554D /* Route-Saarland-Bike-Warndt-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB1C1C68A02100FA554D /* Route-Saarland-Bike-Warndt-Runde.gpx */; };
-		4A07FB291C68A02100FA554D /* Route-Saarland-Bike-Ostertal-Hoehen-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB1D1C68A02100FA554D /* Route-Saarland-Bike-Ostertal-Hoehen-Runde.gpx */; };
-		4A07FB2A1C68A02100FA554D /* Route-Saarland-Bike-Bostalsee-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB1E1C68A02100FA554D /* Route-Saarland-Bike-Bostalsee-Runde.gpx */; };
-		4A07FB2B1C68A02100FA554D /* Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB1F1C68A02100FA554D /* Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx */; };
-		4A07FB2C1C68A02100FA554D /* Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB201C68A02100FA554D /* Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx */; };
-		4A07FB2D1C68A02100FA554D /* Route-Saarland-Bike-Wendelinus-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB211C68A02100FA554D /* Route-Saarland-Bike-Wendelinus-Radweg.gpx */; };
-		4A07FB2E1C68A02100FA554D /* Route-Saarland-Bike-Saar-Koellertal-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB221C68A02100FA554D /* Route-Saarland-Bike-Saar-Koellertal-Runde.gpx */; };
-		4A07FB2F1C68A02100FA554D /* Route-Saarland-Bike-Weiselberg-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB231C68A02100FA554D /* Route-Saarland-Bike-Weiselberg-Radweg.gpx */; };
-		4A07FB301C68A02100FA554D /* Route-Saarland-Bike-Sieben-Weiher-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB241C68A02100FA554D /* Route-Saarland-Bike-Sieben-Weiher-Tour.gpx */; };
-		4A07FB3B1C68A03200FA554D /* Route-Saarland-Bike-Lebacher-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB311C68A03200FA554D /* Route-Saarland-Bike-Lebacher-Runde.gpx */; };
-		4A07FB3C1C68A03200FA554D /* Route-Saarland-Bike-Schmelzer-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB321C68A03200FA554D /* Route-Saarland-Bike-Schmelzer-Runde.gpx */; };
-		4A07FB3D1C68A03200FA554D /* Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB331C68A03200FA554D /* Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx */; };
-		4A07FB3E1C68A03200FA554D /* Route-Saarland-Bike-Adebar-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB341C68A03200FA554D /* Route-Saarland-Bike-Adebar-Runde.gpx */; };
-		4A07FB3F1C68A03200FA554D /* Route-Saarland-Bike-Eppelborner-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB351C68A03200FA554D /* Route-Saarland-Bike-Eppelborner-Runde.gpx */; };
-		4A07FB401C68A03200FA554D /* Route-Saarland-Bike-Glan-Blies-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB361C68A03200FA554D /* Route-Saarland-Bike-Glan-Blies-Radweg.gpx */; };
-		4A07FB411C68A03200FA554D /* Route-Saarland-Bike-Biber-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB371C68A03200FA554D /* Route-Saarland-Bike-Biber-Tour.gpx */; };
-		4A07FB421C68A03200FA554D /* Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB381C68A03200FA554D /* Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx */; };
-		4A07FB431C68A03200FA554D /* Route-Saarland-Bike-Grosse-Bliesgau-Biosphaeren-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB391C68A03200FA554D /* Route-Saarland-Bike-Grosse-Bliesgau-Biosphaeren-Runde.gpx */; };
-		4A07FB441C68A03200FA554D /* Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FB3A1C68A03200FA554D /* Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx */; };
 		4A0E71C51C32EDFA00BCF6B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C41C32EDFA00BCF6B8 /* Launch Screen.storyboard */; };
 		4A0E71E01C32EE8200BCF6B8 /* 1064-layers-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C71C32EE8200BCF6B8 /* 1064-layers-4.png */; };
 		4A0E71E11C32EE8200BCF6B8 /* 1064-layers-4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71C81C32EE8200BCF6B8 /* 1064-layers-4@2x.png */; };
@@ -158,6 +115,56 @@
 		4A0E71F61C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71DD1C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png */; };
 		4A0E71F71C32EE8200BCF6B8 /* gray-940-pin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71DE1C32EE8200BCF6B8 /* gray-940-pin@2x.png */; };
 		4A0E71F81C32EE8200BCF6B8 /* white-193-location-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0E71DF1C32EE8200BCF6B8 /* white-193-location-arrow@2x.png */; };
+		4A0F8C3B1C9EB10000BA602F /* Custom-2015-12-03KarlsbergEnduro.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C331C9EB10000BA602F /* Custom-2015-12-03KarlsbergEnduro.gpx */; };
+		4A0F8C3C1C9EB10000BA602F /* Custom-Enduro-homburg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C341C9EB10000BA602F /* Custom-Enduro-homburg.gpx */; };
+		4A0F8C3D1C9EB10000BA602F /* Custom-HomburgerTrailsStartUndZielBechhofenSportplatz.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C351C9EB10000BA602F /* Custom-HomburgerTrailsStartUndZielBechhofenSportplatz.gpx */; };
+		4A0F8C3E1C9EB10000BA602F /* Custom-Kirkeler_Felsenpfad_-_kleine_Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C361C9EB10000BA602F /* Custom-Kirkeler_Felsenpfad_-_kleine_Runde.gpx */; };
+		4A0F8C3F1C9EB10000BA602F /* Custom-KirkelMtb-tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C371C9EB10000BA602F /* Custom-KirkelMtb-tour.gpx */; };
+		4A0F8C401C9EB10000BA602F /* Custom-MTB-NrideHom-3.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C381C9EB10000BA602F /* Custom-MTB-NrideHom-3.gpx */; };
+		4A0F8C411C9EB10000BA602F /* Custom-t1387067_Sieben-Weiher-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C391C9EB10000BA602F /* Custom-t1387067_Sieben-Weiher-Tour.gpx */; };
+		4A0F8C421C9EB10000BA602F /* Custom-TopTrailsKirkelSaarlandSchmetterlingspfadUndTeileDerTafeltour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C3A1C9EB10000BA602F /* Custom-TopTrailsKirkelSaarlandSchmetterlingspfadUndTeileDerTafeltour.gpx */; };
+		4A0F8C761C9EB11E00BA602F /* Route-Saarland-Bike-Adebar-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C431C9EB11D00BA602F /* Route-Saarland-Bike-Adebar-Runde.gpx */; };
+		4A0F8C771C9EB11E00BA602F /* Route-Saarland-Bike-Biber-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C441C9EB11D00BA602F /* Route-Saarland-Bike-Biber-Tour.gpx */; };
+		4A0F8C781C9EB11E00BA602F /* Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C451C9EB11D00BA602F /* Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx */; };
+		4A0F8C791C9EB11E00BA602F /* Route-Saarland-Bike-Blumengarten-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C461C9EB11D00BA602F /* Route-Saarland-Bike-Blumengarten-Runde.gpx */; };
+		4A0F8C7A1C9EB11E00BA602F /* Route-Saarland-Bike-Bostalsee-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C471C9EB11D00BA602F /* Route-Saarland-Bike-Bostalsee-Runde.gpx */; };
+		4A0F8C7B1C9EB11E00BA602F /* Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C481C9EB11D00BA602F /* Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx */; };
+		4A0F8C7C1C9EB11E00BA602F /* Route-Saarland-Bike-Eppelborner-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C491C9EB11D00BA602F /* Route-Saarland-Bike-Eppelborner-Runde.gpx */; };
+		4A0F8C7D1C9EB11E00BA602F /* Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C4A1C9EB11D00BA602F /* Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx */; };
+		4A0F8C7E1C9EB11E00BA602F /* Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C4B1C9EB11D00BA602F /* Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx */; };
+		4A0F8C7F1C9EB11E00BA602F /* Route-Saarland-Bike-Glan-Blies-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C4C1C9EB11D00BA602F /* Route-Saarland-Bike-Glan-Blies-Radweg.gpx */; };
+		4A0F8C801C9EB11E00BA602F /* Route-Saarland-Bike-Grosse-Bliesgau-Biosphaeren-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C4D1C9EB11D00BA602F /* Route-Saarland-Bike-Grosse-Bliesgau-Biosphaeren-Runde.gpx */; };
+		4A0F8C811C9EB11E00BA602F /* Route-Saarland-Bike-Hochwaelder-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C4E1C9EB11D00BA602F /* Route-Saarland-Bike-Hochwaelder-Runde.gpx */; };
+		4A0F8C821C9EB11E00BA602F /* Route-Saarland-Bike-Koellertal-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C4F1C9EB11D00BA602F /* Route-Saarland-Bike-Koellertal-Radweg.gpx */; };
+		4A0F8C831C9EB11E00BA602F /* Route-Saarland-Bike-Lebacher-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C501C9EB11D00BA602F /* Route-Saarland-Bike-Lebacher-Runde.gpx */; };
+		4A0F8C841C9EB11E00BA602F /* Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C511C9EB11D00BA602F /* Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx */; };
+		4A0F8C851C9EB11E00BA602F /* Route-Saarland-Bike-Niedtal-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C521C9EB11D00BA602F /* Route-Saarland-Bike-Niedtal-Radweg.gpx */; };
+		4A0F8C861C9EB11E00BA602F /* Route-Saarland-Bike-Ostertal-Hoehen-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C531C9EB11D00BA602F /* Route-Saarland-Bike-Ostertal-Hoehen-Runde.gpx */; };
+		4A0F8C871C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C541C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx */; };
+		4A0F8C881C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Bostalsee-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C551C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Bostalsee-Radweg.gpx */; };
+		4A0F8C891C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Elsass-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C561C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Elsass-Tour.gpx */; };
+		4A0F8C8A1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Koellertal-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C571C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Koellertal-Runde.gpx */; };
+		4A0F8C8B1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C581C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx */; };
+		4A0F8C8C1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C591C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx */; };
+		4A0F8C8D1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C5A1C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Radweg.gpx */; };
+		4A0F8C8E1C9EB11E00BA602F /* Route-Saarland-Bike-Saarbruecker-Radler-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C5B1C9EB11D00BA602F /* Route-Saarland-Bike-Saarbruecker-Radler-Runde.gpx */; };
+		4A0F8C8F1C9EB11E00BA602F /* Route-Saarland-Bike-Saargau-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C5C1C9EB11D00BA602F /* Route-Saarland-Bike-Saargau-Runde.gpx */; };
+		4A0F8C901C9EB11E00BA602F /* Route-Saarland-Bike-Saargemuender-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C5D1C9EB11D00BA602F /* Route-Saarland-Bike-Saargemuender-Runde.gpx */; };
+		4A0F8C911C9EB11E00BA602F /* Route-Saarland-Bike-Saarkohlenwald-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C5E1C9EB11D00BA602F /* Route-Saarland-Bike-Saarkohlenwald-Runde.gpx */; };
+		4A0F8C921C9EB11E00BA602F /* Route-Saarland-Bike-Saarland-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C5F1C9EB11D00BA602F /* Route-Saarland-Bike-Saarland-Radweg.gpx */; };
+		4A0F8C931C9EB11E00BA602F /* Route-Saarland-Bike-Saarlouiser-Runde-Im-Reich-des-Sonnenkoenigs.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C601C9EB11D00BA602F /* Route-Saarland-Bike-Saarlouiser-Runde-Im-Reich-des-Sonnenkoenigs.gpx */; };
+		4A0F8C941C9EB11E00BA602F /* Route-Saarland-Bike-Saarschleifen-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C611C9EB11D00BA602F /* Route-Saarland-Bike-Saarschleifen-Runde.gpx */; };
+		4A0F8C951C9EB11E00BA602F /* Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C621C9EB11D00BA602F /* Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx */; };
+		4A0F8C961C9EB11E00BA602F /* Route-Saarland-Bike-Schaumberg-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C631C9EB11D00BA602F /* Route-Saarland-Bike-Schaumberg-Runde.gpx */; };
+		4A0F8C971C9EB11E00BA602F /* Route-Saarland-Bike-Schmelzer-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C641C9EB11D00BA602F /* Route-Saarland-Bike-Schmelzer-Runde.gpx */; };
+		4A0F8C981C9EB11E00BA602F /* Route-Saarland-Bike-Sieben-Weiher-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C651C9EB11D00BA602F /* Route-Saarland-Bike-Sieben-Weiher-Tour.gpx */; };
+		4A0F8C991C9EB11E00BA602F /* Route-Saarland-Bike-Teufelsburg-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C661C9EB11D00BA602F /* Route-Saarland-Bike-Teufelsburg-Runde.gpx */; };
+		4A0F8C9A1C9EB11E00BA602F /* Route-Saarland-Bike-Traumschleife-Kaltensteinpfad.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C671C9EB11D00BA602F /* Route-Saarland-Bike-Traumschleife-Kaltensteinpfad.gpx */; };
+		4A0F8C9B1C9EB11E00BA602F /* Route-Saarland-Bike-VeloRoute-SaarLorLux.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C681C9EB11E00BA602F /* Route-Saarland-Bike-VeloRoute-SaarLorLux.gpx */; };
+		4A0F8C9C1C9EB11E00BA602F /* Route-Saarland-Bike-Warndt-Runde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C691C9EB11E00BA602F /* Route-Saarland-Bike-Warndt-Runde.gpx */; };
+		4A0F8C9D1C9EB11E00BA602F /* Route-Saarland-Bike-Weiselberg-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C6A1C9EB11E00BA602F /* Route-Saarland-Bike-Weiselberg-Radweg.gpx */; };
+		4A0F8C9E1C9EB11E00BA602F /* Route-Saarland-Bike-Wendelinus-Radweg.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C6B1C9EB11E00BA602F /* Route-Saarland-Bike-Wendelinus-Radweg.gpx */; };
+		4A0F8C9F1C9EB11E00BA602F /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A0F8C6C1C9EB11E00BA602F /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx */; };
 		4AC180EF1C76738C00804EEE /* PSMapBoxTrailsTileOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC180EE1C76738C00804EEE /* PSMapBoxTrailsTileOverlay.m */; };
 		67B4038CA92E902FFA829A1E /* PSTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40F0FAC4FD5F8B39E04F3 /* PSTrack.m */; };
 		67B40644E96BB7EC796E48D0 /* PSTrackOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 67B40B684DF64CED8EC0087A /* PSTrackOverlay.m */; };
@@ -212,7 +219,6 @@
 /* Begin PBXFileReference section */
 		18CF6413E1014CC8A7CDA52D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Tour-KLB-SB.gpx"; path = "SampleData/Tour-KLB-SB.gpx"; sourceTree = SOURCE_ROOT; };
-		222DF3061B659056003410E7 /* Route-MTB-NrideHom-3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-MTB-NrideHom-3.gpx"; path = "SampleData/Route-MTB-NrideHom-3.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF3071B659056003410E7 /* Route-MTB-pur-blau_blueColor.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-MTB-pur-blau_blueColor.gpx"; path = "SampleData/Route-MTB-pur-blau_blueColor.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF3081B659056003410E7 /* Route-MTB-pur-gruen_greenColor.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-MTB-pur-gruen_greenColor.gpx"; path = "SampleData/Route-MTB-pur-gruen_greenColor.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF3091B659056003410E7 /* Trail-AmHomburg1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-AmHomburg1.gpx"; path = "SampleData/Trail-AmHomburg1.gpx"; sourceTree = SOURCE_ROOT; };
@@ -300,47 +306,6 @@
 		4A07FAC11C66917800FA554D /* gray-265-download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-265-download@2x.png"; sourceTree = "<group>"; };
 		4A07FAC41C67D5BF00FA554D /* PSMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapAnnotation.h; sourceTree = "<group>"; };
 		4A07FAC51C67D5BF00FA554D /* PSMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapAnnotation.m; sourceTree = "<group>"; };
-		4A07FAF31C6894AD00FA554D /* Route-Saarland-Bike-Teufelsburg-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Teufelsburg-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FAF51C6894D300FA554D /* Route-Saarland-Bike-Saar-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Radweg.gpx"; sourceTree = "<group>"; };
-		4A07FAF71C6894FD00FA554D /* Route-Saarland-Bike-Saarlouiser-Runde-Im-Reich-des-Sonnenkoenigs.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saarlouiser-Runde-Im-Reich-des-Sonnenkoenigs.gpx"; sourceTree = "<group>"; };
-		4A07FAF91C68954B00FA554D /* Route-Saarland-Bike-VeloRoute-SaarLorLux.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-VeloRoute-SaarLorLux.gpx"; sourceTree = "<group>"; };
-		4A07FAFB1C68955E00FA554D /* Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx"; sourceTree = "<group>"; };
-		4A07FAFD1C68A00F00FA554D /* Route-Saarland-Bike-Saarkohlenwald-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saarkohlenwald-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FAFE1C68A00F00FA554D /* Route-Saarland-Bike-Koellertal-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Koellertal-Radweg.gpx"; sourceTree = "<group>"; };
-		4A07FAFF1C68A00F00FA554D /* Route-Saarland-Bike-Schaumberg-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Schaumberg-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB001C68A00F00FA554D /* Route-Saarland-Bike-Saargemuender-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saargemuender-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB011C68A00F00FA554D /* Route-Saarland-Bike-Blumengarten-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Blumengarten-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB021C68A00F00FA554D /* Route-Saarland-Bike-Saarbruecker-Radler-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saarbruecker-Radler-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB031C68A00F00FA554D /* Route-Saarland-Bike-Saargau-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saargau-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB041C68A00F00FA554D /* Route-Saarland-Bike-Saarschleifen-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saarschleifen-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB051C68A00F00FA554D /* Route-Saarland-Bike-Saar-Bostalsee-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Bostalsee-Radweg.gpx"; sourceTree = "<group>"; };
-		4A07FB061C68A00F00FA554D /* Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB071C68A00F00FA554D /* Route-Saarland-Bike-Saar-Elsass-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Elsass-Tour.gpx"; sourceTree = "<group>"; };
-		4A07FB081C68A00F00FA554D /* Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB091C68A00F00FA554D /* Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx"; sourceTree = "<group>"; };
-		4A07FB0A1C68A00F00FA554D /* Route-Saarland-Bike-Niedtal-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Niedtal-Radweg.gpx"; sourceTree = "<group>"; };
-		4A07FB191C68A02100FA554D /* Route-Saarland-Bike-Saarland-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saarland-Radweg.gpx"; sourceTree = "<group>"; };
-		4A07FB1A1C68A02100FA554D /* Route-Saarland-Bike-Traumschleife-Kaltensteinpfad.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Traumschleife-Kaltensteinpfad.gpx"; sourceTree = "<group>"; };
-		4A07FB1B1C68A02100FA554D /* Route-Saarland-Bike-Hochwaelder-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Hochwaelder-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB1C1C68A02100FA554D /* Route-Saarland-Bike-Warndt-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Warndt-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB1D1C68A02100FA554D /* Route-Saarland-Bike-Ostertal-Hoehen-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Ostertal-Hoehen-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB1E1C68A02100FA554D /* Route-Saarland-Bike-Bostalsee-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Bostalsee-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB1F1C68A02100FA554D /* Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx"; sourceTree = "<group>"; };
-		4A07FB201C68A02100FA554D /* Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB211C68A02100FA554D /* Route-Saarland-Bike-Wendelinus-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Wendelinus-Radweg.gpx"; sourceTree = "<group>"; };
-		4A07FB221C68A02100FA554D /* Route-Saarland-Bike-Saar-Koellertal-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Koellertal-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB231C68A02100FA554D /* Route-Saarland-Bike-Weiselberg-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Weiselberg-Radweg.gpx"; sourceTree = "<group>"; };
-		4A07FB241C68A02100FA554D /* Route-Saarland-Bike-Sieben-Weiher-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Sieben-Weiher-Tour.gpx"; sourceTree = "<group>"; };
-		4A07FB311C68A03200FA554D /* Route-Saarland-Bike-Lebacher-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Lebacher-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB321C68A03200FA554D /* Route-Saarland-Bike-Schmelzer-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Schmelzer-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB331C68A03200FA554D /* Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB341C68A03200FA554D /* Route-Saarland-Bike-Adebar-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Adebar-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB351C68A03200FA554D /* Route-Saarland-Bike-Eppelborner-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Eppelborner-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB361C68A03200FA554D /* Route-Saarland-Bike-Glan-Blies-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Glan-Blies-Radweg.gpx"; sourceTree = "<group>"; };
-		4A07FB371C68A03200FA554D /* Route-Saarland-Bike-Biber-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Biber-Tour.gpx"; sourceTree = "<group>"; };
-		4A07FB381C68A03200FA554D /* Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx"; sourceTree = "<group>"; };
-		4A07FB391C68A03200FA554D /* Route-Saarland-Bike-Grosse-Bliesgau-Biosphaeren-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Grosse-Bliesgau-Biosphaeren-Runde.gpx"; sourceTree = "<group>"; };
-		4A07FB3A1C68A03200FA554D /* Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx"; sourceTree = "<group>"; };
 		4A0E71C41C32EDFA00BCF6B8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4A0E71C71C32EE8200BCF6B8 /* 1064-layers-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1064-layers-4.png"; sourceTree = "<group>"; };
 		4A0E71C81C32EE8200BCF6B8 /* 1064-layers-4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1064-layers-4@2x.png"; sourceTree = "<group>"; };
@@ -367,7 +332,56 @@
 		4A0E71DD1C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-1061-golf-shot@2x.png"; sourceTree = "<group>"; };
 		4A0E71DE1C32EE8200BCF6B8 /* gray-940-pin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gray-940-pin@2x.png"; sourceTree = "<group>"; };
 		4A0E71DF1C32EE8200BCF6B8 /* white-193-location-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white-193-location-arrow@2x.png"; sourceTree = "<group>"; };
-		4A0E71F91C32EEF400BCF6B8 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Tour-t1387067_Sieben-Weiher-Tour.gpx"; sourceTree = "<group>"; };
+		4A0F8C331C9EB10000BA602F /* Custom-2015-12-03KarlsbergEnduro.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-2015-12-03KarlsbergEnduro.gpx"; sourceTree = "<group>"; };
+		4A0F8C341C9EB10000BA602F /* Custom-Enduro-homburg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-Enduro-homburg.gpx"; sourceTree = "<group>"; };
+		4A0F8C351C9EB10000BA602F /* Custom-HomburgerTrailsStartUndZielBechhofenSportplatz.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-HomburgerTrailsStartUndZielBechhofenSportplatz.gpx"; sourceTree = "<group>"; };
+		4A0F8C361C9EB10000BA602F /* Custom-Kirkeler_Felsenpfad_-_kleine_Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-Kirkeler_Felsenpfad_-_kleine_Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C371C9EB10000BA602F /* Custom-KirkelMtb-tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-KirkelMtb-tour.gpx"; sourceTree = "<group>"; };
+		4A0F8C381C9EB10000BA602F /* Custom-MTB-NrideHom-3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-MTB-NrideHom-3.gpx"; sourceTree = "<group>"; };
+		4A0F8C391C9EB10000BA602F /* Custom-t1387067_Sieben-Weiher-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-t1387067_Sieben-Weiher-Tour.gpx"; sourceTree = "<group>"; };
+		4A0F8C3A1C9EB10000BA602F /* Custom-TopTrailsKirkelSaarlandSchmetterlingspfadUndTeileDerTafeltour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-TopTrailsKirkelSaarlandSchmetterlingspfadUndTeileDerTafeltour.gpx"; sourceTree = "<group>"; };
+		4A0F8C431C9EB11D00BA602F /* Route-Saarland-Bike-Adebar-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Adebar-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C441C9EB11D00BA602F /* Route-Saarland-Bike-Biber-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Biber-Tour.gpx"; sourceTree = "<group>"; };
+		4A0F8C451C9EB11D00BA602F /* Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx"; sourceTree = "<group>"; };
+		4A0F8C461C9EB11D00BA602F /* Route-Saarland-Bike-Blumengarten-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Blumengarten-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C471C9EB11D00BA602F /* Route-Saarland-Bike-Bostalsee-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Bostalsee-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C481C9EB11D00BA602F /* Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C491C9EB11D00BA602F /* Route-Saarland-Bike-Eppelborner-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Eppelborner-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C4A1C9EB11D00BA602F /* Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx"; sourceTree = "<group>"; };
+		4A0F8C4B1C9EB11D00BA602F /* Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx"; sourceTree = "<group>"; };
+		4A0F8C4C1C9EB11D00BA602F /* Route-Saarland-Bike-Glan-Blies-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Glan-Blies-Radweg.gpx"; sourceTree = "<group>"; };
+		4A0F8C4D1C9EB11D00BA602F /* Route-Saarland-Bike-Grosse-Bliesgau-Biosphaeren-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Grosse-Bliesgau-Biosphaeren-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C4E1C9EB11D00BA602F /* Route-Saarland-Bike-Hochwaelder-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Hochwaelder-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C4F1C9EB11D00BA602F /* Route-Saarland-Bike-Koellertal-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Koellertal-Radweg.gpx"; sourceTree = "<group>"; };
+		4A0F8C501C9EB11D00BA602F /* Route-Saarland-Bike-Lebacher-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Lebacher-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C511C9EB11D00BA602F /* Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C521C9EB11D00BA602F /* Route-Saarland-Bike-Niedtal-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Niedtal-Radweg.gpx"; sourceTree = "<group>"; };
+		4A0F8C531C9EB11D00BA602F /* Route-Saarland-Bike-Ostertal-Hoehen-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Ostertal-Hoehen-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C541C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C551C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Bostalsee-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Bostalsee-Radweg.gpx"; sourceTree = "<group>"; };
+		4A0F8C561C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Elsass-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Elsass-Tour.gpx"; sourceTree = "<group>"; };
+		4A0F8C571C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Koellertal-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Koellertal-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C581C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx"; sourceTree = "<group>"; };
+		4A0F8C591C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx"; sourceTree = "<group>"; };
+		4A0F8C5A1C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saar-Radweg.gpx"; sourceTree = "<group>"; };
+		4A0F8C5B1C9EB11D00BA602F /* Route-Saarland-Bike-Saarbruecker-Radler-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saarbruecker-Radler-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C5C1C9EB11D00BA602F /* Route-Saarland-Bike-Saargau-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saargau-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C5D1C9EB11D00BA602F /* Route-Saarland-Bike-Saargemuender-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saargemuender-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C5E1C9EB11D00BA602F /* Route-Saarland-Bike-Saarkohlenwald-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saarkohlenwald-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C5F1C9EB11D00BA602F /* Route-Saarland-Bike-Saarland-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saarland-Radweg.gpx"; sourceTree = "<group>"; };
+		4A0F8C601C9EB11D00BA602F /* Route-Saarland-Bike-Saarlouiser-Runde-Im-Reich-des-Sonnenkoenigs.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saarlouiser-Runde-Im-Reich-des-Sonnenkoenigs.gpx"; sourceTree = "<group>"; };
+		4A0F8C611C9EB11D00BA602F /* Route-Saarland-Bike-Saarschleifen-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Saarschleifen-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C621C9EB11D00BA602F /* Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C631C9EB11D00BA602F /* Route-Saarland-Bike-Schaumberg-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Schaumberg-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C641C9EB11D00BA602F /* Route-Saarland-Bike-Schmelzer-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Schmelzer-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C651C9EB11D00BA602F /* Route-Saarland-Bike-Sieben-Weiher-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Sieben-Weiher-Tour.gpx"; sourceTree = "<group>"; };
+		4A0F8C661C9EB11D00BA602F /* Route-Saarland-Bike-Teufelsburg-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Teufelsburg-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C671C9EB11D00BA602F /* Route-Saarland-Bike-Traumschleife-Kaltensteinpfad.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Traumschleife-Kaltensteinpfad.gpx"; sourceTree = "<group>"; };
+		4A0F8C681C9EB11E00BA602F /* Route-Saarland-Bike-VeloRoute-SaarLorLux.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-VeloRoute-SaarLorLux.gpx"; sourceTree = "<group>"; };
+		4A0F8C691C9EB11E00BA602F /* Route-Saarland-Bike-Warndt-Runde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Warndt-Runde.gpx"; sourceTree = "<group>"; };
+		4A0F8C6A1C9EB11E00BA602F /* Route-Saarland-Bike-Weiselberg-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Weiselberg-Radweg.gpx"; sourceTree = "<group>"; };
+		4A0F8C6B1C9EB11E00BA602F /* Route-Saarland-Bike-Wendelinus-Radweg.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Bike-Wendelinus-Radweg.gpx"; sourceTree = "<group>"; };
+		4A0F8C6C1C9EB11E00BA602F /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-Saarland-Die-Pur-Nord-West-Schleife.gpx"; sourceTree = "<group>"; };
 		4AC180ED1C76738C00804EEE /* PSMapBoxTrailsTileOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSMapBoxTrailsTileOverlay.h; sourceTree = "<group>"; };
 		4AC180EE1C76738C00804EEE /* PSMapBoxTrailsTileOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSMapBoxTrailsTileOverlay.m; sourceTree = "<group>"; };
 		4AC3776C1BB887150027DFC7 /* InselhuepfenTag1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = InselhuepfenTag1.gpx; sourceTree = "<group>"; };
@@ -540,6 +554,7 @@
 		22D2316C1AFFF2770019EF15 /* SampleFiles */ = {
 			isa = PBXGroup;
 			children = (
+				4A0F8C261C9E9D1D00BA602F /* Custom */,
 				4A07FAAC1C661ACE00FA554D /* Routen */,
 				4A07FAAE1C661AF600FA554D /* Tour */,
 				4A07FAAD1C661AD600FA554D /* Trails */,
@@ -643,7 +658,6 @@
 			isa = PBXGroup;
 			children = (
 				4A07FAF21C6894A400FA554D /* Bike-Saarland */,
-				222DF3061B659056003410E7 /* Route-MTB-NrideHom-3.gpx */,
 				222DF3071B659056003410E7 /* Route-MTB-pur-blau_blueColor.gpx */,
 				222DF3081B659056003410E7 /* Route-MTB-pur-gruen_greenColor.gpx */,
 				4A07FAB11C661B3300FA554D /* MTB-Saarland */,
@@ -691,7 +705,6 @@
 				22ED40991B68038800D3E297 /* Tour-Goettelborn.gpx */,
 				222DF33F1B659976003410E7 /* Tour-Urwald.gpx */,
 				22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */,
-				4A0E71F91C32EEF400BCF6B8 /* Tour-t1387067_Sieben-Weiher-Tour.gpx */,
 			);
 			name = Tour;
 			sourceTree = "<group>";
@@ -716,47 +729,48 @@
 		4A07FAF21C6894A400FA554D /* Bike-Saarland */ = {
 			isa = PBXGroup;
 			children = (
-				4A07FB311C68A03200FA554D /* Route-Saarland-Bike-Lebacher-Runde.gpx */,
-				4A07FB321C68A03200FA554D /* Route-Saarland-Bike-Schmelzer-Runde.gpx */,
-				4A07FB331C68A03200FA554D /* Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx */,
-				4A07FB341C68A03200FA554D /* Route-Saarland-Bike-Adebar-Runde.gpx */,
-				4A07FB351C68A03200FA554D /* Route-Saarland-Bike-Eppelborner-Runde.gpx */,
-				4A07FB361C68A03200FA554D /* Route-Saarland-Bike-Glan-Blies-Radweg.gpx */,
-				4A07FB371C68A03200FA554D /* Route-Saarland-Bike-Biber-Tour.gpx */,
-				4A07FB381C68A03200FA554D /* Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx */,
-				4A07FB391C68A03200FA554D /* Route-Saarland-Bike-Grosse-Bliesgau-Biosphaeren-Runde.gpx */,
-				4A07FB3A1C68A03200FA554D /* Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx */,
-				4A07FB191C68A02100FA554D /* Route-Saarland-Bike-Saarland-Radweg.gpx */,
-				4A07FB1A1C68A02100FA554D /* Route-Saarland-Bike-Traumschleife-Kaltensteinpfad.gpx */,
-				4A07FB1B1C68A02100FA554D /* Route-Saarland-Bike-Hochwaelder-Runde.gpx */,
-				4A07FB1C1C68A02100FA554D /* Route-Saarland-Bike-Warndt-Runde.gpx */,
-				4A07FB1D1C68A02100FA554D /* Route-Saarland-Bike-Ostertal-Hoehen-Runde.gpx */,
-				4A07FB1E1C68A02100FA554D /* Route-Saarland-Bike-Bostalsee-Runde.gpx */,
-				4A07FB1F1C68A02100FA554D /* Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx */,
-				4A07FB201C68A02100FA554D /* Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx */,
-				4A07FB211C68A02100FA554D /* Route-Saarland-Bike-Wendelinus-Radweg.gpx */,
-				4A07FB221C68A02100FA554D /* Route-Saarland-Bike-Saar-Koellertal-Runde.gpx */,
-				4A07FB231C68A02100FA554D /* Route-Saarland-Bike-Weiselberg-Radweg.gpx */,
-				4A07FB241C68A02100FA554D /* Route-Saarland-Bike-Sieben-Weiher-Tour.gpx */,
-				4A07FAFD1C68A00F00FA554D /* Route-Saarland-Bike-Saarkohlenwald-Runde.gpx */,
-				4A07FAFE1C68A00F00FA554D /* Route-Saarland-Bike-Koellertal-Radweg.gpx */,
-				4A07FAFF1C68A00F00FA554D /* Route-Saarland-Bike-Schaumberg-Runde.gpx */,
-				4A07FB001C68A00F00FA554D /* Route-Saarland-Bike-Saargemuender-Runde.gpx */,
-				4A07FB011C68A00F00FA554D /* Route-Saarland-Bike-Blumengarten-Runde.gpx */,
-				4A07FB021C68A00F00FA554D /* Route-Saarland-Bike-Saarbruecker-Radler-Runde.gpx */,
-				4A07FB031C68A00F00FA554D /* Route-Saarland-Bike-Saargau-Runde.gpx */,
-				4A07FB041C68A00F00FA554D /* Route-Saarland-Bike-Saarschleifen-Runde.gpx */,
-				4A07FB051C68A00F00FA554D /* Route-Saarland-Bike-Saar-Bostalsee-Radweg.gpx */,
-				4A07FB061C68A00F00FA554D /* Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx */,
-				4A07FB071C68A00F00FA554D /* Route-Saarland-Bike-Saar-Elsass-Tour.gpx */,
-				4A07FB081C68A00F00FA554D /* Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx */,
-				4A07FB091C68A00F00FA554D /* Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx */,
-				4A07FB0A1C68A00F00FA554D /* Route-Saarland-Bike-Niedtal-Radweg.gpx */,
-				4A07FAFB1C68955E00FA554D /* Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx */,
-				4A07FAF91C68954B00FA554D /* Route-Saarland-Bike-VeloRoute-SaarLorLux.gpx */,
-				4A07FAF71C6894FD00FA554D /* Route-Saarland-Bike-Saarlouiser-Runde-Im-Reich-des-Sonnenkoenigs.gpx */,
-				4A07FAF31C6894AD00FA554D /* Route-Saarland-Bike-Teufelsburg-Runde.gpx */,
-				4A07FAF51C6894D300FA554D /* Route-Saarland-Bike-Saar-Radweg.gpx */,
+				4A0F8C431C9EB11D00BA602F /* Route-Saarland-Bike-Adebar-Runde.gpx */,
+				4A0F8C441C9EB11D00BA602F /* Route-Saarland-Bike-Biber-Tour.gpx */,
+				4A0F8C451C9EB11D00BA602F /* Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx */,
+				4A0F8C461C9EB11D00BA602F /* Route-Saarland-Bike-Blumengarten-Runde.gpx */,
+				4A0F8C471C9EB11D00BA602F /* Route-Saarland-Bike-Bostalsee-Runde.gpx */,
+				4A0F8C481C9EB11D00BA602F /* Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx */,
+				4A0F8C491C9EB11D00BA602F /* Route-Saarland-Bike-Eppelborner-Runde.gpx */,
+				4A0F8C4A1C9EB11D00BA602F /* Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx */,
+				4A0F8C4B1C9EB11D00BA602F /* Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx */,
+				4A0F8C4C1C9EB11D00BA602F /* Route-Saarland-Bike-Glan-Blies-Radweg.gpx */,
+				4A0F8C4D1C9EB11D00BA602F /* Route-Saarland-Bike-Grosse-Bliesgau-Biosphaeren-Runde.gpx */,
+				4A0F8C4E1C9EB11D00BA602F /* Route-Saarland-Bike-Hochwaelder-Runde.gpx */,
+				4A0F8C4F1C9EB11D00BA602F /* Route-Saarland-Bike-Koellertal-Radweg.gpx */,
+				4A0F8C501C9EB11D00BA602F /* Route-Saarland-Bike-Lebacher-Runde.gpx */,
+				4A0F8C511C9EB11D00BA602F /* Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx */,
+				4A0F8C521C9EB11D00BA602F /* Route-Saarland-Bike-Niedtal-Radweg.gpx */,
+				4A0F8C531C9EB11D00BA602F /* Route-Saarland-Bike-Ostertal-Hoehen-Runde.gpx */,
+				4A0F8C541C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx */,
+				4A0F8C551C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Bostalsee-Radweg.gpx */,
+				4A0F8C561C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Elsass-Tour.gpx */,
+				4A0F8C571C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Koellertal-Runde.gpx */,
+				4A0F8C581C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx */,
+				4A0F8C591C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx */,
+				4A0F8C5A1C9EB11D00BA602F /* Route-Saarland-Bike-Saar-Radweg.gpx */,
+				4A0F8C5B1C9EB11D00BA602F /* Route-Saarland-Bike-Saarbruecker-Radler-Runde.gpx */,
+				4A0F8C5C1C9EB11D00BA602F /* Route-Saarland-Bike-Saargau-Runde.gpx */,
+				4A0F8C5D1C9EB11D00BA602F /* Route-Saarland-Bike-Saargemuender-Runde.gpx */,
+				4A0F8C5E1C9EB11D00BA602F /* Route-Saarland-Bike-Saarkohlenwald-Runde.gpx */,
+				4A0F8C5F1C9EB11D00BA602F /* Route-Saarland-Bike-Saarland-Radweg.gpx */,
+				4A0F8C601C9EB11D00BA602F /* Route-Saarland-Bike-Saarlouiser-Runde-Im-Reich-des-Sonnenkoenigs.gpx */,
+				4A0F8C611C9EB11D00BA602F /* Route-Saarland-Bike-Saarschleifen-Runde.gpx */,
+				4A0F8C621C9EB11D00BA602F /* Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx */,
+				4A0F8C631C9EB11D00BA602F /* Route-Saarland-Bike-Schaumberg-Runde.gpx */,
+				4A0F8C641C9EB11D00BA602F /* Route-Saarland-Bike-Schmelzer-Runde.gpx */,
+				4A0F8C651C9EB11D00BA602F /* Route-Saarland-Bike-Sieben-Weiher-Tour.gpx */,
+				4A0F8C661C9EB11D00BA602F /* Route-Saarland-Bike-Teufelsburg-Runde.gpx */,
+				4A0F8C671C9EB11D00BA602F /* Route-Saarland-Bike-Traumschleife-Kaltensteinpfad.gpx */,
+				4A0F8C681C9EB11E00BA602F /* Route-Saarland-Bike-VeloRoute-SaarLorLux.gpx */,
+				4A0F8C691C9EB11E00BA602F /* Route-Saarland-Bike-Warndt-Runde.gpx */,
+				4A0F8C6A1C9EB11E00BA602F /* Route-Saarland-Bike-Weiselberg-Radweg.gpx */,
+				4A0F8C6B1C9EB11E00BA602F /* Route-Saarland-Bike-Wendelinus-Radweg.gpx */,
+				4A0F8C6C1C9EB11E00BA602F /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx */,
 			);
 			name = "Bike-Saarland";
 			sourceTree = "<group>";
@@ -823,6 +837,21 @@
 				22CEB12D1C77167800E44D7C /* iTunesArtwork@2x.png */,
 			);
 			path = Icons;
+			sourceTree = "<group>";
+		};
+		4A0F8C261C9E9D1D00BA602F /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				4A0F8C331C9EB10000BA602F /* Custom-2015-12-03KarlsbergEnduro.gpx */,
+				4A0F8C341C9EB10000BA602F /* Custom-Enduro-homburg.gpx */,
+				4A0F8C351C9EB10000BA602F /* Custom-HomburgerTrailsStartUndZielBechhofenSportplatz.gpx */,
+				4A0F8C361C9EB10000BA602F /* Custom-Kirkeler_Felsenpfad_-_kleine_Runde.gpx */,
+				4A0F8C371C9EB10000BA602F /* Custom-KirkelMtb-tour.gpx */,
+				4A0F8C381C9EB10000BA602F /* Custom-MTB-NrideHom-3.gpx */,
+				4A0F8C391C9EB10000BA602F /* Custom-t1387067_Sieben-Weiher-Tour.gpx */,
+				4A0F8C3A1C9EB10000BA602F /* Custom-TopTrailsKirkelSaarlandSchmetterlingspfadUndTeileDerTafeltour.gpx */,
+			);
+			name = Custom;
 			sourceTree = "<group>";
 		};
 		4AC3776A1BB887150027DFC7 /* GPS */ = {
@@ -1039,141 +1068,148 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A0F8C791C9EB11E00BA602F /* Route-Saarland-Bike-Blumengarten-Runde.gpx in Resources */,
 				22CEB1401C77167800E44D7C /* Icon-Small@3x.png in Resources */,
 				4A0E71F11C32EE8200BCF6B8 /* 854-list-toolbar-selected.png in Resources */,
-				4A07FB181C68A00F00FA554D /* Route-Saarland-Bike-Niedtal-Radweg.gpx in Resources */,
+				4A0F8C9B1C9EB11E00BA602F /* Route-Saarland-Bike-VeloRoute-SaarLorLux.gpx in Resources */,
 				4A07FADA1C67DEE200FA554D /* Trail-KlbTrail.gpx in Resources */,
+				4A0F8C3F1C9EB10000BA602F /* Custom-KirkelMtb-tour.gpx in Resources */,
 				22CEB12E1C77167800E44D7C /* Icon-29.png in Resources */,
 				4A07FADC1C67DEE200FA554D /* Trail.gpx in Resources */,
-				4A07FB141C68A00F00FA554D /* Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx in Resources */,
-				4A07FB301C68A02100FA554D /* Route-Saarland-Bike-Sieben-Weiher-Tour.gpx in Resources */,
+				4A0F8C9A1C9EB11E00BA602F /* Route-Saarland-Bike-Traumschleife-Kaltensteinpfad.gpx in Resources */,
 				22CEB1301C77167800E44D7C /* Icon-29@3x.png in Resources */,
-				4A07FB161C68A00F00FA554D /* Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx in Resources */,
+				4A0F8C961C9EB11E00BA602F /* Route-Saarland-Bike-Schaumberg-Runde.gpx in Resources */,
+				4A0F8C881C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Bostalsee-Radweg.gpx in Resources */,
 				4A07FAE11C67DEE200FA554D /* Trail-Schwarzenberg4.gpx in Resources */,
 				4A0E71E51C32EE8200BCF6B8 /* 1100-list-2-toolbar@3x.png in Resources */,
 				4A07FAD71C67DEE200FA554D /* Trail-AmHomburg1.gpx in Resources */,
 				4A07FADB1C67DEE200FA554D /* Trail-Nauwies.gpx in Resources */,
-				4A07FB3D1C68A03200FA554D /* Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx in Resources */,
 				22CEB13A1C77167800E44D7C /* Icon-76@2x.png in Resources */,
+				4A0F8C941C9EB11E00BA602F /* Route-Saarland-Bike-Saarschleifen-Runde.gpx in Resources */,
+				4A0F8C9F1C9EB11E00BA602F /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */,
 				4A07FAE61C67DEE200FA554D /* Trail-Schwarzenberg9.gpx in Resources */,
-				4A07FB3B1C68A03200FA554D /* Route-Saarland-Bike-Lebacher-Runde.gpx in Resources */,
-				4A07FB131C68A00F00FA554D /* Route-Saarland-Bike-Saar-Bostalsee-Radweg.gpx in Resources */,
-				4A07FB291C68A02100FA554D /* Route-Saarland-Bike-Ostertal-Hoehen-Runde.gpx in Resources */,
-				4A07FB251C68A02100FA554D /* Route-Saarland-Bike-Saarland-Radweg.gpx in Resources */,
+				4A0F8C7B1C9EB11E00BA602F /* Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx in Resources */,
 				4A07FAEB1C67DEE200FA554D /* Trail-Schwarzenberg14.gpx in Resources */,
-				4A07FAF81C6894FD00FA554D /* Route-Saarland-Bike-Saarlouiser-Runde-Im-Reich-des-Sonnenkoenigs.gpx in Resources */,
 				4A0E71F71C32EE8200BCF6B8 /* gray-940-pin@2x.png in Resources */,
-				4A07FB3F1C68A03200FA554D /* Route-Saarland-Bike-Eppelborner-Runde.gpx in Resources */,
+				4A0F8C421C9EB10000BA602F /* Custom-TopTrailsKirkelSaarlandSchmetterlingspfadUndTeileDerTafeltour.gpx in Resources */,
 				4A0E71E71C32EE8200BCF6B8 /* 512px-Viewpoint-16.svg.png in Resources */,
-				4A07FAF41C6894AD00FA554D /* Route-Saarland-Bike-Teufelsburg-Runde.gpx in Resources */,
 				22CEB1411C77167800E44D7C /* Icon.png in Resources */,
+				4A0F8C951C9EB11E00BA602F /* Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx in Resources */,
+				4A0F8C971C9EB11E00BA602F /* Route-Saarland-Bike-Schmelzer-Runde.gpx in Resources */,
+				4A0F8C7C1C9EB11E00BA602F /* Route-Saarland-Bike-Eppelborner-Runde.gpx in Resources */,
 				4A0E71ED1C32EE8200BCF6B8 /* 798-filter-toolbar@3x.png in Resources */,
+				4A0F8C911C9EB11E00BA602F /* Route-Saarland-Bike-Saarkohlenwald-Runde.gpx in Resources */,
 				22CEB1371C77167800E44D7C /* Icon-72.png in Resources */,
-				4A07FB3C1C68A03200FA554D /* Route-Saarland-Bike-Schmelzer-Runde.gpx in Resources */,
-				4A07FB101C68A00F00FA554D /* Route-Saarland-Bike-Saarbruecker-Radler-Runde.gpx in Resources */,
 				4A07FAEE1C67DEE200FA554D /* Trail-Winterberg1.gpx in Resources */,
 				22CEB1351C77167800E44D7C /* Icon-60@2x.png in Resources */,
-				4A07FAFA1C68954B00FA554D /* Route-Saarland-Bike-VeloRoute-SaarLorLux.gpx in Resources */,
-				4A07FB111C68A00F00FA554D /* Route-Saarland-Bike-Saargau-Runde.gpx in Resources */,
+				4A0F8C3E1C9EB10000BA602F /* Custom-Kirkeler_Felsenpfad_-_kleine_Runde.gpx in Resources */,
+				4A0F8C9E1C9EB11E00BA602F /* Route-Saarland-Bike-Wendelinus-Radweg.gpx in Resources */,
 				4A07FAE91C67DEE200FA554D /* Trail-Schwarzenberg12.gpx in Resources */,
+				4A0F8C8F1C9EB11E00BA602F /* Route-Saarland-Bike-Saargau-Runde.gpx in Resources */,
 				4A07FAD81C67DEE200FA554D /* Trail-Dudweiler1.gpx in Resources */,
 				4A07FADE1C67DEE200FA554D /* Trail-Schwarzenberg1.gpx in Resources */,
 				4A07FACF1C67DED000FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx in Resources */,
 				4A0E71EB1C32EE8200BCF6B8 /* 798-filter-toolbar.png in Resources */,
 				22CEB1391C77167800E44D7C /* Icon-76.png in Resources */,
-				4A07FB3E1C68A03200FA554D /* Route-Saarland-Bike-Adebar-Runde.gpx in Resources */,
 				4A0E71EA1C32EE8200BCF6B8 /* 760-refresh-3@3x.png in Resources */,
+				4A0F8C8C1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx in Resources */,
 				4A0E71F61C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png in Resources */,
 				4A0E71E81C32EE8200BCF6B8 /* 760-refresh-3.png in Resources */,
 				4A07FAC71C67DECA00FA554D /* Route-MTB-pur-blau_blueColor.gpx in Resources */,
-				4A07FAD61C67DEDA00FA554D /* Tour-t1387067_Sieben-Weiher-Tour.gpx in Resources */,
 				4A07FAF01C67DEE200FA554D /* TrailSpichern2.gpx in Resources */,
+				4A0F8C801C9EB11E00BA602F /* Route-Saarland-Bike-Grosse-Bliesgau-Biosphaeren-Runde.gpx in Resources */,
 				22CEB13C1C77167800E44D7C /* Icon-Small-50.png in Resources */,
-				4A07FB2F1C68A02100FA554D /* Route-Saarland-Bike-Weiselberg-Radweg.gpx in Resources */,
 				4A0E71E61C32EE8200BCF6B8 /* 1435537202_54.png in Resources */,
 				4A07FACB1C67DED000FA554D /* Route-Saarland-MTB-3-Knochen-Tour.gpx in Resources */,
-				4A07FB261C68A02100FA554D /* Route-Saarland-Bike-Traumschleife-Kaltensteinpfad.gpx in Resources */,
 				4A07FAD91C67DEE200FA554D /* Trail-HaldeCamphauserStrasse.gpx in Resources */,
+				4A0F8C3C1C9EB10000BA602F /* Custom-Enduro-homburg.gpx in Resources */,
+				4A0F8C931C9EB11E00BA602F /* Route-Saarland-Bike-Saarlouiser-Runde-Im-Reich-des-Sonnenkoenigs.gpx in Resources */,
 				4A0E71EC1C32EE8200BCF6B8 /* 798-filter-toolbar@2x.png in Resources */,
-				4A07FB411C68A03200FA554D /* Route-Saarland-Bike-Biber-Tour.gpx in Resources */,
 				4A07FAD51C67DEDA00FA554D /* Tour-KLB-SB.gpx in Resources */,
 				22CEB13E1C77167800E44D7C /* Icon-Small.png in Resources */,
 				4A0E71F41C32EE8200BCF6B8 /* Emergency_access_point.png in Resources */,
+				4A0F8C411C9EB10000BA602F /* Custom-t1387067_Sieben-Weiher-Tour.gpx in Resources */,
 				22CEB1311C77167800E44D7C /* Icon-40.png in Resources */,
 				4A07FADD1C67DEE200FA554D /* Trail-Nauwies2.gpx in Resources */,
 				22CEB1381C77167800E44D7C /* Icon-72@2x.png in Resources */,
-				4A07FB2A1C68A02100FA554D /* Route-Saarland-Bike-Bostalsee-Runde.gpx in Resources */,
-				4A07FB271C68A02100FA554D /* Route-Saarland-Bike-Hochwaelder-Runde.gpx in Resources */,
-				4A07FAF61C6894D300FA554D /* Route-Saarland-Bike-Saar-Radweg.gpx in Resources */,
 				4A0E71EE1C32EE8200BCF6B8 /* 852-map-toolbar.png in Resources */,
 				4A07FAE31C67DEE200FA554D /* Trail-Schwarzenberg6.gpx in Resources */,
-				4A07FB2C1C68A02100FA554D /* Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx in Resources */,
 				4A0E71F01C32EE8200BCF6B8 /* 852-map-toolbar@3x.png in Resources */,
 				4A0E71E91C32EE8200BCF6B8 /* 760-refresh-3@2x.png in Resources */,
 				4A0E71F31C32EE8200BCF6B8 /* 854-list-toolbar-selected@3x.png in Resources */,
-				4A07FB0C1C68A00F00FA554D /* Route-Saarland-Bike-Koellertal-Radweg.gpx in Resources */,
 				4A0E71E21C32EE8200BCF6B8 /* 1064-layers-4@3x.png in Resources */,
 				4A0E71E11C32EE8200BCF6B8 /* 1064-layers-4@2x.png in Resources */,
+				4A0F8C891C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Elsass-Tour.gpx in Resources */,
 				22CEB12F1C77167800E44D7C /* Icon-29@2x.png in Resources */,
 				4A0E71E31C32EE8200BCF6B8 /* 1100-list-2-toolbar.png in Resources */,
 				4A07FAE71C67DEE200FA554D /* Trail-Schwarzenberg10.gpx in Resources */,
+				4A0F8C7D1C9EB11E00BA602F /* Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx in Resources */,
 				22CEB1321C77167800E44D7C /* Icon-40@2x.png in Resources */,
-				4A07FB151C68A00F00FA554D /* Route-Saarland-Bike-Saar-Elsass-Tour.gpx in Resources */,
-				4A07FB0F1C68A00F00FA554D /* Route-Saarland-Bike-Blumengarten-Runde.gpx in Resources */,
+				4A0F8C781C9EB11E00BA602F /* Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx in Resources */,
+				4A0F8C811C9EB11E00BA602F /* Route-Saarland-Bike-Hochwaelder-Runde.gpx in Resources */,
+				4A0F8C8A1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Koellertal-Runde.gpx in Resources */,
 				22CEB1421C77167800E44D7C /* Icon@2x.png in Resources */,
-				4A07FB0B1C68A00F00FA554D /* Route-Saarland-Bike-Saarkohlenwald-Runde.gpx in Resources */,
+				4A0F8C871C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx in Resources */,
 				4A07FAF11C67DEE200FA554D /* TrailSpichern3.gpx in Resources */,
 				4A0E71E41C32EE8200BCF6B8 /* 1100-list-2-toolbar@2x.png in Resources */,
 				4A07FAD01C67DED000FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx in Resources */,
-				4A07FB2E1C68A02100FA554D /* Route-Saarland-Bike-Saar-Koellertal-Runde.gpx in Resources */,
-				4A07FB281C68A02100FA554D /* Route-Saarland-Bike-Warndt-Runde.gpx in Resources */,
 				22CEB13D1C77167800E44D7C /* Icon-Small-50@2x.png in Resources */,
-				4A07FB421C68A03200FA554D /* Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx in Resources */,
-				4A07FAFC1C68955E00FA554D /* Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx in Resources */,
 				22CEB1441C77167800E44D7C /* iTunesArtwork@2x.png in Resources */,
+				4A0F8C8D1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Radweg.gpx in Resources */,
 				4A0E71F51C32EE8200BCF6B8 /* Emergeny.png in Resources */,
 				4A07FACD1C67DED000FA554D /* Route-Saarland-MTB-5-Eingewoehnungs-Tour.gpx in Resources */,
+				4A0F8C761C9EB11E00BA602F /* Route-Saarland-Bike-Adebar-Runde.gpx in Resources */,
 				4A07FAC31C66917800FA554D /* gray-265-download@2x.png in Resources */,
 				4A07FAD31C67DEDA00FA554D /* Tour-Goettelborn.gpx in Resources */,
 				22F934EA19DD5E5B00996122 /* Images.xcassets in Resources */,
-				4A07FB401C68A03200FA554D /* Route-Saarland-Bike-Glan-Blies-Radweg.gpx in Resources */,
 				4A07FAC21C66917800FA554D /* gray-265-download.png in Resources */,
-				4A07FB0E1C68A00F00FA554D /* Route-Saarland-Bike-Saargemuender-Runde.gpx in Resources */,
+				4A0F8C401C9EB10000BA602F /* Custom-MTB-NrideHom-3.gpx in Resources */,
 				22F934DC19DD5E5B00996122 /* InfoPlist.strings in Resources */,
 				22CEB13F1C77167800E44D7C /* Icon-Small@2x.png in Resources */,
+				4A0F8C851C9EB11E00BA602F /* Route-Saarland-Bike-Niedtal-Radweg.gpx in Resources */,
 				4A07FAEF1C67DEE200FA554D /* TrailSpichern.gpx in Resources */,
+				4A0F8C3B1C9EB10000BA602F /* Custom-2015-12-03KarlsbergEnduro.gpx in Resources */,
 				22CEB1431C77167800E44D7C /* iTunesArtwork.png in Resources */,
 				4A07FAE51C67DEE200FA554D /* Trail-Schwarzenberg8.gpx in Resources */,
+				4A0F8C7A1C9EB11E00BA602F /* Route-Saarland-Bike-Bostalsee-Runde.gpx in Resources */,
 				4A07FACE1C67DED000FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx in Resources */,
 				4A07FAD21C67DED000FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */,
-				222DF3221B659056003410E7 /* Route-MTB-NrideHom-3.gpx in Resources */,
 				4A07FAD41C67DEDA00FA554D /* Tour-Urwald.gpx in Resources */,
+				4A0F8C7F1C9EB11E00BA602F /* Route-Saarland-Bike-Glan-Blies-Radweg.gpx in Resources */,
 				4A07FAED1C67DEE200FA554D /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */,
 				4A0E71F21C32EE8200BCF6B8 /* 854-list-toolbar-selected@2x.png in Resources */,
-				4A07FB0D1C68A00F00FA554D /* Route-Saarland-Bike-Schaumberg-Runde.gpx in Resources */,
+				4A0F8C991C9EB11E00BA602F /* Route-Saarland-Bike-Teufelsburg-Runde.gpx in Resources */,
+				4A0F8C771C9EB11E00BA602F /* Route-Saarland-Bike-Biber-Tour.gpx in Resources */,
 				22CEB1331C77167800E44D7C /* Icon-40@3x.png in Resources */,
 				4A07FAE21C67DEE200FA554D /* Trail-Schwarzenberg5.gpx in Resources */,
+				4A0F8C921C9EB11E00BA602F /* Route-Saarland-Bike-Saarland-Radweg.gpx in Resources */,
+				4A0F8C831C9EB11E00BA602F /* Route-Saarland-Bike-Lebacher-Runde.gpx in Resources */,
 				4A0E71C51C32EDFA00BCF6B8 /* Launch Screen.storyboard in Resources */,
+				4A0F8C841C9EB11E00BA602F /* Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx in Resources */,
+				4A0F8C8B1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx in Resources */,
 				4A0E71E01C32EE8200BCF6B8 /* 1064-layers-4.png in Resources */,
 				4A07FACA1C67DED000FA554D /* Route-Saarland-MTB-2-Fitness-Tour.gpx in Resources */,
+				4A0F8C981C9EB11E00BA602F /* Route-Saarland-Bike-Sieben-Weiher-Tour.gpx in Resources */,
 				4A07FAE81C67DEE200FA554D /* Trail-Schwarzenberg11.gpx in Resources */,
 				4A0E71EF1C32EE8200BCF6B8 /* 852-map-toolbar@2x.png in Resources */,
-				4A07FB441C68A03200FA554D /* Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx in Resources */,
+				4A0F8C3D1C9EB10000BA602F /* Custom-HomburgerTrailsStartUndZielBechhofenSportplatz.gpx in Resources */,
 				4A07FAC91C67DED000FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx in Resources */,
-				4A07FB121C68A00F00FA554D /* Route-Saarland-Bike-Saarschleifen-Runde.gpx in Resources */,
 				22CEB13B1C77167800E44D7C /* Icon-83.5@2x.png in Resources */,
+				4A0F8C9C1C9EB11E00BA602F /* Route-Saarland-Bike-Warndt-Runde.gpx in Resources */,
+				4A0F8C8E1C9EB11E00BA602F /* Route-Saarland-Bike-Saarbruecker-Radler-Runde.gpx in Resources */,
 				22CEB1341C77167800E44D7C /* Icon-60.png in Resources */,
 				4A07FADF1C67DEE200FA554D /* Trail-Schwarzenberg2.gpx in Resources */,
+				4A0F8C901C9EB11E00BA602F /* Route-Saarland-Bike-Saargemuender-Runde.gpx in Resources */,
 				4A07FAE41C67DEE200FA554D /* Trail-Schwarzenberg7.gpx in Resources */,
 				22CEB1361C77167800E44D7C /* Icon-60@3x.png in Resources */,
+				4A0F8C861C9EB11E00BA602F /* Route-Saarland-Bike-Ostertal-Hoehen-Runde.gpx in Resources */,
+				4A0F8C821C9EB11E00BA602F /* Route-Saarland-Bike-Koellertal-Radweg.gpx in Resources */,
 				4A07FAEA1C67DEE200FA554D /* Trail-Schwarzenberg13.gpx in Resources */,
-				4A07FB2D1C68A02100FA554D /* Route-Saarland-Bike-Wendelinus-Radweg.gpx in Resources */,
-				4A07FB171C68A00F00FA554D /* Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx in Resources */,
 				4A07FAEC1C67DEE200FA554D /* Trail-Schwarzenberg15.gpx in Resources */,
-				4A07FB431C68A03200FA554D /* Route-Saarland-Bike-Grosse-Bliesgau-Biosphaeren-Runde.gpx in Resources */,
 				4A07FAD11C67DED000FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx in Resources */,
+				4A0F8C9D1C9EB11E00BA602F /* Route-Saarland-Bike-Weiselberg-Radweg.gpx in Resources */,
+				4A0F8C7E1C9EB11E00BA602F /* Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx in Resources */,
 				4A0E71F81C32EE8200BCF6B8 /* white-193-location-arrow@2x.png in Resources */,
-				4A07FB2B1C68A02100FA554D /* Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx in Resources */,
 				4A07FAC81C67DECA00FA554D /* Route-MTB-pur-gruen_greenColor.gpx in Resources */,
 				4A07FAE01C67DEE200FA554D /* Trail-Schwarzenberg3.gpx in Resources */,
 				4A07FACC1C67DED000FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx in Resources */,

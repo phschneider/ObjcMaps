@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
     PSTrackTypeMTBTrip,
     PSTrackTypeBikeTrip,
     PSTrackTypeRoundTrip,
+    PSTrackTypeCustom,
     PSTrackTypeOsm
 };
 

@@ -31,10 +31,10 @@
     if (self)
     {
         self.tracks = [[NSMutableArray alloc] init];
-        if (!TARGET_IPHONE_SIMULATOR)
-        {
+//        if (!TARGET_IPHONE_SIMULATOR)
+//        {
             [self performSelectorInBackground:@selector(loadTracks) withObject:nil];
-        }
+//        }
     }
     return self;
 }
@@ -86,6 +86,10 @@
             {
                 track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeRoundTrip];
             }
+        }
+        else if ([lowerCaseName rangeOfString:@"custom"].location != NSNotFound)
+        {
+            track = [[PSTrack alloc] initWithFilename:filename trackType:PSTrackTypeCustom];
         }
         else
         {
@@ -140,6 +144,14 @@
     DLogFuncName();
 
     return [_tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeBikeTrip]];
+}
+
+
+- (NSArray*)customRoutes
+{
+    DLogFuncName();
+    
+    return [_tracks filteredArrayUsingPredicate: [NSPredicate predicateWithFormat:@"trackType = %d",PSTrackTypeCustom]];
 }
 
 @end

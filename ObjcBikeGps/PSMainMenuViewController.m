@@ -41,7 +41,7 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     DLogFuncName();
-    return 5;
+    return 6;
 }
 
 
@@ -80,7 +80,9 @@
         case 4:
             label.text = @"Bike";
             break;
-
+        case 5:
+            label.text = @"Custom";
+            break;
     }
 
     return cell;
@@ -108,6 +110,9 @@
             break;
         case 4:
             viewController = [[PSTracksViewController alloc] initWithTitle:@"Bike" tracks:[[PSTrackStore sharedInstance] bikeRoutes]];
+            break;
+        case 5:
+            viewController = [[PSTracksViewController alloc] initWithTitle:@"Custom" tracks:[[PSTrackStore sharedInstance] customRoutes]];
             break;
     }
 

@@ -21,4 +21,6 @@
 - (NSArray *)mtbRoutes;
 
 - (NSArray *)bikeRoutes;
+
+- (NSArray*)customRoutes;
 @end
