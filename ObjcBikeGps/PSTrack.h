@@ -37,6 +37,7 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 @property (nonatomic) BEMSimpleLineGraphView *graphView;
 @property (nonatomic) CGFloat maxElevationData;
 @property (nonatomic) CGFloat minElevationData;
+@property (nonatomic) CGFloat elevationDiff;
 @property (nonatomic) NSArray *wayPoints;
 @property (nonatomic) CLLocation *peak;
 @property (nonatomic) CLLocation *low;
@@ -54,6 +55,9 @@ typedef NS_ENUM(NSInteger, PSTrackType) {
 
 - (int)numberOfCoordinates;
 - (CLLocationCoordinate2D*)coordinates;
+
+- (NSArray *)elevationAnnotations;
+
 - (NSString *)distanceInKm;
 
 - (NSString *)readableTrackDuration;

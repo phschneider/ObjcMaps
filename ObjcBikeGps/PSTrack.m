@@ -14,6 +14,8 @@
 #import "BEMSimpleLineGraphView.h"
 #import "PSWayPointAnnotation.h"
 #import "PSDirectionAnnotation.h"
+#import "PSPoi.h"
+#import "PSPoiStore.h"
 
 
 @interface PSTrack() <BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
@@ -418,6 +420,7 @@
 //    NSLog(@"smoothedElevationData = %d", [self.smoothedElevationData count]);
     self.maxElevationData = [[self.elevationData valueForKeyPath:@"@max.intValue"] floatValue];
     self.minElevationData = [[self.elevationData valueForKeyPath:@"@min.intValue"] floatValue];
+    self.elevationDiff = MAX(self.maxElevationData,self.minElevationData) - MIN(self.maxElevationData,self.minElevationData);
 //        [self.graphViewController setData:elevatioNData];
 //    NSLog(@"MinHeight = %f", minHeight);
 //    NSLog(@"MaxHeight = %f", maxHeight);
@@ -527,6 +530,80 @@
     return self.pointsCoordinate;
 }
 
+
+- (CLLocationDistance)distanceFromCoordinate:(CLLocationCoordinate2D)from toCoordinate:(CLLocationCoordinate2D)to
+{
+    CLLocation *fromLocation = [[CLLocation alloc] initWithLatitude:from.latitude longitude:from.longitude];
+    CLLocation *toLocation = [[CLLocation alloc] initWithLatitude:to.latitude longitude:to.longitude];
+    CLLocationDistance distance = [toLocation distanceFromLocation:fromLocation];
+    return distance;
+}
+
+- (NSArray*)elevationAnnotations
+{
+    NSMutableArray *coordinates = [[NSMutableArray alloc] init];
+    for (int i = 0; i < self.pointArrCount; i++)
+    {
+        CLLocationCoordinate2D workingCoordinate = self.pointsCoordinate[i];
+        double distance = DBL_MAX;
+        [coordinates insertObject:[NSNull null] atIndex:i];
+        
+        for (PSPoi *poi in [[PSPoiStore sharedInstance] poiList])
+        {
+            NSLog(@"Next Poi");
+            CLLocationDistance currentDistance = [self distanceFromCoordinate:poi.coordinate toCoordinate:workingCoordinate];
+            NSLog(@"Distance = %f",currentDistance);
+            if (currentDistance < distance && currentDistance < 500.0)
+            {
+                // Jetzt müssen wir prüfen ob der Poi bereits im Array enthalten ist
+                // Ist es bereits enthalten (so haben wir auch dessen index) mit dem wird die coordinate bekommen
+                // Mit der coordinate müssen wir prüfen, welches der nähere Pounkt zum Poi ist...
+                NSUInteger oldIndex = [coordinates indexOfObject:poi];
+                if (oldIndex != NSNotFound)
+                {
+                    CLLocationDistance oldDistance = [self distanceFromCoordinate:self.pointsCoordinate[oldIndex] toCoordinate:poi.coordinate];
+                    if (oldDistance < currentDistance)
+                    {
+                        // DO Nothing
+                        NSLog(@"Use old distance");
+                    }
+                    else
+                    {
+                        // Lösche weiter entfernten Eintrag
+                        NSLog(@"Use NEW distance");
+                        [coordinates replaceObjectAtIndex:oldIndex withObject:[NSNull null]];
+                        
+                        //Füge den neuen Eintrag hinzu
+                        if ([coordinates count] > i)
+                        {
+                            [coordinates replaceObjectAtIndex:i withObject:poi];
+                        }
+                        else
+                        {
+                            [coordinates insertObject:poi atIndex:i];
+                        }
+                    }
+                }
+                else
+                {
+                    //Füge den neuen Eintrag hinzu
+                    NSLog(@"INsert");
+                    if ([coordinates count] > i)
+                    {
+                        [coordinates replaceObjectAtIndex:i withObject:poi];
+                    }
+                    else
+                    {
+                        [coordinates insertObject:poi atIndex:i];
+                    }
+                }
+                distance = currentDistance;
+            }
+        }
+    }
+    
+    return coordinates;
+}
 
 #pragma mark -
 - (NSString*)distanceInKm

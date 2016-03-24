@@ -482,6 +482,36 @@
     [cameraButton addTarget:self action:@selector(toogleCamera:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.mapView addSubview:cameraButton];
+
+    UIButton *elevationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    elevationButton.backgroundColor = [UIColor whiteColor];
+    frame.origin.y = cameraButton.frame.origin.y - height - 15;
+    frame.origin.x = syncButton.frame.origin.x;
+    frame.size.width = height;
+    frame.size.height =  height;
+    [elevationButton setTitle:@"m" forState:UIControlStateNormal];
+    elevationButton.frame = frame;
+    elevationButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+    [elevationButton addTarget:self action:@selector(elevationButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.mapView addSubview:elevationButton];
+}
+
+
+- (void)elevationButtonTapped:(id)elevationButtonTapped
+{
+    DLogFuncName();
+    NSArray *pois = [self.track elevationAnnotations];
+    for (PSPoi *poi in pois)
+    {
+        if (poi && poi != [NSNull null])
+        {
+            MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+            [annotation setCoordinate:poi.coordinate];
+            [annotation setTitle:poi.title]; //You can set the subtitle too
+            [self.mapView addAnnotation:annotation];
+        }
+    }
 }
 
 

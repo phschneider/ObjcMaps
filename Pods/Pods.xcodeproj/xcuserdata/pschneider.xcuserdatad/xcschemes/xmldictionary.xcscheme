@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FFC7225582EF926C8329684334C360D9"
+               BlueprintIdentifier = "DF4D1A61D1E5E0E6A98D539A9FD343EF"
                BuildableName = "libXMLDictionary.a"
                BlueprintName = "XMLDictionary"
                ReferencedContainer = "container:Pods.xcodeproj">
