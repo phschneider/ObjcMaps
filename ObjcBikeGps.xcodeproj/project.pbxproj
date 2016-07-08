@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2243E5041D2F8EAC00FBFAB8 /* Route-MTB-Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5031D2F8EAC00FBFAB8 /* Route-MTB-Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx */; };
+		2243E5061D2F8F5700FBFAB8 /* Route-MTB-Rodalben-Tour-1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5051D2F8F5700FBFAB8 /* Route-MTB-Rodalben-Tour-1.gpx */; };
+		2243E5081D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfälzerwald-Tour1-Rodalben.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5071D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfälzerwald-Tour1-Rodalben.gpx */; };
+		22AE52721CA3DE4900738272 /* 945-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AE526F1CA3DE4900738272 /* 945-radar.png */; };
+		22AE52731CA3DE4900738272 /* 945-radar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AE52701CA3DE4900738272 /* 945-radar@2x.png */; };
+		22AE52741CA3DE4900738272 /* 945-radar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AE52711CA3DE4900738272 /* 945-radar@3x.png */; };
+		22AE52781CA3DE5F00738272 /* 910-graph.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AE52751CA3DE5F00738272 /* 910-graph.png */; };
+		22AE52791CA3DE5F00738272 /* 910-graph@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AE52761CA3DE5F00738272 /* 910-graph@2x.png */; };
+		22AE527A1CA3DE5F00738272 /* 910-graph@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AE52771CA3DE5F00738272 /* 910-graph@3x.png */; };
+		22AE527E1CA3DF3700738272 /* 909-tags.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AE527B1CA3DF3700738272 /* 909-tags.png */; };
+		22AE527F1CA3DF3700738272 /* 909-tags@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AE527C1CA3DF3700738272 /* 909-tags@2x.png */; };
+		22AE52801CA3DF3700738272 /* 909-tags@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AE527D1CA3DF3700738272 /* 909-tags@3x.png */; };
 		22CEB12E1C77167800E44D7C /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1171C77167800E44D7C /* Icon-29.png */; };
 		22CEB12F1C77167800E44D7C /* Icon-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1181C77167800E44D7C /* Icon-29@2x.png */; };
 		22CEB1301C77167800E44D7C /* Icon-29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB1191C77167800E44D7C /* Icon-29@3x.png */; };
@@ -30,6 +42,9 @@
 		22CEB1421C77167800E44D7C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB12B1C77167800E44D7C /* Icon@2x.png */; };
 		22CEB1431C77167800E44D7C /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB12C1C77167800E44D7C /* iTunesArtwork.png */; };
 		22CEB1441C77167800E44D7C /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22CEB12D1C77167800E44D7C /* iTunesArtwork@2x.png */; };
+		22F5CA0E1D2D2FE8009F0AB3 /* Custom-YannicsSonntagsTraining.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22F5CA0B1D2D2FE8009F0AB3 /* Custom-YannicsSonntagsTraining.gpx */; };
+		22F5CA0F1D2D2FE8009F0AB3 /* Custom-Kirkel-mtb-1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22F5CA0C1D2D2FE8009F0AB3 /* Custom-Kirkel-mtb-1.gpx */; };
+		22F5CA101D2D2FE8009F0AB3 /* Custom-KirkelMtb5.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22F5CA0D1D2D2FE8009F0AB3 /* Custom-KirkelMtb5.gpx */; };
 		22F934D219DD5E5B00996122 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D119DD5E5B00996122 /* Foundation.framework */; };
 		22F934D419DD5E5B00996122 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D319DD5E5B00996122 /* CoreGraphics.framework */; };
 		22F934D619DD5E5B00996122 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22F934D519DD5E5B00996122 /* UIKit.framework */; };
@@ -58,7 +73,6 @@
 		4A07FACF1C67DED000FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAB21C661BDB00FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx */; };
 		4A07FAD01C67DED000FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAAF1C661B2200FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx */; };
 		4A07FAD11C67DED000FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAA81C65FF1200FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx */; };
-		4A07FAD21C67DED000FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4A07FAAA1C65FFE300FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx */; };
 		4A07FAD31C67DEDA00FA554D /* Tour-Goettelborn.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22ED40991B68038800D3E297 /* Tour-Goettelborn.gpx */; };
 		4A07FAD41C67DEDA00FA554D /* Tour-Urwald.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 222DF33F1B659976003410E7 /* Tour-Urwald.gpx */; };
 		4A07FAD51C67DEDA00FA554D /* Tour-KLB-SB.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */; };
@@ -219,6 +233,7 @@
 /* Begin PBXFileReference section */
 		18CF6413E1014CC8A7CDA52D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		22146EB01B6A855800CE0360 /* Tour-KLB-SB.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Tour-KLB-SB.gpx"; path = "SampleData/Tour-KLB-SB.gpx"; sourceTree = SOURCE_ROOT; };
+		222C9DD71D2E58B8005C39B8 /* Custom-Felsenpfad.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-Felsenpfad.gpx"; sourceTree = "<group>"; };
 		222DF3071B659056003410E7 /* Route-MTB-pur-blau_blueColor.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-MTB-pur-blau_blueColor.gpx"; path = "SampleData/Route-MTB-pur-blau_blueColor.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF3081B659056003410E7 /* Route-MTB-pur-gruen_greenColor.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Route-MTB-pur-gruen_greenColor.gpx"; path = "SampleData/Route-MTB-pur-gruen_greenColor.gpx"; sourceTree = SOURCE_ROOT; };
 		222DF3091B659056003410E7 /* Trail-AmHomburg1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Trail-AmHomburg1.gpx"; path = "SampleData/Trail-AmHomburg1.gpx"; sourceTree = SOURCE_ROOT; };
@@ -249,6 +264,18 @@
 		222DF3431B659B9E003410E7 /* TrailSpichern.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TrailSpichern.gpx; path = SampleData/TrailSpichern.gpx; sourceTree = SOURCE_ROOT; };
 		222DF3441B659B9E003410E7 /* TrailSpichern2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TrailSpichern2.gpx; path = SampleData/TrailSpichern2.gpx; sourceTree = SOURCE_ROOT; };
 		222DF3491B659F41003410E7 /* TrailSpichern3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TrailSpichern3.gpx; path = SampleData/TrailSpichern3.gpx; sourceTree = SOURCE_ROOT; };
+		2243E5031D2F8EAC00FBFAB8 /* Route-MTB-Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx"; sourceTree = "<group>"; };
+		2243E5051D2F8F5700FBFAB8 /* Route-MTB-Rodalben-Tour-1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-Rodalben-Tour-1.gpx"; sourceTree = "<group>"; };
+		2243E5071D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfälzerwald-Tour1-Rodalben.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfälzerwald-Tour1-Rodalben.gpx"; sourceTree = "<group>"; };
+		22AE526F1CA3DE4900738272 /* 945-radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "945-radar.png"; sourceTree = "<group>"; };
+		22AE52701CA3DE4900738272 /* 945-radar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "945-radar@2x.png"; sourceTree = "<group>"; };
+		22AE52711CA3DE4900738272 /* 945-radar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "945-radar@3x.png"; sourceTree = "<group>"; };
+		22AE52751CA3DE5F00738272 /* 910-graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "910-graph.png"; sourceTree = "<group>"; };
+		22AE52761CA3DE5F00738272 /* 910-graph@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "910-graph@2x.png"; sourceTree = "<group>"; };
+		22AE52771CA3DE5F00738272 /* 910-graph@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "910-graph@3x.png"; sourceTree = "<group>"; };
+		22AE527B1CA3DF3700738272 /* 909-tags.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "909-tags.png"; sourceTree = "<group>"; };
+		22AE527C1CA3DF3700738272 /* 909-tags@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "909-tags@2x.png"; sourceTree = "<group>"; };
+		22AE527D1CA3DF3700738272 /* 909-tags@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "909-tags@3x.png"; sourceTree = "<group>"; };
 		22CEB1171C77167800E44D7C /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29.png"; sourceTree = "<group>"; };
 		22CEB1181C77167800E44D7C /* Icon-29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29@2x.png"; sourceTree = "<group>"; };
 		22CEB1191C77167800E44D7C /* Icon-29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-29@3x.png"; sourceTree = "<group>"; };
@@ -273,6 +300,9 @@
 		22CEB12C1C77167800E44D7C /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		22CEB12D1C77167800E44D7C /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		22ED40991B68038800D3E297 /* Tour-Goettelborn.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Tour-Goettelborn.gpx"; path = "SampleData/Tour-Goettelborn.gpx"; sourceTree = SOURCE_ROOT; };
+		22F5CA0B1D2D2FE8009F0AB3 /* Custom-YannicsSonntagsTraining.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-YannicsSonntagsTraining.gpx"; sourceTree = "<group>"; };
+		22F5CA0C1D2D2FE8009F0AB3 /* Custom-Kirkel-mtb-1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-Kirkel-mtb-1.gpx"; sourceTree = "<group>"; };
+		22F5CA0D1D2D2FE8009F0AB3 /* Custom-KirkelMtb5.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-KirkelMtb5.gpx"; sourceTree = "<group>"; };
 		22F934CE19DD5E5B00996122 /* ObjcBikeGps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjcBikeGps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22F934D119DD5E5B00996122 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22F934D319DD5E5B00996122 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -498,6 +528,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2243E5021D2F8EA100FBFAB8 /* MTB Pfalz */ = {
+			isa = PBXGroup;
+			children = (
+				2243E5031D2F8EAC00FBFAB8 /* Route-MTB-Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx */,
+				2243E5051D2F8F5700FBFAB8 /* Route-MTB-Rodalben-Tour-1.gpx */,
+				2243E5071D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfälzerwald-Tour1-Rodalben.gpx */,
+			);
+			name = "MTB Pfalz";
+			sourceTree = "<group>";
+		};
 		2251757A1B84B79000EC61B5 /* OSM */ = {
 			isa = PBXGroup;
 			children = (
@@ -657,6 +697,7 @@
 		4A07FAAC1C661ACE00FA554D /* Routen */ = {
 			isa = PBXGroup;
 			children = (
+				2243E5021D2F8EA100FBFAB8 /* MTB Pfalz */,
 				4A07FAF21C6894A400FA554D /* Bike-Saarland */,
 				222DF3071B659056003410E7 /* Route-MTB-pur-blau_blueColor.gpx */,
 				222DF3081B659056003410E7 /* Route-MTB-pur-gruen_greenColor.gpx */,
@@ -778,6 +819,15 @@
 		4A0E71C61C32EE8200BCF6B8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				22AE527B1CA3DF3700738272 /* 909-tags.png */,
+				22AE527C1CA3DF3700738272 /* 909-tags@2x.png */,
+				22AE527D1CA3DF3700738272 /* 909-tags@3x.png */,
+				22AE52751CA3DE5F00738272 /* 910-graph.png */,
+				22AE52761CA3DE5F00738272 /* 910-graph@2x.png */,
+				22AE52771CA3DE5F00738272 /* 910-graph@3x.png */,
+				22AE526F1CA3DE4900738272 /* 945-radar.png */,
+				22AE52701CA3DE4900738272 /* 945-radar@2x.png */,
+				22AE52711CA3DE4900738272 /* 945-radar@3x.png */,
 				4A07FAC01C66917800FA554D /* gray-265-download.png */,
 				4A07FAC11C66917800FA554D /* gray-265-download@2x.png */,
 				4A0E71C71C32EE8200BCF6B8 /* 1064-layers-4.png */,
@@ -847,9 +897,13 @@
 				4A0F8C351C9EB10000BA602F /* Custom-HomburgerTrailsStartUndZielBechhofenSportplatz.gpx */,
 				4A0F8C361C9EB10000BA602F /* Custom-Kirkeler_Felsenpfad_-_kleine_Runde.gpx */,
 				4A0F8C371C9EB10000BA602F /* Custom-KirkelMtb-tour.gpx */,
+				22F5CA0B1D2D2FE8009F0AB3 /* Custom-YannicsSonntagsTraining.gpx */,
+				22F5CA0C1D2D2FE8009F0AB3 /* Custom-Kirkel-mtb-1.gpx */,
+				22F5CA0D1D2D2FE8009F0AB3 /* Custom-KirkelMtb5.gpx */,
 				4A0F8C381C9EB10000BA602F /* Custom-MTB-NrideHom-3.gpx */,
 				4A0F8C391C9EB10000BA602F /* Custom-t1387067_Sieben-Weiher-Tour.gpx */,
 				4A0F8C3A1C9EB10000BA602F /* Custom-TopTrailsKirkelSaarlandSchmetterlingspfadUndTeileDerTafeltour.gpx */,
+				222C9DD71D2E58B8005C39B8 /* Custom-Felsenpfad.gpx */,
 			);
 			name = Custom;
 			sourceTree = "<group>";
@@ -1095,11 +1149,14 @@
 				4A0E71E71C32EE8200BCF6B8 /* 512px-Viewpoint-16.svg.png in Resources */,
 				22CEB1411C77167800E44D7C /* Icon.png in Resources */,
 				4A0F8C951C9EB11E00BA602F /* Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx in Resources */,
+				22AE52741CA3DE4900738272 /* 945-radar@3x.png in Resources */,
 				4A0F8C971C9EB11E00BA602F /* Route-Saarland-Bike-Schmelzer-Runde.gpx in Resources */,
 				4A0F8C7C1C9EB11E00BA602F /* Route-Saarland-Bike-Eppelborner-Runde.gpx in Resources */,
+				2243E5081D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfälzerwald-Tour1-Rodalben.gpx in Resources */,
 				4A0E71ED1C32EE8200BCF6B8 /* 798-filter-toolbar@3x.png in Resources */,
 				4A0F8C911C9EB11E00BA602F /* Route-Saarland-Bike-Saarkohlenwald-Runde.gpx in Resources */,
 				22CEB1371C77167800E44D7C /* Icon-72.png in Resources */,
+				22AE52781CA3DE5F00738272 /* 910-graph.png in Resources */,
 				4A07FAEE1C67DEE200FA554D /* Trail-Winterberg1.gpx in Resources */,
 				22CEB1351C77167800E44D7C /* Icon-60@2x.png in Resources */,
 				4A0F8C3E1C9EB10000BA602F /* Custom-Kirkeler_Felsenpfad_-_kleine_Runde.gpx in Resources */,
@@ -1111,8 +1168,11 @@
 				4A07FACF1C67DED000FA554D /* Route-Saarland-MTB-7-Relax-Tour.gpx in Resources */,
 				4A0E71EB1C32EE8200BCF6B8 /* 798-filter-toolbar.png in Resources */,
 				22CEB1391C77167800E44D7C /* Icon-76.png in Resources */,
+				22AE52721CA3DE4900738272 /* 945-radar.png in Resources */,
 				4A0E71EA1C32EE8200BCF6B8 /* 760-refresh-3@3x.png in Resources */,
+				22F5CA0E1D2D2FE8009F0AB3 /* Custom-YannicsSonntagsTraining.gpx in Resources */,
 				4A0F8C8C1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx in Resources */,
+				22F5CA0F1D2D2FE8009F0AB3 /* Custom-Kirkel-mtb-1.gpx in Resources */,
 				4A0E71F61C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png in Resources */,
 				4A0E71E81C32EE8200BCF6B8 /* 760-refresh-3.png in Resources */,
 				4A07FAC71C67DECA00FA554D /* Route-MTB-pur-blau_blueColor.gpx in Resources */,
@@ -1137,10 +1197,13 @@
 				4A0E71F01C32EE8200BCF6B8 /* 852-map-toolbar@3x.png in Resources */,
 				4A0E71E91C32EE8200BCF6B8 /* 760-refresh-3@2x.png in Resources */,
 				4A0E71F31C32EE8200BCF6B8 /* 854-list-toolbar-selected@3x.png in Resources */,
+				22F5CA101D2D2FE8009F0AB3 /* Custom-KirkelMtb5.gpx in Resources */,
 				4A0E71E21C32EE8200BCF6B8 /* 1064-layers-4@3x.png in Resources */,
 				4A0E71E11C32EE8200BCF6B8 /* 1064-layers-4@2x.png in Resources */,
 				4A0F8C891C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Elsass-Tour.gpx in Resources */,
+				2243E5041D2F8EAC00FBFAB8 /* Route-MTB-Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx in Resources */,
 				22CEB12F1C77167800E44D7C /* Icon-29@2x.png in Resources */,
+				22AE52791CA3DE5F00738272 /* 910-graph@2x.png in Resources */,
 				4A0E71E31C32EE8200BCF6B8 /* 1100-list-2-toolbar.png in Resources */,
 				4A07FAE71C67DEE200FA554D /* Trail-Schwarzenberg10.gpx in Resources */,
 				4A0F8C7D1C9EB11E00BA602F /* Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx in Resources */,
@@ -1149,6 +1212,7 @@
 				4A0F8C811C9EB11E00BA602F /* Route-Saarland-Bike-Hochwaelder-Runde.gpx in Resources */,
 				4A0F8C8A1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Koellertal-Runde.gpx in Resources */,
 				22CEB1421C77167800E44D7C /* Icon@2x.png in Resources */,
+				2243E5061D2F8F5700FBFAB8 /* Route-MTB-Rodalben-Tour-1.gpx in Resources */,
 				4A0F8C871C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Bliesgau-Runde.gpx in Resources */,
 				4A07FAF11C67DEE200FA554D /* TrailSpichern3.gpx in Resources */,
 				4A0E71E41C32EE8200BCF6B8 /* 1100-list-2-toolbar@2x.png in Resources */,
@@ -1166,6 +1230,7 @@
 				4A0F8C401C9EB10000BA602F /* Custom-MTB-NrideHom-3.gpx in Resources */,
 				22F934DC19DD5E5B00996122 /* InfoPlist.strings in Resources */,
 				22CEB13F1C77167800E44D7C /* Icon-Small@2x.png in Resources */,
+				22AE52731CA3DE4900738272 /* 945-radar@2x.png in Resources */,
 				4A0F8C851C9EB11E00BA602F /* Route-Saarland-Bike-Niedtal-Radweg.gpx in Resources */,
 				4A07FAEF1C67DEE200FA554D /* TrailSpichern.gpx in Resources */,
 				4A0F8C3B1C9EB10000BA602F /* Custom-2015-12-03KarlsbergEnduro.gpx in Resources */,
@@ -1173,9 +1238,9 @@
 				4A07FAE51C67DEE200FA554D /* Trail-Schwarzenberg8.gpx in Resources */,
 				4A0F8C7A1C9EB11E00BA602F /* Route-Saarland-Bike-Bostalsee-Runde.gpx in Resources */,
 				4A07FACE1C67DED000FA554D /* Route-Saarland-MTB-6-Ausdauer-Tour.gpx in Resources */,
-				4A07FAD21C67DED000FA554D /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */,
 				4A07FAD41C67DEDA00FA554D /* Tour-Urwald.gpx in Resources */,
 				4A0F8C7F1C9EB11E00BA602F /* Route-Saarland-Bike-Glan-Blies-Radweg.gpx in Resources */,
+				22AE527A1CA3DE5F00738272 /* 910-graph@3x.png in Resources */,
 				4A07FAED1C67DEE200FA554D /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */,
 				4A0E71F21C32EE8200BCF6B8 /* 854-list-toolbar-selected@2x.png in Resources */,
 				4A0F8C991C9EB11E00BA602F /* Route-Saarland-Bike-Teufelsburg-Runde.gpx in Resources */,
@@ -1185,6 +1250,7 @@
 				4A0F8C921C9EB11E00BA602F /* Route-Saarland-Bike-Saarland-Radweg.gpx in Resources */,
 				4A0F8C831C9EB11E00BA602F /* Route-Saarland-Bike-Lebacher-Runde.gpx in Resources */,
 				4A0E71C51C32EDFA00BCF6B8 /* Launch Screen.storyboard in Resources */,
+				22AE52801CA3DF3700738272 /* 909-tags@3x.png in Resources */,
 				4A0F8C841C9EB11E00BA602F /* Route-Saarland-Bike-Nied-und-Bisttal-Runde.gpx in Resources */,
 				4A0F8C8B1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Nahe-Hoehen-Radweg.gpx in Resources */,
 				4A0E71E01C32EE8200BCF6B8 /* 1064-layers-4.png in Resources */,
@@ -1193,6 +1259,7 @@
 				4A07FAE81C67DEE200FA554D /* Trail-Schwarzenberg11.gpx in Resources */,
 				4A0E71EF1C32EE8200BCF6B8 /* 852-map-toolbar@2x.png in Resources */,
 				4A0F8C3D1C9EB10000BA602F /* Custom-HomburgerTrailsStartUndZielBechhofenSportplatz.gpx in Resources */,
+				22AE527F1CA3DF3700738272 /* 909-tags@2x.png in Resources */,
 				4A07FAC91C67DED000FA554D /* Route-Saarland-MTB-1-Warm-up-Tour.gpx in Resources */,
 				22CEB13B1C77167800E44D7C /* Icon-83.5@2x.png in Resources */,
 				4A0F8C9C1C9EB11E00BA602F /* Route-Saarland-Bike-Warndt-Runde.gpx in Resources */,
@@ -1203,6 +1270,7 @@
 				4A07FAE41C67DEE200FA554D /* Trail-Schwarzenberg7.gpx in Resources */,
 				22CEB1361C77167800E44D7C /* Icon-60@3x.png in Resources */,
 				4A0F8C861C9EB11E00BA602F /* Route-Saarland-Bike-Ostertal-Hoehen-Runde.gpx in Resources */,
+				22AE527E1CA3DF3700738272 /* 909-tags.png in Resources */,
 				4A0F8C821C9EB11E00BA602F /* Route-Saarland-Bike-Koellertal-Radweg.gpx in Resources */,
 				4A07FAEA1C67DEE200FA554D /* Trail-Schwarzenberg13.gpx in Resources */,
 				4A07FAEC1C67DEE200FA554D /* Trail-Schwarzenberg15.gpx in Resources */,
@@ -1438,13 +1506,12 @@
 			baseConfigurationReference = 292651F264F523FCBBD71335 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 27;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "be18db8a-7aaa-4e23-b4ea-da40747b2f61";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1457,13 +1524,12 @@
 			baseConfigurationReference = ABA11E6B8B64EB33BC0F9452 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 27;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "be18db8a-7aaa-4e23-b4ea-da40747b2f61";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1555,13 +1621,12 @@
 			baseConfigurationReference = ABA11E6B8B64EB33BC0F9452 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Philip Schneider (723AP2V5VG)";
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 27;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "076d4204-bf62-4138-8c14-784019329c11";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				VERSIONING_SYSTEM = "apple-generic";
