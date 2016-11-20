@@ -9,7 +9,26 @@
 /* Begin PBXBuildFile section */
 		2243E5041D2F8EAC00FBFAB8 /* Route-MTB-Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5031D2F8EAC00FBFAB8 /* Route-MTB-Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx */; };
 		2243E5061D2F8F5700FBFAB8 /* Route-MTB-Rodalben-Tour-1.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5051D2F8F5700FBFAB8 /* Route-MTB-Rodalben-Tour-1.gpx */; };
-		2243E5081D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfälzerwald-Tour1-Rodalben.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5071D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfälzerwald-Tour1-Rodalben.gpx */; };
+		2243E5081D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour1-Rodalben.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5071D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour1-Rodalben.gpx */; };
+		2243E50A1D2FED7800FBFAB8 /* Custom-N_Duro_ride_Lueckner.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5091D2FED7800FBFAB8 /* Custom-N_Duro_ride_Lueckner.gpx */; };
+		2243E50C1D2FED8D00FBFAB8 /* Custom-Flowtrails_stausee_ballern.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E50B1D2FED8D00FBFAB8 /* Custom-Flowtrails_stausee_ballern.gpx */; };
+		2243E50E1D2FED9F00FBFAB8 /* Custom-Active_Bikes_Feierabendrunde.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E50D1D2FED9F00FBFAB8 /* Custom-Active_Bikes_Feierabendrunde.gpx */; };
+		2243E5101D2FEDBA00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour2-Waldfischbach-burgalben.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E50F1D2FEDBA00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour2-Waldfischbach-burgalben.gpx */; };
+		2243E5121D2FEE7C00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour1-Rodalben-2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5111D2FEE7C00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour1-Rodalben-2.gpx */; };
+		2243E5141D2FEEAE00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour3-Schopp.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5131D2FEEAE00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour3-Schopp.gpx */; };
+		2243E5161D2FEEC000FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour4Hochspeyer-DimbPremiumBikeTrailTour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5151D2FEEC000FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour4Hochspeyer-DimbPremiumBikeTrailTour.gpx */; };
+		2243E5181D2FEEC800FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour5-Lambrecht.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5171D2FEEC800FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour5-Lambrecht.gpx */; };
+		2243E51A1D2FEECE00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-CrossCountryRennstrecke-GiantRaceTrackHochspeyer.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5191D2FEECE00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-CrossCountryRennstrecke-GiantRaceTrackHochspeyer.gpx */; };
+		2243E5201D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Einsteigerstrecke-Münchweilerrodalb.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E51B1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Einsteigerstrecke-Münchweilerrodalb.gpx */; };
+		2243E5211D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-SingletrailTechnikparcoursHochspeyer.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E51C1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-SingletrailTechnikparcoursHochspeyer.gpx */; };
+		2243E5221D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Spurensuche.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E51D1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Spurensuche.gpx */; };
+		2243E5231D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-CrossCountryRennstreckeSchopp.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E51E1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-CrossCountryRennstreckeSchopp.gpx */; };
+		2243E5241D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-TechnikparcoursSchopp.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E51F1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-TechnikparcoursSchopp.gpx */; };
+		2243E5271D2FEF2900FBFAB8 /* Route-MTB-t100680108_Mountainbike-Park-Pfaelzerwald-Tour-2-Waldfischbach.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5251D2FEF2900FBFAB8 /* Route-MTB-t100680108_Mountainbike-Park-Pfaelzerwald-Tour-2-Waldfischbach.gpx */; };
+		2243E5281D2FEF2900FBFAB8 /* Route-MTB-t100619125_Mountainbikepark-Pfaelzerwald-Tour-1-Rodalben.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5261D2FEF2900FBFAB8 /* Route-MTB-t100619125_Mountainbikepark-Pfaelzerwald-Tour-1-Rodalben.gpx */; };
+		2243E52A1D2FEF3E00FBFAB8 /* Route-MTB-t6015134_Waldfischbach-Burgalben-Tour-2.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E5291D2FEF3E00FBFAB8 /* Route-MTB-t6015134_Waldfischbach-Burgalben-Tour-2.gpx */; };
+		2243E52C1D2FEF4E00FBFAB8 /* Route-MTB-t6015209_Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E52B1D2FEF4E00FBFAB8 /* Route-MTB-t6015209_Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx */; };
+		2243E52E1D2FEF6900FBFAB8 /* Route-MTB-t100349600_Felsewanderweg-Rodalben.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 2243E52D1D2FEF6900FBFAB8 /* Route-MTB-t100349600_Felsewanderweg-Rodalben.gpx */; };
 		22AE52721CA3DE4900738272 /* 945-radar.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AE526F1CA3DE4900738272 /* 945-radar.png */; };
 		22AE52731CA3DE4900738272 /* 945-radar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AE52701CA3DE4900738272 /* 945-radar@2x.png */; };
 		22AE52741CA3DE4900738272 /* 945-radar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22AE52711CA3DE4900738272 /* 945-radar@3x.png */; };
@@ -266,7 +285,26 @@
 		222DF3491B659F41003410E7 /* TrailSpichern3.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = TrailSpichern3.gpx; path = SampleData/TrailSpichern3.gpx; sourceTree = SOURCE_ROOT; };
 		2243E5031D2F8EAC00FBFAB8 /* Route-MTB-Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx"; sourceTree = "<group>"; };
 		2243E5051D2F8F5700FBFAB8 /* Route-MTB-Rodalben-Tour-1.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-Rodalben-Tour-1.gpx"; sourceTree = "<group>"; };
-		2243E5071D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfälzerwald-Tour1-Rodalben.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfälzerwald-Tour1-Rodalben.gpx"; sourceTree = "<group>"; };
+		2243E5071D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour1-Rodalben.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfaelzerwald-Tour1-Rodalben.gpx"; sourceTree = "<group>"; };
+		2243E5091D2FED7800FBFAB8 /* Custom-N_Duro_ride_Lueckner.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-N_Duro_ride_Lueckner.gpx"; sourceTree = "<group>"; };
+		2243E50B1D2FED8D00FBFAB8 /* Custom-Flowtrails_stausee_ballern.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-Flowtrails_stausee_ballern.gpx"; sourceTree = "<group>"; };
+		2243E50D1D2FED9F00FBFAB8 /* Custom-Active_Bikes_Feierabendrunde.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Custom-Active_Bikes_Feierabendrunde.gpx"; sourceTree = "<group>"; };
+		2243E50F1D2FEDBA00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour2-Waldfischbach-burgalben.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfaelzerwald-Tour2-Waldfischbach-burgalben.gpx"; sourceTree = "<group>"; };
+		2243E5111D2FEE7C00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour1-Rodalben-2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfaelzerwald-Tour1-Rodalben-2.gpx"; sourceTree = "<group>"; };
+		2243E5131D2FEEAE00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour3-Schopp.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfaelzerwald-Tour3-Schopp.gpx"; sourceTree = "<group>"; };
+		2243E5151D2FEEC000FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour4Hochspeyer-DimbPremiumBikeTrailTour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfaelzerwald-Tour4Hochspeyer-DimbPremiumBikeTrailTour.gpx"; sourceTree = "<group>"; };
+		2243E5171D2FEEC800FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour5-Lambrecht.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfaelzerwald-Tour5-Lambrecht.gpx"; sourceTree = "<group>"; };
+		2243E5191D2FEECE00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-CrossCountryRennstrecke-GiantRaceTrackHochspeyer.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfaelzerwald-CrossCountryRennstrecke-GiantRaceTrackHochspeyer.gpx"; sourceTree = "<group>"; };
+		2243E51B1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Einsteigerstrecke-Münchweilerrodalb.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfaelzerwald-Einsteigerstrecke-Münchweilerrodalb.gpx"; sourceTree = "<group>"; };
+		2243E51C1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-SingletrailTechnikparcoursHochspeyer.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfaelzerwald-SingletrailTechnikparcoursHochspeyer.gpx"; sourceTree = "<group>"; };
+		2243E51D1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Spurensuche.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfaelzerwald-Spurensuche.gpx"; sourceTree = "<group>"; };
+		2243E51E1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-CrossCountryRennstreckeSchopp.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfaelzerwald-CrossCountryRennstreckeSchopp.gpx"; sourceTree = "<group>"; };
+		2243E51F1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-TechnikparcoursSchopp.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-MountainbikeparkPfaelzerwald-TechnikparcoursSchopp.gpx"; sourceTree = "<group>"; };
+		2243E5251D2FEF2900FBFAB8 /* Route-MTB-t100680108_Mountainbike-Park-Pfaelzerwald-Tour-2-Waldfischbach.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-t100680108_Mountainbike-Park-Pfaelzerwald-Tour-2-Waldfischbach.gpx"; sourceTree = "<group>"; };
+		2243E5261D2FEF2900FBFAB8 /* Route-MTB-t100619125_Mountainbikepark-Pfaelzerwald-Tour-1-Rodalben.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-t100619125_Mountainbikepark-Pfaelzerwald-Tour-1-Rodalben.gpx"; sourceTree = "<group>"; };
+		2243E5291D2FEF3E00FBFAB8 /* Route-MTB-t6015134_Waldfischbach-Burgalben-Tour-2.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-t6015134_Waldfischbach-Burgalben-Tour-2.gpx"; sourceTree = "<group>"; };
+		2243E52B1D2FEF4E00FBFAB8 /* Route-MTB-t6015209_Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-t6015209_Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx"; sourceTree = "<group>"; };
+		2243E52D1D2FEF6900FBFAB8 /* Route-MTB-t100349600_Felsewanderweg-Rodalben.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Route-MTB-t100349600_Felsewanderweg-Rodalben.gpx"; sourceTree = "<group>"; };
 		22AE526F1CA3DE4900738272 /* 945-radar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "945-radar.png"; sourceTree = "<group>"; };
 		22AE52701CA3DE4900738272 /* 945-radar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "945-radar@2x.png"; sourceTree = "<group>"; };
 		22AE52711CA3DE4900738272 /* 945-radar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "945-radar@3x.png"; sourceTree = "<group>"; };
@@ -531,9 +569,25 @@
 		2243E5021D2F8EA100FBFAB8 /* MTB Pfalz */ = {
 			isa = PBXGroup;
 			children = (
-				2243E5031D2F8EAC00FBFAB8 /* Route-MTB-Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx */,
 				2243E5051D2F8F5700FBFAB8 /* Route-MTB-Rodalben-Tour-1.gpx */,
-				2243E5071D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfälzerwald-Tour1-Rodalben.gpx */,
+				2243E5031D2F8EAC00FBFAB8 /* Route-MTB-Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx */,
+				2243E5071D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour1-Rodalben.gpx */,
+				2243E5111D2FEE7C00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour1-Rodalben-2.gpx */,
+				2243E50F1D2FEDBA00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour2-Waldfischbach-burgalben.gpx */,
+				2243E5131D2FEEAE00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour3-Schopp.gpx */,
+				2243E5151D2FEEC000FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour4Hochspeyer-DimbPremiumBikeTrailTour.gpx */,
+				2243E5171D2FEEC800FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour5-Lambrecht.gpx */,
+				2243E5191D2FEECE00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-CrossCountryRennstrecke-GiantRaceTrackHochspeyer.gpx */,
+				2243E51B1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Einsteigerstrecke-Münchweilerrodalb.gpx */,
+				2243E51C1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-SingletrailTechnikparcoursHochspeyer.gpx */,
+				2243E51D1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Spurensuche.gpx */,
+				2243E51E1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-CrossCountryRennstreckeSchopp.gpx */,
+				2243E51F1D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-TechnikparcoursSchopp.gpx */,
+				2243E5251D2FEF2900FBFAB8 /* Route-MTB-t100680108_Mountainbike-Park-Pfaelzerwald-Tour-2-Waldfischbach.gpx */,
+				2243E5261D2FEF2900FBFAB8 /* Route-MTB-t100619125_Mountainbikepark-Pfaelzerwald-Tour-1-Rodalben.gpx */,
+				2243E5291D2FEF3E00FBFAB8 /* Route-MTB-t6015134_Waldfischbach-Burgalben-Tour-2.gpx */,
+				2243E52B1D2FEF4E00FBFAB8 /* Route-MTB-t6015209_Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx */,
+				2243E52D1D2FEF6900FBFAB8 /* Route-MTB-t100349600_Felsewanderweg-Rodalben.gpx */,
 			);
 			name = "MTB Pfalz";
 			sourceTree = "<group>";
@@ -892,6 +946,9 @@
 		4A0F8C261C9E9D1D00BA602F /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				2243E50D1D2FED9F00FBFAB8 /* Custom-Active_Bikes_Feierabendrunde.gpx */,
+				2243E50B1D2FED8D00FBFAB8 /* Custom-Flowtrails_stausee_ballern.gpx */,
+				2243E5091D2FED7800FBFAB8 /* Custom-N_Duro_ride_Lueckner.gpx */,
 				4A0F8C331C9EB10000BA602F /* Custom-2015-12-03KarlsbergEnduro.gpx */,
 				4A0F8C341C9EB10000BA602F /* Custom-Enduro-homburg.gpx */,
 				4A0F8C351C9EB10000BA602F /* Custom-HomburgerTrailsStartUndZielBechhofenSportplatz.gpx */,
@@ -1138,8 +1195,10 @@
 				4A0E71E51C32EE8200BCF6B8 /* 1100-list-2-toolbar@3x.png in Resources */,
 				4A07FAD71C67DEE200FA554D /* Trail-AmHomburg1.gpx in Resources */,
 				4A07FADB1C67DEE200FA554D /* Trail-Nauwies.gpx in Resources */,
+				2243E5121D2FEE7C00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour1-Rodalben-2.gpx in Resources */,
 				22CEB13A1C77167800E44D7C /* Icon-76@2x.png in Resources */,
 				4A0F8C941C9EB11E00BA602F /* Route-Saarland-Bike-Saarschleifen-Runde.gpx in Resources */,
+				2243E5271D2FEF2900FBFAB8 /* Route-MTB-t100680108_Mountainbike-Park-Pfaelzerwald-Tour-2-Waldfischbach.gpx in Resources */,
 				4A0F8C9F1C9EB11E00BA602F /* Route-Saarland-Die-Pur-Nord-West-Schleife.gpx in Resources */,
 				4A07FAE61C67DEE200FA554D /* Trail-Schwarzenberg9.gpx in Resources */,
 				4A0F8C7B1C9EB11E00BA602F /* Route-Saarland-Bike-Burbach-Koellertal-Runde.gpx in Resources */,
@@ -1149,10 +1208,11 @@
 				4A0E71E71C32EE8200BCF6B8 /* 512px-Viewpoint-16.svg.png in Resources */,
 				22CEB1411C77167800E44D7C /* Icon.png in Resources */,
 				4A0F8C951C9EB11E00BA602F /* Route-Saarland-Bike-Sankt-Wendeler-Runde.gpx in Resources */,
+				2243E50A1D2FED7800FBFAB8 /* Custom-N_Duro_ride_Lueckner.gpx in Resources */,
 				22AE52741CA3DE4900738272 /* 945-radar@3x.png in Resources */,
 				4A0F8C971C9EB11E00BA602F /* Route-Saarland-Bike-Schmelzer-Runde.gpx in Resources */,
 				4A0F8C7C1C9EB11E00BA602F /* Route-Saarland-Bike-Eppelborner-Runde.gpx in Resources */,
-				2243E5081D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfälzerwald-Tour1-Rodalben.gpx in Resources */,
+				2243E5081D2F998A00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour1-Rodalben.gpx in Resources */,
 				4A0E71ED1C32EE8200BCF6B8 /* 798-filter-toolbar@3x.png in Resources */,
 				4A0F8C911C9EB11E00BA602F /* Route-Saarland-Bike-Saarkohlenwald-Runde.gpx in Resources */,
 				22CEB1371C77167800E44D7C /* Icon-72.png in Resources */,
@@ -1160,6 +1220,7 @@
 				4A07FAEE1C67DEE200FA554D /* Trail-Winterberg1.gpx in Resources */,
 				22CEB1351C77167800E44D7C /* Icon-60@2x.png in Resources */,
 				4A0F8C3E1C9EB10000BA602F /* Custom-Kirkeler_Felsenpfad_-_kleine_Runde.gpx in Resources */,
+				2243E50C1D2FED8D00FBFAB8 /* Custom-Flowtrails_stausee_ballern.gpx in Resources */,
 				4A0F8C9E1C9EB11E00BA602F /* Route-Saarland-Bike-Wendelinus-Radweg.gpx in Resources */,
 				4A07FAE91C67DEE200FA554D /* Trail-Schwarzenberg12.gpx in Resources */,
 				4A0F8C8F1C9EB11E00BA602F /* Route-Saarland-Bike-Saargau-Runde.gpx in Resources */,
@@ -1171,10 +1232,13 @@
 				22AE52721CA3DE4900738272 /* 945-radar.png in Resources */,
 				4A0E71EA1C32EE8200BCF6B8 /* 760-refresh-3@3x.png in Resources */,
 				22F5CA0E1D2D2FE8009F0AB3 /* Custom-YannicsSonntagsTraining.gpx in Resources */,
+				2243E5211D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-SingletrailTechnikparcoursHochspeyer.gpx in Resources */,
 				4A0F8C8C1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Oster-Hoehen-Radweg.gpx in Resources */,
+				2243E52A1D2FEF3E00FBFAB8 /* Route-MTB-t6015134_Waldfischbach-Burgalben-Tour-2.gpx in Resources */,
 				22F5CA0F1D2D2FE8009F0AB3 /* Custom-Kirkel-mtb-1.gpx in Resources */,
 				4A0E71F61C32EE8200BCF6B8 /* gray-1061-golf-shot@2x.png in Resources */,
 				4A0E71E81C32EE8200BCF6B8 /* 760-refresh-3.png in Resources */,
+				2243E5201D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Einsteigerstrecke-Münchweilerrodalb.gpx in Resources */,
 				4A07FAC71C67DECA00FA554D /* Route-MTB-pur-blau_blueColor.gpx in Resources */,
 				4A07FAF01C67DEE200FA554D /* TrailSpichern2.gpx in Resources */,
 				4A0F8C801C9EB11E00BA602F /* Route-Saarland-Bike-Grosse-Bliesgau-Biosphaeren-Runde.gpx in Resources */,
@@ -1185,10 +1249,13 @@
 				4A0F8C3C1C9EB10000BA602F /* Custom-Enduro-homburg.gpx in Resources */,
 				4A0F8C931C9EB11E00BA602F /* Route-Saarland-Bike-Saarlouiser-Runde-Im-Reich-des-Sonnenkoenigs.gpx in Resources */,
 				4A0E71EC1C32EE8200BCF6B8 /* 798-filter-toolbar@2x.png in Resources */,
+				2243E5141D2FEEAE00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour3-Schopp.gpx in Resources */,
 				4A07FAD51C67DEDA00FA554D /* Tour-KLB-SB.gpx in Resources */,
 				22CEB13E1C77167800E44D7C /* Icon-Small.png in Resources */,
 				4A0E71F41C32EE8200BCF6B8 /* Emergency_access_point.png in Resources */,
 				4A0F8C411C9EB10000BA602F /* Custom-t1387067_Sieben-Weiher-Tour.gpx in Resources */,
+				2243E51A1D2FEECE00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-CrossCountryRennstrecke-GiantRaceTrackHochspeyer.gpx in Resources */,
+				2243E5281D2FEF2900FBFAB8 /* Route-MTB-t100619125_Mountainbikepark-Pfaelzerwald-Tour-1-Rodalben.gpx in Resources */,
 				22CEB1311C77167800E44D7C /* Icon-40.png in Resources */,
 				4A07FADD1C67DEE200FA554D /* Trail-Nauwies2.gpx in Resources */,
 				22CEB1381C77167800E44D7C /* Icon-72@2x.png in Resources */,
@@ -1208,6 +1275,7 @@
 				4A07FAE71C67DEE200FA554D /* Trail-Schwarzenberg10.gpx in Resources */,
 				4A0F8C7D1C9EB11E00BA602F /* Route-Saarland-Bike-Europaeischer-Muehlenradweg.gpx in Resources */,
 				22CEB1321C77167800E44D7C /* Icon-40@2x.png in Resources */,
+				2243E52E1D2FEF6900FBFAB8 /* Route-MTB-t100349600_Felsewanderweg-Rodalben.gpx in Resources */,
 				4A0F8C781C9EB11E00BA602F /* Route-Saarland-Bike-Blieskastel-Saarbruecken.gpx in Resources */,
 				4A0F8C811C9EB11E00BA602F /* Route-Saarland-Bike-Hochwaelder-Runde.gpx in Resources */,
 				4A0F8C8A1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Koellertal-Runde.gpx in Resources */,
@@ -1218,6 +1286,7 @@
 				4A0E71E41C32EE8200BCF6B8 /* 1100-list-2-toolbar@2x.png in Resources */,
 				4A07FAD01C67DED000FA554D /* Route-Saarland-MTB-8-Hoehen-Tour.gpx in Resources */,
 				22CEB13D1C77167800E44D7C /* Icon-Small-50@2x.png in Resources */,
+				2243E5231D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-CrossCountryRennstreckeSchopp.gpx in Resources */,
 				22CEB1441C77167800E44D7C /* iTunesArtwork@2x.png in Resources */,
 				4A0F8C8D1C9EB11E00BA602F /* Route-Saarland-Bike-Saar-Radweg.gpx in Resources */,
 				4A0E71F51C32EE8200BCF6B8 /* Emergeny.png in Resources */,
@@ -1242,8 +1311,13 @@
 				4A0F8C7F1C9EB11E00BA602F /* Route-Saarland-Bike-Glan-Blies-Radweg.gpx in Resources */,
 				22AE527A1CA3DE5F00738272 /* 910-graph@3x.png in Resources */,
 				4A07FAED1C67DEE200FA554D /* Trail-Sonnenberg-1-mittlerer-felsenweg.gpx in Resources */,
+				2243E5161D2FEEC000FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour4Hochspeyer-DimbPremiumBikeTrailTour.gpx in Resources */,
 				4A0E71F21C32EE8200BCF6B8 /* 854-list-toolbar-selected@2x.png in Resources */,
+				2243E5181D2FEEC800FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour5-Lambrecht.gpx in Resources */,
+				2243E52C1D2FEF4E00FBFAB8 /* Route-MTB-t6015209_Hochspeyer-Tour-4-Premium-Bike-Trail-Tour.gpx in Resources */,
+				2243E5241D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-TechnikparcoursSchopp.gpx in Resources */,
 				4A0F8C991C9EB11E00BA602F /* Route-Saarland-Bike-Teufelsburg-Runde.gpx in Resources */,
+				2243E5101D2FEDBA00FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Tour2-Waldfischbach-burgalben.gpx in Resources */,
 				4A0F8C771C9EB11E00BA602F /* Route-Saarland-Bike-Biber-Tour.gpx in Resources */,
 				22CEB1331C77167800E44D7C /* Icon-40@3x.png in Resources */,
 				4A07FAE21C67DEE200FA554D /* Trail-Schwarzenberg5.gpx in Resources */,
@@ -1274,12 +1348,14 @@
 				4A0F8C821C9EB11E00BA602F /* Route-Saarland-Bike-Koellertal-Radweg.gpx in Resources */,
 				4A07FAEA1C67DEE200FA554D /* Trail-Schwarzenberg13.gpx in Resources */,
 				4A07FAEC1C67DEE200FA554D /* Trail-Schwarzenberg15.gpx in Resources */,
+				2243E50E1D2FED9F00FBFAB8 /* Custom-Active_Bikes_Feierabendrunde.gpx in Resources */,
 				4A07FAD11C67DED000FA554D /* Route-Saarland-MTB-9-Konditions-Tour.gpx in Resources */,
 				4A0F8C9D1C9EB11E00BA602F /* Route-Saarland-Bike-Weiselberg-Radweg.gpx in Resources */,
 				4A0F8C7E1C9EB11E00BA602F /* Route-Saarland-Bike-Fritz-Wunderlich-Radweg.gpx in Resources */,
 				4A0E71F81C32EE8200BCF6B8 /* white-193-location-arrow@2x.png in Resources */,
 				4A07FAC81C67DECA00FA554D /* Route-MTB-pur-gruen_greenColor.gpx in Resources */,
 				4A07FAE01C67DEE200FA554D /* Trail-Schwarzenberg3.gpx in Resources */,
+				2243E5221D2FEED600FBFAB8 /* Route-MTB-MountainbikeparkPfaelzerwald-Spurensuche.gpx in Resources */,
 				4A07FACC1C67DED000FA554D /* Route-Saarland-MTB-4-Profi-Tour.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1506,12 +1582,13 @@
 			baseConfigurationReference = 292651F264F523FCBBD71335 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 29;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1df110cc-d2dd-47f7-a986-4f7307c96502";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1524,12 +1601,13 @@
 			baseConfigurationReference = ABA11E6B8B64EB33BC0F9452 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Philip Schneider (JDL4TRB26V)";
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 29;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1df110cc-d2dd-47f7-a986-4f7307c96502";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1621,12 +1699,13 @@
 			baseConfigurationReference = ABA11E6B8B64EB33BC0F9452 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Philip Schneider (723AP2V5VG)";
-				CURRENT_PROJECT_VERSION = 27;
+				CURRENT_PROJECT_VERSION = 29;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ObjcBikeGps/ObjcBikeGps-Prefix.pch";
 				INFOPLIST_FILE = "ObjcBikeGps/ObjcBikeGps-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1df110cc-d2dd-47f7-a986-4f7307c96502";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
 				VERSIONING_SYSTEM = "apple-generic";

@@ -430,7 +430,7 @@
     [syncButton addTarget:self action:@selector(syncOsmMapButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView addSubview:syncButton];
 
-    UIImage *syncPoisImage = [UIImage imageNamed:@"gray-940-pin"];
+    UIImage *syncPoisImage = [UIImage imageNamed:@"945-radar"];
     UIButton *syncPoisButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     frame.origin.y = originY;
     frame.origin.x = syncButton.frame.origin.x + syncButton.frame.size.width + originX;
@@ -469,7 +469,7 @@
     [zoomOutButton addTarget:self action:@selector(zoomOut) forControlEvents:UIControlEventTouchUpInside];
 
     [self.mapView addSubview:zoomOutButton];
-    
+
     UIButton *cameraButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     cameraButton.backgroundColor = [UIColor whiteColor];
     frame.origin.y = layersButton.frame.origin.y - height - 15;
@@ -483,18 +483,94 @@
     
     [self.mapView addSubview:cameraButton];
 
+    UIImage *elevationImage = [UIImage imageNamed:@"910-graph"];
     UIButton *elevationButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     elevationButton.backgroundColor = [UIColor whiteColor];
     frame.origin.y = cameraButton.frame.origin.y - height - 15;
     frame.origin.x = syncButton.frame.origin.x;
     frame.size.width = height;
     frame.size.height =  height;
-    [elevationButton setTitle:@"m" forState:UIControlStateNormal];
+    [elevationButton setImage:elevationImage forState:UIControlStateNormal];
     elevationButton.frame = frame;
     elevationButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
     [elevationButton addTarget:self action:@selector(elevationButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 
     [self.mapView addSubview:elevationButton];
+
+    UIImage *tagImage = [UIImage imageNamed:@"909-tags"];
+    UIButton *tagButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    tagButton.backgroundColor = [UIColor whiteColor];
+    frame.origin.y = zoomInButton.frame.origin.y - height - 15;
+    frame.origin.x = zoomInButton.frame.origin.x;
+    frame.size.width = height;
+    frame.size.height =  height;
+    [tagButton setImage:tagImage forState:UIControlStateNormal];
+    tagButton.frame = frame;
+    tagButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin;
+    [tagButton addTarget:self action:@selector(tagButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.mapView addSubview:tagButton];
+}
+
+
+- (void)tagButtonTapped:(UIButton*)tagButtonTapped
+{
+    DLogFuncName();
+    if (self.mapView.userLocation && self.mapView.showsUserLocation)
+    {
+        __block CLLocation *myUserLocation = self.mapView.userLocation;
+        dispatch_async(dispatch_get_main_queue(),^{
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Add tag" message:[NSString stringWithFormat:@"lat:%f lon:%f (%f,%f,%f)",myUserLocation.coordinate.latitude,myUserLocation.coordinate.longitude, self.mapView.userLocation.heading.x,self.mapView.userLocation.heading.y, self.mapView.userLocation.heading.z] preferredStyle:UIAlertControllerStyleAlert];
+            [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField)
+            {
+
+            }];
+            [alertController setModalPresentationStyle:UIModalPresentationPopover];
+            
+            // Actions
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Save" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+                [annotation setCoordinate:myUserLocation.coordinate];
+                [annotation setTitle:alertController.textFields[0].text]; //You can set the subtitle too
+                [self.mapView addAnnotation:annotation];
+
+                [alertController dismissViewControllerAnimated:YES completion:nil];
+            }]];
+
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Dirtjump" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+                [annotation setCoordinate:myUserLocation.coordinate];
+                [annotation setTitle:@"Dirtjump"]; //You can set the subtitle too
+                [self.mapView addAnnotation:annotation];
+
+                [alertController dismissViewControllerAnimated:YES completion:nil];
+            }]];
+
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Baumstamm Queer" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+
+                MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+                [annotation setCoordinate:myUserLocation.coordinate];
+                [annotation setTitle:@"Dirtjump"]; //You can set the subtitle too
+                [self.mapView addAnnotation:annotation];
+
+                [alertController dismissViewControllerAnimated:YES completion:nil];
+            }]];
+
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style: UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+                [alertController dismissViewControllerAnimated:YES completion:nil];
+            }]];
+            
+            
+            // Show
+            UIPopoverPresentationController *popPresenter = [alertController
+                                                             popoverPresentationController];
+            popPresenter.sourceView = tagButtonTapped;
+            popPresenter.sourceRect = tagButtonTapped.bounds;
+            [self presentViewController:alertController animated:YES completion:nil];
+        });
+    }
 }
 
 
@@ -631,6 +707,24 @@
     
     NSArray * boundingBox = [self getBoundingBox:self.mapView.visibleMapRect];
     NSString *boundingBoxString = [NSString stringWithFormat:@"%.3f,%.3f,%.3f,%.3f", [[boundingBox objectAtIndex:1] floatValue], [[boundingBox objectAtIndex:0] floatValue], [[boundingBox objectAtIndex:3] floatValue], [[boundingBox objectAtIndex:2] floatValue]];
+    
+    
+    // Saarland
+    //@"http://overpass.osm.rambler.ru/cgi/xapi_meta?way[mtb:scale=*][bbox=6.3584695643,49.1130992988,7.4034901078,49.6393467247]"
+    //@"http://overpass.osm.rambler.ru/cgi/xapi_meta?node[highway=rest_area][bbox=6.3584695643,49.1130992988,7.4034901078,49.6393467247]"
+    
+    //http://overpass-api.de/api/interpreter?data=[out:json];out;
+    
+    // Saarland
+//    NE 49.63942, 7.40458
+//    SW 49.111691, 6.35641
+    
+    // Deutschland
+//    NE 55.05814, 15.04205
+//    SW 47.27021, 5.86624
+    
+    //5.86624,47.27021,15.04205,55.05814
+    //@"http://overpass.osm.rambler.ru/cgi/xapi_meta?node[highway=rest_area][bbox=5.86624,47.27021,15.04205,55.05814]"
     
     
 //    NSString *string = [NSString stringWithFormat:@"http://overpass.osm.rambler.ru/cgi/xapi_meta?way[highway=path][bbox=%@]", boundingBoxString];
